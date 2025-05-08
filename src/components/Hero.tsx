@@ -24,7 +24,7 @@ const Hero = () => {
           style={{ y: y2 }}
           className="text-5xl md:text-7xl font-bold text-light mb-6"
         >
-          Benvenuti nel Nostro Studio
+          Webbitz ti da il benvenuto
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
