@@ -52,9 +52,9 @@ const Landing = () => {
         style={{ scaleX }}
       />
 
-      <Hero />
-      <SpecialOffers />
+      <Hero />      
       <About />
+      <SpecialOffers />
       <PriceList />
     </div>
   );
