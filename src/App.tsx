@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App min-h-screen bg-white overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
       <main className="relative">
         <Routes>
