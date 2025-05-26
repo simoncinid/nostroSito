@@ -6,12 +6,9 @@ import {
   Users, 
   Brain, 
   Rocket, 
-  Star, 
   Heart,
   TrendingUp,
-  Shield,
-  Clock,
-  CheckCircle
+  Shield
 } from 'lucide-react';
 
 const About = () => {

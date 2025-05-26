@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { 
   Code, 
@@ -6,16 +6,13 @@ import {
   Zap, 
   Smartphone, 
   ShoppingCart, 
-  Cpu, 
   Database, 
   Cloud, 
   Shield,
   ArrowRight,
   CheckCircle,
-  Sparkles,
   Rocket,
   BarChart,
-  MessageSquare,
   Search,
   Palette,
   Settings
@@ -28,9 +25,7 @@ const Services = () => {
   const processRef = useRef<HTMLDivElement>(null);
   const techRef = useRef<HTMLDivElement>(null);
   
-  const [activeService, setActiveService] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, delay: number}>>([]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -53,14 +48,7 @@ const Services = () => {
       });
     };
 
-    // Generate particles
-    const newParticles = Array.from({ length: 50 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      delay: Math.random() * 5
-    }));
-    setParticles(newParticles);
+
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);

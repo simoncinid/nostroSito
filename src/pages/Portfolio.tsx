@@ -5,16 +5,11 @@ import {
   Github, 
   Eye, 
   X, 
-  ArrowLeft, 
-  ArrowRight,
   Code,
   Bot,
   Zap,
   Smartphone,
   ShoppingCart,
-  Users,
-  TrendingUp,
-  Award,
   Sparkles,
   Heart,
   Layers
@@ -53,7 +48,6 @@ const Portfolio = () => {
   
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -329,18 +323,6 @@ const Portfolio = () => {
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
-
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev + 1) % 3);
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev - 1 + 3) % 3);
-    }
-  };
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
