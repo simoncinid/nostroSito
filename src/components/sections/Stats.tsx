@@ -17,13 +17,6 @@ const Stats = () => {
       icon: '🚀'
     },
     {
-      number: 98,
-      suffix: '%',
-      label: 'Clienti Soddisfatti',
-      description: 'Tasso di soddisfazione clienti',
-      icon: '⭐'
-    },
-    {
       number: 150,
       suffix: '+',
       label: 'Aziende Servite',

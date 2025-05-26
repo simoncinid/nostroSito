@@ -68,7 +68,7 @@ const Testimonials = () => {
               transition={{ delay: index * 0.2, duration: 0.6 }}
               className="group relative"
             >
-              <div className="bg-white rounded-2xl p-8 shadow-premium border border-gray-100 hover:shadow-premium-lg transition-all duration-500 group-hover:-translate-y-2 h-full relative overflow-hidden">
+              <div className="bg-white rounded-2xl p-8 shadow-premium border border-gray-100 hover:shadow-premium-lg transition-all duration-500 group-hover:-translate-y-2 h-full relative overflow-hidden flex flex-col">
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
                   <Quote className="w-16 h-16 text-primary-600" />
@@ -82,7 +82,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-gray-700 mb-6 leading-relaxed relative z-10">
+                <blockquote className="text-gray-700 mb-6 leading-relaxed relative z-10 flex-1">
                   "{testimonial.text}"
                 </blockquote>
 
@@ -112,38 +112,6 @@ const Testimonials = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
-        >
-          {[
-            { number: "98%", label: "Clienti Soddisfatti", description: "Tasso di soddisfazione" },
-            { number: "4.9/5", label: "Rating Medio", description: "Valutazione clienti" },
-            { number: "24h", label: "Tempo di Risposta", description: "Supporto garantito" }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-2">
-                {stat.number}
-              </div>
-              <div className="font-semibold text-gray-900 mb-1">
-                {stat.label}
-              </div>
-              <div className="text-sm text-gray-600">
-                {stat.description}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )

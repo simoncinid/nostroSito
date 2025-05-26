@@ -123,7 +123,7 @@ const ClientsMap = () => {
       }
 
       const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dO_BcqCGAOtEAA&callback=initMap`
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDs-7Ac5Ke5a60gRLf3CVtG1j88AhXfsOA&callback=initMap`
       script.async = true
       script.defer = true
       document.head.appendChild(script)
@@ -166,15 +166,40 @@ const ClientsMap = () => {
         // Aggiungi info window
         const infoWindow = new window.google.maps.InfoWindow({
           content: `
-            <div style="padding: 10px; font-family: Inter, sans-serif;">
-              <h3 style="color: #7C3AED; margin: 0 0 5px 0; font-size: 14px; font-weight: 600;">
+            <div style="padding: 15px; font-family: Inter, sans-serif; text-align: center; min-width: 200px;">
+              <h3 style="color: #7C3AED; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; text-align: center;">
                 ${location.name}
               </h3>
-              <p style="color: #6B7280; margin: 0; font-size: 12px;">
+              <p style="color: #6B7280; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
                 Cliente Webbitz - Progetto completato
               </p>
+              <button 
+                style="
+                  background: linear-gradient(to right, #8B5CF6, #6D28D9); 
+                  color: white; 
+                  border: none; 
+                  padding: 8px 16px; 
+                  border-radius: 8px; 
+                  font-size: 13px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.2s;
+                  box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25);
+                "
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(139, 92, 246, 0.3)';" 
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(139, 92, 246, 0.25)';"
+                onclick="window.open('https://webbitz.it/portfolio/${location.name.split(' ')[0].toLowerCase()}', '_blank')"
+              >
+                Visita Sito
+              </button>
             </div>
           `
+        })
+
+        infoWindow.setOptions({
+          pixelOffset: new window.google.maps.Size(0, -5),
+          maxWidth: 250,
+          minWidth: 200
         })
 
         marker.addListener('click', () => {
