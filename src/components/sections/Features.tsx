@@ -54,7 +54,7 @@ const Features = () => {
   ]
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
+    <section className="py-12 bg-gray-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_70%)]" />
@@ -65,7 +65,7 @@ const Features = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <h2 className="heading-lg text-gray-900 mb-6">
             Perché Scegliere{' '}

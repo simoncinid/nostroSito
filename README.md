@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# 🚀 Webbitz - Premium Digital Agency Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un sito web ultra-moderno da $1,000,000 per Webbitz Digital Agency.
 
-Currently, two official plugins are available:
+## ✨ Caratteristiche Premium
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Design Ultra-Moderno** con palette viola e bianco luxury
+- **Animazioni Incredibili** con Framer Motion
+- **Mappa Interattiva dei Clienti** (caratteristica unica!)
+- **Pacchetti Webbitz** chiaramente presentati (€1999 e €2299)
+- **Responsive Design** perfetto su tutti i dispositivi
+- **Performance Ottimizzate** per velocità massima
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologie Utilizzate
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 18** + TypeScript
+- **Tailwind CSS** (configurazione custom)
+- **Framer Motion** (animazioni premium)
+- **React Router** (navigazione SPA)
+- **Lucide React** (icone moderne)
+- **Vite** (build tool veloce)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Deploy su Vercel
+
+1. Connetti il repository a Vercel
+2. Vercel rileverà automaticamente Vite
+3. Il deploy avverrà automaticamente
+
+### Comandi di Build
+
+```bash
+# Installazione dipendenze
+npm install --legacy-peer-deps
+
+# Build di produzione
+npm run build
+
+# Preview locale
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Struttura del Progetto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx      # Navbar glassmorphism
+│   │   └── Footer.tsx      # Footer premium
+│   └── sections/
+│       ├── Hero.tsx        # Hero con animazioni 3D
+│       ├── ClientsMap.tsx  # Mappa interattiva clienti
+│       ├── WebbitzPackages.tsx # Pacchetti pricing
+│       ├── Stats.tsx       # Statistiche animate
+│       ├── Features.tsx    # Caratteristiche servizi
+│       └── Testimonials.tsx # Recensioni clienti
+├── pages/
+│   ├── Home.tsx           # Homepage completa
+│   ├── About.tsx          # Chi Siamo
+│   ├── Services.tsx       # Servizi
+│   ├── Portfolio.tsx      # Portfolio
+│   └── Contact.tsx        # Contatti
+└── types/
+    └── smoothscroll-polyfill.d.ts # Tipi TypeScript
+```
+
+## 🎨 Design System
+
+- **Colori Primari**: Viola (#8B5CF6, #7C3AED)
+- **Font**: Inter (corpo), Space Grotesk (titoli)
+- **Effetti**: Glassmorphism, Glow, Gradients
+- **Animazioni**: Scroll-triggered, Hover effects, Micro-interactions
+
+## 🌟 Caratteristiche Uniche
+
+### Mappa Interattiva dei Clienti
+- 6 clienti posizionati geograficamente in Italia
+- Marker cliccabili con animazioni
+- Modal popup con progetti realizzati
+- Tooltip informativi al hover
+
+### Pacchetti Webbitz
+- **Essential**: €1999 (Sito + Chatbot + SEO)
+- **Premium**: €2299 (Essential + Brand Identity)
+- Design cards premium con animazioni
+
+### Animazioni Premium
+- Hero con elementi fluttuanti
+- Contatori animati nelle statistiche
+- Scroll-triggered animations
+- Micro-interactions su hover
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Breakpoints ottimizzati
+- Touch-friendly interactions
+- Performance ottimizzate
+
+---
+
+**Webbitz Digital Agency** - Trasformiamo le tue idee digitali in esperienze straordinarie 🇮🇹✨

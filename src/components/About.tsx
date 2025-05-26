@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section 
       data-scroll-section
-      className="py-20 px-4"
+      className="py-12 px-4"
     >
       <div className="max-w-4xl mx-auto">
         <motion.div

@@ -33,7 +33,7 @@ const Testimonials = () => {
   ]
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-12 bg-white relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full blur-3xl opacity-30" />
@@ -45,7 +45,7 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <h2 className="heading-lg text-gray-900 mb-6">
             Cosa Dicono i Nostri{' '}
@@ -118,7 +118,7 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
         >
           {[
             { number: "98%", label: "Clienti Soddisfatti", description: "Tasso di soddisfazione" },

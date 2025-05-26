@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SpecialOffers = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
   const bundles = [
     {
       title: "Pacchetto Startup",
@@ -46,11 +44,16 @@ const SpecialOffers = () => {
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % bundles.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + bundles.length) % bundles.length);
+  };
+
   return (
-    <section 
-      data-scroll-section
-      className="py-20 px-4 bg-dark-lighter"
-    >
+    <section className="py-12 px-4 bg-gradient-to-br from-purple-900/20 to-purple-600/10">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -59,56 +62,105 @@ const SpecialOffers = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-light mb-6">Offerte Speciali</h2>
-          <p className="text-lg text-light-dark">
+          <h2 className="text-4xl font-bold text-white mb-6">Offerte Speciali</h2>
+          <p className="text-lg text-purple-200">
             Scopri i nostri pacchetti all-inclusive pensati per le tue esigenze
           </p>
         </motion.div>
 
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          className="pb-12"
-        >
+        {/* Desktop Grid */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-8">
           {bundles.map((bundle, index) => (
-            <SwiperSlide key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-dark p-8 rounded-xl shadow-xl border border-accent/20 hover:border-accent/50 transition-all duration-300 h-full"
-              >
-                <h3 className="text-2xl font-bold text-light mb-4">{bundle.title}</h3>
-                <div className="text-3xl font-bold text-accent mb-6">{bundle.price}</div>
-                <ul className="space-y-3 mb-6">
-                  {bundle.features.map((feature, i) => (
-                    <li key={i} className="text-light-dark flex items-center">
-                      <span className="text-accent mr-2">✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-light-dark italic mb-6">{bundle.description}</p>
-                <button className="w-full bg-accent hover:bg-accent/90 text-light font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                  Scegli questo pacchetto
-                </button>
-              </motion.div>
-            </SwiperSlide>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-lg p-8 rounded-xl border border-purple-300/20 hover:border-purple-300/50 transition-all duration-300 h-full"
+            >
+              <h3 className="text-2xl font-bold text-white mb-4">{bundle.title}</h3>
+              <div className="text-3xl font-bold text-purple-300 mb-6">{bundle.price}</div>
+              <ul className="space-y-3 mb-6">
+                {bundle.features.map((feature, i) => (
+                  <li key={i} className="text-purple-100 flex items-center">
+                    <span className="text-purple-300 mr-2">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-purple-200 italic mb-6">{bundle.description}</p>
+              <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                Scegli questo pacchetto
+              </button>
+            </motion.div>
           ))}
-        </Swiper>
+        </div>
+
+        {/* Mobile Slider */}
+        <div className="lg:hidden relative">
+          <div className="overflow-hidden">
+            <motion.div
+              className="flex"
+              animate={{ x: -currentSlide * 100 + '%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            >
+              {bundles.map((bundle, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="bg-white/10 backdrop-blur-lg p-8 rounded-xl border border-purple-300/20"
+                  >
+                    <h3 className="text-2xl font-bold text-white mb-4">{bundle.title}</h3>
+                    <div className="text-3xl font-bold text-purple-300 mb-6">{bundle.price}</div>
+                    <ul className="space-y-3 mb-6">
+                      {bundle.features.map((feature, i) => (
+                        <li key={i} className="text-purple-100 flex items-center">
+                          <span className="text-purple-300 mr-2">✓</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-purple-200 italic mb-6">{bundle.description}</p>
+                    <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                      Scegli questo pacchetto
+                    </button>
+                  </motion.div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-purple-600/80 hover:bg-purple-600 text-white p-2 rounded-full transition-all duration-300"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-purple-600/80 hover:bg-purple-600 text-white p-2 rounded-full transition-all duration-300"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {bundles.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? 'bg-purple-400' : 'bg-purple-600/50'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

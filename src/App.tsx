@@ -20,7 +20,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App min-h-screen bg-gray-50 overflow-x-hidden">
+    <div className="App min-h-screen bg-white overflow-x-hidden">
       <Navbar />
       <main className="relative">
         <Routes>
