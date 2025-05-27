@@ -134,8 +134,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Sede',
-      value: 'Milano, Italia',
-      description: 'Lavoriamo in tutto il mondo',
+      value: 'Pontedera (PI), Italia',
+      description: 'Lavoriamo in tutta Italia',
       gradient: 'from-purple-500 to-purple-700'
     },
     {

@@ -50,8 +50,8 @@ const About = () => {
       role: "Sviluppatore Web & AI",
       description: "Esperto in React, Node.js e intelligenza artificiale. Trasforma idee complesse in soluzioni digitali eleganti.",
       skills: ["React", "AI/ML", "Node.js", "Python", "TypeScript"],
-      experience: "5+ anni",
-      projects: "200+",
+      experience: "2+ anni",
+      projects: "10+",
       specialty: "Architetture scalabili e soluzioni AI",
       gradient: "from-blue-500 to-purple-600",
       icon: Brain
@@ -61,8 +61,8 @@ const About = () => {
       role: "Sviluppatore Web & Designer",
       description: "Combina creatività e codice per creare esperienze utente straordinarie. Maestro del design system e UX.",
       skills: ["React", "UI/UX", "Figma", "CSS", "Design Systems"],
-      experience: "4+ anni",
-      projects: "180+",
+      experience: "2+ anni",
+      projects: "5+",
       specialty: "Design-to-code perfetto",
       gradient: "from-purple-500 to-pink-600",
       icon: Palette
@@ -73,7 +73,7 @@ const About = () => {
       description: "Il ponte tra le esigenze del cliente e le soluzioni tecniche. Esperto in lead generation e crescita aziendale.",
       skills: ["Lead Generation", "CRM", "Marketing", "Sales", "Strategy"],
       experience: "6+ anni",
-      projects: "300+",
+      projects: "10+",
       specialty: "Crescita e acquisizione clienti",
       gradient: "from-green-500 to-blue-600",
       icon: Users
