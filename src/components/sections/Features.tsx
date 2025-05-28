@@ -123,7 +123,8 @@ const Features = () => {
                 {/* Secondary floating icon */}
                 <motion.div 
                   className={`absolute top-3 right-3 opacity-30 ${feature.iconColor}`}
-                  animate={
+                  initial={{ opacity: 0 }}
+                  whileInView={
                     feature.animation === "float" 
                       ? { y: [0, -10, 0], opacity: [0.3, 0.5, 0.3] }
                       : feature.animation === "pulse"
@@ -133,21 +134,32 @@ const Features = () => {
                   transition={{ 
                     duration: 3, 
                     repeat: Infinity,
-                    ease: "easeInOut" 
+                    ease: "easeInOut",
+                    willChange: "transform, opacity"
                   }}
+                  viewport={{ once: true, margin: "50px" }}
                 >
                   <feature.secondaryIcon size={18} />
                 </motion.div>
 
                 {/* Icon */}
                 <div className="mb-4 relative">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${feature.bgColor} group-hover:scale-110 transition-transform duration-300 mb-1`}>
+                  <div 
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${feature.bgColor} group-hover:scale-110 transition-transform duration-300 mb-1`}
+                    style={{ willChange: "transform" }}
+                  >
                     <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
                   </div>
                   <motion.div 
                     className="absolute inset-0 bg-white rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"
-                    animate={{ scale: [0.8, 1.2, 0.8] }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    initial={{ scale: 0.8 }}
+                    whileInView={{ scale: [0.8, 1.2, 0.8] }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      willChange: "transform" 
+                    }}
+                    viewport={{ once: true, margin: "50px" }}
                   />
                 </div>
 

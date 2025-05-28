@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { 
   Code, 
   Palette, 
@@ -10,6 +10,10 @@ import {
   TrendingUp,
   Shield
 } from 'lucide-react';
+
+// Lazy load dei componenti pesanti
+const TeamMemberCard = lazy(() => import('../components/TeamMemberCard'));
+const ValueCard = lazy(() => import('../components/ValueCard'));
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -146,7 +150,7 @@ const About = () => {
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
-        style={{ y, opacity, scale }}
+        style={{ y, opacity, scale, willChange: "transform, opacity" }}
         className="relative min-h-screen flex items-center justify-center px-4 pt-20"
       >
         <div className="max-w-6xl mx-auto text-center">
@@ -199,123 +203,24 @@ const About = () => {
       {/* Team Section */}
       <motion.section
         ref={teamRef}
-        className="relative py-8 px-4"
+        className="relative py-16 px-4"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 100 }}
-                animate={teamInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.2, duration: 1, type: "spring", stiffness: 100 }}
-                whileHover={{ 
-                  y: -20, 
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-                className="group relative"
-              >
-                {/* Card Background with Glassmorphism */}
-                <div className="relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-3xl p-8 h-full overflow-hidden group-hover:border-purple-300 group-hover:shadow-lg transition-all duration-500">
-                  {/* Animated Background Gradient */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                    initial={false}
-                  />
-
-                  {/* Profile Image Placeholder */}
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="relative w-32 h-32 mx-auto mb-6"
-                  >
-                    <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-purple-200 group-hover:border-purple-300 transition-all duration-300">
-                      <member.icon size={48} className="text-white" />
-                    </div>
-                  </motion.div>
-
-                  {/* Member Info */}
-                  <div className="text-center mb-6">
-                    <motion.h3
-                      initial={{ opacity: 0 }}
-                      animate={teamInView ? { opacity: 1 } : {}}
-                      transition={{ delay: index * 0.2 + 0.5 }}
-                      className="text-2xl font-bold text-gray-900 mb-2"
-                    >
-                      {member.name}
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={teamInView ? { opacity: 1 } : {}}
-                      transition={{ delay: index * 0.2 + 0.6 }}
-                      className={`text-lg font-semibold bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent mb-4`}
-                    >
-                      {member.role}
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={teamInView ? { opacity: 1 } : {}}
-                      transition={{ delay: index * 0.2 + 0.7 }}
-                      className="text-gray-600 leading-relaxed mb-6"
-                    >
-                      {member.description}
-                    </motion.p>
-                  </div>
-
-                  {/* Skills */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={teamInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: index * 0.2 + 0.8 }}
-                    className="mb-6"
-                  >
-                    <h4 className="text-gray-900 font-semibold mb-3">Competenze:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {member.skills.map((skill, skillIndex) => (
-                        <motion.span
-                          key={skillIndex}
-                          initial={{ scale: 0 }}
-                          animate={teamInView ? { scale: 1 } : {}}
-                          transition={{ delay: index * 0.2 + 0.9 + skillIndex * 0.1 }}
-                          whileHover={{ scale: 1.1 }}
-                          className="px-3 py-1 bg-purple-100 border border-purple-200 rounded-full text-purple-700 text-sm hover:bg-purple-200 transition-all duration-300"
-                        >
-                          {skill}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Stats */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={teamInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: index * 0.2 + 1 }}
-                    className="grid grid-cols-2 gap-4 mb-6"
-                  >
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-gray-900">{member.experience}</div>
-                      <div className="text-gray-600 text-sm">Esperienza</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-gray-900">{member.projects}</div>
-                      <div className="text-gray-600 text-sm">Progetti</div>
-                    </div>
-                  </motion.div>
-
-                  {/* Specialty */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={teamInView ? { opacity: 1 } : {}}
-                    transition={{ delay: index * 0.2 + 1.1 }}
-                    className="text-center"
-                  >
-                    <div className="text-gray-600 text-sm font-medium">Specialità:</div>
-                    <div className="text-gray-900 font-semibold">{member.specialty}</div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
+            <Suspense fallback={<div className="h-96 bg-gray-100 rounded-3xl animate-pulse"></div>}>
+              {teamMembers.map((member, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  style={{ willChange: "transform, opacity" }}
+                >
+                  <TeamMemberCard member={member} index={index} />
+                </motion.div>
+              ))}
+            </Suspense>
           </div>
         </div>
       </motion.section>
@@ -338,40 +243,20 @@ const About = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {companyValues.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                animate={valuesInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.8, type: "spring", stiffness: 100 }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-                className="group relative"
-              >
-                <div className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl p-8 h-full hover:border-purple-300 hover:shadow-lg transition-all duration-500 overflow-hidden">
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className={`w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg transition-all duration-300`}
-                  >
-                    <value.icon size={32} className="text-white" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
-
-                  {/* Hover Effect */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}
-                    initial={false}
-                  />
-                </div>
-              </motion.div>
-            ))}
+            <Suspense fallback={<div className="h-64 bg-gray-100 rounded-2xl animate-pulse"></div>}>
+              {companyValues.map((value, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  style={{ willChange: "transform, opacity" }}
+                >
+                  <ValueCard value={value} index={index} />
+                </motion.div>
+              ))}
+            </Suspense>
           </div>
         </div>
       </motion.section>
