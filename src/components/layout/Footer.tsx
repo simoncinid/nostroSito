@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { 
-  Sparkles, 
   Mail, 
   Phone, 
   MapPin, 
@@ -10,6 +9,7 @@ import {
   Twitter,
   ArrowUp
 } from 'lucide-react'
+import logo from '../../assets/logos/WEBBITZ_2_PNG.png'
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -63,14 +63,17 @@ const Footer = () => {
           >
             <Link to="/" className="inline-flex items-center space-x-3 group mb-6">
               <motion.div
-                whileHover={{ rotate: 180, scale: 1.1 }}
+                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
                 className="relative"
               >
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow">
-                  <Sparkles className="w-7 h-7 text-white" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-primary rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
+                <img 
+                  src={logo} 
+                  alt="Webbitz Logo" 
+                  className="w-14 h-14 object-contain"
+                  style={{ filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.3))' }}
+                />
+                <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
               </motion.div>
               <div className="flex flex-col">
                 <span className="text-2xl font-display font-bold text-white">

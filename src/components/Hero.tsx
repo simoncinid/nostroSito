@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { lazy, Suspense } from 'react';
+import logo from '../assets/logos/WEBBITZ_2_PNG.png';
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -17,6 +18,20 @@ const Hero = () => {
         style={{ y: y1, willChange: "transform" }}
       />
       <div className="text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-8"
+        >
+          {/*<img 
+            src={logo} 
+            alt="Webbitz Logo" 
+            className="h-32 md:h-40 mx-auto"
+            style={{ filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))' }}
+          />*/}
+        </motion.div>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

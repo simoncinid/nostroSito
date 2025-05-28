@@ -2,6 +2,7 @@ import { motion, useMotionValue } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Code, Bot, Zap, Sparkles, Globe, Cpu, Rocket } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import logo from '../../assets/logos/WEBBITZ_2_PNG.png'
 
 
 const Hero = () => {
@@ -45,6 +46,30 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-purple-50 to-purple-100 pt-20"
     >
+      {/* Logo Background */}
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center opacity-5"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, 5, -5, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <img 
+          src={logo} 
+          alt="" 
+          className="w-[150%] max-w-none blur-2xl"
+          style={{ 
+            filter: 'drop-shadow(0 0 100px rgba(139, 92, 246, 0.4))',
+            willChange: 'transform'
+          }}
+        />
+      </motion.div>
+
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse-slow" />
@@ -122,7 +147,23 @@ const Hero = () => {
           onMouseLeave={() => setIsHovered(false)}
           className="relative"
         >
-
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="mb-12"
+          >
+            {/*<img 
+              src={logo} 
+              alt="Webbitz Logo" 
+              className="h-32 md:h-40 mx-auto"
+              style={{ 
+                filter: 'drop-shadow(0 0 30px rgba(139, 92, 246, 0.4))',
+                willChange: 'transform'
+              }}
+            />*/}
+          </motion.div>
 
           {/* Main Heading */}
           <motion.h1
