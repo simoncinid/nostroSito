@@ -7,10 +7,9 @@ interface ValueCardProps {
     icon: any;
     color: string;
   };
-  index: number;
 }
 
-const ValueCard = ({ value, index }: ValueCardProps) => {
+const ValueCard = ({ value }: ValueCardProps) => {
   return (
     <div className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl p-8 h-full hover:border-purple-300 hover:shadow-lg transition-all duration-500 overflow-hidden">
       {/* Icon */}

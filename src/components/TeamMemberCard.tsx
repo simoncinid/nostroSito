@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
 
 interface TeamMemberProps {
   member: {
@@ -13,10 +12,9 @@ interface TeamMemberProps {
     projects: string;
     specialty: string;
   };
-  index: number;
 }
 
-const TeamMemberCard = ({ member, index }: TeamMemberProps) => {
+const TeamMemberCard = ({ member }: TeamMemberProps) => {
   return (
     <div className="group relative">
       <div className="relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-3xl p-8 h-full overflow-hidden group-hover:border-purple-300 group-hover:shadow-lg transition-all duration-500">

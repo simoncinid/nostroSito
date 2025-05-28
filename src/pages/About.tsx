@@ -27,7 +27,6 @@ const About = () => {
   });
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-  const teamInView = useInView(teamRef, { once: true, amount: 0.2 });
   const valuesInView = useInView(valuesRef, { once: true, amount: 0.2 });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -200,27 +199,18 @@ const About = () => {
         </div>
       </motion.section>
 
-      {/* Team Section */}
+      {/* Team Members Section */}
       <motion.section
         ref={teamRef}
         className="relative py-16 px-4"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <Suspense fallback={<div className="h-96 bg-gray-100 rounded-3xl animate-pulse"></div>}>
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  style={{ willChange: "transform, opacity" }}
-                >
-                  <TeamMemberCard member={member} index={index} />
-                </motion.div>
-              ))}
-            </Suspense>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member) => (
+              <Suspense key={member.name} fallback={<div>Loading...</div>}>
+                <TeamMemberCard member={member} />
+              </Suspense>
+            ))}
           </div>
         </div>
       </motion.section>
@@ -243,20 +233,11 @@ const About = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Suspense fallback={<div className="h-64 bg-gray-100 rounded-2xl animate-pulse"></div>}>
-              {companyValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  style={{ willChange: "transform, opacity" }}
-                >
-                  <ValueCard value={value} index={index} />
-                </motion.div>
-              ))}
-            </Suspense>
+            {companyValues.map((value) => (
+              <Suspense key={value.title} fallback={<div>Loading...</div>}>
+                <ValueCard value={value} />
+              </Suspense>
+            ))}
           </div>
         </div>
       </motion.section>
