@@ -13,7 +13,6 @@ import {
 
 // Lazy load dei componenti pesanti
 const TeamMemberCard = lazy(() => import('../components/TeamMemberCard'));
-const ValueCard = lazy(() => import('../components/ValueCard'));
 const ValuesCarousel = lazy(() => import('../components/ValuesCarousel'));
 
 const About = () => {

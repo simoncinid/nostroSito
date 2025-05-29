@@ -69,7 +69,6 @@ export const AIPoweredAnimation = () => {
           const speed = 0.5 + Math.random() * 1;
           const startAngle = angle + Math.random() * Math.PI;
           const size = 1.5 + Math.random() * 2.5;
-          const opacity = 0.4 + Math.random() * 0.6;
           const hue = 250 + Math.random() * 40;
           const saturation = 60 + Math.random() * 40;
           const lightness = 60 + Math.random() * 20;
@@ -390,7 +389,6 @@ export const CodiceZeroAnimation = () => {
           const angle = (i / 15) * Math.PI * 2;
           const rotate = angle * (180 / Math.PI);
           const delay = 0.2 + i * 0.03;
-          const width = 2 + Math.random() * 4;
           const opacity = 0.3 + Math.random() * 0.6;
           const hue = 230 + Math.random() * 30;
           
