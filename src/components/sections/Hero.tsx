@@ -48,7 +48,7 @@ const Hero = () => {
     >
       {/* Logo Background */}
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center opacity-5"
+        className="absolute inset-0 flex items-center justify-center opacity-5 hero-logo-bg"
         animate={{
           scale: [1, 1.1, 1],
           rotate: [0, 5, -5, 0],

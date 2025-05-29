@@ -198,4 +198,8 @@ body {
   .container-premium {
     padding: 0 1rem;
   }
+  .hero-logo-bg {
+    align-items: flex-start !important;
+    padding-top: 60px;
+  }
 }
