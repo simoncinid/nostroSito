@@ -104,14 +104,7 @@ const ClientsMap = () => {
 
   // Posizioni dei clienti in Toscana
   const clientLocations = [
-    { lat: 43.7696, lng: 11.2558, name: "Firenze - TechStart" },
-    { lat: 43.3188, lng: 11.3307, name: "Siena - Fashion Boutique" },
-    { lat: 43.5402, lng: 10.3106, name: "Pisa - FinTech Solutions" },
-    { lat: 43.8777, lng: 10.2014, name: "Lucca - GreenTech" },
-    { lat: 42.4396, lng: 11.2134, name: "Grosseto - FoodTech" },
-    { lat: 43.4642, lng: 11.8816, name: "Arezzo - HealthTech" },
-    { lat: 43.9493, lng: 10.5055, name: "Viareggio - Tourism Tech" },
-    { lat: 42.7635, lng: 11.1168, name: "Follonica - Marine Tech" }
+    { lat: 43.3947, lng: 10.4177, name: "Castiglioncello (LI)" }
   ]
 
   useEffect(() => {
@@ -255,12 +248,12 @@ const ClientsMap = () => {
         <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-purple-200">
           <div className="grid grid-cols-2 gap-4 text-center">
             <div>
-              <div className="text-2xl font-bold text-purple-600">50+</div>
-              <div className="text-xs text-gray-600">Città Raggiunte</div>
+              <div className="text-2xl font-bold text-purple-600">1</div>
+              <div className="text-xs text-gray-600">Città Raggiunta</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-purple-600">150+</div>
-              <div className="text-xs text-gray-600">Clienti Attivi</div>
+              <div className="text-2xl font-bold text-purple-600">1</div>
+              <div className="text-xs text-gray-600">Cliente Attivo</div>
             </div>
           </div>
         </div>

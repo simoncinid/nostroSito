@@ -216,6 +216,7 @@ const About = () => {
       </motion.section>
 
       {/* Values Section */}
+      {/* 
       <motion.section
         ref={valuesRef}
         className="relative py-8 px-4"
@@ -237,6 +238,7 @@ const About = () => {
           </Suspense>
         </div>
       </motion.section>
+      */}
 
       {/* CTA Section */}
       <motion.section className="relative py-16 px-4">
@@ -269,11 +271,18 @@ const About = () => {
                 initial={false}
               />
               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                initial={{ x: -24, opacity: 0 }}
+                whileHover={{ 
+                  x: "calc(100% - 24px)",
+                  opacity: 1,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeInOut"
+                  }
+                }}
               >
-                <Rocket size={24} className="text-white" />
+                <Rocket size={24} className="text-white transform rotate-90" />
               </motion.div>
             </motion.button>
           </motion.div>

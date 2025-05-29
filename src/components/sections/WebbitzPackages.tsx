@@ -787,13 +787,9 @@ const WebbitzPackages = () => {
                   <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
                   <p className="text-gray-300 mb-6">{pkg.description}</p>
                   
-                  {/* Pricing */}
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <span className="text-gray-400 line-through text-lg">€{pkg.originalPrice}</span>
-                    <span className="text-4xl font-bold text-white">€{pkg.price}</span>
-                  </div>
-                  <div className="text-primary-400 font-medium">
-                    Risparmi €{parseInt(pkg.originalPrice) - parseInt(pkg.price)}
+                  {/* Preventivo personalizzato */}
+                  <div className="flex items-center justify-center mb-2">
+                    <span className="text-lg font-semibold text-primary-500">Contattaci per avere un preventivo personalizzato</span>
                   </div>
                 </div>
 
@@ -860,8 +856,8 @@ const WebbitzPackages = () => {
                         : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:border-primary-400/50'
                     }`}
                   >
-                    <MessageSquare className="w-5 h-5 mr-2" />
-                    <span className="relative z-10">{pkg.cta}</span>
+                    <MessageSquare className="w-5 h-5 mr-2 z-10 relative" />
+                    <span className="relative z-10 font-bold">{pkg.cta}</span>
                     <motion.div
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
@@ -869,10 +865,6 @@ const WebbitzPackages = () => {
                     >
                       <ArrowRight className="w-5 h-5" />
                     </motion.div>
-                    
-                    {pkg.popular && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-900 rounded-2xl opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                    )}
                   </a>
                 </div>
               </div>

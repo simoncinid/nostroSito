@@ -119,27 +119,61 @@ const Hero = () => {
 
       {/* Floating Tech Icons */}
       <div className="hidden md:block">
-        {floatingElements.map((element, index) => (
-          <motion.div
-            key={index}
-            className="absolute text-purple-400/30"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.2, 1],
-              x: [element.x, element.x + 20, element.x],
-              y: [element.y, element.y - 20, element.y],
-            }}
-            transition={{
-              delay: element.delay,
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <element.icon size={48} />
-          </motion.div>
-        ))}
+        {/* Posizionamento assoluto personalizzato per ogni icona */}
+        <motion.div
+          className="absolute text-purple-400/30"
+          style={{ left: '10%', top: '18%' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ delay: 0, duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Code size={48} />
+        </motion.div>
+        <motion.div
+          className="absolute text-purple-400/30"
+          style={{ left: '75%', top: '22%' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ delay: 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Bot size={48} />
+        </motion.div>
+        <motion.div
+          className="absolute text-purple-400/30"
+          style={{ left: '20%', top: '60%' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ delay: 1, duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Zap size={48} />
+        </motion.div>
+        <motion.div
+          className="absolute text-purple-400/30"
+          style={{ left: '80%', top: '65%' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ delay: 1.5, duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Globe size={48} />
+        </motion.div>
+        <motion.div
+          className="absolute text-purple-400/30"
+          style={{ left: '40%', top: '10%' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ delay: 2, duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Cpu size={48} />
+        </motion.div>
+        <motion.div
+          className="absolute text-purple-400/30"
+          style={{ left: '60%', top: '75%' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
+          transition={{ delay: 2.5, duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Rocket size={48} />
+        </motion.div>
       </div>
 
       {/* Main Content */}
