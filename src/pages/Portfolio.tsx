@@ -1,3 +1,4 @@
+
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { 
@@ -8,11 +9,12 @@ import {
   Code,
   Bot,
   Zap,
-  Smartphone,
-  ShoppingCart,
+  Database,
   Sparkles,
   Heart,
-  Layers
+  Layers,
+  Globe,
+  TrendingUp
 } from 'lucide-react';
 
 interface Project {
@@ -39,6 +41,8 @@ interface Project {
   solutions: string[];
   gradient: string;
   icon: any;
+  isInternational?: boolean;
+  isHighTraffic?: boolean;
 }
 
 const Portfolio = () => {
@@ -79,244 +83,249 @@ const Portfolio = () => {
     { id: 'web', name: 'Sviluppo Web', icon: Code },
     { id: 'ai', name: 'Soluzioni AI', icon: Bot },
     { id: 'automation', name: 'Automazione', icon: Zap },
-    { id: 'mobile', name: 'App Mobile', icon: Smartphone },
-    { id: 'ecommerce', name: 'E-commerce', icon: ShoppingCart }
+    { id: 'database', name: 'Database', icon: Database }
   ];
 
   const projects: Project[] = [
     {
       id: 1,
-      title: "TechStart Milano - Piattaforma SaaS",
-      category: "web",
-      description: "Piattaforma SaaS completa per la gestione di startup tecnologiche con dashboard avanzate e analytics in tempo reale.",
-      longDescription: "Una piattaforma SaaS completa sviluppata per TechStart Milano, leader nell'accelerazione di startup tecnologiche. Il progetto include dashboard personalizzabili, sistema di analytics avanzato, gestione utenti multi-livello e integrazione con oltre 20 servizi esterni.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Redis", "AWS"],
-      liveUrl: "https://techstart-milano.com",
-      githubUrl: "https://github.com/webbitz/techstart",
-      client: "TechStart Milano",
+      title: "AI Freight Hub - RnD Hub",
+      category: "automation",
+      description: "Sistema di automazione completo per il mondo trucking americano con AI per ricerca e quotazione automatica, invio di centinaia di email al giorno.",
+      longDescription: "Sviluppato per RnD Hub, questo sistema di automazione rivoluzionario utilizza AI per la ricerca e quotazione automatica nel settore freight americano. La piattaforma gestisce automaticamente centinaia di email al giorno, servendo decine di clienti nel mercato del trasporto merci USA. Il sistema include algoritmi di matching intelligenti, automazione completa del processo di quotazione e gestione clienti avanzata.",
+      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop",
+      technologies: ["Python", "SMTP Email Automation", "API Integration", "Google Cloud Services"],
+      liveUrl: "https://rndhub.io/",
+      client: "RnD Hub",
       year: "2024",
-      duration: "4 mesi",
-      team: ["Diego", "Tommaso", "Simone"],
+      duration: "6 mesi",
+      team: ["Diego", "Tommaso"],
       results: [
-        { metric: "Performance", value: "+150%", description: "Miglioramento velocità caricamento" },
-        { metric: "Conversioni", value: "+85%", description: "Aumento tasso di conversione" },
-        { metric: "Utenti Attivi", value: "+200%", description: "Crescita utenti mensili" }
+        { metric: "Email Inviate", value: "50.000+", description: "Email automatiche al giorno" },
+        { metric: "Clienti Serviti", value: "40+", description: "Clienti attivi sulla piattaforma" },
+        
       ],
       features: [
-        "Dashboard personalizzabili",
-        "Analytics in tempo reale",
-        "Sistema di notifiche push",
-        "API RESTful complete",
-        "Autenticazione multi-fattore",
-        "Export dati avanzato"
+        "AI per ricerca automatica freight",
+        "Sistema di quotazione intelligente",
+        "Automazione email massiva",
+        "Dashboard analytics real-time",
+        "Gestione clienti multi-livello",
+        "Integrazione API trucking"
       ],
       challenges: [
-        "Gestione di grandi volumi di dati",
-        "Performance con migliaia di utenti simultanei",
-        "Integrazione con sistemi legacy"
+        "Gestione volumi email elevati",
+        "Algoritmi di matching complessi",
+        "Integrazione con sistemi USA"
       ],
       solutions: [
-        "Implementazione di caching Redis",
-        "Ottimizzazione query database",
-        "Architettura microservizi"
+        "Queue system per email processing",
+        "Machine learning per matching",
+        "API gateway ottimizzate"
       ],
-      gradient: "from-blue-500 to-purple-600",
-      icon: Code
+      gradient: "from-green-500 to-blue-600",
+      icon: Zap,
+      isInternational: true
     },
     {
       id: 2,
-      title: "AI Assistant per Fashion Roma",
+      title: "Threshold Coach - Piattaforma Web",
+      category: "web",
+      description: "Piattaforma web completa sviluppata da zero per coaching personalizzato, con architettura moderna e interfaccia utente avanzata.",
+      longDescription: "Piattaforma web completa sviluppata interamente da WebBitz per Threshold Coach. Il progetto include lo sviluppo frontend e backend da zero, seguendo specificatamente gli ordini del committente. La piattaforma offre un'esperienza utente moderna con dashboard personalizzabili, gestione utenti avanzata e integrazione con sistemi di pagamento internazionali.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+      technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "AWS"],
+      liveUrl: "https://www.threshold.coach/",
+      client: "Threshold Coach",
+      year: "2024",
+      duration: "2 mesi",
+      team: ["Diego", "Tommaso", "Simone"],
+      results: [
+        { metric: "Vendite sito", value: "+200%", description: "Velocità caricamento pagine" },
+        { metric: "User Experience", value: "+95%", description: "Soddisfazione utente" },
+        { metric: "Conversioni", value: "+150%", description: "Tasso di conversione" }
+      ],
+      features: [
+        "Sviluppo completo da zero",
+        "Architettura scalabile moderna",
+        "Dashboard personalizzabili",
+        "Sistema di pagamenti integrato",
+        "Responsive design avanzato",
+        "SEO optimization completa"
+      ],
+      challenges: [
+        "Sviluppo completo da zero",
+        "Requisiti specifici del cliente",
+        "Integrazione sistemi di pagamento"
+      ],
+      solutions: [
+        "Architettura modulare scalabile",
+        "Iterazioni continue con il cliente",
+        "Testing completo pre-deploy"
+      ],
+      gradient: "from-blue-500 to-purple-600",
+      icon: Code,
+      isInternational: true
+    },
+    {
+      id: 3,
+      title: "Threshold Coach - 50 Assistenti AI",
       category: "ai",
-      description: "Assistente virtuale AI per e-commerce fashion con raccomandazioni personalizzate e chatbot per customer service.",
-      longDescription: "Un assistente virtuale basato su intelligenza artificiale sviluppato per Fashion Roma, boutique di lusso. Il sistema include raccomandazioni personalizzate, chatbot per customer service 24/7, analisi del sentiment dei clienti e automazione del processo di vendita.",
-      image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&h=600&fit=crop",
-      technologies: ["Python", "OpenAI GPT-4", "TensorFlow", "React", "FastAPI", "Vector DB"],
-      liveUrl: "https://fashion-roma.ai",
-      client: "Fashion Roma",
+      description: "Sviluppo di quasi 50 assistenti AI specializzati con toggle OpenAI/Anthropic per coaching personalizzato e supporto utenti.",
+      longDescription: "Sviluppo di un ecosistema completo di quasi 50 assistenti AI specializzati per Threshold Coach. Ogni assistente è ottimizzato per specifiche aree del coaching con la possibilità di switchare tra OpenAI e Anthropic. Il sistema include gestione conversazioni avanzata, personalizzazione AI per ogni utente e analytics dettagliate sulle interazioni.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      technologies: ["OpenAI GPT-4", "Anthropic Claude", "Python", "Vector DB", "React", "Node.js"],
+      liveUrl: "https://www.threshold.coach/",
+      client: "Threshold Coach",
+      year: "2024",
+      duration: "10 mesi",
+      team: ["Diego", "Simone"],
+      results: [
+        { metric: "Assistenti Sviluppati", value: "48", description: "Assistenti AI specializzati" },
+        { metric: "Conversazioni", value: "10k+", description: "Conversazioni mensili" },
+        { metric: "Accuratezza", value: "+92%", description: "Precisione risposte AI" }
+      ],
+      features: [
+        "48 assistenti AI specializzati",
+        "Toggle OpenAI/Anthropic",
+        "Personalizzazione per utente",
+        "Gestione conversazioni avanzata",
+        "Analytics interazioni AI",
+        "Training continuo modelli"
+      ],
+      challenges: [
+        "Gestione multipli modelli AI",
+        "Personalizzazione per 50 assistenti",
+        "Ottimizzazione costi API"
+      ],
+      solutions: [
+        "Architettura modulare per AI",
+        "System prompting avanzato",
+        "Caching intelligente risposte"
+      ],
+      gradient: "from-purple-500 to-pink-600",
+      icon: Bot,
+      isInternational: true
+    },
+    {
+      id: 4,
+      title: "Threshold Coach - Infrastruttura Database",
+      category: "database",
+      description: "Infrastruttura database enterprise per gestire tutte le conversazioni degli utenti con quasi 50 assistenti AI, con architettura scalabile e sicura.",
+      longDescription: "Progettazione e implementazione di un'infrastruttura database enterprise per Threshold Coach. Il sistema gestisce tutte le conversazioni degli utenti con quasi 50 assistenti AI, garantendo scalabilità, sicurezza e performance elevate. Include backup automatici, replication, ottimizzazione query e monitoring avanzato.",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+      technologies: ["PostgreSQL", "Redis", "MongoDB", "AWS RDS", "Data Analytics", "Backup Systems"],
+      liveUrl: "https://www.threshold.coach/",
+      client: "Threshold Coach",
+      year: "2024",
+      duration: "4 mesi",
+      team: ["Diego", "Tommaso"],
+      results: [
+        { metric: "Conversazioni Gestite", value: "50k+", description: "Conversazioni archiviate" },
+        { metric: "Uptime", value: "99.9%", description: "Disponibilità sistema" },
+        { metric: "Performance", value: "+300%", description: "Velocità query" }
+      ],
+      features: [
+        "Architettura database scalabile",
+        "Gestione conversazioni massive",
+        "Backup automatici giornalieri",
+        "Replication multi-zona",
+        "Monitoring real-time",
+        "Ottimizzazione query avanzata"
+      ],
+      challenges: [
+        "Gestione dati conversazioni massive",
+        "Performance con 50 assistenti",
+        "Sicurezza dati sensibili"
+      ],
+      solutions: [
+        "Sharding intelligente database",
+        "Indexing ottimizzato",
+        "Crittografia end-to-end"
+      ],
+      gradient: "from-green-400 to-blue-600",
+      icon: Database,
+      isInternational: true
+    },
+    {
+      id: 5,
+      title: "Welpy - Chatbot Lead Generation",
+      category: "ai",
+      description: "Chatbot AI avanzato per lead generation automatica su sito con 40k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
+      longDescription: "Sviluppo di un chatbot AI avanzato per Welpy, sito importante con 40k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
+      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
+      technologies: ["OpenAI GPT-4", "JavaScript", "React", "Node.js", "CRM Integration", "Analytics"],
+      liveUrl: "https://www.welpy.it/",
+      client: "Welpy",
       year: "2024",
       duration: "6 settimane",
       team: ["Diego", "Simone"],
       results: [
-        { metric: "Customer Satisfaction", value: "+95%", description: "Soddisfazione clienti" },
-        { metric: "Response Time", value: "-80%", description: "Riduzione tempo risposta" },
-        { metric: "Sales", value: "+120%", description: "Incremento vendite online" }
+        { metric: "Traffico Mensile", value: "40k", description: "Visitatori unici mensili" },
+        { metric: "Conversion Rate", value: "+180%", description: "Miglioramento conversioni" },
+        { metric: "Lead Qualificati", value: "+250%", description: "Incremento leads qualificati" }
       ],
       features: [
-        "Raccomandazioni AI personalizzate",
-        "Chatbot multilingue",
-        "Analisi sentiment real-time",
-        "Integrazione CRM",
-        "Machine Learning predittivo",
-        "Dashboard analytics"
+        "Lead generation automatica",
+        "Conversazioni AI personalizzate",
+        "Lead scoring intelligente",
+        "Integrazione CRM diretta",
+        "Analytics conversazioni",
+        "A/B testing automatico"
       ],
       challenges: [
-        "Training del modello su dati fashion",
-        "Gestione conversazioni complesse",
+        "Gestione traffico elevato",
+        "Qualificazione leads automatica",
         "Integrazione con sistemi esistenti"
       ],
       solutions: [
-        "Fine-tuning di GPT-4 su dataset fashion",
-        "Implementazione di context awareness",
-        "API middleware personalizzate"
-      ],
-      gradient: "from-purple-500 to-pink-600",
-      icon: Bot
-    },
-    {
-      id: 3,
-      title: "Automazione FinTech Torino",
-      category: "automation",
-      description: "Sistema di automazione completo per processi finanziari con RPA, document processing e workflow intelligenti.",
-      longDescription: "Sistema di automazione avanzato per FinTech Torino che automatizza completamente i processi di onboarding clienti, verifica documenti, calcolo rischi e generazione report. Include RPA, OCR avanzato e workflow intelligenti.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      technologies: ["Python", "RPA Tools", "OCR", "Machine Learning", "PostgreSQL", "Docker"],
-      client: "FinTech Torino",
-      year: "2024",
-      duration: "8 settimane",
-      team: ["Diego", "Tommaso"],
-      results: [
-        { metric: "Efficienza", value: "+300%", description: "Riduzione tempi processo" },
-        { metric: "Errori", value: "-95%", description: "Riduzione errori manuali" },
-        { metric: "ROI", value: "+250%", description: "Ritorno investimento annuale" }
-      ],
-      features: [
-        "RPA per processi ripetitivi",
-        "OCR intelligente documenti",
-        "Workflow automatizzati",
-        "Dashboard monitoraggio",
-        "Alert e notifiche",
-        "Audit trail completo"
-      ],
-      challenges: [
-        "Integrazione con sistemi bancari legacy",
-        "Compliance normative finanziarie",
-        "Sicurezza dati sensibili"
-      ],
-      solutions: [
-        "API gateway sicure",
-        "Crittografia end-to-end",
-        "Audit logging completo"
-      ],
-      gradient: "from-green-500 to-blue-600",
-      icon: Zap
-    },
-    {
-      id: 4,
-      title: "GreenTech App Mobile",
-      category: "mobile",
-      description: "App mobile per monitoraggio energia rinnovabile con IoT integration e dashboard real-time.",
-      longDescription: "Applicazione mobile nativa per GreenTech che permette il monitoraggio in tempo reale di impianti di energia rinnovabile. Include integrazione IoT, notifiche push intelligenti e analytics predittive.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-      technologies: ["React Native", "TypeScript", "Node.js", "MongoDB", "IoT", "AWS"],
-      liveUrl: "https://greentech-app.com",
-      client: "GreenTech Solutions",
-      year: "2024",
-      duration: "10 settimane",
-      team: ["Tommaso", "Diego"],
-      results: [
-        { metric: "Engagement", value: "+180%", description: "Tempo utilizzo app" },
-        { metric: "Efficienza", value: "+90%", description: "Monitoraggio impianti" },
-        { metric: "Risparmio", value: "+45%", description: "Riduzione costi energia" }
-      ],
-      features: [
-        "Monitoraggio real-time",
-        "Notifiche intelligenti",
-        "Dashboard personalizzabili",
-        "Integrazione IoT",
-        "Analytics predittive",
-        "Offline mode"
-      ],
-      challenges: [
-        "Sincronizzazione dati IoT",
-        "Performance su dispositivi diversi",
-        "Gestione offline/online"
-      ],
-      solutions: [
-        "Protocolli MQTT ottimizzati",
-        "Caching intelligente",
-        "Sync queue avanzata"
-      ],
-      gradient: "from-green-400 to-emerald-600",
-      icon: Smartphone
-    },
-    {
-      id: 5,
-      title: "FoodTech E-commerce Platform",
-      category: "ecommerce",
-      description: "Piattaforma e-commerce completa per delivery food con AI prediction e gestione multi-ristorante.",
-      longDescription: "Piattaforma e-commerce avanzata per FoodTech che gestisce ordini multi-ristorante, predizione AI per inventory management, sistema di rating avanzato e logistics optimization.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis", "AI/ML"],
-      liveUrl: "https://foodtech-delivery.com",
-      client: "FoodTech Bologna",
-      year: "2024",
-      duration: "12 settimane",
-      team: ["Diego", "Tommaso", "Simone"],
-      results: [
-        { metric: "Ordini", value: "+220%", description: "Incremento ordini mensili" },
-        { metric: "Delivery Time", value: "-35%", description: "Riduzione tempi consegna" },
-        { metric: "Customer Retention", value: "+160%", description: "Fidelizzazione clienti" }
-      ],
-      features: [
-        "Multi-restaurant management",
-        "AI inventory prediction",
-        "Real-time tracking",
-        "Payment gateway integrato",
-        "Rating system avanzato",
-        "Logistics optimization"
-      ],
-      challenges: [
-        "Gestione picchi di traffico",
-        "Sincronizzazione multi-ristorante",
-        "Ottimizzazione delivery routes"
-      ],
-      solutions: [
-        "Load balancing avanzato",
-        "Event-driven architecture",
-        "Algoritmi di routing AI"
+        "Load balancing chatbot",
+        "Algoritmi di lead scoring",
+        "API integration robuste"
       ],
       gradient: "from-orange-500 to-red-600",
-      icon: ShoppingCart
+      icon: Bot,
+      isHighTraffic: true
     },
     {
       id: 6,
-      title: "HealthTech Telemedicine Platform",
+      title: "The Admission Hub - Piattaforma Completa",
       category: "web",
-      description: "Piattaforma di telemedicina completa con video consultazioni, AI diagnosis support e patient management.",
-      longDescription: "Piattaforma completa di telemedicina per HealthTech Firenze che include video consultazioni sicure, supporto AI per diagnosi, gestione pazienti avanzata e integrazione con sistemi ospedalieri.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-      technologies: ["React", "WebRTC", "Python", "AI/ML", "FHIR", "AWS"],
-      liveUrl: "https://healthtech-telemedicine.com",
-      client: "HealthTech Firenze",
+      description: "Piattaforma web completa sviluppata da zero per servizi di ammissione universitaria, con sistema di gestione candidati e dashboard avanzate.",
+      longDescription: "Sviluppo completo da zero di The Admission Hub, piattaforma specializzata nei servizi di ammissione universitaria. Il progetto include sviluppo frontend e backend, sistema di gestione candidati, dashboard per consultants, sistema di pagamenti e tracking completo del processo di ammissione.",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=800&h=600&fit=crop",
+      technologies: ["React", "Node.js", "TypeScript", "MongoDB", "Stripe", "AWS"],
+      liveUrl: "https://theadmissionhub.com",
+      client: "The Admission Hub",
       year: "2024",
-      duration: "16 settimane",
+      duration: "10 settimane",
       team: ["Diego", "Tommaso", "Simone"],
       results: [
-        { metric: "Consultazioni", value: "+400%", description: "Aumento consultazioni online" },
-        { metric: "Accuracy", value: "+85%", description: "Precisione diagnosi AI" },
-        { metric: "Patient Satisfaction", value: "+92%", description: "Soddisfazione pazienti" }
+        { metric: "Candidati Gestiti", value: "1000+", description: "Candidati sulla piattaforma" },
+        { metric: "Automazione", value: "+90%", description: "Processi automatizzati" },
+        { metric: "Efficienza", value: "+200%", description: "Miglioramento workflow" }
       ],
       features: [
-        "Video consultazioni HD",
-        "AI diagnosis support",
-        "Patient records digitali",
-        "Prescription management",
-        "Integrazione FHIR",
-        "Compliance GDPR/HIPAA"
+        "Sistema gestione candidati",
+        "Dashboard consultant avanzate",
+        "Tracking processo ammissione",
+        "Sistema pagamenti integrato",
+        "Document management",
+        "Notifiche automatiche"
       ],
       challenges: [
-        "Sicurezza dati medici",
-        "Qualità video in tempo reale",
-        "Integrazione sistemi ospedalieri"
+        "Gestione processi complessi",
+        "Integrazione sistemi universitari",
+        "Scalabilità per crescita"
       ],
       solutions: [
-        "Crittografia end-to-end",
-        "WebRTC ottimizzato",
-        "API FHIR standardizzate"
+        "Workflow engine personalizzato",
+        "API integration standardizzate",
+        "Architettura cloud scalabile"
       ],
       gradient: "from-blue-400 to-cyan-600",
-      icon: Heart
+      icon: Code,
+      isInternational: true
     }
   ];
 
@@ -360,8 +369,6 @@ const Portfolio = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-
-
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -465,8 +472,24 @@ const Portfolio = () => {
                       </div>
                     </div>
 
+                    {/* Special Badges */}
+                    <div className="absolute top-4 right-4 flex flex-col gap-2">
+                      {project.isInternational && (
+                        <div className="flex items-center gap-1 px-2 py-1 bg-blue-500 rounded-full text-white text-xs font-semibold">
+                          <Globe size={12} />
+                          <span>International</span>
+                        </div>
+                      )}
+                      {project.isHighTraffic && (
+                        <div className="flex items-center gap-1 px-2 py-1 bg-green-500 rounded-full text-white text-xs font-semibold">
+                          <TrendingUp size={12} />
+                          <span>40k/month</span>
+                        </div>
+                      )}
+                    </div>
+
                     {/* Action Buttons */}
-                    <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -543,7 +566,7 @@ const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-white rounded-3xl shadow-premium-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
@@ -561,6 +584,22 @@ const Portfolio = () => {
                 >
                   <X size={20} />
                 </button>
+
+                {/* Special Badges in Modal */}
+                <div className="absolute top-4 left-4 flex flex-col gap-2">
+                  {selectedProject.isInternational && (
+                    <div className="flex items-center gap-2 px-3 py-1 bg-blue-500 rounded-full text-white text-sm font-semibold">
+                      <Globe size={16} />
+                      <span>Cliente Internazionale</span>
+                    </div>
+                  )}
+                  {selectedProject.isHighTraffic && (
+                    <div className="flex items-center gap-2 px-3 py-1 bg-green-500 rounded-full text-white text-sm font-semibold">
+                      <TrendingUp size={16} />
+                      <span>40k Accessi Mensili</span>
+                    </div>
+                  )}
+                </div>
 
                 <div className="absolute bottom-6 left-6 text-white">
                   <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
@@ -615,7 +654,7 @@ const Portfolio = () => {
                           <span className="font-semibold text-gray-900">{selectedProject.year}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Durata:</span>
+                          <span className="text-gray-600">Sviluppo:</span>
                           <span className="font-semibold text-gray-900">{selectedProject.duration}</span>
                         </div>
                         <div className="flex justify-between">

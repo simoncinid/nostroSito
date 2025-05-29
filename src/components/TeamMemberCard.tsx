@@ -49,9 +49,9 @@ const TeamMemberCard = ({ member }: TeamMemberProps) => {
         </div>
 
         {/* Skills */}
-        <div className="mb-6">
+        <div className="text-center mb-6">
           <h4 className="text-gray-900 font-semibold mb-3">Competenze:</h4>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
             {member.skills.map((skill, skillIndex) => (
               <motion.span
                 key={skillIndex}
