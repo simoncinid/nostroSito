@@ -672,9 +672,9 @@ const WebbitzPackages = () => {
       icon: Zap,
       description: 'La soluzione completa per il tuo business digitale',
       features: [
-        { text: 'Chatbot che genera lead dal traffico gratuito', info: 'chatbot', icon: Bot },
-        { text: 'Sito Web responsive completamente personalizzato', info: 'sito', icon: Globe },
-        { text: 'SEO Ottimizzazione Completa', info: 'seo', icon: Search },
+        { text: 'Chatbot che genera lead', info: 'chatbot', icon: Bot },
+        { text: 'Sito Web  personalizzato', info: 'sito', icon: Globe },
+        { text: 'SEO Ottimizzata', info: 'seo', icon: Search },
         { text: '', info: 'sito' } // Feature vuota per allineare con il pacchetto Premium
       ],
       cta: 'Scegli Essential',
@@ -691,9 +691,9 @@ const WebbitzPackages = () => {
       icon: Crown,
       description: 'Essential + Brand Identity completa per dominare il mercato',
       features: [
-        { text: 'Chatbot che genera lead dal traffico gratuito', info: 'chatbot', icon: Bot },
-        { text: 'Sito Web responsive completamente personalizzato', info: 'sito', icon: Globe },
-        { text: 'SEO Ottimizzazione Completa', info: 'seo', icon: Search },
+        { text: 'Chatbot che genera lead', info: 'chatbot', icon: Bot },
+        { text: 'Sito Web personalizzato', info: 'sito', icon: Globe },
+        { text: 'SEO Ottimizzata', info: 'seo', icon: Search },
         { text: 'Brand Identity Completa', info: 'brand', icon: Settings }
       ],
       cta: 'Scegli Premium',
@@ -812,15 +812,19 @@ const WebbitzPackages = () => {
                         >
                           <div className="flex items-center justify-center">
                             <div className="flex-1"></div>
-                            <div className={`px-4 py-3 rounded-xl mb-1 w-[320px] h-[60px] flex items-center justify-center ${
+                            <div className={`px-4 py-3 rounded-xl mb-1 w-[320px] min-h-[60px] flex flex-row gap-3 items-start justify-start ${
                               pkg.popular 
                                 ? 'bg-primary-500/20 border border-primary-400/30' 
                                 : 'bg-white/10 border border-white/20'
                             }`}>
                               {feature.icon && (
-                                <feature.icon className="w-5 h-5 mr-2 text-primary-300 flex-shrink-0" />
+                                <div className="flex-shrink-0 w-7 flex items-start justify-center">
+                                  <feature.icon className="w-5 h-5 text-primary-300 package-feature-icon" />
+                                </div>
                               )}
-                              <span className="text-white font-medium">{feature.text}</span>
+                              <div className="flex-1 text-left flex items-center">
+                                <span className="text-white font-medium package-feature-text">{feature.text}</span>
+                              </div>
                             </div>
                             <div className="flex-1 flex justify-start pl-2">
                               <button 

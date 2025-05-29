@@ -118,27 +118,29 @@ const Hero = () => {
       />
 
       {/* Floating Tech Icons */}
-      {floatingElements.map((element, index) => (
-        <motion.div
-          key={index}
-          className="absolute text-purple-400/30"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.2, 1],
-            x: [element.x, element.x + 20, element.x],
-            y: [element.y, element.y - 20, element.y],
-          }}
-          transition={{
-            delay: element.delay,
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <element.icon size={48} />
-        </motion.div>
-      ))}
+      <div className="hidden md:block">
+        {floatingElements.map((element, index) => (
+          <motion.div
+            key={index}
+            className="absolute text-purple-400/30"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ 
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.2, 1],
+              x: [element.x, element.x + 20, element.x],
+              y: [element.y, element.y - 20, element.y],
+            }}
+            transition={{
+              delay: element.delay,
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <element.icon size={48} />
+          </motion.div>
+        ))}
+      </div>
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">

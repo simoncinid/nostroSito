@@ -206,3 +206,15 @@ body {
     width: 80vw !important;
   }
 }
+
+.package-feature-text {
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  line-height: 1.25;
+}
+
+.package-feature-icon {
+  margin-right: 0.75rem;
+  display: inline-block;
+  min-width: 1.5em;
+  vertical-align: middle;
+}
