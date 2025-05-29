@@ -14,6 +14,7 @@ import {
 // Lazy load dei componenti pesanti
 const TeamMemberCard = lazy(() => import('../components/TeamMemberCard'));
 const ValueCard = lazy(() => import('../components/ValueCard'));
+const ValuesCarousel = lazy(() => import('../components/ValuesCarousel'));
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -225,20 +226,16 @@ const About = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={valuesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
-            className="text-center mb-12"
+            className="text-center mb-4"
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
               I Nostri Valori
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {companyValues.map((value) => (
-              <Suspense key={value.title} fallback={<div>Loading...</div>}>
-                <ValueCard value={value} />
-              </Suspense>
-            ))}
-          </div>
+          <Suspense fallback={<div className="text-center py-8">Caricamento...</div>}>
+            <ValuesCarousel values={companyValues} />
+          </Suspense>
         </div>
       </motion.section>
 
