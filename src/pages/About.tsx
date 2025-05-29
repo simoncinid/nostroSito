@@ -1,14 +1,10 @@
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { 
-  Code, 
   Palette, 
   Users, 
   Brain, 
-  Rocket, 
-  Heart,
-  TrendingUp,
-  Shield
+  Rocket
 } from 'lucide-react';
 
 // Lazy load dei componenti pesanti
@@ -18,7 +14,6 @@ const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
-  const valuesRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
