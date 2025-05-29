@@ -15,8 +15,6 @@ import {
   Pause,
   ChevronLeft,
   ChevronRight,
-  Star,
-  Target,
   FileText,
   Monitor,
   Wrench
@@ -50,8 +48,6 @@ const Services = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
-  
-  const timelineProgressValue = useTransform(timelineProgress, [0, 1], [0, 100]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

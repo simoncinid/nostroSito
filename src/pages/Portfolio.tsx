@@ -1,4 +1,3 @@
-
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { 
@@ -11,7 +10,6 @@ import {
   Zap,
   Database,
   Sparkles,
-  Heart,
   Layers,
   Globe,
   TrendingUp
