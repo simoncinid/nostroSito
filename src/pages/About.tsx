@@ -13,7 +13,6 @@ import {
 
 // Lazy load dei componenti pesanti
 const TeamMemberCard = lazy(() => import('../components/TeamMemberCard'));
-const ValuesCarousel = lazy(() => import('../components/ValuesCarousel'));
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,7 +26,6 @@ const About = () => {
   });
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-  const valuesInView = useInView(valuesRef, { once: true, amount: 0.2 });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
@@ -80,45 +78,6 @@ const About = () => {
       specialty: "Crescita e acquisizione clienti",
       gradient: "from-green-500 to-blue-600",
       icon: Users
-    }
-  ];
-
-  const companyValues = [
-    {
-      icon: Code,
-      title: "Codice da Zero",
-      description: "Ogni progetto è sviluppato da zero, senza template. Codice pulito, scalabile e ottimizzato.",
-      color: "from-blue-400 to-blue-600"
-    },
-    {
-      icon: Brain,
-      title: "AI-Powered",
-      description: "Integriamo intelligenza artificiale in ogni soluzione per automatizzare e ottimizzare i processi.",
-      color: "from-purple-400 to-purple-600"
-    },
-    {
-      icon: Rocket,
-      title: "Performance",
-      description: "Velocità e prestazioni sono al centro di ogni nostro sviluppo. Risultati misurabili garantiti.",
-      color: "from-green-400 to-green-600"
-    },
-    {
-      icon: Heart,
-      title: "Passione",
-      description: "Amiamo quello che facciamo. Ogni progetto è trattato come se fosse il nostro primo e più importante.",
-      color: "from-red-400 to-red-600"
-    },
-    {
-      icon: Shield,
-      title: "Affidabilità",
-      description: "Sicurezza, backup e manutenzione continua. Il tuo progetto è sempre protetto e aggiornato.",
-      color: "from-indigo-400 to-indigo-600"
-    },
-    {
-      icon: TrendingUp,
-      title: "Crescita",
-      description: "Non solo sviluppiamo, ma aiutiamo la tua azienda a crescere con strategie digitali vincenti.",
-      color: "from-orange-400 to-orange-600"
     }
   ];
 
@@ -214,31 +173,6 @@ const About = () => {
           </div>
         </div>
       </motion.section>
-
-      {/* Values Section */}
-      {/* 
-      <motion.section
-        ref={valuesRef}
-        className="relative py-8 px-4"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={valuesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
-            className="text-center mb-4"
-          >
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              I Nostri Valori
-            </h2>
-          </motion.div>
-
-          <Suspense fallback={<div className="text-center py-8">Caricamento...</div>}>
-            <ValuesCarousel values={companyValues} />
-          </Suspense>
-        </div>
-      </motion.section>
-      */}
 
       {/* CTA Section */}
       <motion.section className="relative py-16 px-4">

@@ -32,15 +32,6 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [mouseX, mouseY])
 
-  const floatingElements = [
-    { icon: Code, delay: 0, x: 100, y: 50 },
-    { icon: Bot, delay: 0.5, x: -80, y: 80 },
-    { icon: Zap, delay: 1, x: 120, y: -60 },
-    { icon: Globe, delay: 1.5, x: -100, y: -40 },
-    { icon: Cpu, delay: 2, x: 80, y: 100 },
-    { icon: Rocket, delay: 2.5, x: -60, y: -80 }
-  ]
-
   return (
     <section 
       ref={heroRef}
