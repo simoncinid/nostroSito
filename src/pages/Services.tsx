@@ -37,10 +37,7 @@ const Services = () => {
     offset: ["start start", "end end"]
   });
 
-  const { scrollYProgress: timelineProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start center", "end center"]
-  });
+ 
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const servicesInView = useInView(servicesRef, { once: true, amount: 0.2 });
