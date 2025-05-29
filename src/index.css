@@ -202,4 +202,7 @@ body {
     align-items: flex-start !important;
     padding-top: 60px;
   }
+  .hero-logo-img {
+    width: 80vw !important;
+  }
 }

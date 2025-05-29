@@ -62,7 +62,7 @@ const Hero = () => {
         <img 
           src={logo} 
           alt="" 
-          className="w-[150%] max-w-none blur-2xl"
+          className="w-[90%] max-w-none blur-2xl hero-logo-img"
           style={{ 
             filter: 'drop-shadow(0 0 100px rgba(139, 92, 246, 0.4))',
             willChange: 'transform'
