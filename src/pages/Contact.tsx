@@ -1,5 +1,5 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, Loader, Globe, ArrowRight, Zap, Target, Code, Bot, X } from 'lucide-react';
 
 interface FormData {
