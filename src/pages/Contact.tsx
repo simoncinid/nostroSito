@@ -1,23 +1,6 @@
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Send, 
-  MessageSquare,
-  CheckCircle,
-  Loader,
-  //Star,
-  Globe,
-  ArrowRight,
-  Zap,
-  Target,
-  Code,
-  Bot,
-  X
-} from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, Loader, Globe, ArrowRight, Zap, Target, Code, Bot, X } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -67,30 +50,9 @@ const Contact = () => {
     }
   ]);
   const [chatInput, setChatInput] = useState('');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const formInView = useInView(formRef, { once: true, amount: 0.2 });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const services = [
     { id: 'web', name: 'Sviluppo Web React', icon: Code },
@@ -146,30 +108,6 @@ const Contact = () => {
       gradient: 'from-orange-500 to-orange-700'
     }
   ];
-
-  {/*const testimonials = [
-    {
-      name: "Marco Rossi",
-      company: "TechStart Milano",
-      text: "Webbitz ha trasformato completamente la nostra presenza digitale. Risultati straordinari!",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Sofia Bianchi",
-      company: "Fashion Roma",
-      text: "L'AI assistant che hanno sviluppato ha rivoluzionato il nostro customer service.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Luca Ferrari",
-      company: "GreenTech Napoli",
-      text: "Professionalità, innovazione e risultati concreti. Consiglio vivamente!",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-    }
-  ];*/}
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -237,27 +175,7 @@ const Contact = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"
-          animate={{
-            x: mousePosition.x * 0.1,
-            y: mousePosition.y * 0.1,
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"
-          animate={{
-            x: -mousePosition.x * 0.05,
-            y: -mousePosition.y * 0.05,
-            scale: [1, 0.8, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-      </div>
+      {/* Animated Background rimosso per pulizia warning */}
 
       {/* Hero Section */}
       <motion.section
