@@ -794,49 +794,39 @@ const WebbitzPackages = () => {
                 {/* Features - Nuova versione centrata con info popup */}
                 <div className="mb-0 text-center h-[180px] md:h-[350px] flex flex-col">
                   <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">Cosa Include:</h4>
-                  <div className="grid grid-cols-2 gap-2 md:gap-4 flex-1">
+                  <ul className="flex flex-col gap-2 md:gap-4 flex-1 px-0">
                     {pkg.features.map((feature, idx) => (
                       feature.text ? (
-                        <motion.div
+                        <motion.li
                           key={idx}
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1, duration: 0.5 }}
-                          className="text-center"
+                          className="flex items-center gap-2 md:gap-3 px-0 md:px-2"
                         >
-                          <div className={`flex flex-col items-stretch px-0 md:px-0 py-0 md:py-0`}>
-                            <div className={`flex flex-row items-center gap-2 md:gap-3 px-2 md:px-4 py-2 md:py-3 rounded-xl mb-1 min-h-[40px] md:min-h-[60px] ${
-                              pkg.popular 
-                                ? 'bg-primary-500/20 border border-primary-400/30' 
-                                : 'bg-white/10 border border-white/20'
-                            }`}>
-                              {feature.icon && (
-                                <div className="flex-shrink-0 w-5 md:w-7 flex items-start justify-center">
-                                  <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-primary-300 package-feature-icon" />
-                                </div>
-                              )}
-                              <div className="flex-1 text-left flex items-center">
-                                <span className="text-white font-medium package-feature-text text-[clamp(0.65rem,2.5vw,0.9rem)] md:text-base">{feature.text}</span>
-                              </div>
-                              <button 
-                                onClick={() => openPopup(
-                                  featuresWithInfo[feature.info].title, 
-                                  featuresWithInfo[feature.info].description,
-                                  featuresWithInfo[feature.info].icon || Globe,
-                                  feature.info
-                                )}
-                                className="p-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors ml-1"
-                              >
-                                <Info className="w-4 h-4 text-primary-300" />
-                              </button>
+                          {feature.icon && (
+                            <div className="flex-shrink-0 w-5 md:w-7 flex items-center justify-center">
+                              <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-primary-300 package-feature-icon" />
                             </div>
-                          </div>
-                        </motion.div>
+                          )}
+                          <span className="text-white font-medium package-feature-text text-[clamp(0.65rem,2.5vw,0.9rem)] md:text-base flex-1 text-left">{feature.text}</span>
+                          <button 
+                            onClick={() => openPopup(
+                              featuresWithInfo[feature.info].title, 
+                              featuresWithInfo[feature.info].description,
+                              featuresWithInfo[feature.info].icon || Globe,
+                              feature.info
+                            )}
+                            className="p-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors ml-1"
+                          >
+                            <Info className="w-4 h-4 text-primary-300" />
+                          </button>
+                        </motion.li>
                       ) : (
-                        <div key={idx} className="h-[40px] md:h-[70px]"></div> // Spazio vuoto invece del box
+                        <li key={idx} className="h-[32px] md:h-[70px]"></li> // Spazio vuoto invece del box
                       )
                     ))}
-                  </div>
+                  </ul>
                 </div>
 
                 {/* CTA Button */}
