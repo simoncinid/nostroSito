@@ -9,7 +9,7 @@ import {
   MessageSquare,
   CheckCircle,
   Loader,
-  Star,
+  //Star,
   Globe,
   ArrowRight,
   Zap,
@@ -147,7 +147,7 @@ const Contact = () => {
     }
   ];
 
-  const testimonials = [
+  {/*const testimonials = [
     {
       name: "Marco Rossi",
       company: "TechStart Milano",
@@ -169,7 +169,7 @@ const Contact = () => {
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
     }
-  ];
+  ];*/}
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -262,10 +262,9 @@ const Contact = () => {
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
-        style={{ y, opacity }}
-        className="relative min-h-screen flex items-center justify-center px-4 pt-20"
+        className="relative min-h-[40vh] md:min-h-screen flex items-center justify-center px-4 pt-24 md:pt-20"
       >
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -308,7 +307,7 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <motion.section className="relative py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-8 md:mb-12">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
@@ -317,17 +316,17 @@ const Contact = () => {
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-300"
+                className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl p-3 md:p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center md:text-left md:items-start"
               >
                 <motion.div
                   whileHover={{ scale: 1.1 }}
-                  className={`w-12 h-12 bg-gradient-to-r ${info.gradient} rounded-xl flex items-center justify-center mb-4`}
+                  className={`w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${info.gradient} rounded-xl flex items-center justify-center mb-2 md:mb-4`}
                 >
-                  <info.icon size={24} className="text-white" />
+                  <info.icon size={18} className="text-white md:w-6 md:h-6" />
                 </motion.div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{info.title}</h3>
-                <p className="text-gray-900 font-semibold mb-1">{info.value}</p>
-                <p className="text-gray-600 text-sm">{info.description}</p>
+                <h3 className="text-xs md:text-lg font-bold text-gray-900 mb-1 md:mb-2">{info.title}</h3>
+                <p className="text-gray-900 font-semibold text-xs md:text-base mb-0.5 md:mb-1">{info.value}</p>
+                <p className="text-gray-600 text-[10px] md:text-sm">{info.description}</p>
               </motion.div>
             ))}
           </div>
@@ -337,16 +336,16 @@ const Contact = () => {
       {/* Contact Form */}
       <motion.section
         ref={formRef}
-        className="relative py-8 px-4"
+        className="relative py-4 md:py-8 px-2 md:px-4"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={formInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
-            className="text-center mb-8"
+            className="text-center mb-6 md:mb-8"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
               Raccontaci il Tuo Progetto
             </h2>
           </motion.div>
@@ -355,7 +354,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={formInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 1 }}
-            className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-3xl p-8 shadow-lg"
+            className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl p-3 md:p-8 shadow-lg"
           >
             {submitStatus === 'success' ? (
               <motion.div
@@ -388,60 +387,60 @@ const Contact = () => {
                 </motion.button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 {/* Step 1: Basic Info */}
                 {currentStep === 1 && (
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
-                    className="space-y-6"
+                    className="space-y-4 md:space-y-6"
                   >
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Informazioni di Base</h3>
-                      <p className="text-gray-600">Iniziamo con le informazioni essenziali</p>
+                    <div className="text-center mb-4 md:mb-8">
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Informazioni di Base</h3>
+                      <p className="text-gray-600 text-xs md:text-base">Iniziamo con le informazioni essenziali</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-2">Nome *</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Nome *</label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
                           placeholder="Il tuo nome"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-2">Email *</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Email *</label>
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
                           placeholder="la-tua-email@esempio.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-2">Telefono</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Telefono</label>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
                           placeholder="+39 123 456 7890"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-2">Azienda</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Azienda</label>
                         <input
                           type="text"
                           value={formData.company}
                           onChange={(e) => handleInputChange('company', e.target.value)}
-                          className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300"
+                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
                           placeholder="Nome della tua azienda"
                         />
                       </div>
@@ -455,16 +454,16 @@ const Contact = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
-                    className="space-y-6"
+                    className="space-y-4 md:space-y-6"
                   >
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Dettagli del Progetto</h3>
-                      <p className="text-gray-600">Parlaci del tuo progetto</p>
+                    <div className="text-center mb-4 md:mb-8">
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Dettagli del Progetto</h3>
+                      <p className="text-gray-600 text-xs md:text-base">Parlaci del tuo progetto</p>
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-semibold mb-4">Servizio Richiesto *</label>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">Servizio Richiesto *</label>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
                         {services.map((service) => (
                           <motion.button
                             key={service.id}
@@ -472,23 +471,23 @@ const Contact = () => {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => handleInputChange('service', service.id)}
-                            className={`p-4 border rounded-xl text-left transition-all duration-300 ${
+                            className={`p-2 md:p-4 border rounded-xl text-left transition-all duration-300 text-xs md:text-base ${
                               formData.service === service.id
                                 ? 'border-purple-500 bg-purple-50 text-purple-700'
                                 : 'border-purple-200 hover:border-purple-300'
                             }`}
                           >
-                            <service.icon size={20} className="mb-2" />
-                            <div className="font-semibold text-sm">{service.name}</div>
+                            <service.icon size={16} className="mb-1 md:mb-2" />
+                            <div className="font-semibold text-xs md:text-sm">{service.name}</div>
                           </motion.button>
                         ))}
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-4">Budget</label>
-                        <div className="space-y-2">
+                        <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">Budget</label>
+                        <div className="space-y-1 md:space-y-2">
                           {budgetRanges.map((budget) => (
                             <motion.button
                               key={budget.id}
@@ -496,7 +495,7 @@ const Contact = () => {
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                               onClick={() => handleInputChange('budget', budget.id)}
-                              className={`w-full p-3 border rounded-xl text-left transition-all duration-300 ${
+                              className={`w-full p-2 md:p-3 border rounded-xl text-left transition-all duration-300 text-xs md:text-base ${
                                 formData.budget === budget.id
                                   ? 'border-purple-500 bg-purple-50 text-purple-700'
                                   : 'border-purple-200 hover:border-purple-300'
@@ -509,8 +508,8 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-4">Timeline</label>
-                        <div className="space-y-2">
+                        <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">Timeline</label>
+                        <div className="space-y-1 md:space-y-2">
                           {timelines.map((timeline) => (
                             <motion.button
                               key={timeline.id}
@@ -518,7 +517,7 @@ const Contact = () => {
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                               onClick={() => handleInputChange('timeline', timeline.id)}
-                              className={`w-full p-3 border rounded-xl text-left transition-all duration-300 ${
+                              className={`w-full p-2 md:p-3 border rounded-xl text-left transition-all duration-300 text-xs md:text-base ${
                                 formData.timeline === timeline.id
                                   ? 'border-purple-500 bg-purple-50 text-purple-700'
                                   : 'border-purple-200 hover:border-purple-300'
@@ -539,21 +538,21 @@ const Contact = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
-                    className="space-y-6"
+                    className="space-y-4 md:space-y-6"
                   >
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Il Tuo Messaggio</h3>
-                      <p className="text-gray-600">Raccontaci di più sul tuo progetto</p>
+                    <div className="text-center mb-4 md:mb-8">
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Il Tuo Messaggio</h3>
+                      <p className="text-gray-600 text-xs md:text-base">Raccontaci di più sul tuo progetto</p>
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-semibold mb-2">Descrizione del Progetto *</label>
+                      <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Descrizione del Progetto *</label>
                       <textarea
                         required
-                        rows={6}
+                        rows={5}
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 resize-none"
+                        className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 resize-none text-xs md:text-base"
                         placeholder="Descrivi il tuo progetto, i tuoi obiettivi e qualsiasi dettaglio che ritieni importante..."
                       />
                     </div>
@@ -561,26 +560,26 @@ const Contact = () => {
                 )}
 
                 {/* Navigation Buttons */}
-                <div className="flex justify-between items-center pt-6">
-                  <div className="flex space-x-2">
+                <div className="flex justify-between items-center pt-4 md:pt-6">
+                  <div className="flex space-x-1 md:space-x-2">
                     {[1, 2, 3].map((step) => (
                       <div
                         key={step}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                           step <= currentStep ? 'bg-purple-600' : 'bg-gray-300'
                         }`}
                       />
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-2 md:gap-4">
                     {currentStep > 1 && (
                       <motion.button
                         type="button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={prevStep}
-                        className="px-6 py-3 border border-purple-200 text-purple-700 font-semibold rounded-xl hover:border-purple-300 hover:bg-purple-50 transition-all duration-300"
+                        className="px-4 py-2 md:px-6 md:py-3 border border-purple-200 text-purple-700 font-semibold rounded-xl hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 text-xs md:text-base"
                       >
                         Indietro
                       </motion.button>
@@ -592,10 +591,10 @@ const Contact = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={nextStep}
-                        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+                        className="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-1 md:gap-2 text-xs md:text-base"
                       >
                         Avanti
-                        <ArrowRight size={18} />
+                        <ArrowRight size={16} className="md:w-5 md:h-5" />
                       </motion.button>
                     ) : (
                       <motion.button
@@ -603,16 +602,16 @@ const Contact = () => {
                         disabled={isSubmitting}
                         whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                         whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                        className="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-2 disabled:opacity-50"
+                        className="px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-1 md:gap-2 disabled:opacity-50 text-xs md:text-base"
                       >
                         {isSubmitting ? (
                           <>
-                            <Loader className="animate-spin" size={18} />
+                            <Loader className="animate-spin" size={16} />
                             Invio in corso...
                           </>
                         ) : (
                           <>
-                            <Send size={18} />
+                            <Send size={16} />
                             Invia Messaggio
                           </>
                         )}
@@ -627,6 +626,7 @@ const Contact = () => {
       </motion.section>
 
       {/* Testimonials */}
+      {/* Testimonials 
       <motion.section className="relative py-8 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -674,6 +674,7 @@ const Contact = () => {
           </div>
         </div>
       </motion.section>
+      */}
 
       {/* Chat Widget */}
       <AnimatePresence>
