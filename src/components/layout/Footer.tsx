@@ -53,7 +53,7 @@ const Footer = () => {
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="max-w-7xl mx-auto px-4 py-8 md:py-16">
           {/* Brand Section - Centered */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Links Sections - Centered Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-3 gap-2 md:gap-8 max-w-4xl mx-auto mb-6 md:mb-12">
             {Object.entries(footerLinks).map(([category, links], index) => (
               <motion.div
                 key={category}
@@ -117,15 +117,15 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <h3 className="text-lg font-display font-semibold text-white mb-6 capitalize">
+                <h3 className="text-sm md:text-lg font-display font-semibold text-white mb-2 md:mb-6 capitalize">
                   {category}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-1 md:space-y-3">
                   {links.map((link) => (
                     <li key={link.name}>
                       <Link
                         to={link.href}
-                        className="text-gray-300 hover:text-primary-400 transition-colors duration-300 group inline-block"
+                        className="text-gray-300 hover:text-primary-400 transition-colors duration-300 group inline-block text-xs md:text-base"
                       >
                         <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">
                           {link.name}
@@ -143,7 +143,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="max-w-2xl mx-auto p-8 rounded-2xl bg-gradient-to-r from-primary-600/10 to-primary-800/10 border border-primary-500/20 text-center"
+            className="max-w-2xl mx-auto p-4 md:p-8 rounded-2xl bg-gradient-to-r from-primary-600/10 to-primary-800/10 border border-primary-500/20 text-center"
           >
             <h3 className="text-2xl font-display font-bold text-white mb-4">
               Resta Aggiornato

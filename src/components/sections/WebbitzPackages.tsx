@@ -761,42 +761,40 @@ const WebbitzPackages = () => {
                 pkg.popular 
                   ? 'border-primary-400/50 shadow-glow-lg' 
                   : 'border-white/10'
-              } p-8 h-full transition-all duration-500 group-hover:shadow-premium-lg group-hover:border-primary-400/30`}>
-                
+              } p-4 md:p-8 h-full transition-all duration-500 group-hover:shadow-premium-lg group-hover:border-primary-400/30`}>
                 {/* Popular Badge */}
                 {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className={`${pkg.badgeColor} text-white px-6 py-2 rounded-full text-sm font-semibold shadow-glow`}>
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 md:-top-4">
+                    <div className={`${pkg.badgeColor} text-white px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold shadow-glow`}>
                       {pkg.badge}
                     </div>
                   </div>
                 )}
 
                 {/* Header */}
-                <div className="text-center mb-8">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 ${
+                <div className="text-center mb-4 md:mb-8">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl mb-2 md:mb-4 ${
                     pkg.popular 
                       ? 'bg-gradient-primary shadow-glow' 
                       : 'bg-white/10'
                   }`}>
-                    <pkg.icon className={`w-8 h-8 ${
+                    <pkg.icon className={`w-6 h-6 md:w-8 md:h-8 ${
                       pkg.popular ? 'text-white' : 'text-primary-400'
                     }`} />
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
-                  <p className="text-gray-300 mb-6">{pkg.description}</p>
-                  
+                  <h3 className="text-lg md:text-2xl font-bold text-white mb-1 md:mb-2">{pkg.name}</h3>
+                  <p className="text-gray-300 text-sm md:text-base mb-3 md:mb-6">{pkg.description}</p>
                   {/* Preventivo personalizzato */}
-                  <div className="flex items-center justify-center mb-2">
-                    <span className="text-lg font-semibold text-primary-500">Contattaci per avere un preventivo personalizzato</span>
+                  <div className="flex items-center justify-center mb-1 md:mb-2">
+                    <span className="text-sm md:text-lg font-semibold text-primary-500">Contattaci per avere un preventivo personalizzato</span>
                   </div>
                 </div>
 
                 {/* Features - Nuova versione centrata con info popup */}
-                <div className="mb-0 text-center h-[350px] flex flex-col">
-                  <h4 className="text-white font-semibold mb-6">Cosa Include:</h4>
-                  <div className="space-y-5 flex-1">
+                <div className="mb-0 text-center h-[180px] md:h-[350px] flex flex-col">
+                  <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">Cosa Include:</h4>
+                  <div className="grid grid-cols-2 gap-2 md:gap-4 flex-1">
                     {pkg.features.map((feature, idx) => (
                       feature.text ? (
                         <motion.div
@@ -806,23 +804,20 @@ const WebbitzPackages = () => {
                           transition={{ delay: idx * 0.1, duration: 0.5 }}
                           className="text-center"
                         >
-                          <div className="flex items-center justify-center">
-                            <div className="flex-1"></div>
-                            <div className={`px-4 py-3 rounded-xl mb-1 w-[320px] min-h-[60px] flex flex-row gap-3 items-start justify-start ${
+                          <div className={`flex flex-col items-stretch px-0 md:px-0 py-0 md:py-0`}>
+                            <div className={`flex flex-row items-center gap-2 md:gap-3 px-2 md:px-4 py-2 md:py-3 rounded-xl mb-1 min-h-[40px] md:min-h-[60px] ${
                               pkg.popular 
                                 ? 'bg-primary-500/20 border border-primary-400/30' 
                                 : 'bg-white/10 border border-white/20'
                             }`}>
                               {feature.icon && (
-                                <div className="flex-shrink-0 w-7 flex items-start justify-center">
-                                  <feature.icon className="w-5 h-5 text-primary-300 package-feature-icon" />
+                                <div className="flex-shrink-0 w-5 md:w-7 flex items-start justify-center">
+                                  <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-primary-300 package-feature-icon" />
                                 </div>
                               )}
                               <div className="flex-1 text-left flex items-center">
-                                <span className="text-white font-medium package-feature-text">{feature.text}</span>
+                                <span className="text-white font-medium package-feature-text text-[clamp(0.65rem,2.5vw,0.9rem)] md:text-base">{feature.text}</span>
                               </div>
-                            </div>
-                            <div className="flex-1 flex justify-start pl-2">
                               <button 
                                 onClick={() => openPopup(
                                   featuresWithInfo[feature.info].title, 
@@ -830,7 +825,7 @@ const WebbitzPackages = () => {
                                   featuresWithInfo[feature.info].icon || Globe,
                                   feature.info
                                 )}
-                                className="p-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                className="p-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors ml-1"
                               >
                                 <Info className="w-4 h-4 text-primary-300" />
                               </button>
@@ -838,26 +833,26 @@ const WebbitzPackages = () => {
                           </div>
                         </motion.div>
                       ) : (
-                        <div key={idx} className="h-[70px]"></div> // Spazio vuoto invece del box
+                        <div key={idx} className="h-[40px] md:h-[70px]"></div> // Spazio vuoto invece del box
                       )
                     ))}
                   </div>
                 </div>
 
                 {/* CTA Button */}
-                <div className="mt-12">
+                <div className="mt-6 md:mt-12">
                   <a
                     href={pkg.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group/btn relative w-full inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:-translate-y-1 ${
+                    className={`group/btn relative w-full inline-flex items-center justify-center space-x-2 md:space-x-3 px-4 md:px-8 py-3 md:py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:-translate-y-1 ${
                       pkg.popular
                         ? 'bg-gradient-primary text-white shadow-glow hover:shadow-glow-lg'
                         : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:border-primary-400/50'
                     }`}
                   >
-                    <MessageSquare className="w-5 h-5 mr-2 z-10 relative" />
-                    <span className="relative z-10 font-bold">{pkg.cta}</span>
+                    <MessageSquare className="w-5 h-5 mr-1 md:mr-2 z-10 relative" />
+                    <span className="relative z-10 font-bold text-sm md:text-base">{pkg.cta}</span>
                     <motion.div
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
