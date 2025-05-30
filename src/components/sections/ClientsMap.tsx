@@ -221,38 +221,36 @@ const ClientsMap = () => {
 
   return (
     <div className="container-premium">
+      <h2 className="heading-lg text-gray-900 mb-6 text-center">I Nostri Clienti</h2>
       {/* Mappa Google Maps */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full h-[600px] rounded-3xl overflow-hidden shadow-premium border border-purple-200"
+        className="relative w-full h-64 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-purple-200"
       >
         <div 
           ref={mapRef} 
           className="w-full h-full"
-          style={{ minHeight: '600px' }}
+          style={{ minHeight: '16rem' }}
         />
-        
-        {/* Overlay con informazioni */}
-        <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-purple-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">I Nostri Clienti in Toscana</h3>
-          <p className="text-sm text-gray-600 mb-3">Clicca sui marker per scoprire i progetti</p>
-          <div className="flex items-center gap-2 text-sm text-purple-700">
+        {/* Overlay con legenda */}
+        <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
+          <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Clicca sui marker per scoprire i progetti</p>
+          <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-purple-700">
             <div className="w-3 h-3 bg-purple-600 rounded-full"></div>
             <span>Progetti completati</span>
           </div>
         </div>
-
         {/* Stats overlay */}
-        <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-purple-200">
-          <div className="grid grid-cols-2 gap-4 text-center">
+        <div className="absolute bottom-2 right-2 md:bottom-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
+          <div className="grid grid-cols-2 gap-2 md:gap-4 text-center">
             <div>
-              <div className="text-2xl font-bold text-purple-600">1</div>
+              <div className="text-lg md:text-2xl font-bold text-purple-600">1</div>
               <div className="text-xs text-gray-600">Città Raggiunta</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-purple-600">1</div>
+              <div className="text-lg md:text-2xl font-bold text-purple-600">1</div>
               <div className="text-xs text-gray-600">Cliente Attivo</div>
             </div>
           </div>

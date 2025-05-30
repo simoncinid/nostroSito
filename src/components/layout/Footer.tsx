@@ -9,7 +9,7 @@ import {
   Twitter,
   ArrowUp
 } from 'lucide-react'
-import logo from '../../assets/logos/WEBBITZ_2_PNG.png'
+import logo from '../../assets/logos/WEBBITZ_5.png'
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -70,19 +70,19 @@ const Footer = () => {
                 <img 
                   src={logo} 
                   alt="Webbitz Logo" 
-                  className="w-14 h-14 object-contain"
+                  className="w-28 h-28 object-contain"
                   style={{ filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.3))' }}
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
               </motion.div>
-              <div className="flex flex-col">
+              {/*<div className="flex flex-col">
                 <span className="text-2xl font-display font-bold text-white">
                   Webbitz
                 </span>
                 <span className="text-sm text-gray-400 font-medium tracking-wider">
                   DIGITAL AGENCY
                 </span>
-              </div>
+              </div>*/}
             </Link>
             
             <p className="text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">

@@ -91,7 +91,7 @@ const Features = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 grid-rows-3 gap-3 md:grid-cols-2 md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -106,20 +106,8 @@ const Features = () => {
                   y: -5,
                   boxShadow: "0 20px 30px rgba(139, 92, 246, 0.15)"
                 }}
-                className="relative overflow-hidden bg-white rounded-2xl p-5 border border-gray-100 transition-all duration-300 h-full text-center"
+                className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-purple-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
               >
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <pattern id={`grid-feature-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className={feature.iconColor} />
-                      </pattern>
-                    </defs>
-                    <rect width="100" height="100" fill={`url(#grid-feature-${index})`} />
-                  </svg>
-                </div>
-                
                 {/* Secondary floating icon */}
                 <motion.div 
                   className={`absolute top-3 right-3 opacity-30 ${feature.iconColor}`}
@@ -139,45 +127,27 @@ const Features = () => {
                   }}
                   viewport={{ once: true, margin: "50px" }}
                 >
-                  <feature.secondaryIcon size={18} />
+                  <feature.secondaryIcon className="md:w-5 md:h-5 w-4 h-4" />
                 </motion.div>
 
                 {/* Icon */}
-                <div className="mb-4 relative">
+                <div className="mb-2 relative">
                   <div 
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${feature.bgColor} group-hover:scale-110 transition-transform duration-300 mb-1`}
+                    className={`inline-flex items-center justify-center rounded-lg group-hover:scale-105 transition-transform duration-300 mb-1 ` +
+                      `${feature.bgColor} w-8 h-8 md:w-12 md:h-12 md:rounded-xl lg:w-12 lg:h-12 lg:rounded-xl`}
                     style={{ willChange: "transform" }}
                   >
-                    <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                    <feature.icon className={`w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 ${feature.iconColor}`} />
                   </div>
-                  <motion.div 
-                    className="absolute inset-0 bg-white rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"
-                    initial={{ scale: 0.8 }}
-                    whileInView={{ scale: [0.8, 1.2, 0.8] }}
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity,
-                      willChange: "transform" 
-                    }}
-                    viewport={{ once: true, margin: "50px" }}
-                  />
                 </div>
 
                 {/* Content */}
-                <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
+                <h3 className={`font-extrabold mb-1 bg-gradient-to-r ${feature.color} bg-clip-text text-transparent text-base md:text-xl lg:text-xl`}>
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-base">
+                <p className="text-gray-600 text-xs md:text-base lg:text-base">
                   {feature.description}
                 </p>
-
-                {/* Animated border accent */}
-                <motion.div 
-                  className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${feature.color}`}
-                  initial={{ width: "30%" }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.div>
             </motion.div>
           ))}
@@ -188,7 +158,7 @@ const Features = () => {
           <div className="max-w-3xl mx-auto relative">
             {/* Box con CTA */}
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 relative z-10"
+              className="bg-white rounded-xl shadow-lg p-4 md:p-8 relative z-10"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -206,12 +176,13 @@ const Features = () => {
                   animate-gradient-xy"
                   style={{
                     backgroundSize: '300% 300%',
-                    textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
+                    textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+                    fontSize: 'clamp(1.5rem,6vw,2.5rem)'
                   }}
                 >
                   Pronto a Trasformare <br></br>il Tuo Business?
                 </h3>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-sm md:text-lg text-gray-600 mb-6">
                   Scopri come possiamo aiutarti a raggiungere i tuoi obiettivi digitali
                 </p>
                 <button className="btn-primary">

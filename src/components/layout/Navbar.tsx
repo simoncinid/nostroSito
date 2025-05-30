@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import logo from '../../assets/logos/WEBBITZ_2_PNG.png'
+import logo from '../../assets/logos/WEBBITZ_5.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,19 +48,19 @@ const Navbar = () => {
               <img 
                 src={logo} 
                 alt="Webbitz Logo" 
-                className="w-14 h-14 object-contain"
+                className="w-28 h-28 object-contain"
                 style={{ filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.3))' }}
               />
               <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
             </motion.div>
-            <div className="flex flex-col">
+            {/*<div className="flex flex-col">
               <span className="text-2xl font-display font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
                 Webbitz
               </span>
               <span className="text-xs text-gray-500 font-medium tracking-wider">
                 DIGITAL AGENCY
               </span>
-            </div>
+            </div>*/}
           </Link>
 
           {/* Desktop Navigation */}

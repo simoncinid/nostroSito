@@ -2,8 +2,76 @@ import { motion, useMotionValue } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Code, Bot, Zap, Sparkles, Globe, Cpu, Rocket } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/logos/WEBBITZ_2_PNG.png'
+import logo from '../../assets/logos/WEBBITZ_4.png'
 
+const ServiceCard = ({ service }: { service: any }) => (
+  <motion.div
+    whileHover={{ 
+      scale: 1.05, 
+      y: -10,
+      boxShadow: "0 20px 30px rgba(139, 92, 246, 0.15)"
+    }}
+    className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-purple-200 rounded-2xl p-5 hover:border-purple-300 transition-all duration-300 group text-center h-full"
+    style={{ background: service.bg }}
+  >
+    {/* Animated background pattern */}
+    <div className="absolute inset-0 opacity-20">
+      <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id={`grid-${service.title}`} width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-purple-400" />
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill={`url(#grid-${service.title})`} />
+      </svg>
+    </div>
+    
+    {/* Secondary floating icon */}
+    <motion.div 
+      className="absolute top-3 right-3 opacity-30 text-purple-600"
+      animate={
+        service.animation === "float" 
+          ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
+          : service.animation === "pulse"
+            ? { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
+            : { rotate: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }
+      }
+      transition={{ 
+        duration: 3, 
+        repeat: Infinity,
+        ease: "easeInOut" 
+      }}
+    >
+      <service.secondaryIcon size={24} />
+    </motion.div>
+    
+    {/* Main icon with gradient */}
+    <div className="mb-4 relative">
+      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-1 mx-auto`}>
+        <service.icon className="text-white" size={24} />
+      </div>
+      <motion.div 
+        className="absolute inset-0 bg-white rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"
+        animate={{ scale: [0.8, 1.2, 0.8] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      />
+    </div>
+    
+    {/* Title and description */}
+    <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+      {service.title}
+    </h3>
+    <p className="text-gray-700 text-base">{service.desc}</p>
+    
+    {/* Animated border accent */}
+    <motion.div 
+      className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.gradient}`}
+      initial={{ width: "30%" }}
+      whileHover={{ width: "100%" }}
+      transition={{ duration: 0.3 }}
+    />
+  </motion.div>
+);
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -230,105 +298,195 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto"
+            className="mb-12 max-w-4xl mx-auto"
           >
-            {[
-              { 
-                icon: Code, 
-                title: "Sito Web Professionale", 
-                desc: "La vostra vetrina digitale perfetta",
-                gradient: "from-blue-400 to-indigo-600",
-                bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
-                secondaryIcon: Globe,
-                animation: "float"
-              },
-              { 
-                icon: Bot, 
-                title: "Assistente AI 24/7", 
-                desc: "Rispondete ai clienti sempre",
-                gradient: "from-purple-400 to-pink-600",
-                bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
-                secondaryIcon: Cpu,
-                animation: "pulse"
-              },
-              { 
-                icon: Zap, 
-                title: "Risultati Garantiti", 
-                desc: "Più visibilità, più clienti",
-                gradient: "from-amber-400 to-orange-600",
-                bg: "linear-gradient(45deg, rgba(251, 191, 36, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)",
-                secondaryIcon: Rocket,
-                animation: "bounce"
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -10,
-                  boxShadow: "0 20px 30px rgba(139, 92, 246, 0.15)"
-                }}
-                className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-purple-200 rounded-2xl p-5 hover:border-purple-300 transition-all duration-300 group text-center"
-                style={{ background: service.bg }}
-              >
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <pattern id={`grid-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-purple-400" />
-                      </pattern>
-                    </defs>
-                    <rect width="100" height="100" fill={`url(#grid-${index})`} />
-                  </svg>
-                </div>
-                
-                {/* Secondary floating icon */}
-                <motion.div 
-                  className="absolute top-3 right-3 opacity-30 text-purple-600"
-                  animate={
-                    service.animation === "float" 
-                      ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
-                      : service.animation === "pulse"
-                        ? { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
-                        : { rotate: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }
-                  }
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity,
-                    ease: "easeInOut" 
+            {/* Mobile Layout */}
+            <div className="md:hidden grid grid-cols-1 gap-4">
+              {[
+                { 
+                  icon: Code, 
+                  title: "Sito Web Professionale", 
+                  desc: "La vostra vetrina digitale perfetta",
+                  gradient: "from-blue-400 to-indigo-600",
+                  bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
+                  secondaryIcon: Globe,
+                  animation: "float"
+                },
+                { 
+                  icon: Bot, 
+                  title: "Assistente AI 24/7", 
+                  desc: "Rispondete ai clienti sempre",
+                  gradient: "from-purple-400 to-pink-600",
+                  bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
+                  secondaryIcon: Cpu,
+                  animation: "pulse"
+                },
+                { 
+                  icon: Zap, 
+                  title: "Risultati Garantiti", 
+                  desc: "Più visibilità, più clienti",
+                  gradient: "from-amber-400 to-orange-600",
+                  bg: "linear-gradient(45deg, rgba(251, 191, 36, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)",
+                  secondaryIcon: Rocket,
+                  animation: "bounce"
+                }
+              ].map((service, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -5,
+                    boxShadow: "0 20px 30px rgba(139, 92, 246, 0.15)"
                   }}
+                  className="relative overflow-hidden bg-white/95 border border-purple-200 rounded-xl p-4 hover:border-purple-300 transition-all duration-300 group"
+                  style={{ background: service.bg }}
                 >
-                  <service.secondaryIcon size={24} />
-                </motion.div>
-                
-                {/* Main icon with gradient */}
-                <div className="mb-4 relative">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-1 mx-auto`}>
-                    <service.icon className="text-white" size={24} />
+                  <div className="flex items-start gap-4 relative z-10">
+                    {/* Main icon with gradient */}
+                    <div className="relative flex-shrink-0">
+                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${service.gradient} flex items-center justify-center`}>
+                        <service.icon className="text-white" size={20} />
+                      </div>
+                      <motion.div 
+                        className="absolute inset-0 bg-white rounded-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"
+                        animate={{ scale: [0.8, 1.2, 0.8] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                      />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`text-lg font-bold mb-1 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        {service.desc}
+                      </p>
+                    </div>
                   </div>
+                  
+                  {/* Secondary floating icon */}
                   <motion.div 
-                    className="absolute inset-0 bg-white rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"
-                    animate={{ scale: [0.8, 1.2, 0.8] }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute top-2 right-2 opacity-30 text-purple-600"
+                    animate={
+                      service.animation === "float" 
+                        ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
+                        : service.animation === "pulse"
+                          ? { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
+                          : { rotate: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }
+                    }
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut" 
+                    }}
+                  >
+                    <service.secondaryIcon size={20} />
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:grid grid-cols-3 gap-6">
+              {[
+                { 
+                  icon: Code, 
+                  title: "Sito Web Professionale", 
+                  desc: "La vostra vetrina digitale perfetta",
+                  gradient: "from-blue-400 to-indigo-600",
+                  bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
+                  secondaryIcon: Globe,
+                  animation: "float"
+                },
+                { 
+                  icon: Bot, 
+                  title: "Assistente AI 24/7", 
+                  desc: "Rispondete ai clienti sempre",
+                  gradient: "from-purple-400 to-pink-600",
+                  bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
+                  secondaryIcon: Cpu,
+                  animation: "pulse"
+                },
+                { 
+                  icon: Zap, 
+                  title: "Risultati Garantiti", 
+                  desc: "Più visibilità, più clienti",
+                  gradient: "from-amber-400 to-orange-600",
+                  bg: "linear-gradient(45deg, rgba(251, 191, 36, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)",
+                  secondaryIcon: Rocket,
+                  animation: "bounce"
+                }
+              ].map((service, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    boxShadow: "0 20px 30px rgba(139, 92, 246, 0.15)"
+                  }}
+                  className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-purple-200 rounded-2xl p-5 hover:border-purple-300 transition-all duration-300 group text-center"
+                  style={{ background: service.bg }}
+                >
+                  {/* Animated background pattern */}
+                  <div className="absolute inset-0 opacity-20">
+                    <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <pattern id={`grid-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
+                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-purple-400" />
+                        </pattern>
+                      </defs>
+                      <rect width="100" height="100" fill={`url(#grid-${index})`} />
+                    </svg>
+                  </div>
+                  
+                  {/* Secondary floating icon */}
+                  <motion.div 
+                    className="absolute top-3 right-3 opacity-30 text-purple-600"
+                    animate={
+                      service.animation === "float" 
+                        ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
+                        : service.animation === "pulse"
+                          ? { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
+                          : { rotate: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }
+                    }
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut" 
+                    }}
+                  >
+                    <service.secondaryIcon size={24} />
+                  </motion.div>
+                  
+                  {/* Main icon with gradient */}
+                  <div className="mb-4 relative">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-1 mx-auto`}>
+                      <service.icon className="text-white" size={24} />
+                    </div>
+                    <motion.div 
+                      className="absolute inset-0 bg-white rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"
+                      animate={{ scale: [0.8, 1.2, 0.8] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    />
+                  </div>
+                  
+                  {/* Title and description */}
+                  <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-700 text-base">{service.desc}</p>
+                  
+                  {/* Animated border accent */}
+                  <motion.div 
+                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.gradient}`}
+                    initial={{ width: "30%" }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
                   />
-                </div>
-                
-                {/* Title and description */}
-                <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                  {service.title}
-                </h3>
-                <p className="text-gray-700 text-base">{service.desc}</p>
-                
-                {/* Animated border accent */}
-                <motion.div 
-                  className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.gradient}`}
-                  initial={{ width: "30%" }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* CTA Buttons */}
