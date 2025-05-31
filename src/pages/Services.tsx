@@ -1,47 +1,211 @@
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import type { FC, ElementType } from 'react';
 import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Play, 
+  Pause, 
+  Clock, 
+  Settings, 
+  CheckCircle, 
   Code, 
-  Bot, 
-  Zap, 
+  Palette, 
+  Rocket, 
+  Search, 
+  TestTube, 
+  Globe,
+  Bot,
+  Zap,
   ArrowRight,
-  CheckCircle,
-  Rocket,
-  Search,
-  Palette,
-  Settings,
-  Clock,
-  Play,
-  Pause,
-  ChevronLeft,
-  ChevronRight,
   FileText,
   Monitor,
-  Wrench
+  Info,
+  X,
+  MessageSquare
 } from 'lucide-react';
-import React from 'react';
+
+interface Service {
+  id: number;
+  icon: ElementType;
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  technologies: string[];
+  gradient: string;
+}
+
+interface ProcessStep {
+  step: string;
+  title: string;
+  description: string;
+  icon: ElementType;
+  duration: string;
+  color: string;
+  tools: string[];
+  visualExample?: {
+    title: string;
+    icon: ElementType;
+    description: string;
+  };
+}
+
+const mainServices: Service[] = [
+  {
+    id: 0,
+    icon: Code,
+    title: "Sviluppo Web React",
+    subtitle: "Siti web da zero, zero template",
+    description: "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
+    features: [
+      "React 18 + TypeScript",
+      "Design responsive e mobile-first",
+      "Performance ottimizzate (Core Web Vitals)",
+      "SEO tecnico avanzato",
+      "Architettura scalabile",
+      "Testing automatizzato"
+    ],
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+    gradient: "from-blue-500 to-purple-600"
+  },
+  {
+    id: 1,
+    icon: Bot,
+    title: "Soluzioni AI",
+    subtitle: "Intelligenza artificiale per il business",
+    description: "Creiamo chatbot intelligenti, assistenti virtuali e sistemi di automazione basati su AI per migliorare l'efficienza aziendale e l'esperienza cliente.",
+    features: [
+      "Chatbot per lead generation",
+      "Assistenti virtuali personalizzati",
+      "Analisi predittiva dei dati",
+      "Automazione customer service",
+      "Integrazione CRM/ERP",
+      "Machine Learning custom"
+    ],
+    technologies: ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"],
+    gradient: "from-purple-500 to-pink-600"
+  },
+  {
+    id: 2,
+    icon: Zap,
+    title: "Automazione Processi",
+    subtitle: "Efficienza e produttività massime",
+    description: "Automatizziamo i processi aziendali ripetitivi, dall'inserimento dati alla generazione di documenti, liberando tempo prezioso per attività strategiche.",
+    features: [
+      "Automazione inserimento dati",
+      "Generazione documenti automatica",
+      "Workflow personalizzati",
+      "Integrazione sistemi esistenti",
+      "Dashboard di monitoraggio",
+      "ROI tracking e analytics"
+    ],
+    technologies: ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"],
+    gradient: "from-green-500 to-blue-600"
+  }
+];
+
+interface ServiceModalProps {
+  service: Service | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
+  if (!service) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isOpen ? 1 : 0 }}
+      exit={{ opacity: 0 }}
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${!isOpen && 'pointer-events-none'}`}
+    >
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <motion.div
+        initial={{ scale: 0.95, y: 20 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.95, y: 20 }}
+        className="relative w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+      >
+        {/* Header con gradiente */}
+        <div className={`bg-gradient-to-r ${service.gradient} p-6 flex items-start justify-between`}>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+              <service.icon size={24} className="text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">{service.title}</h3>
+              <p className="text-white/80 text-sm">{service.subtitle}</p>
+            </div>
+          </div>
+          <button onClick={onClose} className="text-white/80 hover:text-white">
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Contenuto */}
+        <div className="p-6 max-h-[60vh] overflow-y-auto">
+          <div className="prose prose-sm">
+            <p className="text-gray-600 mb-6">{service.description}</p>
+            
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
+            <ul className="space-y-2 mb-6">
+              {service.features.map((feature: string, idx: number) => (
+                <li key={idx} className="flex items-start gap-2 text-gray-600">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">Tecnologie:</h4>
+            <div className="flex flex-wrap gap-2">
+              {service.technologies.map((tech: string, idx: number) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer con CTA */}
+        <div className="p-6 bg-gray-50 border-t border-gray-100">
+          <a
+            href="https://wa.me/3391797616?text=Sono%20interessato%20ad%20un%20preventivo%20per%20il%20vostro%20servizio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl shadow-glow hover:shadow-glow-lg transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <MessageSquare className="w-5 h-5" />
+            <span>Richiedi Preventivo</span>
+          </a>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Services = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-  const processRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
   
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeStep, setActiveStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
- 
-
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const servicesInView = useInView(servicesRef, { once: true, amount: 0.2 });
-  const processInView = useInView(processRef, { once: true, amount: 0.2 });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
@@ -57,152 +221,6 @@ const Services = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  // Auto-play timeline - ralentato a 6 secondi
-  useEffect(() => {
-    if (!isPlaying) return;
-    
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % developmentProcess.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  const mainServices = [
-    {
-      id: 0,
-      icon: Code,
-      title: "Sviluppo Web React",
-      subtitle: "Siti web da zero, zero template",
-      description: "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
-      features: [
-        "React 18 + TypeScript",
-        "Design responsive e mobile-first",
-        "Performance ottimizzate (Core Web Vitals)",
-        "SEO tecnico avanzato",
-        "Architettura scalabile",
-        "Testing automatizzato"
-      ],
-      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-      gradient: "from-blue-500 to-purple-600"
-    },
-    {
-      id: 1,
-      icon: Bot,
-      title: "Soluzioni AI",
-      subtitle: "Intelligenza artificiale per il business",
-      description: "Creiamo chatbot intelligenti, assistenti virtuali e sistemi di automazione basati su AI per migliorare l'efficienza aziendale e l'esperienza cliente.",
-      features: [
-        "Chatbot per lead generation",
-        "Assistenti virtuali personalizzati",
-        "Analisi predittiva dei dati",
-        "Automazione customer service",
-        "Integrazione CRM/ERP",
-        "Machine Learning custom"
-      ],
-      technologies: ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"],
-      gradient: "from-purple-500 to-pink-600"
-    },
-    {
-      id: 2,
-      icon: Zap,
-      title: "Automazione Processi",
-      subtitle: "Efficienza e produttività massime",
-      description: "Automatizziamo i processi aziendali ripetitivi, dall'inserimento dati alla generazione di documenti, liberando tempo prezioso per attività strategiche.",
-      features: [
-        "Automazione inserimento dati",
-        "Generazione documenti automatica",
-        "Workflow personalizzati",
-        "Integrazione sistemi esistenti",
-        "Dashboard di monitoraggio",
-        "ROI tracking e analytics"
-      ],
-      technologies: ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"],
-      gradient: "from-green-500 to-blue-600"
-    }
-  ];
-
-  const developmentProcess = [
-    {
-      step: "01",
-      title: "Discovery & Analisi",
-      description: "Analizziamo a fondo le tue esigenze specifiche, studiamo il mercato di riferimento e definiamo una strategia personalizzata per il tuo progetto.",
-      icon: Search,
-      duration: "1-2 settimane",
-      color: "from-emerald-500 to-teal-600",
-      tools: ["Analytics", "User Research", "Market Analysis", "Competitive Intelligence"],
-      visualExample: {
-        title: "Documentazione Strategica",
-        icon: FileText,
-        description: "Report dettagliato con analisi mercato, personas e roadmap"
-      }
-    },
-    {
-      step: "02",
-      title: "Design & Prototipazione",
-      description: "Trasformiamo le idee in soluzioni visive coinvolgenti attraverso wireframe dettagliati, mockup ad alta fedeltà e prototipi interattivi.",
-      icon: Palette,
-      duration: "2-3 settimane",
-      color: "from-violet-500 to-purple-600",
-      tools: ["Figma", "Adobe Creative Suite", "Principle", "InVision"],
-      visualExample: {
-        title: "Prototipo Interattivo",
-        icon: Monitor,
-        description: "Design system completo con prototipi navigabili"
-      }
-    },
-    {
-      step: "03",
-      title: "Sviluppo & Testing",
-      description: "Sviluppiamo il prodotto utilizzando le tecnologie più avanzate, con test continui e quality assurance per garantire perfetta funzionalità.",
-      icon: Code,
-      duration: "3-8 settimane",
-      color: "from-blue-500 to-indigo-600",
-      tools: ["React", "TypeScript", "Jest", "Docker", "AWS/Azure"],
-      visualExample: {
-        title: "Applicazione Funzionante",
-        icon: Code,
-        description: "Versione beta completa con tutte le funzionalità"
-      }
-    },
-    {
-      step: "04",
-      title: "Deploy & Ottimizzazione",
-      description: "Lanciamo il prodotto con deployment sicuro e ottimizziamo performance, SEO e user experience per massimizzare i risultati.",
-      icon: Rocket,
-      duration: "1-2 settimane",
-      color: "from-orange-500 to-red-600",
-      tools: ["Vercel", "Cloudflare", "Google Analytics", "Lighthouse"],
-      visualExample: {
-        title: "Sito Live",
-        icon: Rocket,
-        description: "Prodotto online ottimizzato e monitorato"
-      }
-    },
-    {
-      step: "05",
-      title: "Supporto & Evoluzione",
-      description: "Forniamo supporto tecnico continuo, manutenzione proattiva e sviluppiamo nuove funzionalità per far crescere il tuo business.",
-      icon: Settings,
-      duration: "Ongoing",
-      color: "from-teal-500 to-cyan-600",
-      tools: ["Monitoring", "Backup Systems", "Security Tools", "Growth Analytics"],
-      visualExample: {
-        title: "Dashboard Monitoraggio",
-        icon: Wrench,
-        description: "Pannello controllo con metriche e aggiornamenti"
-      }
-    }
-  ];
-
-  const navigateTimeline = (direction: 'prev' | 'next') => {
-    if (direction === 'prev') {
-      setActiveStep((prev) => prev === 0 ? developmentProcess.length - 1 : prev - 1);
-    } else {
-      setActiveStep((prev) => (prev + 1) % developmentProcess.length);
-    }
-  };
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
@@ -285,15 +303,15 @@ const Services = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={servicesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
               Servizi Principali
             </h2>
           </motion.div>
 
           {/* Service Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-0">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 mb-0">
             {mainServices.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -301,43 +319,60 @@ const Services = () => {
                 animate={servicesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.2, duration: 1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-3xl p-8 hover:border-purple-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
+                className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-purple-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
               >
                 <div className="flex flex-col h-full items-center text-center">
-                  <div className="min-h-[280px]">
+                  <div className="min-h-[auto] md:min-h-[280px] flex flex-col items-center">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
-                      className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-6 mx-auto`}
+                      className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r ${service.gradient} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6`}
                     >
-                      <service.icon size={32} className="text-white" />
+                      <service.icon size={24} className="text-white" />
                     </motion.div>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-purple-700 font-semibold mb-4">{service.subtitle}</p>
-                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
-                  </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                    <p className="text-purple-700 font-semibold mb-2 md:mb-4 text-sm md:text-base">{service.subtitle}</p>
+                    
+                    {/* Descrizione e bottone visibili solo su desktop */}
+                    <div className="hidden md:block">
+                      <p className="text-gray-600 leading-relaxed text-base">{service.description}</p>
+                      <div className="mt-8 w-full">
+                        <h4 className="font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
+                        <ul className="space-y-2">
+                          {service.features.slice(0, 3).map((feature, idx) => (
+                            <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
+                              <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="mt-6">
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                          >
+                            Scopri di più
+                            <ArrowRight size={16} />
+                          </motion.button>
+                        </div>
+                      </div>
+                    </div>
 
-                  <div className="mt-8 w-full">
-                    <h4 className="font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, idx) => (
-                        <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6 w-full">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      Scopri di più
-                      <ArrowRight size={16} />
-                    </motion.button>
+                    {/* Bottone info visibile solo su mobile */}
+                    <div className="md:hidden mt-4">
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => {
+                          setSelectedService(service);
+                          setIsModalOpen(true);
+                        }}
+                        className={`w-10 h-10 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center text-white shadow-lg`}
+                      >
+                        <Info size={20} />
+                      </motion.button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -346,359 +381,8 @@ const Services = () => {
         </div>
       </motion.section>
 
-      {/* Premium Timeline Section */}
-      <motion.section
-        ref={processRef}
-        className="relative py-10 px-4 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-purple-50"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={processInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
-            className="text-center mb-12"
-          >
-            <motion.div
-              animate={{
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="inline-block"
-            >
-              <h2 className="text-5xl md:text-7xl font-bold mb-0 bg-gradient-to-r from-slate-900 via-purple-800 to-indigo-600 bg-clip-text text-transparent">
-                Il Nostro Processo
-              </h2>
-            </motion.div>
-          </motion.div>
-
-          {/* Premium Timeline Container */}
-          <div ref={timelineRef} className="relative">
-            {/* Background Effects */}
-            <div className="absolute inset-0 pointer-events-none">
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.1, 0.3, 0.1],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
-              />
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.1, 0.2, 0.1],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2,
-                }}
-                className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
-              />
-            </div>
-
-            {/* Timeline Controls */}
-            <div className="flex justify-center items-center gap-4 mb-12">
-              <motion.button
-                onClick={() => navigateTimeline('prev')}
-                whileHover={{ scale: 1.1, backgroundColor: '#8b5cf6' }}
-                whileTap={{ scale: 0.9 }}
-                className="w-12 h-12 bg-white/80 backdrop-blur-xl border border-purple-200 rounded-full flex items-center justify-center text-purple-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
-              >
-                <ChevronLeft size={20} />
-              </motion.button>
-              
-              <motion.button
-                onClick={() => setIsPlaying(!isPlaying)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-700 rounded-full flex items-center justify-center text-white shadow-xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300"
-              >
-                {isPlaying ? <Pause size={24} /> : <Play size={24} />}
-              </motion.button>
-              
-              <motion.button
-                onClick={() => navigateTimeline('next')}
-                whileHover={{ scale: 1.1, backgroundColor: '#8b5cf6' }}
-                whileTap={{ scale: 0.9 }}
-                className="w-12 h-12 bg-white/80 backdrop-blur-xl border border-purple-200 rounded-full flex items-center justify-center text-purple-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
-              >
-                <ChevronRight size={20} />
-              </motion.button>
-            </div>
-
-            {/* Main Timeline */}
-            <div className="relative bg-white/60 backdrop-blur-xl rounded-3xl border border-purple-100 p-8 shadow-2xl shadow-purple-500/10">
-              {/* Progress Bar */}
-              <div className="relative mb-12">
-                <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-full" />
-                <motion.div
-                  className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-full shadow-lg shadow-purple-500/50"
-                  initial={{ width: "0%" }}
-                  animate={{ 
-                    width: `${((activeStep + 1) / developmentProcess.length) * 100}%`,
-                  }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                />
-                
-                {/* Animated Particles */}
-                <motion.div
-                  className="absolute top-1/2 h-2 w-2 bg-white rounded-full shadow-lg border-2 border-purple-500"
-                  animate={{
-                    left: `${((activeStep + 1) / developmentProcess.length) * 100}%`,
-                    scale: [1, 1.5, 1],
-                  }}
-                  transition={{ 
-                    left: { duration: 1, ease: "easeInOut" },
-                    scale: { duration: 2, repeat: Infinity }
-                  }}
-                  style={{ transform: 'translateX(-50%) translateY(-50%)' }}
-                />
-              </div>
-
-              {/* Timeline Steps Navigation */}
-              <div className="flex justify-between items-center mb-12 relative">
-                {developmentProcess.map((step, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => setActiveStep(index)}
-                    className="group relative flex flex-col items-center"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {/* Step Circle */}
-                    <motion.div
-                      className={`relative w-16 h-16 rounded-full border-4 transition-all duration-500 ${
-                        index <= activeStep 
-                          ? 'border-purple-500 bg-gradient-to-br from-purple-500 to-purple-600' 
-                          : 'border-gray-300 bg-white'
-                      }`}
-                      animate={{
-                        scale: index === activeStep ? [1, 1.2, 1] : 1,
-                        boxShadow: index === activeStep 
-                          ? ["0 0 0 0 rgba(139, 92, 246, 0.7)", "0 0 0 20px rgba(139, 92, 246, 0)", "0 0 0 0 rgba(139, 92, 246, 0.7)"]
-                          : "0 0 0 0 rgba(139, 92, 246, 0)"
-                      }}
-                      transition={{ 
-                        scale: { duration: 3, repeat: Infinity },
-                        boxShadow: { duration: 3, repeat: Infinity }
-                      }}
-                    >
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <motion.div
-                          animate={{ rotate: index === activeStep ? 360 : 0 }}
-                          transition={{ duration: 3, repeat: index === activeStep ? Infinity : 0, ease: "linear" }}
-                        >
-                          <motion.div
-                            className={`w-12 h-12 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg`}
-                            animate={{ rotate: [0, 5, -5, 0] }}
-                            transition={{ duration: 6, repeat: Infinity }}
-                          >
-                            {React.createElement(developmentProcess[activeStep].icon, { size: 24, className: "text-white" })}
-                          </motion.div>
-                        </motion.div>
-                      </div>
-                      
-                      {/* Completion Badge */}
-                      {index < activeStep && (
-                        <motion.div
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"
-                        >
-                          <CheckCircle size={16} className="text-white" />
-                        </motion.div>
-                      )}
-                    </motion.div>
-                    
-                    {/* Step Number */}
-                    <motion.div
-                      className={`mt-3 text-sm font-bold transition-colors duration-300 ${
-                        index <= activeStep ? 'text-purple-600' : 'text-gray-400'
-                      }`}
-                      animate={{ 
-                        scale: index === activeStep ? [1, 1.1, 1] : 1 
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    >
-                      {step.step}
-                    </motion.div>
-                  </motion.button>
-                ))}
-              </div>
-
-              {/* Active Step Content */}
-              <motion.div
-                key={activeStep}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -50, scale: 0.9 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative"
-              >
-                {/* Content Background */}
-                <div className="relative bg-gradient-to-br from-white via-purple-50/50 to-white rounded-2xl border border-purple-100 p-6 shadow-xl">
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${developmentProcess[activeStep].color} opacity-5 rounded-2xl`}
-                    animate={{
-                      opacity: [0.05, 0.1, 0.05],
-                    }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                  />
-                  
-                  <div className="relative grid md:grid-cols-3 gap-6 items-start">
-                    {/* Left Column - Main Content */}
-                    <div className="md:col-span-2 space-y-4">
-                      <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                      >
-                        <div className="flex items-center gap-4 mb-4">
-                          <motion.div
-                            className={`w-12 h-12 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg`}
-                            animate={{ rotate: [0, 5, -5, 0] }}
-                            transition={{ duration: 6, repeat: Infinity }}
-                          >
-                            {React.createElement(developmentProcess[activeStep].icon, { size: 24, className: "text-white" })}
-                          </motion.div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-gray-900">{developmentProcess[activeStep].title}</h3>
-                            <div className="flex items-center gap-2 text-purple-600 font-semibold">
-                              <Clock size={16} />
-                              <span>{developmentProcess[activeStep].duration}</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <p className="text-gray-600 text-lg leading-relaxed">
-                          {developmentProcess[activeStep].description}
-                        </p>
-                      </motion.div>
-                      
-                      {/* Tools */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.6 }}
-                        className="space-y-3"
-                      >
-                        <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                          <Settings size={18} className="text-purple-600" />
-                          Strumenti & Tecnologie
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {developmentProcess[activeStep].tools.map((tool, idx) => (
-                            <motion.span
-                              key={idx}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: 0.6 + idx * 0.1, duration: 0.4 }}
-                              whileHover={{ scale: 1.05, y: -2 }}
-                              className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-sm rounded-full font-medium shadow-md cursor-pointer`}
-                            >
-                              {tool}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    </div>
-                    
-                    {/* Right Column - Tools & Stats */}
-                    <motion.div
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3, duration: 0.6 }}
-                      className="space-y-6"
-                    >
-                      {/* Tools Section */}
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-purple-100 shadow-lg">
-                        <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                          <Settings size={18} className="text-purple-600" />
-                          Strumenti & Tecnologie
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {developmentProcess[activeStep].tools.map((tool, idx) => (
-                            <motion.span
-                              key={idx}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: 0.7 + idx * 0.1, duration: 0.4 }}
-                              whileHover={{ scale: 1.05, y: -2 }}
-                              className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-sm rounded-full font-medium shadow-md cursor-pointer`}
-                            >
-                              {tool}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      {/* Progress Indicators */}
-                      <div className="space-y-4">
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.5, duration: 0.6 }}
-                          className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-purple-100"
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm font-semibold text-gray-700">Progresso Fase</span>
-                            <span className="text-sm font-bold text-purple-600">{Math.round(((activeStep + 1) / developmentProcess.length) * 100)}%</span>
-                          </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <motion.div
-                              className={`h-2 bg-gradient-to-r ${developmentProcess[activeStep].color} rounded-full`}
-                              initial={{ width: "0%" }}
-                              animate={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
-                              transition={{ duration: 1, ease: "easeInOut" }}
-                            />
-                          </div>
-                        </motion.div>
-                        
-                        
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-              
-              {/* Navigation Dots */}
-              <div className="flex justify-center items-center gap-3 mt-8">
-                {developmentProcess.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => setActiveStep(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === activeStep 
-                        ? 'bg-purple-600 scale-125' 
-                        : 'bg-gray-300 hover:bg-purple-300'
-                    }`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    animate={{
-                      scale: index === activeStep ? [1.25, 1.4, 1.25] : 1,
-                    }}
-                    transition={{
-                      scale: index === activeStep 
-                        ? { duration: 2, repeat: Infinity }
-                        : { duration: 0.2 }
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+      {/* Process Section */}
+      <ProcessSection />
 
       {/* CTA Section */}
       <motion.section className="relative py-16 px-4">
@@ -724,6 +408,7 @@ const Services = () => {
               }}
               whileTap={{ scale: 0.95 }}
               className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg"
+              onClick={() => window.open('https://wa.me/3391797616?text=Sono%20interessato%20ad%20un%20preventivo%20per%20il%20vostro%20servizio', '_blank')}
             >
               <span className="relative z-10">Richiedi Preventivo</span>
               <motion.div
@@ -741,7 +426,309 @@ const Services = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Modal */}
+      <ServiceModal
+        service={selectedService}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedService(null);
+        }}
+      />
     </div>
+  );
+};
+
+interface ProcessSectionProps {}
+
+const ProcessSection: FC<ProcessSectionProps> = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const developmentProcess: ProcessStep[] = [
+    {
+      step: "01",
+      title: "Analisi & Strategia",
+      description: "Analizziamo le tue esigenze e definiamo una strategia chiara per il tuo progetto digitale.",
+      duration: "1-2 settimane",
+      tools: ["Analytics", "Research", "Strategy"],
+      color: "from-blue-500 to-blue-600",
+      icon: Search,
+      visualExample: {
+        title: "Report Strategico",
+        icon: FileText,
+        description: "Analisi dettagliata e piano d'azione"
+      }
+    },
+    {
+      step: "02", 
+      title: "Design & UX",
+      description: "Creiamo un design accattivante e un'esperienza utente ottimale per i tuoi visitatori.",
+      duration: "2-3 settimane",
+      tools: ["Figma", "Adobe XD", "Sketch"],
+      color: "from-purple-500 to-purple-600",
+      icon: Palette,
+      visualExample: {
+        title: "Design System",
+        icon: Monitor,
+        description: "UI/UX design completo e interattivo"
+      }
+    },
+    {
+      step: "03",
+      title: "Sviluppo",
+      description: "Sviluppiamo il tuo progetto utilizzando le tecnologie più moderne e performanti.",
+      duration: "3-4 settimane", 
+      tools: ["React", "Next.js", "Node.js"],
+      color: "from-green-500 to-green-600",
+      icon: Code,
+      visualExample: {
+        title: "Codice Sorgente",
+        icon: Code,
+        description: "Sviluppo frontend e backend"
+      }
+    },
+    {
+      step: "04",
+      title: "Testing",
+      description: "Testiamo ogni funzionalità per garantire qualità e performance ottimali.",
+      duration: "1 settimana",
+      tools: ["Jest", "Cypress", "Lighthouse"],
+      color: "from-orange-500 to-orange-600", 
+      icon: TestTube,
+      visualExample: {
+        title: "Test Report",
+        icon: TestTube,
+        description: "Report completo dei test eseguiti"
+      }
+    },
+    {
+      step: "05",
+      title: "Launch",
+      description: "Lanciamo il tuo progetto e monitoriamo le performance per garantire il successo.",
+      duration: "1 settimana",
+      tools: ["Vercel", "AWS", "Analytics"],
+      color: "from-pink-500 to-pink-600",
+      icon: Rocket,
+      visualExample: {
+        title: "Deployment",
+        icon: Globe,
+        description: "Sito live e monitoraggio attivo"
+      }
+    }
+  ];
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | undefined;
+    if (isPlaying) {
+      interval = setInterval(() => {
+        setActiveStep((prev) => (prev + 1) % developmentProcess.length);
+      }, 4000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isPlaying, developmentProcess.length]);
+
+  const navigateTimeline = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') {
+      setActiveStep((prev) => prev === 0 ? developmentProcess.length - 1 : prev - 1);
+    } else {
+      setActiveStep((prev) => (prev + 1) % developmentProcess.length);
+    }
+  };
+
+  return (
+    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+            Il Nostro Processo
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Un approccio strutturato per trasformare le tue idee in soluzioni digitali di successo
+          </p>
+        </div>
+
+        {/* Controls */}
+        <div className="flex justify-center items-center gap-4 mb-8">
+          <button
+            onClick={() => navigateTimeline('prev')}
+            className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
+          >
+            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+          </button>
+          
+          <button
+            onClick={() => navigateTimeline('next')}
+            className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+
+        {/* Main Container */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg">
+          {/* Progress Bar */}
+          <div className="relative mb-8">
+            <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-700 ease-out"
+                style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
+              />
+            </div>
+            <div className="flex justify-between mt-2">
+              {developmentProcess.map((_, index) => (
+                <div
+                  key={index}
+                  className={`text-xs font-medium transition-colors duration-300 ${
+                    index <= activeStep ? 'text-purple-600' : 'text-gray-400'
+                  }`}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Step Navigation */}
+          <div className="flex justify-between items-center mb-8 overflow-x-auto pb-2">
+            {developmentProcess.map((step, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className="flex flex-col items-center min-w-0 flex-shrink-0 group"
+              >
+                <div className={`relative w-12 h-12 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                  index === activeStep 
+                    ? 'border-purple-500 bg-purple-500 shadow-lg' 
+                    : index < activeStep
+                    ? 'border-green-500 bg-green-500'
+                    : 'border-gray-300 bg-white hover:border-purple-300'
+                }`}>
+                  {index < activeStep ? (
+                    <CheckCircle size={20} className="text-white" />
+                  ) : (
+                    <step.icon 
+                      size={18} 
+                      className={`${
+                        index === activeStep ? 'text-white' : 
+                        index < activeStep ? 'text-white' : 'text-gray-500'
+                      }`} 
+                    />
+                  )}
+                </div>
+                <div className={`mt-2 text-xs font-semibold transition-colors duration-300 ${
+                  index <= activeStep ? 'text-purple-600' : 'text-gray-400'
+                }`}>
+                  {step.step}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Active Step Content */}
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            {/* Left Column - Main Content */}
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className={`w-14 h-14 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+                  {React.createElement(developmentProcess[activeStep].icon, { size: 24, className: "text-white" })}
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {developmentProcess[activeStep].title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-purple-600 font-medium mb-4">
+                    <Clock size={16} />
+                    <span>{developmentProcess[activeStep].duration}</span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    {developmentProcess[activeStep].description}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Tools */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-gray-900 flex items-center gap-2">
+                  <Settings size={18} className="text-purple-600" />
+                  Strumenti & Tecnologie
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {developmentProcess[activeStep].tools.map((tool: string, idx: number) => (
+                    <span
+                      key={idx}
+                      className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-sm rounded-full font-medium shadow-sm`}
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Progress Info */}
+            <div className="space-y-6">
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-semibold text-gray-900">Progresso Generale</span>
+                  <span className="text-lg font-bold text-purple-600">{Math.round(((activeStep + 1) / developmentProcess.length) * 100)}%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    className={`h-3 bg-gradient-to-r ${developmentProcess[activeStep].color} rounded-full transition-all duration-700`}
+                    style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
+                  />
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                <h4 className="font-semibold text-gray-900 mb-4">Fase Attuale</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Step</span>
+                    <span className="font-medium">{developmentProcess[activeStep].step}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Durata</span>
+                    <span className="font-medium">{developmentProcess[activeStep].duration}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Tools</span>
+                    <span className="font-medium">{developmentProcess[activeStep].tools.length}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Navigation Dots */}
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {developmentProcess.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeStep 
+                    ? 'bg-purple-600 w-6' 
+                    : 'bg-gray-300 hover:bg-purple-300'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
