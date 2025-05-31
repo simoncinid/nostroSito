@@ -415,25 +415,72 @@ const Portfolio = () => {
             transition={{ duration: 1 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
-            {categories.map((category, index) => (
-              <motion.button
-                key={category.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                    : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
-                }`}
-              >
-                <category.icon size={18} />
-                {category.name}
-              </motion.button>
-            ))}
+            <div className="w-full grid grid-cols-1 md:flex md:flex-wrap justify-center gap-4">
+              {/* Dividi i filtri in due righe per la versione mobile (3 sopra, 2 sotto) */}
+              <div className="grid grid-cols-3 gap-2 mb-2 md:hidden">
+                {categories.slice(0, 3).map((category, index) => (
+                  <motion.button
+                    key={category.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                      selectedCategory === category.id
+                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                        : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
+                    }`}
+                  >
+                    <category.icon size={16} />
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{category.name}</span>
+                  </motion.button>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-2 md:hidden">
+                {categories.slice(3).map((category, index) => (
+                  <motion.button
+                    key={category.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: (index + 3) * 0.1, duration: 0.5 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                      selectedCategory === category.id
+                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                        : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
+                    }`}
+                  >
+                    <category.icon size={16} />
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{category.name}</span>
+                  </motion.button>
+                ))}
+              </div>
+              
+              {/* Versione desktop (invariata) */}
+              {categories.map((category, index) => (
+                <motion.button
+                  key={`desktop-${category.id}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                    selectedCategory === category.id
+                      ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                      : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
+                  }`}
+                >
+                  <category.icon size={18} />
+                  {category.name}
+                </motion.button>
+              ))}
+            </div>
           </motion.div>
 
           {/* Projects Grid */}
@@ -486,8 +533,8 @@ const Portfolio = () => {
                       )}
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* Action Buttons - Sempre visibili per mobile */}
+                    <div className="absolute bottom-4 right-4 flex gap-2">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
