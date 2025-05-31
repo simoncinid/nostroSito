@@ -359,7 +359,7 @@ const Portfolio = () => {
       <motion.section
         ref={heroRef}
         style={{ y, opacity }}
-        className="relative min-h-screen flex items-center justify-center px-4 pt-20"
+        className="relative min-h-[50vh] md:min-h-screen flex items-center justify-center px-4 pt-12 md:pt-20"
       >
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
@@ -371,12 +371,13 @@ const Portfolio = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 1 }}
-              className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-8xl font-bold mb-4 md:mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
                 Progetti che
               </span>
-              <br />
+              <br className="hidden md:block" />
+              <span className="md:hidden"> </span>
               <motion.span
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -392,11 +393,11 @@ const Portfolio = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 1 }}
-              className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
+              className="text-base md:text-2xl text-gray-700 mb-6 md:mb-12 max-w-4xl mx-auto leading-relaxed"
             >
               Scopri i <span className="text-purple-700 font-semibold">progetti innovativi</span> che abbiamo realizzato per i nostri clienti. 
-              Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
-              progettata per superare le aspettative e generare risultati concreti.
+              <span className="hidden md:inline"> Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
+              progettata per superare le aspettative e generare risultati concreti.</span>
             </motion.p>
           </motion.div>
         </div>
@@ -405,7 +406,7 @@ const Portfolio = () => {
       {/* Portfolio Section */}
       <motion.section
         ref={portfolioRef}
-        className="relative py-8 px-4"
+        className="relative py-4 md:py-8 px-4"
       >
         <div className="max-w-7xl mx-auto">
           {/* Category Filter */}
