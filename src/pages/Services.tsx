@@ -15,8 +15,8 @@ import {
   Search, 
   TestTube, 
   Globe,
-  Bot,
-  Zap,
+  Bot, 
+  Zap, 
   ArrowRight,
   FileText,
   Monitor,
@@ -52,58 +52,58 @@ interface ProcessStep {
 }
 
 const mainServices: Service[] = [
-  {
-    id: 0,
-    icon: Code,
-    title: "Sviluppo Web React",
-    subtitle: "Siti web da zero, zero template",
-    description: "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
-    features: [
-      "React 18 + TypeScript",
-      "Design responsive e mobile-first",
-      "Performance ottimizzate (Core Web Vitals)",
-      "SEO tecnico avanzato",
-      "Architettura scalabile",
-      "Testing automatizzato"
-    ],
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    gradient: "from-blue-500 to-purple-600"
-  },
-  {
-    id: 1,
-    icon: Bot,
-    title: "Soluzioni AI",
-    subtitle: "Intelligenza artificiale per il business",
-    description: "Creiamo chatbot intelligenti, assistenti virtuali e sistemi di automazione basati su AI per migliorare l'efficienza aziendale e l'esperienza cliente.",
-    features: [
-      "Chatbot per lead generation",
-      "Assistenti virtuali personalizzati",
-      "Analisi predittiva dei dati",
-      "Automazione customer service",
-      "Integrazione CRM/ERP",
-      "Machine Learning custom"
-    ],
-    technologies: ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"],
-    gradient: "from-purple-500 to-pink-600"
-  },
-  {
-    id: 2,
-    icon: Zap,
-    title: "Automazione Processi",
-    subtitle: "Efficienza e produttività massime",
-    description: "Automatizziamo i processi aziendali ripetitivi, dall'inserimento dati alla generazione di documenti, liberando tempo prezioso per attività strategiche.",
-    features: [
-      "Automazione inserimento dati",
-      "Generazione documenti automatica",
-      "Workflow personalizzati",
-      "Integrazione sistemi esistenti",
-      "Dashboard di monitoraggio",
-      "ROI tracking e analytics"
-    ],
-    technologies: ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"],
-    gradient: "from-green-500 to-blue-600"
-  }
-];
+    {
+      id: 0,
+      icon: Code,
+      title: "Sviluppo Web React",
+      subtitle: "Siti web da zero, zero template",
+      description: "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
+      features: [
+        "React 18 + TypeScript",
+        "Design responsive e mobile-first",
+        "Performance ottimizzate (Core Web Vitals)",
+        "SEO tecnico avanzato",
+        "Architettura scalabile",
+        "Testing automatizzato"
+      ],
+      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+      gradient: "from-blue-500 to-purple-600"
+    },
+    {
+      id: 1,
+      icon: Bot,
+      title: "Soluzioni AI",
+      subtitle: "Intelligenza artificiale per il business",
+      description: "Creiamo chatbot intelligenti, assistenti virtuali e sistemi di automazione basati su AI per migliorare l'efficienza aziendale e l'esperienza cliente.",
+      features: [
+        "Chatbot per lead generation",
+        "Assistenti virtuali personalizzati",
+        "Analisi predittiva dei dati",
+        "Automazione customer service",
+        "Integrazione CRM/ERP",
+        "Machine Learning custom"
+      ],
+      technologies: ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"],
+      gradient: "from-purple-500 to-pink-600"
+    },
+    {
+      id: 2,
+      icon: Zap,
+      title: "Automazione Processi",
+      subtitle: "Efficienza e produttività massime",
+      description: "Automatizziamo i processi aziendali ripetitivi, dall'inserimento dati alla generazione di documenti, liberando tempo prezioso per attività strategiche.",
+      features: [
+        "Automazione inserimento dati",
+        "Generazione documenti automatica",
+        "Workflow personalizzati",
+        "Integrazione sistemi esistenti",
+        "Dashboard di monitoraggio",
+        "ROI tracking e analytics"
+      ],
+      technologies: ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"],
+      gradient: "from-green-500 to-blue-600"
+    }
+  ];
 
 interface ServiceModalProps {
   service: Service | null;
@@ -327,25 +327,25 @@ const Services = () => {
                     {/* Descrizione e bottone visibili solo su desktop */}
                     <div className="hidden md:block">
                       <p className="text-gray-600 leading-relaxed text-base">{service.description}</p>
-                      <div className="mt-8 w-full">
-                        <h4 className="font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
-                        <ul className="space-y-2">
-                          {service.features.slice(0, 3).map((feature, idx) => (
-                            <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
-                              <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
+                  <div className="mt-8 w-full">
+                    <h4 className="font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
+                    <ul className="space-y-2">
+                      {service.features.slice(0, 3).map((feature, idx) => (
+                        <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                         <div className="mt-6">
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                          >
-                            Scopri di più
-                            <ArrowRight size={16} />
-                          </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      Scopri di più
+                      <ArrowRight size={16} />
+                    </motion.button>
                         </div>
                       </div>
                     </div>

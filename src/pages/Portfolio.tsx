@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { 
   ExternalLink, 
@@ -10,10 +10,9 @@ import {
   Zap,
   Database,
   Sparkles,
-  Layers,
-  Globe,
-  TrendingUp
+  Layers
 } from 'lucide-react';
+import React from 'react';
 
 interface Project {
   id: number;
@@ -52,17 +51,6 @@ const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-  const portfolioInView = useInView(portfolioRef, { once: true, amount: 0.2 });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -356,52 +344,31 @@ const Portfolio = () => {
       </div>
 
       {/* Hero Section */}
-      <motion.section
+      <section
         ref={heroRef}
-        style={{ y, opacity }}
-        className="relative min-h-[50vh] md:min-h-screen flex items-center justify-center px-4 pt-12 md:pt-20"
+        className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center px-4 pt-20 md:pt-20"
       >
         <div className="max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="text-4xl md:text-8xl font-bold mb-4 md:mb-8 leading-tight"
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent leading-tight">
+            <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+              Progetti che
+            </span>
+            <br className="hidden md:block" />
+            <span className="md:hidden"> </span>
+            <span
+              className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
+              style={{ display: 'inline-block' }}
             >
-              <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                Progetti che
-              </span>
-              <br className="hidden md:block" />
-              <span className="md:hidden"> </span>
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
-              >
-                Fanno la Differenza
-              </motion.span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6, duration: 1 }}
-              className="text-base md:text-2xl text-gray-700 mb-6 md:mb-12 max-w-4xl mx-auto leading-relaxed"
-            >
-              Scopri i <span className="text-purple-700 font-semibold">progetti innovativi</span> che abbiamo realizzato per i nostri clienti. 
-              <span className="hidden md:inline"> Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
-              progettata per superare le aspettative e generare risultati concreti.</span>
-            </motion.p>
-          </motion.div>
+              Fanno la Differenza
+            </span>
+          </h1>
+          <p className="text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Scopri i <span className="text-purple-700 font-semibold">progetti innovativi</span> che abbiamo realizzato per i nostri clienti. 
+            <span className="hidden md:inline"> Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
+            progettata per superare le aspettative e generare risultati concreti.</span>
+          </p>
         </div>
-      </motion.section>
+      </section>
 
       {/* Portfolio Section */}
       <motion.section
@@ -410,44 +377,28 @@ const Portfolio = () => {
       >
         <div className="max-w-7xl mx-auto">
           {/* Category Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={portfolioInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             <div className="w-full grid grid-cols-1 md:flex md:flex-wrap justify-center gap-4">
-              {/* Dividi i filtri in due righe per la versione mobile (3 sopra, 2 sotto) */}
-              <div className="grid grid-cols-3 gap-2 mb-2 md:hidden">
-                {categories.slice(0, 3).map((category, index) => (
-                  <motion.button
-                    key={category.id}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                      selectedCategory === category.id
-                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                        : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
-                    }`}
-                  >
-                    <category.icon size={16} />
-                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{category.name}</span>
-                  </motion.button>
-                ))}
+              {/* Mobile: 'Tutti i Progetti' sopra, largo il doppio, gli altri 2x2 sotto */}
+              <div className="grid grid-cols-2 gap-2 mb-2 md:hidden">
+                <button
+                  key={categories[0].id}
+                  onClick={() => setSelectedCategory(categories[0].id)}
+                  className={`col-span-2 flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    selectedCategory === categories[0].id
+                      ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                      : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
+                  }`}
+                  style={{ minWidth: 0 }}
+                >
+                  {React.createElement(categories[0].icon, { size: 16 })}
+                  <span className="whitespace-nowrap overflow-hidden text-ellipsis">{categories[0].name}</span>
+                </button>
               </div>
               <div className="grid grid-cols-2 gap-2 md:hidden">
-                {categories.slice(3).map((category, index) => (
-                  <motion.button
+                {categories.slice(1).map(category => (
+                  <button
                     key={category.id}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: (index + 3) * 0.1, duration: 0.5 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                       selectedCategory === category.id
@@ -455,21 +406,16 @@ const Portfolio = () => {
                         : 'bg-white/80 backdrop-blur-lg border border-purple-200 text-gray-700 hover:border-purple-300 hover:shadow-md'
                     }`}
                   >
-                    <category.icon size={16} />
+                    {React.createElement(category.icon, { size: 16 })}
                     <span className="whitespace-nowrap overflow-hidden text-ellipsis">{category.name}</span>
-                  </motion.button>
+                  </button>
                 ))}
               </div>
               
               {/* Versione desktop (invariata) */}
-              {categories.map((category, index) => (
-                <motion.button
+              {categories.map(category => (
+                <button
                   key={`desktop-${category.id}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={portfolioInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedCategory(category.id)}
                   className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                     selectedCategory === category.id
@@ -479,15 +425,15 @@ const Portfolio = () => {
                 >
                   <category.icon size={18} />
                   {category.name}
-                </motion.button>
+                </button>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Projects Grid */}
           <motion.div
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
           >
             <AnimatePresence>
               {filteredProjects.map((project, index) => (
@@ -499,50 +445,39 @@ const Portfolio = () => {
                   exit={{ opacity: 0, y: 50 }}
                   transition={{ delay: index * 0.1, duration: 0.8 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-3xl overflow-hidden hover:border-purple-300 hover:shadow-lg transition-all duration-500"
+                  className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl overflow-hidden hover:border-purple-300 hover:shadow-lg transition-all duration-500"
                 >
                   {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-32 md:h-48 overflow-hidden">
                     <motion.img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <div className={`flex items-center gap-2 px-3 py-1 bg-gradient-to-r ${project.gradient} rounded-full text-white text-sm font-semibold`}>
-                        <project.icon size={14} />
-                        {categories.find(cat => cat.id === project.category)?.name}
+                    <div className="absolute top-2 left-2 md:top-4 md:left-4">
+                      <div className={`flex items-center gap-2 px-2 py-0.5 md:px-3 md:py-1 bg-gradient-to-r ${project.gradient} rounded-full text-white font-semibold`}>
+                        <project.icon size={12} className="md:hidden" />
+                        <project.icon size={14} className="hidden md:inline" />
+                        <span
+                          className="truncate"
+                          style={{ fontSize: 'clamp(0.75rem, 2.5vw, 1rem)', maxWidth: '110px' }}
+                        >
+                          {categories.find(cat => cat.id === project.category)?.name}
+                        </span>
                       </div>
                     </div>
-
-                    {/* Special Badges */}
-                    <div className="absolute top-4 right-4 flex flex-col gap-2">
-                      {project.isInternational && (
-                        <div className="flex items-center gap-1 px-2 py-1 bg-blue-500 rounded-full text-white text-xs font-semibold">
-                          <Globe size={12} />
-                          <span>International</span>
-                        </div>
-                      )}
-                      {project.isHighTraffic && (
-                        <div className="flex items-center gap-1 px-2 py-1 bg-green-500 rounded-full text-white text-xs font-semibold">
-                          <TrendingUp size={12} />
-                          <span>40k/month</span>
-                        </div>
-                      )}
-                    </div>
-
                     {/* Action Buttons - Sempre visibili per mobile */}
-                    <div className="absolute bottom-4 right-4 flex gap-2">
+                    <div className="absolute bottom-2 right-2 flex gap-2 md:bottom-4 md:right-4">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setSelectedProject(project)}
-                        className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
+                        className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
                       >
-                        <Eye size={18} />
+                        <Eye size={16} className="md:hidden" />
+                        <Eye size={18} className="hidden md:inline" />
                       </motion.button>
                       {project.liveUrl && (
                         <motion.a
@@ -551,44 +486,47 @@ const Portfolio = () => {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
+                          className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
                         >
-                          <ExternalLink size={18} />
+                          <ExternalLink size={16} className="md:hidden" />
+                          <ExternalLink size={18} className="hidden md:inline" />
                         </motion.a>
                       )}
                     </div>
                   </div>
-
                   {/* Project Info */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors duration-300">
+                  <div className="p-3 md:p-6 flex flex-col items-start justify-between">
+                    <h3
+                      className="font-bold text-gray-900 mb-0 md:mb-2 group-hover:text-purple-700 transition-colors duration-300 truncate w-full"
+                      style={{ fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)' }}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-medium">
-                          +{project.technologies.length - 3}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Project Meta */}
-                    <div className="flex justify-between items-center text-sm text-gray-500">
-                      <span>{project.client}</span>
-                      <span>{project.year}</span>
+                    {/* Su mobile non mostro descrizione, tecnologie e meta */}
+                    {/* Solo su desktop */}
+                    <div className="hidden md:block w-full">
+                      <p className="text-gray-600 mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-2 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-medium">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex justify-between items-center text-sm text-gray-500">
+                        <span>{project.client}</span>
+                        <span>{project.year}</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -630,22 +568,6 @@ const Portfolio = () => {
                 >
                   <X size={20} />
                 </button>
-
-                {/* Special Badges in Modal */}
-                <div className="absolute top-4 left-4 flex flex-col gap-2">
-                  {selectedProject.isInternational && (
-                    <div className="flex items-center gap-2 px-3 py-1 bg-blue-500 rounded-full text-white text-sm font-semibold">
-                      <Globe size={16} />
-                      <span>Cliente Internazionale</span>
-                    </div>
-                  )}
-                  {selectedProject.isHighTraffic && (
-                    <div className="flex items-center gap-2 px-3 py-1 bg-green-500 rounded-full text-white text-sm font-semibold">
-                      <TrendingUp size={16} />
-                      <span>40k Accessi Mensili</span>
-                    </div>
-                  )}
-                </div>
 
                 <div className="absolute bottom-6 left-6 text-white">
                   <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
