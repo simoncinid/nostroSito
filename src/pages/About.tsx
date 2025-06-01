@@ -15,16 +15,7 @@ const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.9]);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -101,10 +92,9 @@ const About = () => {
       </div>
 
       {/* Hero Section */}
-      <motion.section
+      <section
         ref={heroRef}
-        style={{ y, opacity, scale, willChange: "transform, opacity" }}
-        className="relative min-h-screen flex items-center justify-center px-4 pt-20"
+        className="relative h-[600px] flex items-center justify-center px-4 pt-16 mb-8 z-20"
       >
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
@@ -112,8 +102,6 @@ const About = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-
-
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -143,7 +131,7 @@ const About = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 1 }}
-              className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
               Siamo tre professionisti appassionati che combinano <span className="text-purple-700 font-semibold">creatività</span>, 
               <span className="text-purple-700 font-semibold"> tecnologia</span> e <span className="text-purple-700 font-semibold">strategia</span> 
@@ -151,12 +139,12 @@ const About = () => {
             </motion.p>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Team Members Section */}
       <motion.section
         ref={teamRef}
-        className="relative py-16 px-4"
+        className="relative py-8 px-4 -mt-20 z-10"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

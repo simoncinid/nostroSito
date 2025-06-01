@@ -199,16 +199,8 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const servicesInView = useInView(servicesRef, { once: true, amount: 0.2 });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -247,10 +239,9 @@ const Services = () => {
       </div>
 
       {/* Hero Section */}
-      <motion.section
+      <section
         ref={heroRef}
-        style={{ y, opacity }}
-        className="relative min-h-screen flex items-center justify-center px-4 pt-20"
+        className="relative h-[500px] flex items-center justify-center px-4 pt-16 mb-6 z-20"
       >
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
@@ -283,7 +274,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 1 }}
-              className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
               Sviluppiamo <span className="text-purple-700 font-semibold">tecnologie all'avanguardia</span> per 
               trasformare la tua azienda. Dalla creazione di siti web React alle 
@@ -291,12 +282,12 @@ const Services = () => {
             </motion.p>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Main Services Section */}
       <motion.section
         ref={servicesRef}
-        className="relative pb-12 px-4"
+        className="relative pb-12 px-4 -mt-12 z-10"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div

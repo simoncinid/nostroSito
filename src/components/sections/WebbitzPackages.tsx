@@ -703,7 +703,7 @@ const WebbitzPackages = () => {
   ]
 
   return (
-    <section className="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <section className="py-12 pb-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1),transparent_50%)]"></div>
@@ -792,7 +792,7 @@ const WebbitzPackages = () => {
                 </div>
 
                 {/* Features - Nuova versione centrata con info popup */}
-                <div className="mb-0 text-center h-[180px] md:h-[350px] flex flex-col">
+                <div className="mb-0 text-center h-[140px] md:h-[280px] flex flex-col">
                   <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">Cosa Include:</h4>
                   <ul className="flex flex-col gap-2 md:gap-4 flex-1 px-0">
                     {pkg.features.map((feature, idx) => (
@@ -830,7 +830,7 @@ const WebbitzPackages = () => {
                 </div>
 
                 {/* CTA Button */}
-                <div className="mt-6 md:mt-12">
+                <div className="mt-2 md:mt-4">
                   <a
                     href={pkg.whatsappLink}
                     target="_blank"
