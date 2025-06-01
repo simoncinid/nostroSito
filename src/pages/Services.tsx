@@ -296,7 +296,7 @@ const Services = () => {
             transition={{ duration: 1 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
               Servizi Principali
             </h2>
           </motion.div>

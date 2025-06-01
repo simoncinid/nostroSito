@@ -4,7 +4,8 @@ import {
   Palette, 
   Users, 
   Brain, 
-  Rocket
+  Rocket,
+  X
 } from 'lucide-react';
 
 // Lazy load dei componenti pesanti
@@ -18,6 +19,8 @@ const About = () => {
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [selectedMember, setSelectedMember] = useState<null | typeof teamMembers[0]>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -147,10 +150,21 @@ const About = () => {
         className="relative py-8 px-4 -mt-20 z-10"
       >
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+              Il Team
+            </h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
               <Suspense key={member.name} fallback={<div>Loading...</div>}>
-                <TeamMemberCard member={member} />
+                <TeamMemberCard 
+                  member={member} 
+                  onClick={() => {
+                    setSelectedMember(member);
+                    setIsModalOpen(true);
+                  }}
+                />
               </Suspense>
             ))}
           </div>
@@ -205,6 +219,54 @@ const About = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Modale membro team (solo mobile) */}
+      {selectedMember && isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:hidden">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
+          <div className="relative w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
+            {/* Header con gradiente */}
+            <div className={`bg-gradient-to-r ${selectedMember.gradient} p-6 flex items-center justify-between`}>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <selectedMember.icon size={28} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">{selectedMember.name}</h3>
+                  <p className="text-white/80 text-sm">{selectedMember.role}</p>
+                </div>
+              </div>
+              <button onClick={() => setIsModalOpen(false)} className="text-white/80 hover:text-white">
+                <X size={24} />
+              </button>
+            </div>
+            {/* Contenuto */}
+            <div className="p-6 max-h-[60vh] overflow-y-auto">
+              <p className="text-gray-600 mb-4">{selectedMember.description}</p>
+              <h4 className="font-semibold text-gray-900 mb-2">Competenze:</h4>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {selectedMember.skills.map((skill, idx) => (
+                  <span key={idx} className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">{skill}</span>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gray-900">{selectedMember.experience}</div>
+                  <div className="text-gray-600 text-sm">Esperienza</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gray-900">{selectedMember.projects}</div>
+                  <div className="text-gray-600 text-sm">Progetti</div>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-gray-600 text-sm font-medium">Specialità:</div>
+                <div className="text-gray-900 font-semibold">{selectedMember.specialty}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
