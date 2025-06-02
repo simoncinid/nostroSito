@@ -241,7 +241,7 @@ const Services = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-[500px] flex items-center justify-center px-4 pt-16 mb-6 z-20"
+        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
       >
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
@@ -253,7 +253,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 1 }}
-              className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
                 Soluzioni Digitali
@@ -407,12 +407,18 @@ const Services = () => {
                 initial={false}
               />
               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2"
-              >
-                <Rocket size={24} className="text-white" />
-              </motion.div>
+                className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100"
+                initial={{ x: "-100%" }}
+                whileHover={{
+                  x: "100%",
+                  transition: {
+                    duration: 1,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }
+                }}
+              />
             </motion.button>
           </motion.div>
         </div>

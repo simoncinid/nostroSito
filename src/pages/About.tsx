@@ -97,7 +97,7 @@ const About = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-[600px] flex items-center justify-center px-4 pt-16 mb-8 z-20"
+        className="relative h-[600px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-8 z-20"
       >
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
@@ -109,7 +109,7 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 1 }}
-              className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
                 Il Team che
@@ -202,19 +202,18 @@ const About = () => {
                 initial={false}
               />
               <motion.div
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                initial={{ x: -24, opacity: 0 }}
-                whileHover={{ 
-                  x: "calc(100% - 24px)",
-                  opacity: 1,
+                className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100"
+                initial={{ x: "-100%" }}
+                whileHover={{
+                  x: "100%",
                   transition: {
-                    duration: 0.5,
-                    ease: "easeInOut"
+                    duration: 1,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse"
                   }
                 }}
-              >
-                <Rocket size={24} className="text-white transform rotate-90" />
-              </motion.div>
+              />
             </motion.button>
           </motion.div>
         </div>

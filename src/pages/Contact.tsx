@@ -8,6 +8,7 @@ interface FormData {
   phone: string;
   company: string;
   service: string;
+  otherService: string;
   budget: string;
   message: string;
   timeline: string;
@@ -32,6 +33,7 @@ const Contact = () => {
     phone: '',
     company: '',
     service: '',
+    otherService: '',
     budget: '',
     message: '',
     timeline: ''
@@ -51,6 +53,8 @@ const Contact = () => {
   ]);
   const [chatInput, setChatInput] = useState('');
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const formInView = useInView(formRef, { once: true, amount: 0.2 });
 
@@ -64,10 +68,8 @@ const Contact = () => {
   ];
 
   const budgetRanges = [
-    { id: '5k-10k', name: '€5.000 - €10.000' },
-    { id: '10k-25k', name: '€10.000 - €25.000' },
-    { id: '25k-50k', name: '€25.000 - €50.000' },
-    { id: '50k+', name: '€50.000+' },
+    { id: '1k-5k', name: '€1.000 - €5.000' },
+    { id: '5k+', name: '€5.000+' },
     { id: 'discuss', name: 'Da discutere' }
   ];
 
@@ -109,12 +111,57 @@ const Contact = () => {
     }
   ];
 
+  const validateStep = (step: number): boolean => {
+    const newErrors: Record<string, string> = {};
+
+    switch (step) {
+      case 1:
+        if (!formData.name.trim()) {
+          newErrors.name = 'Il nome è obbligatorio';
+        }
+        if (!formData.email.trim()) {
+          newErrors.email = 'L\'email è obbligatoria';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+          newErrors.email = 'Inserisci un\'email valida';
+        }
+        break;
+      case 2:
+        if (!formData.service) {
+          newErrors.service = 'Seleziona un servizio';
+        } else if (formData.service === 'other' && !formData.otherService.trim()) {
+          newErrors.otherService = 'Specifica il servizio richiesto';
+        }
+        if (!formData.budget) {
+          newErrors.budget = 'Seleziona un budget';
+        }
+        break;
+      case 3:
+        if (!formData.message.trim()) {
+          newErrors.message = 'La descrizione del progetto è obbligatoria';
+        }
+        break;
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Rimuovi l'errore quando l'utente inizia a digitare
+    if (errors[field]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateStep(3)) return;
+
     setIsSubmitting(true);
     
     // Simulate API call
@@ -131,12 +178,14 @@ const Contact = () => {
         phone: '',
         company: '',
         service: '',
+        otherService: '',
         budget: '',
         message: '',
         timeline: ''
       });
       setCurrentStep(1);
       setSubmitStatus('idle');
+      setErrors({});
     }, 3000);
   };
 
@@ -166,7 +215,9 @@ const Contact = () => {
   };
 
   const nextStep = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
+    if (validateStep(currentStep)) {
+      if (currentStep < 3) setCurrentStep(currentStep + 1);
+    }
   };
 
   const prevStep = () => {
@@ -192,7 +243,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 1 }}
-              className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
                 Iniziamo
@@ -321,24 +372,34 @@ const Contact = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Nome *</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
+                          Nome *
+                          {errors.name && <span className="text-red-500 text-xs ml-2">{errors.name}</span>}
+                        </label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
+                          className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 text-xs md:text-base ${
+                            errors.name ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
+                          }`}
                           placeholder="Il tuo nome"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Email *</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
+                          Email *
+                          {errors.email && <span className="text-red-500 text-xs ml-2">{errors.email}</span>}
+                        </label>
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
+                          className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 text-xs md:text-base ${
+                            errors.email ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
+                          }`}
                           placeholder="la-tua-email@esempio.com"
                         />
                       </div>
@@ -348,7 +409,7 @@ const Contact = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
+                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-xs md:text-base"
                           placeholder="+39 123 456 7890"
                         />
                       </div>
@@ -358,7 +419,7 @@ const Contact = () => {
                           type="text"
                           value={formData.company}
                           onChange={(e) => handleInputChange('company', e.target.value)}
-                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 text-xs md:text-base"
+                          className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-xs md:text-base"
                           placeholder="Nome della tua azienda"
                         />
                       </div>
@@ -380,7 +441,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">Servizio Richiesto *</label>
+                      <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">
+                        Servizio Richiesto *
+                        {errors.service && <span className="text-red-500 text-xs ml-2">{errors.service}</span>}
+                      </label>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
                         {services.map((service) => (
                           <motion.button
@@ -393,18 +457,50 @@ const Contact = () => {
                               formData.service === service.id
                                 ? 'border-purple-500 bg-purple-50 text-purple-700'
                                 : 'border-purple-200 hover:border-purple-300'
-                            }`}
+                            } ${errors.service ? 'border-red-500' : ''}`}
                           >
                             <service.icon size={16} className="mb-1 md:mb-2" />
                             <div className="font-semibold text-xs md:text-sm">{service.name}</div>
                           </motion.button>
                         ))}
                       </div>
+                      <div className="mt-4 flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          id="otherService"
+                          checked={formData.service === 'other'}
+                          onChange={(e) => handleInputChange('service', e.target.checked ? 'other' : '')}
+                          className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                        />
+                        <label htmlFor="otherService" className="text-sm font-medium text-gray-700">
+                          Altro servizio
+                        </label>
+                      </div>
+                      {formData.service === 'other' && (
+                        <div className="mt-4">
+                          <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
+                            Specifica il servizio richiesto *
+                            {errors.otherService && <span className="text-red-500 text-xs ml-2">{errors.otherService}</span>}
+                          </label>
+                          <input
+                            type="text"
+                            value={formData.otherService}
+                            onChange={(e) => handleInputChange('otherService', e.target.value)}
+                            className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 text-xs md:text-base ${
+                              errors.otherService ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
+                            }`}
+                            placeholder="Descrivi il servizio che stai cercando"
+                          />
+                        </div>
+                      )}
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">Budget</label>
+                        <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">
+                          Budget *
+                          {errors.budget && <span className="text-red-500 text-xs ml-2">{errors.budget}</span>}
+                        </label>
                         <div className="space-y-1 md:space-y-2">
                           {budgetRanges.map((budget) => (
                             <motion.button
@@ -417,7 +513,7 @@ const Contact = () => {
                                 formData.budget === budget.id
                                   ? 'border-purple-500 bg-purple-50 text-purple-700'
                                   : 'border-purple-200 hover:border-purple-300'
-                              }`}
+                              } ${errors.budget ? 'border-red-500' : ''}`}
                             >
                               {budget.name}
                             </motion.button>
@@ -464,13 +560,18 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Descrizione del Progetto *</label>
+                      <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
+                        Descrizione del Progetto *
+                        {errors.message && <span className="text-red-500 text-xs ml-2">{errors.message}</span>}
+                      </label>
                       <textarea
                         required
                         rows={5}
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
-                        className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 resize-none text-xs md:text-base"
+                        className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 resize-none text-xs md:text-base ${
+                          errors.message ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
+                        }`}
                         placeholder="Descrivi il tuo progetto, i tuoi obiettivi e qualsiasi dettaglio che ritieni importante..."
                       />
                     </div>

@@ -346,10 +346,10 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center px-4 pt-20 md:pt-20"
+        className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center px-4 pt-16 md:pt-20"
       >
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-4xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent leading-tight">
             <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
               Progetti che
             </span>
@@ -709,12 +709,18 @@ const Portfolio = () => {
                 initial={false}
               />
               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2"
-              >
-                <Sparkles size={24} className="text-white" />
-              </motion.div>
+                className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100"
+                initial={{ x: "-100%" }}
+                whileHover={{
+                  x: "100%",
+                  transition: {
+                    duration: 1,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }
+                }}
+              />
             </motion.button>
           </motion.div>
         </div>
