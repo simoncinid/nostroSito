@@ -3,8 +3,7 @@ import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { 
   Palette, 
   Users, 
-  Brain, 
-  Rocket,
+  Brain,
   X
 } from 'lucide-react';
 
