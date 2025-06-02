@@ -9,7 +9,6 @@ import {
   Bot,
   Zap,
   Database,
-  Sparkles,
   Layers
 } from 'lucide-react';
 import React from 'react';
