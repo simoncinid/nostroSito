@@ -37,7 +37,7 @@ const About = () => {
     {
       name: "Diego",
       role: "Sviluppatore Web & AI",
-      description: "Esperto in React, Node.js e intelligenza artificiale. Trasforma idee complesse in soluzioni digitali eleganti.",
+      description: "Esperto in React, Node.js e intelligenza artificiale. Trasforma idee complesse in soluzioni digitali eleganti e raffinate.",
       skills: ["React", "AI/ML", "Node.js", "Python", "TypeScript"],
       experience: "2+ anni",
       projects: "10+",
