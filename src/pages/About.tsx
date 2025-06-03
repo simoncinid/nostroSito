@@ -16,7 +16,7 @@ const About = () => {
   const teamRef = useRef<HTMLDivElement>(null);
   
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-  const teamRefInView = useInView(teamRef, { once: true, amount: 0.3 });
+  
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedMember, setSelectedMember] = useState<null | typeof teamMembers[0]>(null);
