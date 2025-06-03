@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Globe, Bot, TrendingUp, Palette, Shield, Zap, ArrowRight, ExternalLink } from 'lucide-react'
+import WorksCarousel from './WorksCarousel'
 
 const Features = () => {
   const features = [
@@ -153,52 +154,9 @@ const Features = () => {
           ))}
         </div>
 
-        {/* CTA Semplice (senza razzo) */}
-        <div className="mt-16 mb-16">
-          <div className="max-w-3xl mx-auto relative">
-            {/* Box con CTA */}
-            <motion.div
-              className="bg-white rounded-xl shadow-lg p-4 md:p-8 relative z-10"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 50, 
-                damping: 14,
-                duration: 1.2
-              }}
-            >
-              <div className="text-center">
-                <h3 className="text-4xl md:text-5xl font-black mb-5 
-                  bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 
-                  bg-clip-text text-transparent 
-                  animate-gradient-xy"
-                  style={{
-                    backgroundSize: '300% 300%',
-                    textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-                    fontSize: 'clamp(1.5rem,6vw,2.5rem)'
-                  }}
-                >
-                  Pronto a Trasformare <br></br>il Tuo Business?
-                </h3>
-                <p className="text-sm md:text-lg text-gray-600 mb-6">
-                  Scopri come possiamo aiutarti a raggiungere i tuoi obiettivi digitali
-                </p>
-                <button className="btn-primary">
-                  Richiedi Consulenza Gratuita
-                </button>
-              </div>
-              
-              {/* Effetto shine */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-purple-300/0 via-purple-300/30 to-purple-300/0 overflow-hidden"
-                initial={{ x: "-100%" }}
-                whileInView={{ x: "100%" }}
-                viewport={{ once: false }}
-                transition={{ duration: 1.5, delay: 1.2 }}
-              />
-            </motion.div>
+        <div className="flex flex-col items-center justify-center w-full my-8">
+          <div className="w-full max-w-5xl">
+            <WorksCarousel />
           </div>
         </div>
       </div>

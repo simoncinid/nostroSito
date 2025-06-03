@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center space-x-3 text-gray-300">
               <Phone className="w-5 h-5 text-primary-400" />
-              <span>+39 123 456 7890</span>
+              <span>+39 339 179 7616</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-300">
               <MapPin className="w-5 h-5 text-primary-400" />
@@ -180,7 +180,7 @@ const Footer = () => {
 
               {/* Copyright - Center */}
               <div className="text-gray-400 text-sm text-center">
-                © 2024 Webbitz. Tutti i diritti riservati.
+                © 2025 Webbitz. Tutti i diritti riservati.
               </div>
 
               {/* Back to Top - Bottom */}

@@ -17,7 +17,7 @@ import {
   Globe,
   Bot, 
   Zap, 
-  ArrowRight,
+  //ArrowRight,
   FileText,
   Monitor,
   Info,
@@ -337,7 +337,7 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
-                        <div className="mt-6">
+                        {/*<div className="mt-6">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -346,7 +346,7 @@ const Services = () => {
                       Scopri di più
                       <ArrowRight size={16} />
                     </motion.button>
-                        </div>
+                        </div>*/}
                       </div>
                     </div>
 

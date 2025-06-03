@@ -714,34 +714,16 @@ const Portfolio = () => {
               Trasformiamo la tua idea nel prossimo caso di successo del nostro portfolio
             </p>
             
-            <motion.button
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 25px 50px rgba(139, 92, 246, 0.5)",
-                y: -5
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg"
+            <a
+              href="https://wa.me/393456789123?text=Ciao,%20vorrei%20collaborare%20con%20voi%20su%20un%20nuovo%20progetto!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
             >
               <span className="relative z-10">Iniziamo a Collaborare</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={false}
-              />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100"
-                initial={{ x: "-100%" }}
-                whileHover={{
-                  x: "100%",
-                  transition: {
-                    duration: 1,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }
-                }}
-              />
-            </motion.button>
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
+            </a>
           </motion.div>
         </div>
       </motion.section>

@@ -4,6 +4,7 @@ import Hero from '../components/sections/Hero'
 import ClientsMap from '../components/sections/ClientsMap'
 import WebbitzPackages from '../components/sections/WebbitzPackages'
 import Features from '../components/sections/Features'
+import WorksCarousel from '../components/sections/WorksCarousel'
 // Sezione recensioni rimossa perché non ci sono recensioni reali
 // import Testimonials from '../components/sections/Testimonials'
 
