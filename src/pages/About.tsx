@@ -16,6 +16,7 @@ const About = () => {
   const teamRef = useRef<HTMLDivElement>(null);
   
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
+  const teamRefInView = useInView(teamRef, { once: true, amount: 0.3 });
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedMember, setSelectedMember] = useState<null | typeof teamMembers[0]>(null);
@@ -96,13 +97,13 @@ const About = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-[600px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-8 z-20"
+        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
       >
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1, ease: 'easeOut' }}
           >
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -111,7 +112,7 @@ const About = () => {
               className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                Il Team che
+                Trasformiamo Idee
               </span>
               <br />
               <motion.span
@@ -121,14 +122,9 @@ const About = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
               >
-                Trasforma Idee
+                In Realtà
               </motion.span>
-              <br />
-              <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                in Realtà
-              </span>
             </motion.h1>
-
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -150,9 +146,14 @@ const About = () => {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Il Team
-            </h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4, duration: 1 }}
+              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent"
+            >
+              Trasformiamo la tua idea
+            </motion.h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (

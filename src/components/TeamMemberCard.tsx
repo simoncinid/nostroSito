@@ -17,6 +17,10 @@ interface TeamMemberProps {
 }
 
 const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
+  const getImagePath = (name: string) => {
+    return `/images/${name.toLowerCase()}.png`;
+  };
+
   return (
     <>
       {/* Mobile: Card compatta */}
@@ -31,7 +35,11 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
           {/* Icona profilo con info */}
           <div className="relative mb-2">
             <div className="w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-purple-200 group-hover:border-purple-300 transition-all duration-300">
-              <member.icon size={32} className="text-white" />
+              <img
+                src={getImagePath(member.name)}
+                alt={member.name}
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Icona info in basso a destra */}
             <div className="absolute -bottom-2 -right-2 bg-white rounded-full border border-purple-200 shadow p-1">
@@ -58,7 +66,11 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
             className="relative w-32 h-32 mx-auto mb-6"
           >
             <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-purple-200 group-hover:border-purple-300 transition-all duration-300">
-              <member.icon size={48} className="text-white" />
+              <img
+                src={getImagePath(member.name)}
+                alt={member.name}
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 

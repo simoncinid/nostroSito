@@ -41,11 +41,11 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-4 left-4 right-4 z-50 transition-all duration-500 ${
           scrolled 
-            ? 'bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-premium' 
+            ? 'bg-white/40 backdrop-blur-md border border-white/10 shadow-premium' 
             : 'bg-transparent'
-        }`}
+        } rounded-2xl`}
       >
         <div className="container-premium">
           <div className="flex items-center justify-between h-20">
@@ -99,7 +99,7 @@ const Navbar = () => {
                   setIsContactModalOpen(true)
                   closeMenu()
                 }}
-                className="btn-primary group relative overflow-hidden"
+                className="btn-primary group relative overflow-hidden py-2 px-4 text-sm"
               >
                 <span className="relative z-10">Inizia Ora</span>
                 <motion.div

@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { 
   ExternalLink, 
@@ -45,6 +45,8 @@ const Portfolio = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
+  
+  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -345,27 +347,46 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center px-4 pt-16 md:pt-20"
+        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
       >
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent leading-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Progetti che
-            </span>
-            <br className="hidden md:block" />
-            <span className="md:hidden"> </span>
-            <span
-              className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
-              style={{ display: 'inline-block' }}
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4, duration: 1 }}
+              className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
-              Fanno la Differenza
-            </span>
-          </h1>
-          <p className="text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Scopri i <span className="text-purple-700 font-semibold">progetti innovativi</span> che abbiamo realizzato per i nostri clienti. 
-            <span className="hidden md:inline"> Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
-            progettata per superare le aspettative e generare risultati concreti.</span>
-          </p>
+              <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+                Progetti che
+              </span>
+              <br />
+              <motion.span
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
+              >
+                Fanno la Differenza
+              </motion.span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.6, duration: 1 }}
+              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
+            >
+              Scopri i <span className="text-purple-700 font-semibold">progetti innovativi</span> che abbiamo realizzato per i nostri clienti. 
+              <span className="hidden md:inline"> Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
+              progettata per superare le aspettative e generare risultati concreti.</span>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 

@@ -59,9 +59,9 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="flex items-center justify-center gap-8 mb-12"
           >
-            <Link to="/" className="inline-flex items-center space-x-3 group mb-6">
+            <Link to="/" className="flex-shrink-0">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
@@ -75,37 +75,31 @@ const Footer = () => {
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
               </motion.div>
-              {/*<div className="flex flex-col">
-                <span className="text-2xl font-display font-bold text-white">
-                  Webbitz
-                </span>
-                <span className="text-sm text-gray-400 font-medium tracking-wider">
-                  DIGITAL AGENCY
-                </span>
-              </div>*/}
             </Link>
             
-            <p className="text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-              Trasformiamo le tue idee in esperienze digitali straordinarie. 
-              Soluzioni premium per aziende che vogliono distinguersi.
-            </p>
-
-            {/* Contact Info - Centered */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Mail className="w-5 h-5 text-primary-400" />
-                <span>info@webbitz.it</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Phone className="w-5 h-5 text-primary-400" />
-                <span>+39 123 456 7890</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <MapPin className="w-5 h-5 text-primary-400" />
-                <span>Pontedera (PI), Italia</span>
-              </div>
+            <div className="flex-1 max-w-2xl">
+              <p className="text-gray-300 leading-relaxed">
+                Trasformiamo le tue idee in esperienze digitali straordinarie. 
+                Soluzioni premium per aziende che vogliono distinguersi.
+              </p>
             </div>
           </motion.div>
+
+          {/* Contact Info - Centered */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+            <div className="flex items-center space-x-3 text-gray-300">
+              <Mail className="w-5 h-5 text-primary-400" />
+              <span>info@webbitz.it</span>
+            </div>
+            <div className="flex items-center space-x-3 text-gray-300">
+              <Phone className="w-5 h-5 text-primary-400" />
+              <span>+39 123 456 7890</span>
+            </div>
+            <div className="flex items-center space-x-3 text-gray-300">
+              <MapPin className="w-5 h-5 text-primary-400" />
+              <span>Pontedera (PI), Italia</span>
+            </div>
+          </div>
 
           {/* Links Sections - Centered Grid */}
           <div className="grid grid-cols-3 gap-2 md:gap-8 max-w-4xl mx-auto mb-6 md:mb-12">

@@ -252,7 +252,7 @@ const Services = () => {
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 1 }}
+              transition={{ delay: 0.2, duration: 1 }}
               className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
@@ -273,7 +273,7 @@ const Services = () => {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6, duration: 1 }}
+              transition={{ delay: 0.4, duration: 1 }}
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
               Sviluppiamo <span className="text-purple-700 font-semibold">tecnologie all'avanguardia</span> per 
@@ -292,7 +292,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
             className="text-center mb-8 md:mb-12"
           >
@@ -541,64 +541,52 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-            Il Nostro Processo
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-8">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+              Il Nostro Processo
+            </h2>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => navigateTimeline('prev')}
+                className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
+              >
+                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+              </button>
+
+              <button
+                onClick={() => navigateTimeline('next')}
+                className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
             Un approccio strutturato per trasformare le tue idee in soluzioni digitali di successo
           </p>
-        </div>
-
-        {/* Controls */}
-        <div className="flex justify-center items-center gap-4 mb-8">
-          <button
-            onClick={() => navigateTimeline('prev')}
-            className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
-          >
-            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-          </button>
-          
-          <button
-            onClick={() => navigateTimeline('next')}
-            className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
-          >
-            <ChevronRight size={18} />
-          </button>
         </div>
 
         {/* Main Container */}
         <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg">
           {/* Progress Bar */}
-          <div className="relative mb-8">
+          <div className="relative mb-4">
             <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-700 ease-out"
                 style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
               />
             </div>
-            <div className="flex justify-between mt-2">
-              {developmentProcess.map((_, index) => (
-                <div
-                  key={index}
-                  className={`text-xs font-medium transition-colors duration-300 ${
-                    index <= activeStep ? 'text-purple-600' : 'text-gray-400'
-                  }`}
-                >
-                  {index + 1}
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Step Navigation */}
-          <div className="flex justify-between items-center mb-8 overflow-x-auto pb-2">
+          <div className="flex justify-between items-center mb-8 -mt-2">
             {developmentProcess.map((step, index) => (
               <button
                 key={index}
@@ -624,85 +612,49 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                     />
                   )}
                 </div>
-                <div className={`mt-2 text-xs font-semibold transition-colors duration-300 ${
-                  index <= activeStep ? 'text-purple-600' : 'text-gray-400'
-                }`}>
-                  {step.step}
-                </div>
               </button>
             ))}
           </div>
 
           {/* Active Step Content */}
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left Column - Main Content */}
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className={`w-14 h-14 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
-                  {React.createElement(developmentProcess[activeStep].icon, { size: 24, className: "text-white" })}
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="space-y-8">
+              {/* Prima riga: Icona, Nome e Descrizione */}
+              <div className="flex items-start gap-8">
+                <div className={`w-16 h-16 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+                  {React.createElement(developmentProcess[activeStep].icon, { size: 28, className: "text-white" })}
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-3">
                     {developmentProcess[activeStep].title}
                   </h3>
-                  <div className="flex items-center gap-2 text-purple-600 font-medium mb-4">
-                    <Clock size={16} />
-                    <span>{developmentProcess[activeStep].duration}</span>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-lg">
                     {developmentProcess[activeStep].description}
                   </p>
                 </div>
               </div>
-              
-              {/* Tools */}
-              <div className="space-y-3">
-                <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <Settings size={18} className="text-purple-600" />
-                  Strumenti & Tecnologie
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {developmentProcess[activeStep].tools.map((tool: string, idx: number) => (
-                    <span
-                      key={idx}
-                      className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-sm rounded-full font-medium shadow-sm`}
-                    >
-                      {tool}
-                    </span>
-                  ))}
+
+              {/* Seconda riga: Tempistica e Strumenti */}
+              <div className="flex items-center justify-between border-t border-gray-100 pt-6">
+                <div className="flex items-center gap-2 text-purple-600 font-medium">
+                  <Clock size={20} />
+                  <span className="text-lg">{developmentProcess[activeStep].duration}</span>
                 </div>
-              </div>
-            </div>
-            
-            {/* Right Column - Progress Info */}
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-semibold text-gray-900">Progresso Generale</span>
-                  <span className="text-lg font-bold text-purple-600">{Math.round(((activeStep + 1) / developmentProcess.length) * 100)}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div
-                    className={`h-3 bg-gradient-to-r ${developmentProcess[activeStep].color} rounded-full transition-all duration-700`}
-                    style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
-                  />
-                </div>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <h4 className="font-semibold text-gray-900 mb-4">Fase Attuale</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Step</span>
-                    <span className="font-medium">{developmentProcess[activeStep].step}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Durata</span>
-                    <span className="font-medium">{developmentProcess[activeStep].duration}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Tools</span>
-                    <span className="font-medium">{developmentProcess[activeStep].tools.length}</span>
+                
+                <div className="flex items-center gap-4">
+                  <h4 className="font-semibold text-gray-900 flex items-center gap-2 text-lg">
+                    <Settings size={20} className="text-purple-600" />
+                    Strumenti:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {developmentProcess[activeStep].tools.map((tool: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className={`px-4 py-1.5 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-sm rounded-full font-medium shadow-sm`}
+                      >
+                        {tool}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
