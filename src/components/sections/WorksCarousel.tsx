@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { FiExternalLink } from 'react-icons/fi';
 
@@ -32,7 +32,6 @@ const works = [
 
 const CARD_WIDTH = 340; // px
 const CARD_GAP = 32; // px
-const VISIBLE_CARDS = 3;
 const SLIDE_SPEED = 60; // px/sec
 
 const WorksCarousel = () => {
