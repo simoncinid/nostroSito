@@ -541,40 +541,39 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-8">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+            <h2 className="font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent"
+              style={{ fontSize: 'clamp(1.3rem,6vw,2.7rem)' }}>
               Il Nostro Processo
             </h2>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
               <button
                 onClick={() => navigateTimeline('prev')}
-                className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
               >
-                <ChevronLeft size={18} />
+                <ChevronLeft size={16} />
               </button>
-
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
               >
-                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
               </button>
-
               <button
                 onClick={() => navigateTimeline('next')}
-                className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
               >
-                <ChevronRight size={18} />
+                <ChevronRight size={16} />
               </button>
             </div>
           </div>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+          <p className="text-gray-600 mx-auto mt-4" style={{ fontSize: 'clamp(0.95rem,3vw,1.2rem)', maxWidth: '95vw' }}>
             Un approccio strutturato per trasformare le tue idee in soluzioni digitali di successo
           </p>
         </div>
 
         {/* Main Container */}
-        <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg">
+        <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-8 shadow-lg">
           {/* Progress Bar */}
           <div className="relative mb-4">
             <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -586,14 +585,14 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
           </div>
 
           {/* Step Navigation */}
-          <div className="flex justify-between items-center mb-8 -mt-2">
+          <div className="flex justify-between items-center mb-6 sm:mb-8 -mt-2">
             {developmentProcess.map((step, index) => (
               <button
                 key={index}
                 onClick={() => setActiveStep(index)}
                 className="flex flex-col items-center min-w-0 flex-shrink-0 group"
               >
-                <div className={`relative w-12 h-12 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                <div className={`relative w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
                   index === activeStep 
                     ? 'border-purple-500 bg-purple-500 shadow-lg' 
                     : index < activeStep
@@ -601,14 +600,14 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                     : 'border-gray-300 bg-white hover:border-purple-300'
                 }`}>
                   {index < activeStep ? (
-                    <CheckCircle size={20} className="text-white" />
+                    <CheckCircle size={14} className="text-white sm:w-5 sm:h-5" />
                   ) : (
                     <step.icon 
-                      size={18} 
+                      size={14} 
                       className={`${
                         index === activeStep ? 'text-white' : 
                         index < activeStep ? 'text-white' : 'text-gray-500'
-                      }`} 
+                      } sm:w-5 sm:h-5`} 
                     />
                   )}
                 </div>
@@ -617,40 +616,39 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
           </div>
 
           {/* Active Step Content */}
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="space-y-8">
+          <div className="max-w-5xl mx-auto px-2 sm:px-4">
+            <div className="space-y-6 sm:space-y-8">
               {/* Prima riga: Icona, Nome e Descrizione */}
-              <div className="flex items-start gap-8">
-                <div className={`w-16 h-16 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
-                  {React.createElement(developmentProcess[activeStep].icon, { size: 28, className: "text-white" })}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8 text-center sm:text-left">
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0 mx-auto sm:mx-0`}>
+                  {React.createElement(developmentProcess[activeStep].icon, { size: 22, className: "text-white sm:w-7 sm:h-7" })}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                  <h3 className="font-bold text-gray-900 mb-2" style={{ fontSize: 'clamp(1.1rem,4vw,2.1rem)' }}>
                     {developmentProcess[activeStep].title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
+                  <p className="text-gray-600 leading-relaxed" style={{ fontSize: 'clamp(0.95rem,2.5vw,1.15rem)' }}>
                     {developmentProcess[activeStep].description}
                   </p>
                 </div>
               </div>
 
               {/* Seconda riga: Tempistica e Strumenti */}
-              <div className="flex items-center justify-between border-t border-gray-100 pt-6">
+              <div className="flex flex-col sm:flex-row items-center justify-between border-t border-gray-100 pt-4 sm:pt-6 gap-4 sm:gap-0">
                 <div className="flex items-center gap-2 text-purple-600 font-medium">
-                  <Clock size={20} />
-                  <span className="text-lg">{developmentProcess[activeStep].duration}</span>
+                  <Clock size={16} className="sm:w-5 sm:h-5" />
+                  <span style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>{developmentProcess[activeStep].duration}</span>
                 </div>
-                
-                <div className="flex items-center gap-4">
-                  <h4 className="font-semibold text-gray-900 flex items-center gap-2 text-lg">
-                    <Settings size={20} className="text-purple-600" />
+                <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
+                  <h4 className="font-semibold text-gray-900 flex items-center gap-2" style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>
+                    <Settings size={16} className="text-purple-600 sm:w-5 sm:h-5" />
                     Strumenti:
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {developmentProcess[activeStep].tools.map((tool: string, idx: number) => (
                       <span
                         key={idx}
-                        className={`px-4 py-1.5 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-sm rounded-full font-medium shadow-sm`}
+                        className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-xs sm:text-sm rounded-full font-medium shadow-sm`}
                       >
                         {tool}
                       </span>
@@ -662,7 +660,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
           </div>
           
           {/* Navigation Dots */}
-          <div className="flex justify-center items-center gap-2 mt-8">
+          <div className="flex justify-center items-center gap-2 mt-6 sm:mt-8">
             {developmentProcess.map((_, index) => (
               <button
                 key={index}

@@ -715,7 +715,7 @@ const Portfolio = () => {
             </p>
             
             <a
-              href="https://wa.me/393456789123?text=Ciao,%20vorrei%20collaborare%20con%20voi%20su%20un%20nuovo%20progetto!"
+              href="https://wa.me/393391797616?text=Ciao,%20vorrei%20collaborare%20con%20voi%20su%20un%20nuovo%20progetto!"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
