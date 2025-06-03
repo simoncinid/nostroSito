@@ -10,7 +10,7 @@ const works = [
   },
   {
     img: '/images/ChatBot_RNDhub.png',
-    nome: 'ChatBot RNDhub',
+    nome: 'Automazione RNDhub',
     link: 'https://rndhub.io/'
   },
   {
@@ -68,7 +68,12 @@ const WorksCarousel = () => {
 
   return (
     <section className="w-full py-12 flex flex-col items-center mt-8">
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">I nostri lavori</h2>
+      <h2 className="heading-lg text-gray-900 mb-6">
+        I Nostri{' '}
+        <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+          Lavori
+        </span>
+      </h2>
       <div
         className="relative mx-auto flex justify-center overflow-hidden"
         style={{ width: `${visibleWidth}px`, height: '340px' }}

@@ -80,7 +80,7 @@ const Portfolio = () => {
       category: "automation",
       description: "Sistema di automazione completo per il mondo trucking americano con AI per ricerca e quotazione automatica, invio di centinaia di email al giorno.",
       longDescription: "Sviluppato per RnD Hub, questo sistema di automazione rivoluzionario utilizza AI per la ricerca e quotazione automatica nel settore freight americano. La piattaforma gestisce automaticamente centinaia di email al giorno, servendo decine di clienti nel mercato del trasporto merci USA. Il sistema include algoritmi di matching intelligenti, automazione completa del processo di quotazione e gestione clienti avanzata.",
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop",
+      image: "/images/ChatBot_RNDhub.png",
       technologies: ["Python", "SMTP Email Automation", "API Integration", "Google Cloud Services"],
       liveUrl: "https://rndhub.io/",
       client: "RnD Hub",
@@ -90,7 +90,6 @@ const Portfolio = () => {
       results: [
         { metric: "Email Inviate", value: "50.000+", description: "Email automatiche al giorno" },
         { metric: "Clienti Serviti", value: "40+", description: "Clienti attivi sulla piattaforma" },
-        
       ],
       features: [
         "AI per ricerca automatica freight",
@@ -116,11 +115,91 @@ const Portfolio = () => {
     },
     {
       id: 2,
+      title: "ThinkGood Music - Sito Web",
+      category: "web",
+      description: "Sito web moderno e responsive per ThinkGood Music, con design elegante e funzionalità avanzate per la gestione degli eventi musicali.",
+      longDescription: "Sviluppo di un sito web moderno e responsive per ThinkGood Music, con un design elegante che riflette l'identità del brand. Il sito include funzionalità avanzate come galleria eventi, sistema di prenotazione e integrazione con social media. Particolarmente curata la sezione eventi con timeline interattiva e sistema di prenotazione integrato.",
+      image: "/images/thinkgood.png",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+      liveUrl: "https://thinkgoodmusic.com",
+      client: "ThinkGood Music",
+      year: "2024",
+      duration: "6 settimane",
+      team: ["Diego", "Tommaso"],
+      results: [
+        { metric: "Performance", value: "+180%", description: "Velocità caricamento" },
+        { metric: "User Experience", value: "+95%", description: "Soddisfazione utente" },
+        { metric: "Conversioni", value: "+150%", description: "Tasso di conversione" }
+      ],
+      features: [
+        "Design responsive moderno",
+        "Galleria eventi avanzata",
+        "Sistema prenotazioni integrato",
+        "Timeline eventi interattiva",
+        "Integrazione social media",
+        "SEO optimization"
+      ],
+      challenges: [
+        "Design elegante e moderno",
+        "Performance ottimale",
+        "Integrazione prenotazioni"
+      ],
+      solutions: [
+        "UI/UX design premium",
+        "Ottimizzazione performance",
+        "API prenotazioni robusta"
+      ],
+      gradient: "from-blue-500 to-purple-600",
+      icon: Code,
+      isInternational: false
+    },
+    {
+      id: 3,
+      title: "ThinkGood Music - Chatbot Lead Generation",
+      category: "ai",
+      description: "Chatbot AI avanzato per lead generation automatica su sito con 30k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
+      longDescription: "Sviluppo di un chatbot AI avanzato per ThinkGood Music, sito con 30k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
+      image: "/images/thinkgood.png",
+      technologies: ["OpenAI GPT-4", "JavaScript", "React", "Node.js", "CRM Integration", "Analytics"],
+      liveUrl: "https://thinkgoodmusic.com",
+      client: "ThinkGood Music",
+      year: "2024",
+      duration: "4 settimane",
+      team: ["Diego", "Simone"],
+      results: [
+        { metric: "Traffico Mensile", value: "30k", description: "Visitatori unici mensili" },
+        { metric: "Conversion Rate", value: "+200%", description: "Miglioramento conversioni" },
+        { metric: "Lead Qualificati", value: "+280%", description: "Incremento leads qualificati" }
+      ],
+      features: [
+        "Lead generation automatica",
+        "Conversazioni AI personalizzate",
+        "Lead scoring intelligente",
+        "Integrazione CRM diretta",
+        "Analytics conversazioni",
+        "A/B testing automatico"
+      ],
+      challenges: [
+        "Gestione traffico elevato",
+        "Qualificazione leads automatica",
+        "Integrazione con sistemi esistenti"
+      ],
+      solutions: [
+        "Load balancing chatbot",
+        "Algoritmi di lead scoring",
+        "API integration robuste"
+      ],
+      gradient: "from-purple-500 to-pink-600",
+      icon: Bot,
+      isHighTraffic: true
+    },
+    {
+      id: 4,
       title: "Threshold Coach - Piattaforma Web",
       category: "web",
       description: "Piattaforma web completa sviluppata da zero per coaching personalizzato, con architettura moderna e interfaccia utente avanzata.",
       longDescription: "Piattaforma web completa sviluppata interamente da WebBitz per Threshold Coach. Il progetto include lo sviluppo frontend e backend da zero, seguendo specificatamente gli ordini del committente. La piattaforma offre un'esperienza utente moderna con dashboard personalizzabili, gestione utenti avanzata e integrazione con sistemi di pagamento internazionali.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+      image: "/images/Threshold.png",
       technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "AWS"],
       liveUrl: "https://www.threshold.coach/",
       client: "Threshold Coach",
@@ -155,12 +234,12 @@ const Portfolio = () => {
       isInternational: true
     },
     {
-      id: 3,
+      id: 5,
       title: "Threshold Coach - 50 Assistenti AI",
       category: "ai",
       description: "Sviluppo di quasi 50 assistenti AI specializzati con toggle OpenAI/Anthropic per coaching personalizzato e supporto utenti.",
       longDescription: "Sviluppo di un ecosistema completo di quasi 50 assistenti AI specializzati per Threshold Coach. Ogni assistente è ottimizzato per specifiche aree del coaching con la possibilità di switchare tra OpenAI e Anthropic. Il sistema include gestione conversazioni avanzata, personalizzazione AI per ogni utente e analytics dettagliate sulle interazioni.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      image: "/images/Threshold.png",
       technologies: ["OpenAI GPT-4", "Anthropic Claude", "Python", "Vector DB", "React", "Node.js"],
       liveUrl: "https://www.threshold.coach/",
       client: "Threshold Coach",
@@ -195,12 +274,12 @@ const Portfolio = () => {
       isInternational: true
     },
     {
-      id: 4,
+      id: 6,
       title: "Threshold Coach - Infrastruttura Database",
       category: "database",
       description: "Infrastruttura database enterprise per gestire tutte le conversazioni degli utenti con quasi 50 assistenti AI, con architettura scalabile e sicura.",
       longDescription: "Progettazione e implementazione di un'infrastruttura database enterprise per Threshold Coach. Il sistema gestisce tutte le conversazioni degli utenti con quasi 50 assistenti AI, garantendo scalabilità, sicurezza e performance elevate. Include backup automatici, replication, ottimizzazione query e monitoring avanzato.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+      image: "/images/Threshold.png",
       technologies: ["PostgreSQL", "Redis", "MongoDB", "AWS RDS", "Data Analytics", "Backup Systems"],
       liveUrl: "https://www.threshold.coach/",
       client: "Threshold Coach",
@@ -235,12 +314,12 @@ const Portfolio = () => {
       isInternational: true
     },
     {
-      id: 5,
+      id: 7,
       title: "Welpy - Chatbot Lead Generation",
       category: "ai",
       description: "Chatbot AI avanzato per lead generation automatica su sito con 40k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
       longDescription: "Sviluppo di un chatbot AI avanzato per Welpy, sito importante con 40k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
-      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
+      image: "/images/ChatBot_welpy.png",
       technologies: ["OpenAI GPT-4", "JavaScript", "React", "Node.js", "CRM Integration", "Analytics"],
       liveUrl: "https://www.welpy.it/",
       client: "Welpy",
@@ -275,12 +354,12 @@ const Portfolio = () => {
       isHighTraffic: true
     },
     {
-      id: 6,
+      id: 8,
       title: "The Admission Hub - Piattaforma Completa",
       category: "web",
       description: "Piattaforma web completa sviluppata da zero per servizi di ammissione universitaria, con sistema di gestione candidati e dashboard avanzate.",
       longDescription: "Sviluppo completo da zero di The Admission Hub, piattaforma specializzata nei servizi di ammissione universitaria. Il progetto include sviluppo frontend e backend, sistema di gestione candidati, dashboard per consultants, sistema di pagamenti e tracking completo del processo di ammissione.",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=800&h=600&fit=crop",
+      image: "/images/AdmissionHub.png",
       technologies: ["React", "Node.js", "TypeScript", "MongoDB", "Stripe", "AWS"],
       liveUrl: "https://theadmissionhub.com",
       client: "The Admission Hub",
@@ -313,6 +392,46 @@ const Portfolio = () => {
       gradient: "from-blue-400 to-cyan-600",
       icon: Code,
       isInternational: true
+    },
+    {
+      id: 9,
+      title: "Vistamare - Sito Web",
+      category: "web",
+      description: "Sito web moderno e responsive per Vistamare, con design elegante e funzionalità avanzate.",
+      longDescription: "Sviluppo di un sito web moderno e responsive per Vistamare, con un design elegante che riflette l'identità del brand. Il sito include funzionalità avanzate come galleria immagini, sistema di prenotazione e integrazione con social media.",
+      image: "/images/Vistamare.png",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+      liveUrl: "https://vistamare.vercel.app/",
+      client: "Vistamare",
+      year: "2024",
+      duration: "4 settimane",
+      team: ["Diego", "Tommaso"],
+      results: [
+        { metric: "Performance", value: "+150%", description: "Velocità caricamento" },
+        { metric: "User Experience", value: "+90%", description: "Soddisfazione utente" },
+        { metric: "Conversioni", value: "+120%", description: "Tasso di conversione" }
+      ],
+      features: [
+        "Design responsive moderno",
+        "Galleria immagini avanzata",
+        "Sistema prenotazioni",
+        "Integrazione social media",
+        "SEO optimization",
+        "Analytics avanzate"
+      ],
+      challenges: [
+        "Design elegante e moderno",
+        "Performance ottimale",
+        "Integrazione prenotazioni"
+      ],
+      solutions: [
+        "UI/UX design premium",
+        "Ottimizzazione performance",
+        "API prenotazioni robusta"
+      ],
+      gradient: "from-purple-500 to-pink-600",
+      icon: Code,
+      isInternational: false
     }
   ];
 

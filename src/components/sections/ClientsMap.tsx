@@ -102,8 +102,13 @@ const ClientsMap = () => {
     }
   ]
 
-  // Posizioni dei clienti in Toscana
+  // Posizioni dei clienti
   const clientLocations = [
+    { lat: 45.4642, lng: 9.1900, name: "ThinkGood Music (MI)" },
+    { lat: 51.7520, lng: -1.2577, name: "Threshold Coach (OX)" },
+    { lat: 40.6331, lng: -89.3985, name: "RnD Hub (IL)" },
+    { lat: 45.4064, lng: 11.8768, name: "Welpy (PD)" },
+    { lat: 45.4642, lng: 9.1900, name: "The Admission Hub (MI)" },
     { lat: 43.3947, lng: 10.4177, name: "Castiglioncello (LI)" }
   ]
 
@@ -128,8 +133,8 @@ const ClientsMap = () => {
       if (!mapRef.current) return
 
       const map = new window.google.maps.Map(mapRef.current, {
-        center: { lat: 43.4642, lng: 11.2558 }, // Centro della Toscana
-        zoom: 8,
+        center: { lat: 45.0, lng: 10.0 }, // Centro sull'Italia
+        zoom: 5,
         styles: mapStyles,
         disableDefaultUI: true,
         zoomControl: true,
@@ -147,11 +152,11 @@ const ClientsMap = () => {
           title: location.name,
           icon: {
             path: window.google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: '#8B5CF6',
+            scale: 12,
+            fillColor: '#FCD34D',
             fillOpacity: 1,
             strokeColor: '#ffffff',
-            strokeWeight: 3
+            strokeWeight: 4
           },
           animation: window.google.maps.Animation.DROP
         })
@@ -204,7 +209,7 @@ const ClientsMap = () => {
           marker.setAnimation(window.google.maps.Animation.BOUNCE)
           setTimeout(() => {
             marker.setAnimation(null)
-          }, 2000)
+          }, 1500)
         }, index * 200)
       })
     }
@@ -221,7 +226,9 @@ const ClientsMap = () => {
 
   return (
     <div className="container-premium">
-      <h2 className="heading-lg text-gray-900 mb-6 text-center">I Nostri Clienti</h2>
+      <h2 className="heading-lg text-gray-900 mb-6 text-center">
+        Progetti <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Internazionali</span>
+      </h2>
       {/* Mappa Google Maps */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -243,16 +250,10 @@ const ClientsMap = () => {
           </div>
         </div>
         {/* Stats overlay */}
-        <div className="absolute bottom-2 right-2 md:bottom-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
-          <div className="grid grid-cols-2 gap-2 md:gap-4 text-center">
-            <div>
-              <div className="text-lg md:text-2xl font-bold text-purple-600">1</div>
-              <div className="text-xs text-gray-600">Città Raggiunta</div>
-            </div>
-            <div>
-              <div className="text-lg md:text-2xl font-bold text-purple-600">1</div>
-              <div className="text-xs text-gray-600">Cliente Attivo</div>
-            </div>
+        <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
+          <div className="text-center">
+            <div className="text-lg md:text-2xl font-bold text-purple-600">6</div>
+            <div className="text-xs text-gray-600">Clienti Attivi</div>
           </div>
         </div>
       </motion.div>
