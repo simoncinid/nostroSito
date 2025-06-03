@@ -205,6 +205,13 @@ body {
   .hero-logo-img {
     width: 80vw !important;
   }
+  
+  /* Riduce lo spazio tra il paragrafo introduttivo e il contenuto nelle sezioni */
+  .text-xl.md\:text-2xl.text-gray-700.mb-8,
+  section .text-xl.md\:text-2xl.text-gray-700.mb-8,
+  .text-xl.md\:text-2xl.text-gray-700.mb-8.max-w-4xl.mx-auto.leading-relaxed {
+    margin-bottom: 1rem !important;
+  }
 }
 
 .package-feature-text {
