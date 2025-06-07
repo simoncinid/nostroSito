@@ -8,6 +8,7 @@ interface TeamMemberProps {
     description: string;
     icon: any;
     gradient: string;
+    roleGradient?: string;
     skills: string[];
     experience: string;
     projects: string;
@@ -30,23 +31,29 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
         style={{ WebkitTapHighlightColor: 'transparent' }}
       >
         <div 
-          className={`flex flex-col items-center justify-center relative rounded-3xl p-6 h-full overflow-hidden border-2 ${member.gradient} bg-gradient-to-br from-purple-100/60 via-white/80 to-blue-100/60 group-hover:shadow-xl group-active:scale-95 transition-all duration-300`}
+          className="flex flex-col items-center justify-center relative rounded-3xl p-6 h-full overflow-hidden border border-purple-100 bg-white/80 backdrop-blur-xl shadow-xl group-hover:shadow-2xl group-active:scale-95 transition-all duration-300"
         >
-          {/* Icona profilo con info */}
-          <div className="relative mb-2">
-            <div className="w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-purple-200 group-hover:border-purple-300 transition-all duration-300">
-              <img
-                src={getImagePath(member.name)}
-                alt={member.name}
-                className="w-full h-full object-cover"
-              />
+          {/* Bordo animato elegante */}
+          <span className="border-animated-shine absolute inset-0 z-0" />
+          {/* Alone colorato animato dietro la foto */}
+          <span className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-pink-400/30 via-purple-400/20 to-blue-400/10 blur-2xl animate-orb z-0" />
+          <div className="relative z-10 w-full flex flex-col items-center justify-center bg-transparent">
+            {/* Icona profilo con info */}
+            <div className="relative mb-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-purple-200 group-hover:border-purple-300 transition-all duration-300 shadow-md">
+                <img
+                  src={getImagePath(member.name)}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Icona info in basso a destra */}
+              <div className="absolute -bottom-2 -right-2 bg-white rounded-full border border-purple-200 shadow p-1">
+                <Info size={16} className="text-purple-600" />
+              </div>
             </div>
-            {/* Icona info in basso a destra */}
-            <div className="absolute -bottom-2 -right-2 bg-white rounded-full border border-purple-200 shadow p-1">
-              <Info size={16} className="text-purple-600" />
-            </div>
+            <h3 className="text-lg font-bold text-gray-900 text-center mt-2">{member.name}</h3>
           </div>
-          <h3 className="text-lg font-bold text-gray-900 text-center">{member.name}</h3>
         </div>
       </div>
 
@@ -79,7 +86,7 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               {member.name}
             </h3>
-            <p className={`text-lg font-semibold bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent mb-4`}>
+            <p className={`text-lg font-semibold bg-gradient-to-r ${member.roleGradient || member.gradient} bg-clip-text text-transparent mb-4`}>
               {member.role}
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">

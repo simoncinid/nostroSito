@@ -44,6 +44,7 @@ const About = () => {
       projects: "10+",
       specialty: "Architetture scalabili e soluzioni AI",
       gradient: "from-blue-500 to-purple-600",
+      roleGradient: "from-blue-500 to-purple-600",
       icon: Brain
     },
     {
@@ -54,7 +55,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "5+",
       specialty: "Design-to-code perfetto",
-      gradient: "from-purple-500 to-pink-600",
+      gradient: "from-purple-100 to-pink-600",
+      roleGradient: "from-purple-500 to-pink-600",
       icon: Palette
     },
     {
@@ -66,6 +68,7 @@ const About = () => {
       projects: "10+",
       specialty: "Crescita e acquisizione clienti",
       gradient: "from-green-500 to-blue-600",
+      roleGradient: "from-green-500 to-blue-600",
       icon: Users
     }
   ];
