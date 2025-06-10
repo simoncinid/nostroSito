@@ -791,10 +791,10 @@ const WebbitzPackages = () => {
                   </div>
                 </div>
 
-                {/* Features - Nuova versione centrata con info popup */}
-                <div className="mb-0 text-center h-[140px] md:h-[280px] flex flex-col">
+                 {/* Features - Nuova versione centrata con info popup */}
+                 <div className="mb-4 md:mb-8 text-center flex flex-col">
                   <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">Cosa Include:</h4>
-                  <ul className="flex flex-col gap-2 md:gap-4 flex-1 px-0">
+                  <ul className="flex flex-col gap-2 md:gap-4 px-0">
                     {pkg.features.map((feature, idx) => (
                       feature.text ? (
                         <motion.li

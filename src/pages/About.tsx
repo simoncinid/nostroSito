@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { 
   Palette, 
-  Users, 
+  //Users, 
   Brain,
   X
 } from 'lucide-react';
@@ -58,7 +58,7 @@ const About = () => {
       gradient: "from-purple-100 to-pink-600",
       roleGradient: "from-purple-500 to-pink-600",
       icon: Palette
-    },
+    }/*,
     {
       name: "Simone",
       role: "Client Relations & Business",
@@ -70,7 +70,7 @@ const About = () => {
       gradient: "from-green-500 to-blue-600",
       roleGradient: "from-green-500 to-blue-600",
       icon: Users
-    }
+    }*/
   ];
 
   return (
@@ -155,10 +155,10 @@ const About = () => {
               transition={{ delay: 0.4, duration: 1 }}
               className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent"
             >
-              Trasformiamo la tua idea
+              Il team di sviluppo:
             </motion.h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center items-stretch">
             {teamMembers.map((member) => (
               <Suspense key={member.name} fallback={<div>Loading...</div>}>
                 <TeamMemberCard 
