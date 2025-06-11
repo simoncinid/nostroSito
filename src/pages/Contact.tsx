@@ -1,6 +1,7 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, Loader, Globe, ArrowRight, Zap, Target, Code, Bot, X } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 interface FormData {
   name: string;
@@ -226,6 +227,11 @@ const Contact = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+      <Helmet>
+        <title>Contatti | Webbitz - Parliamo del tuo progetto</title>
+        <meta name="description" content="Contatta Webbitz per discutere del tuo progetto. Siamo qui per ascoltare le tue esigenze e creare soluzioni su misura per il tuo business." />
+      </Helmet>
+
       {/* Animated Background rimosso per pulizia warning */}
 
       {/* Hero Section */}
@@ -315,7 +321,7 @@ const Contact = () => {
             className="text-center mb-6 md:mb-8"
           >
             <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Raccontaci il Tuo Progetto
+              Raccontaci la tua idea
             </h2>
           </motion.div>
 

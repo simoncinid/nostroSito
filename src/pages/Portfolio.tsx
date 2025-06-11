@@ -1,5 +1,6 @@
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   ExternalLink, 
   Github, 
@@ -441,6 +442,11 @@ const Portfolio = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+      <Helmet>
+        <title>Portfolio | Webbitz - I Nostri Progetti di Successo</title>
+        <meta name="description" content="Esplora i progetti realizzati da Webbitz: siti web, e-commerce e soluzioni digitali innovative per clienti di successo." />
+      </Helmet>
+
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div

@@ -24,6 +24,7 @@ import {
   X,
   MessageSquare
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 interface Service {
   id: number;
@@ -216,6 +217,11 @@ const Services = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+      <Helmet>
+        <title>Servizi | Webbitz - Soluzioni Digitali per la Tua Attività</title>
+        <meta name="description" content="Scopri i servizi di Webbitz: sviluppo web, chatbot AI, automazione e soluzioni database. Trasforma la tua presenza digitale con le nostre soluzioni innovative." />
+      </Helmet>
+
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div

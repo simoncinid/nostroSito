@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, lazy, Suspense } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Palette, 
   //Users, 
@@ -75,6 +76,11 @@ const About = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+      <Helmet>
+        <title>Chi Siamo | Webbitz - Il Team Giovane che Trasforma le Tue Idee</title>
+        <meta name="description" content="Scopri il team di Webbitz: giovani professionisti appassionati di tecnologia che trasformano le tue idee in soluzioni digitali innovative." />
+      </Helmet>
+      
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
