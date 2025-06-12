@@ -8,6 +8,7 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
+import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </div>
   )
 }
