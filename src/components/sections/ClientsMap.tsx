@@ -104,12 +104,12 @@ const ClientsMap = () => {
 
   // Posizioni dei clienti
   const clientLocations = [
-    { lat: 45.4642, lng: 9.1900, name: "ThinkGood Music (MI)" },
-    { lat: 51.7520, lng: -1.2577, name: "Threshold Coach (OX)" },
-    { lat: 40.6331, lng: -89.3985, name: "RnD Hub (IL)" },
-    { lat: 45.4064, lng: 11.8768, name: "Welpy (PD)" },
-    { lat: 45.4642, lng: 9.1900, name: "The Admission Hub (MI)" },
-    { lat: 43.3947, lng: 10.4177, name: "Castiglioncello (LI)" }
+    { lat: 45.4642, lng: 9.1900, name: "ThinkGood Music (MI)", link: null },
+    { lat: 51.7520, lng: -1.2577, name: "Threshold Coach (OX)", link: "https://www.threshold.coach/" },
+    { lat: 40.6331, lng: -89.3985, name: "RnD Hub (IL)", link: "https://rndhub.io/" },
+    { lat: 45.4064, lng: 11.8768, name: "Welpy (PD)", link: "https://www.welpy.it/" },
+    { lat: 45.4642, lng: 9.1900, name: "The Admission Hub (MI)", link: "https://theadmissionhub.com/" },
+    { lat: 43.3947, lng: 10.4177, name: "Vistamare (LI)", link: "https://www.vistamarerosignano.it/" }
   ]
 
   useEffect(() => {
@@ -121,7 +121,7 @@ const ClientsMap = () => {
       }
 
       const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDs-7Ac5Ke5a60gRLf3CVtG1j88AhXfsOA&callback=initMap`
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBeeaMML5_I6jEdAWEKM2CzblRLYMmQ1qU&callback=initMap`
       script.async = true
       script.defer = true
       document.head.appendChild(script)
@@ -144,6 +144,9 @@ const ClientsMap = () => {
         gestureHandling: 'cooperative'
       })
 
+      // Variabile per tenere traccia della infoWindow aperta
+      let openInfoWindow: any = null;
+
       // Aggiungi marker per ogni cliente
       clientLocations.forEach((location, index) => {
         const marker = new window.google.maps.Marker({
@@ -153,7 +156,7 @@ const ClientsMap = () => {
           icon: {
             path: window.google.maps.SymbolPath.CIRCLE,
             scale: 12,
-            fillColor: '#FCD34D',
+            fillColor: '#D946EF', // fuxia
             fillOpacity: 1,
             strokeColor: '#ffffff',
             strokeWeight: 4
@@ -171,7 +174,7 @@ const ClientsMap = () => {
               <p style="color: #6B7280; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
                 Cliente Webbitz - Progetto completato
               </p>
-              <button 
+              ${location.link ? `<button 
                 style="
                   background: linear-gradient(to right, #8B5CF6, #6D28D9); 
                   color: white; 
@@ -182,14 +185,13 @@ const ClientsMap = () => {
                   font-weight: 600;
                   cursor: pointer;
                   transition: all 0.2s;
-                  box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25);
-                "
+                  box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25);"
                 onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(139, 92, 246, 0.3)';" 
                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(139, 92, 246, 0.25)';"
-                onclick="window.open('https://webbitz.it/portfolio/${location.name.split(' ')[0].toLowerCase()}', '_blank')"
+                onclick="window.open('${location.link}', '_blank')"
               >
                 Visita Sito
-              </button>
+              </button>` : ''}
             </div>
           `
         })
@@ -201,7 +203,11 @@ const ClientsMap = () => {
         })
 
         marker.addListener('click', () => {
-          infoWindow.open(map, marker)
+          if (openInfoWindow) {
+            openInfoWindow.close();
+          }
+          infoWindow.open(map, marker);
+          openInfoWindow = infoWindow;
         })
 
         // Animazione ritardata per i marker

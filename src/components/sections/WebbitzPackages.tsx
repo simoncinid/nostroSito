@@ -761,7 +761,7 @@ const WebbitzPackages = () => {
                 pkg.popular 
                   ? 'border-primary-400/50 shadow-glow-lg' 
                   : 'border-white/10'
-              } p-4 md:p-8 h-full transition-all duration-500 group-hover:shadow-premium-lg group-hover:border-primary-400/30`}>
+              } p-4 md:p-8 h-full flex flex-col transition-all duration-500 group-hover:shadow-premium-lg group-hover:border-primary-400/30`}>
                 {/* Popular Badge */}
                 {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 md:-top-4">
@@ -791,10 +791,10 @@ const WebbitzPackages = () => {
                   </div>
                 </div>
 
-                {/* Features - Nuova versione centrata con info popup */}
-                <div className="mb-0 text-center h-[140px] md:h-[280px] flex flex-col">
+                 {/* Features - Nuova versione centrata con info popup */}
+                 <div className="mb-4 md:mb-8 text-center flex flex-col">
                   <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">Cosa Include:</h4>
-                  <ul className="flex flex-col gap-2 md:gap-4 flex-1 px-0">
+                  <ul className="flex flex-col gap-2 md:gap-4 px-0">
                     {pkg.features.map((feature, idx) => (
                       feature.text ? (
                         <motion.li
@@ -827,10 +827,14 @@ const WebbitzPackages = () => {
                       )
                     ))}
                   </ul>
+                  {/* Spacer per allineare il bottone Premium SOLO su desktop */}
+                  {pkg.id === 'premium' && (
+                    <li className="hidden md:block h-[32px] md:h-[70px]"></li>
+                  )}
                 </div>
 
                 {/* CTA Button */}
-                <div className="mt-2 md:mt-4">
+                <div className="mt-auto pt-4">
                   <a
                     href={pkg.whatsappLink}
                     target="_blank"

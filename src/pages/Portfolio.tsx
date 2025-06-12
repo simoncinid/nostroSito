@@ -1,5 +1,6 @@
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   ExternalLink, 
   Github, 
@@ -9,7 +10,9 @@ import {
   Bot,
   Zap,
   Database,
-  Layers
+  Layers,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import React from 'react';
 
@@ -52,6 +55,10 @@ const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // PAGINAZIONE
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 6;
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -439,8 +446,32 @@ const Portfolio = () => {
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
 
+  // Calcolo pagine
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+  const paginatedProjects = filteredProjects.slice(
+    (currentPage - 1) * projectsPerPage,
+    currentPage * projectsPerPage
+  );
+
+  // Quando cambio categoria, resetto la pagina
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory]);
+
+  // Scroll in alto quando cambio pagina
+  React.useEffect(() => {
+    if (portfolioRef.current) {
+      portfolioRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [currentPage]);
+
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+      <Helmet>
+        <title>Portfolio | Webbitz - I Nostri Progetti di Successo</title>
+        <meta name="description" content="Esplora i progetti realizzati da Webbitz: siti web, e-commerce e soluzioni digitali innovative per clienti di successo." />
+      </Helmet>
+
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
@@ -571,107 +602,143 @@ const Portfolio = () => {
 
           {/* Projects Grid */}
           <motion.div
-            layout
             className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
           >
-            <AnimatePresence>
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 50 }}
-                  transition={{ delay: index * 0.1, duration: 0.8 }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl overflow-hidden hover:border-purple-300 hover:shadow-lg transition-all duration-500"
-                >
-                  {/* Project Image */}
-                  <div className="relative h-32 md:h-48 overflow-hidden">
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    {/* Category Badge */}
-                    <div className="absolute top-2 left-2 md:top-4 md:left-4">
-                      <div className={`flex items-center gap-2 px-2 py-0.5 md:px-3 md:py-1 bg-gradient-to-r ${project.gradient} rounded-full text-white font-semibold`}>
-                        <project.icon size={12} className="md:hidden" />
-                        <project.icon size={14} className="hidden md:inline" />
-                        <span
-                          className="truncate"
-                          style={{ fontSize: 'clamp(0.75rem, 2.5vw, 1rem)', maxWidth: '110px' }}
-                        >
-                          {categories.find(cat => cat.id === project.category)?.name}
-                        </span>
-                      </div>
+            {paginatedProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl overflow-hidden hover:border-purple-300 hover:shadow-lg transition-all duration-500"
+              >
+                {/* Project Image */}
+                <div className="relative h-32 md:h-48 overflow-hidden">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  {/* Category Badge */}
+                  <div className="absolute top-2 left-2 md:top-4 md:left-4">
+                    <div className={`flex items-center gap-2 px-2 py-0.5 md:px-3 md:py-1 bg-gradient-to-r ${project.gradient} rounded-full text-white font-semibold`}>
+                      <project.icon size={12} className="md:hidden" />
+                      <project.icon size={14} className="hidden md:inline" />
+                      <span
+                        className="truncate"
+                        style={{ fontSize: 'clamp(0.75rem, 2.5vw, 1rem)', maxWidth: '110px' }}
+                      >
+                        {categories.find(cat => cat.id === project.category)?.name}
+                      </span>
                     </div>
-                    {/* Action Buttons - Sempre visibili per mobile */}
-                    <div className="absolute bottom-2 right-2 flex gap-2 md:bottom-4 md:right-4">
-                      <motion.button
+                  </div>
+                  {/* Action Buttons - Sempre visibili per mobile */}
+                  <div className="absolute bottom-2 right-2 flex gap-2 md:bottom-4 md:right-4">
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => setSelectedProject(project)}
+                      className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
+                    >
+                      <Eye size={16} className="md:hidden" />
+                      <Eye size={18} className="hidden md:inline" />
+                    </motion.button>
+                    {project.liveUrl && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        onClick={() => setSelectedProject(project)}
                         className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
                       >
-                        <Eye size={16} className="md:hidden" />
-                        <Eye size={18} className="hidden md:inline" />
-                      </motion.button>
-                      {project.liveUrl && (
-                        <motion.a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
+                        <ExternalLink size={16} className="md:hidden" />
+                        <ExternalLink size={18} className="hidden md:inline" />
+                      </motion.a>
+                    )}
+                  </div>
+                </div>
+                {/* Project Info */}
+                <div className="p-3 md:p-6 flex flex-col items-start justify-between">
+                  <h3
+                    className="font-bold text-gray-900 mb-0 md:mb-2 group-hover:text-purple-700 transition-colors duration-300 truncate w-full"
+                    style={{ fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)' }}
+                  >
+                    {project.title}
+                  </h3>
+                  {/* Su mobile non mostro descrizione, tecnologie e meta */}
+                  {/* Solo su desktop */}
+                  <div className="hidden md:block w-full">
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-2 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium"
                         >
-                          <ExternalLink size={16} className="md:hidden" />
-                          <ExternalLink size={18} className="hidden md:inline" />
-                        </motion.a>
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-medium">
+                          +{project.technologies.length - 3}
+                        </span>
                       )}
                     </div>
-                  </div>
-                  {/* Project Info */}
-                  <div className="p-3 md:p-6 flex flex-col items-start justify-between">
-                    <h3
-                      className="font-bold text-gray-900 mb-0 md:mb-2 group-hover:text-purple-700 transition-colors duration-300 truncate w-full"
-                      style={{ fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)' }}
-                    >
-                      {project.title}
-                    </h3>
-                    {/* Su mobile non mostro descrizione, tecnologie e meta */}
-                    {/* Solo su desktop */}
-                    <div className="hidden md:block w-full">
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-2 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-medium">
-                            +{project.technologies.length - 3}
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex justify-between items-center text-sm text-gray-500">
-                        <span>{project.client}</span>
-                        <span>{project.year}</span>
-                      </div>
+                    <div className="flex justify-between items-center text-sm text-gray-500">
+                      <span>{project.client}</span>
+                      <span>{project.year}</span>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
+
+          {/* PAGINATION CONTROLS */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-8 select-none">
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                className={`px-3 py-2 rounded-full font-semibold border transition-all duration-300 flex items-center gap-1
+                  ${currentPage === 1
+                    ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                    : 'bg-white border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300'}
+                `}
+              >
+                <ChevronLeft size={18} />
+              </button>
+              {/* Numeri di pagina */}
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`px-3 py-2 rounded-full font-bold transition-all duration-300 mx-1
+                    ${currentPage === i + 1
+                      ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                      : 'bg-white border border-purple-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50'}
+                  `}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+                className={`px-3 py-2 rounded-full font-semibold border transition-all duration-300 flex items-center gap-1
+                  ${currentPage === totalPages
+                    ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                    : 'bg-white border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300'}
+                `}
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          )}
         </div>
       </motion.section>
 
