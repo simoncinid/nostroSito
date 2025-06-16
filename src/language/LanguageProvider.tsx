@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
 
 interface LanguageContextProps {
@@ -18,9 +18,6 @@ export const LanguageContext = createContext<LanguageContextProps>({
     { code: 'es', label: 'Español' },
   ],
 })
-
-const DEEPL_API_KEY = '23c31e7f-1b11-4257-95c1-819bcfb40fee:fx'
-const DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate'
 
 function getTargetLang(code: string) {
   // DeepL accetta EN, IT, FR, DE, ES, ...
