@@ -14,12 +14,9 @@ import {
   Rocket, 
   Search, 
   TestTube, 
-  Globe,
   Bot, 
   Zap, 
   //ArrowRight,
-  FileText,
-  Monitor,
   Info,
   X,
   MessageSquare

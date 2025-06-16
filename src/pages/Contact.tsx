@@ -1,6 +1,6 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, Loader, Globe, ArrowRight, Zap, Target, Code, Bot, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, Loader, ArrowRight, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
