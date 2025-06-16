@@ -25,83 +25,38 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 interface Service {
   id: number;
   icon: ElementType;
-  title: string;
-  subtitle: string;
-  description: string;
-  features: string[];
-  technologies: string[];
+  titleKey: string;
   gradient: string;
 }
 
 interface ProcessStep {
-  step: string;
-  title: string;
-  description: string;
+  stepKey: string;
   icon: ElementType;
-  duration: string;
   color: string;
-  tools: string[];
-  visualExample?: {
-    title: string;
-    icon: ElementType;
-    description: string;
-  };
 }
 
 const mainServices: Service[] = [
     {
       id: 0,
       icon: Code,
-      title: "Sviluppo Web React",
-      subtitle: "Siti web da zero, zero template",
-      description: "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
-      features: [
-        "React 18 + TypeScript",
-        "Design responsive e mobile-first",
-        "Performance ottimizzate (Core Web Vitals)",
-        "SEO tecnico avanzato",
-        "Architettura scalabile",
-        "Testing automatizzato"
-      ],
-      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+      titleKey: "webDevelopment",
       gradient: "from-blue-500 to-purple-600"
     },
     {
       id: 1,
       icon: Bot,
-      title: "Soluzioni AI",
-      subtitle: "Intelligenza artificiale per il business",
-      description: "Creiamo chatbot intelligenti, assistenti virtuali e sistemi di automazione basati su AI per migliorare l'efficienza aziendale e l'esperienza cliente.",
-      features: [
-        "Chatbot per lead generation",
-        "Assistenti virtuali personalizzati",
-        "Analisi predittiva dei dati",
-        "Automazione customer service",
-        "Integrazione CRM/ERP",
-        "Machine Learning custom"
-      ],
-      technologies: ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"],
+      titleKey: "aiSolutions",
       gradient: "from-purple-500 to-pink-600"
     },
     {
       id: 2,
       icon: Zap,
-      title: "Automazione Processi",
-      subtitle: "Efficienza e produttività massime",
-      description: "Automatizziamo i processi aziendali ripetitivi, dall'inserimento dati alla generazione di documenti, liberando tempo prezioso per attività strategiche.",
-      features: [
-        "Automazione inserimento dati",
-        "Generazione documenti automatica",
-        "Workflow personalizzati",
-        "Integrazione sistemi esistenti",
-        "Dashboard di monitoraggio",
-        "ROI tracking e analytics"
-      ],
-      technologies: ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"],
+      titleKey: "automation",
       gradient: "from-green-500 to-blue-600"
     }
   ];
@@ -113,7 +68,13 @@ interface ServiceModalProps {
 }
 
 const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
+  const { t } = useTranslation();
+  
   if (!service) return null;
+
+  const serviceData = t(`services.mainServices.services.${service.titleKey}`, { returnObjects: true }) as any;
+  const features = t(`services.mainServices.services.${service.titleKey}.features`, { returnObjects: true }) as string[];
+  const technologies = t(`services.mainServices.services.${service.titleKey}.technologies`, { returnObjects: true }) as string[];
 
   return (
     <motion.div
@@ -136,8 +97,8 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
               <service.icon size={24} className="text-white" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">{service.title}</h3>
-              <p className="text-white/80 text-sm">{service.subtitle}</p>
+              <h3 className="text-xl font-bold text-white">{serviceData.title}</h3>
+              <p className="text-white/80 text-sm">{serviceData.subtitle}</p>
             </div>
           </div>
           <button onClick={onClose} className="text-white/80 hover:text-white">
@@ -148,11 +109,11 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
         {/* Contenuto */}
         <div className="p-6 max-h-[60vh] overflow-y-auto">
           <div className="prose prose-sm">
-            <p className="text-gray-600 mb-6">{service.description}</p>
+            <p className="text-gray-600 mb-6">{serviceData.description}</p>
             
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('services.mainServices.modal.featuresTitle')}</h4>
             <ul className="space-y-2 mb-6">
-              {service.features.map((feature: string, idx: number) => (
+              {features.map((feature: string, idx: number) => (
                 <li key={idx} className="flex items-start gap-2 text-gray-600">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span>{feature}</span>
@@ -160,9 +121,9 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
               ))}
             </ul>
 
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">Tecnologie:</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('services.mainServices.modal.technologiesTitle')}</h4>
             <div className="flex flex-wrap gap-2">
-              {service.technologies.map((tech: string, idx: number) => (
+              {technologies.map((tech: string, idx: number) => (
                 <span
                   key={idx}
                   className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm"
@@ -183,7 +144,7 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
             className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl shadow-glow hover:shadow-glow-lg transition-all duration-300 transform hover:-translate-y-1"
           >
             <MessageSquare className="w-5 h-5" />
-            <span>Richiedi Preventivo</span>
+            <span>{t('services.mainServices.modal.requestQuote')}</span>
           </a>
         </div>
       </motion.div>
@@ -192,6 +153,7 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
 };
 
 const Services = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -218,8 +180,8 @@ const Services = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
       <Helmet>
-        <title>Servizi | Webbitz - Soluzioni Digitali per la Tua Attività</title>
-        <meta name="description" content="Scopri i servizi di Webbitz: sviluppo web, chatbot AI, automazione e soluzioni database. Trasforma la tua presenza digitale con le nostre soluzioni innovative." />
+        <title>{t('services.meta.title')}</title>
+        <meta name="description" content={t('services.meta.description')} />
       </Helmet>
 
       {/* Animated Background */}
@@ -262,7 +224,7 @@ const Services = () => {
               className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                Soluzioni Digitali
+                {t('services.hero.title')}
               </span>
               <br />
               <motion.span
@@ -272,7 +234,7 @@ const Services = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
               >
-                Su Misura
+                {t('services.hero.titleAnimated')}
               </motion.span>
             </motion.h1>
 
@@ -282,9 +244,11 @@ const Services = () => {
               transition={{ delay: 0.4, duration: 1 }}
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
-              Sviluppiamo <span className="text-purple-700 font-semibold">tecnologie all'avanguardia</span> per 
-              trasformare la tua azienda. Dalla creazione di siti web React alle 
-              <span className="text-purple-700 font-semibold"> soluzioni AI</span>, ogni progetto è unico e personalizzato.
+              {t('services.hero.subtitle.part1')}
+              <span className="text-purple-700 font-semibold">{t('services.hero.subtitle.part2')}</span>
+              {t('services.hero.subtitle.part3')}
+              <span className="text-purple-700 font-semibold">{t('services.hero.subtitle.part4')}</span>
+              {t('services.hero.subtitle.part5')}
             </motion.p>
           </motion.div>
         </div>
@@ -303,77 +267,72 @@ const Services = () => {
             className="text-center mb-8 md:mb-12"
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Servizi Principali
+              {t('services.mainServices.title')}
             </h2>
           </motion.div>
 
           {/* Service Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 mb-0">
-            {mainServices.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 100 }}
-                animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.2, duration: 1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-purple-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
-              >
-                <div className="flex flex-col h-full items-center text-center">
-                  <div className="min-h-[auto] md:min-h-[280px] flex flex-col items-center">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r ${service.gradient} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6`}
-                    >
-                      <service.icon size={24} className="text-white" />
-                    </motion.div>
+            {mainServices.map((service, index) => {
+              const serviceData = t(`services.mainServices.services.${service.titleKey}`, { returnObjects: true }) as any;
+              const features = t(`services.mainServices.services.${service.titleKey}.features`, { returnObjects: true }) as string[];
+              
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: index * 0.2, duration: 1 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-purple-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
+                >
+                  <div className="flex flex-col h-full items-center text-center">
+                    <div className="min-h-[auto] md:min-h-[280px] flex flex-col items-center">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r ${service.gradient} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6`}
+                      >
+                        <service.icon size={24} className="text-white" />
+                      </motion.div>
 
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-purple-700 font-semibold mb-2 md:mb-4 text-sm md:text-base">{service.subtitle}</p>
-                    
-                    {/* Descrizione e bottone visibili solo su desktop */}
-                    <div className="hidden md:block">
-                      <p className="text-gray-600 leading-relaxed text-base">{service.description}</p>
-                  <div className="mt-8 w-full">
-                    <h4 className="font-semibold text-gray-900 mb-3">Caratteristiche:</h4>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, idx) => (
-                        <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                        {/*<div className="mt-6">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      Scopri di più
-                      <ArrowRight size={16} />
-                    </motion.button>
-                        </div>*/}
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{serviceData.title}</h3>
+                      <p className="text-purple-700 font-semibold mb-2 md:mb-4 text-sm md:text-base">{serviceData.subtitle}</p>
+                      
+                      {/* Descrizione e bottone visibili solo su desktop */}
+                      <div className="hidden md:block">
+                        <p className="text-gray-600 leading-relaxed text-base">{serviceData.description}</p>
+                        <div className="mt-8 w-full">
+                          <h4 className="font-semibold text-gray-900 mb-3">{t('services.mainServices.modal.featuresTitle')}</h4>
+                          <ul className="space-y-2">
+                            {features.slice(0, 3).map((feature, idx) => (
+                              <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
+                                <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Bottone info visibile solo su mobile */}
+                      <div className="md:hidden mt-4">
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => {
+                            setSelectedService(service);
+                            setIsModalOpen(true);
+                          }}
+                          className={`w-10 h-10 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center text-white shadow-lg`}
+                        >
+                          <Info size={20} />
+                        </motion.button>
                       </div>
                     </div>
-
-                    {/* Bottone info visibile solo su mobile */}
-                    <div className="md:hidden mt-4">
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => {
-                          setSelectedService(service);
-                          setIsModalOpen(true);
-                        }}
-                        className={`w-10 h-10 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center text-white shadow-lg`}
-                      >
-                        <Info size={20} />
-                      </motion.button>
-                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.section>
@@ -391,10 +350,10 @@ const Services = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Pronto a Iniziare?
+              {t('services.cta.title')}
             </h2>
             <p className="text-xl text-gray-700 mb-12">
-              Trasformiamo la tua idea in una soluzione digitale di successo
+              {t('services.cta.subtitle')}
             </p>
             
             <motion.button
@@ -407,7 +366,7 @@ const Services = () => {
               className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg"
               onClick={() => window.open('https://wa.me/3391797616?text=Sono%20interessato%20ad%20un%20preventivo%20per%20il%20vostro%20servizio', '_blank')}
             >
-              <span className="relative z-10">Richiedi Preventivo</span>
+              <span className="relative z-10">{t('services.cta.button')}</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
@@ -446,79 +405,35 @@ const Services = () => {
 interface ProcessSectionProps {}
 
 const ProcessSection: FC<ProcessSectionProps> = () => {
+  const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const developmentProcess: ProcessStep[] = [
     {
-      step: "01",
-      title: "Analisi & Strategia",
-      description: "Analizziamo le tue esigenze e definiamo una strategia chiara per il tuo progetto digitale.",
-      duration: "1-2 settimane",
-      tools: ["Analytics", "Research", "Strategy"],
+      stepKey: "analysis",
       color: "from-blue-500 to-blue-600",
-      icon: Search,
-      visualExample: {
-        title: "Report Strategico",
-        icon: FileText,
-        description: "Analisi dettagliata e piano d'azione"
-      }
+      icon: Search
     },
     {
-      step: "02", 
-      title: "Design & UX",
-      description: "Creiamo un design accattivante e un'esperienza utente ottimale per i tuoi visitatori.",
-      duration: "2-3 settimane",
-      tools: ["Figma", "Adobe XD", "Sketch"],
+      stepKey: "design", 
       color: "from-purple-500 to-purple-600",
-      icon: Palette,
-      visualExample: {
-        title: "Design System",
-        icon: Monitor,
-        description: "UI/UX design completo e interattivo"
-      }
+      icon: Palette
     },
     {
-      step: "03",
-      title: "Sviluppo",
-      description: "Sviluppiamo il tuo progetto utilizzando le tecnologie più moderne e performanti.",
-      duration: "3-4 settimane", 
-      tools: ["React", "Next.js", "Node.js"],
+      stepKey: "development",
       color: "from-green-500 to-green-600",
-      icon: Code,
-      visualExample: {
-        title: "Codice Sorgente",
-        icon: Code,
-        description: "Sviluppo frontend e backend"
-      }
+      icon: Code
     },
     {
-      step: "04",
-      title: "Testing",
-      description: "Testiamo ogni funzionalità per garantire qualità e performance ottimali.",
-      duration: "1 settimana",
-      tools: ["Jest", "Cypress", "Lighthouse"],
+      stepKey: "testing",
       color: "from-orange-500 to-orange-600", 
-      icon: TestTube,
-      visualExample: {
-        title: "Test Report",
-        icon: TestTube,
-        description: "Report completo dei test eseguiti"
-      }
+      icon: TestTube
     },
     {
-      step: "05",
-      title: "Launch",
-      description: "Lanciamo il tuo progetto e monitoriamo le performance per garantire il successo.",
-      duration: "1 settimana",
-      tools: ["Vercel", "AWS", "Analytics"],
+      stepKey: "launch",
       color: "from-pink-500 to-pink-600",
-      icon: Rocket,
-      visualExample: {
-        title: "Deployment",
-        icon: Globe,
-        description: "Sito live e monitoraggio attivo"
-      }
+      icon: Rocket
     }
   ];
 
@@ -550,7 +465,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
             <h2 className="font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent"
               style={{ fontSize: 'clamp(1.3rem,6vw,2.7rem)' }}>
-              Il Nostro Processo
+              {t('services.process.title')}
             </h2>
             <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
               <button
@@ -574,7 +489,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
             </div>
           </div>
           <p className="text-gray-600 mx-auto mt-4" style={{ fontSize: 'clamp(0.95rem,3vw,1.2rem)', maxWidth: '95vw' }}>
-            Un approccio strutturato per trasformare le tue idee in soluzioni digitali di successo
+            {t('services.process.subtitle')}
           </p>
         </div>
 
@@ -631,10 +546,10 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-bold text-gray-900 mb-2" style={{ fontSize: 'clamp(1.1rem,4vw,2.1rem)' }}>
-                    {developmentProcess[activeStep].title}
+                    {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.title`)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed" style={{ fontSize: 'clamp(0.95rem,2.5vw,1.15rem)' }}>
-                    {developmentProcess[activeStep].description}
+                    {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.description`)}
                   </p>
                 </div>
               </div>
@@ -643,15 +558,15 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
               <div className="flex flex-col sm:flex-row items-center justify-between border-t border-gray-100 pt-4 sm:pt-6 gap-4 sm:gap-0">
                 <div className="flex items-center gap-2 text-purple-600 font-medium">
                   <Clock size={16} className="sm:w-5 sm:h-5" />
-                  <span style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>{developmentProcess[activeStep].duration}</span>
+                  <span style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>{t(`services.process.steps.${developmentProcess[activeStep].stepKey}.duration`)}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
                   <h4 className="font-semibold text-gray-900 flex items-center gap-2" style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>
                     <Settings size={16} className="text-purple-600 sm:w-5 sm:h-5" />
-                    Strumenti:
+                    {t('services.process.toolsLabel')}
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {developmentProcess[activeStep].tools.map((tool: string, idx: number) => (
+                    {(t(`services.process.steps.${developmentProcess[activeStep].stepKey}.tools`, { returnObjects: true }) as string[]).map((tool: string, idx: number) => (
                       <span
                         key={idx}
                         className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-xs sm:text-sm rounded-full font-medium shadow-sm`}

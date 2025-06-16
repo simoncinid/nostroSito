@@ -1,0 +1,772 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "services": "Dienstleistungen",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "startNow": "Jetzt Starten"
+  },
+  "language": {
+    "select": "Sprache Auswählen",
+    "italian": "Italienisch",
+    "english": "Englisch",
+    "french": "Französisch",
+    "spanish": "Spanisch",
+    "german": "Deutsch"
+  },
+  "hero": {
+    "title1": "Ihr Potenzial",
+    "title2": "endlich online",
+    "subtitle": {
+      "part1": "Kleine und mittlere Unternehmen",
+      "part2": ", es ist Zeit, ",
+      "part3": "sich der Welt bekannt zu machen",
+      "part4": ". Wir schaffen Ihre digitale Präsenz mit professionellen Websites, ",
+      "part5": "KI-Lösungen",
+      "part6": " und Strategien, die konkrete Ergebnisse liefern."
+    },
+    "services": {
+      "website": {
+        "title": "Professionelle Website",
+        "desc": "Ihr perfektes digitales Schaufenster"
+      },
+      "ai": {
+        "title": "KI-Assistent 24/7",
+        "desc": "Immer für Kunden da"
+      },
+      "results": {
+        "title": "Garantierte Ergebnisse",
+        "desc": "Mehr Sichtbarkeit, mehr Kunden"
+      }
+    },
+    "cta": {
+      "primary": "Projekt starten",
+      "secondary": "Unsere Arbeiten entdecken"
+    }
+  },
+  "features": {
+    "title": "Warum",
+    "titleHighlight": "Webbitz",
+    "subtitle": "Wir kombinieren modernste Technologie, innovatives Design und gewinnende Strategien, um digitale Lösungen zu schaffen, die den Unterschied machen",
+    "items": {
+      "website": {
+        "title": "Premium Websites",
+        "description": "Responsive und leistungsstarke Designs, die Besucher in Kunden verwandeln"
+      },
+      "chatbot": {
+        "title": "Erweiterte KI-Chatbots",
+        "description": "Intelligente virtuelle Assistenten für 24/7 Lead-Generierung"
+      },
+      "seo": {
+        "title": "SEO & Marketing",
+        "description": "Datengesteuerte Strategien zur Dominierung der Suchmaschinen"
+      },
+      "brand": {
+        "title": "Markenidentität",
+        "description": "Einprägsame visuelle Identitäten, die Ihre Marke auszeichnen"
+      },
+      "security": {
+        "title": "Garantierte Sicherheit",
+        "description": "Erweiterte Sicherheit und automatische Backups für Ihre Ruhe"
+      },
+      "performance": {
+        "title": "Optimale Leistung",
+        "description": "Blitzschnelle Ladegeschwindigkeiten und kontinuierliche Optimierung"
+      }
+    }
+  },
+  "clientsMap": {
+    "title": "Internationale",
+    "titleHighlight": "Projekte",
+    "clickMarkers": "Klicken Sie auf die Markierungen, um Projekte zu entdecken",
+    "completedProjects": "Abgeschlossene Projekte",
+    "activeClients": "Aktive Kunden",
+    "clientInfo": "Webbitz Kunde - Projekt abgeschlossen",
+    "visitSite": "Website Besuchen"
+  },
+  "worksCarousel": {
+    "title": "Unsere",
+    "titleHighlight": "Arbeiten",
+    "projects": {
+      "vistamare": "Vistamare Website",
+      "rndhub": "RNDhub Automatisierung", 
+      "admissionhub": "AdmissionHub Website",
+      "welpy": "Welpy ChatBot",
+      "threshold": "Threshold Website"
+    }
+  },
+  "packages": {
+    "badge": "Webbitz Pakete",
+    "title": "Lösungen",
+    "titleHighlight": "Alles-in-Einem",
+    "titleEnd": "für Ihren Erfolg",
+    "subtitle": "Komplette Pakete, die Website, KI-Chatbot, SEO und Markenidentität kombinieren. Alles was Sie brauchen, um den digitalen Markt zu dominieren.",
+    "essential": {
+      "name": "Webbitz Essential",
+      "badge": "Am Beliebtesten",
+      "description": "Die komplette Lösung für Ihr digitales Geschäft",
+      "cta": "Essential Wählen"
+    },
+    "premium": {
+      "name": "Webbitz Premium",
+      "badge": "Maximaler Wert",
+      "description": "Essential + Komplette Markenidentität zur Marktdominierung",
+      "cta": "Premium Wählen"
+    },
+    "features": {
+      "chatbot": "Lead-generierender Chatbot",
+      "website": "Individuelle Website",
+      "seo": "Optimierte SEO",
+      "brand": "Komplette Markenidentität"
+    },
+    "includes": "Was Enthalten Ist:",
+    "contactQuote": "Kontaktieren Sie uns für ein individuelles Angebot"
+  },
+  "about": {
+    "meta": {
+      "title": "Über Uns | Webbitz - Das Junge Team, das Ihre Ideen Verwirklicht",
+      "description": "Entdecken Sie das Webbitz-Team: junge Fachleute mit Leidenschaft für Technologie, die Ihre Ideen in innovative digitale Lösungen verwandeln."
+    },
+    "hero": {
+      "title1": "Wir Verwandeln Ideen",
+      "title2": "In Realität",
+      "subtitle": {
+        "part1": "Wir sind drei leidenschaftliche Fachleute, die ",
+        "part2": "Kreativität",
+        "part3": ", ",
+        "part4": "Technologie",
+        "part5": " und ",
+        "part6": "Strategie",
+        "part7": " kombinieren, um digitale Lösungen zu schaffen, die alle Erwartungen übertreffen."
+      }
+    },
+    "team": {
+      "title": "Das Entwicklungsteam:",
+      "members": {
+        "diego": {
+          "name": "Diego",
+          "role": "Web-Entwickler & KI",
+          "description": "Experte in React, Node.js und künstlicher Intelligenz. Verwandelt komplexe Ideen in elegante und raffinierte digitale Lösungen.",
+          "specialty": "Skalierbare Architekturen und KI-Lösungen",
+          "experience": "2+ Jahre",
+          "projects": "10+"
+        },
+        "tommaso": {
+          "name": "Tommaso",
+          "role": "Web-Entwickler & Designer",
+          "description": "Kombiniert Kreativität und Code, um außergewöhnliche Benutzererfahrungen zu schaffen. Meister der Design-Systeme und UX.",
+          "specialty": "Perfekte Design-to-Code-Umsetzung",
+          "experience": "2+ Jahre",
+          "projects": "5+"
+        }
+      },
+      "labels": {
+        "skills": "Fähigkeiten:",
+        "experience": "Erfahrung",
+        "projects": "Projekte",
+        "specialty": "Spezialität:"
+      }
+    },
+    "cta": {
+      "title": "Bereit, Ihre Idee zu Verwirklichen?",
+      "subtitle": "Schließen Sie sich unseren zufriedenen Kunden an und bringen Sie Ihr Unternehmen auf die nächste Stufe",
+      "button": "Lassen Sie uns Beginnen"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Dienstleistungen | Webbitz - Digitale Lösungen für Ihr Unternehmen",
+      "description": "Entdecken Sie die Webbitz-Dienstleistungen: Webentwicklung, KI-Chatbots, Automatisierung und Datenbanklösungen. Transformieren Sie Ihre digitale Präsenz mit unseren innovativen Lösungen."
+    },
+    "hero": {
+      "title": "Digitale Lösungen",
+      "titleAnimated": "Maßgeschneidert",
+      "subtitle": {
+        "part1": "Wir entwickeln ",
+        "part2": "modernste Technologien",
+        "part3": " zur Transformation Ihres Unternehmens. Von React-Webentwicklung bis zu ",
+        "part4": "KI-Lösungen",
+        "part5": ", jedes Projekt ist einzigartig und personalisiert."
+      }
+    },
+    "mainServices": {
+      "title": "Hauptdienstleistungen",
+      "services": {
+        "webDevelopment": {
+          "title": "React Webentwicklung",
+          "subtitle": "Maßgeschneiderte Websites von Grund auf, keine Vorlagen",
+          "description": "Wir entwickeln moderne Webanwendungen mit React. Jedes Projekt ist einzigartig, von Grund auf geschrieben, um optimale Leistung und Skalierbarkeit zu gewährleisten.",
+          "features": [
+            "React 18 + TypeScript",
+            "Responsive und Mobile-First-Design",
+            "Optimierte Leistung (Core Web Vitals)",
+            "Fortgeschrittenes technisches SEO",
+            "Skalierbare Architektur",
+            "Automatisiertes Testing"
+          ],
+          "technologies": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"]
+        },
+        "aiSolutions": {
+          "title": "KI-Lösungen",
+          "subtitle": "Künstliche Intelligenz für Unternehmen",
+          "description": "Wir erstellen intelligente Chatbots, virtuelle Assistenten und KI-basierte Automatisierungssysteme zur Verbesserung der Geschäftseffizienz und Kundenerfahrung.",
+          "features": [
+            "Chatbots für Lead-Generierung",
+            "Personalisierte virtuelle Assistenten",
+            "Prädiktive Datenanalyse",
+            "Kundenservice-Automatisierung",
+            "CRM/ERP-Integration",
+            "Maßgeschneidertes Machine Learning"
+          ],
+          "technologies": ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"]
+        },
+        "automation": {
+          "title": "Prozessautomatisierung",
+          "subtitle": "Maximale Effizienz und Produktivität",
+          "description": "Wir automatisieren sich wiederholende Geschäftsprozesse, von der Dateneingabe bis zur Dokumentenerstellung, und schaffen wertvolle Zeit für strategische Aktivitäten.",
+          "features": [
+            "Dateneingabe-Automatisierung",
+            "Automatische Dokumentenerstellung",
+            "Maßgeschneiderte Workflows",
+            "Integration bestehender Systeme",
+            "Überwachungs-Dashboard",
+            "ROI-Tracking und Analytik"
+          ],
+          "technologies": ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"]
+        }
+      },
+      "modal": {
+        "featuresTitle": "Funktionen:",
+        "technologiesTitle": "Technologien:",
+        "requestQuote": "Angebot Anfordern"
+      }
+    },
+    "process": {
+      "title": "Unser Prozess",
+      "subtitle": "Ein strukturierter Ansatz zur Transformation Ihrer Ideen in erfolgreiche digitale Lösungen",
+      "steps": {
+        "analysis": {
+          "step": "01",
+          "title": "Analyse & Strategie",
+          "description": "Wir analysieren Ihre Bedürfnisse und definieren eine klare Strategie für Ihr digitales Projekt.",
+          "duration": "1-2 Wochen",
+          "tools": ["Analytics", "Research", "Strategy"],
+          "visualExample": {
+            "title": "Strategischer Bericht",
+            "description": "Detaillierte Analyse und Aktionsplan"
+          }
+        },
+        "design": {
+          "step": "02",
+          "title": "Design & UX",
+          "description": "Wir erstellen ansprechendes Design und optimale Benutzererfahrung für Ihre Besucher.",
+          "duration": "2-3 Wochen",
+          "tools": ["Figma", "Adobe XD", "Sketch"],
+          "visualExample": {
+            "title": "Design-System",
+            "description": "Vollständiges und interaktives UI/UX-Design"
+          }
+        },
+        "development": {
+          "step": "03",
+          "title": "Entwicklung",
+          "description": "Wir entwickeln Ihr Projekt mit den modernsten und leistungsfähigsten Technologien.",
+          "duration": "3-4 Wochen",
+          "tools": ["React", "Next.js", "Node.js"],
+          "visualExample": {
+            "title": "Quellcode",
+            "description": "Frontend- und Backend-Entwicklung"
+          }
+        },
+        "testing": {
+          "step": "04",
+          "title": "Testing",
+          "description": "Wir testen jede Funktionalität, um Qualität und optimale Leistung zu gewährleisten.",
+          "duration": "1 Woche",
+          "tools": ["Jest", "Cypress", "Lighthouse"],
+          "visualExample": {
+            "title": "Test-Bericht",
+            "description": "Vollständiger Bericht der ausgeführten Tests"
+          }
+        },
+        "launch": {
+          "step": "05",
+          "title": "Launch",
+          "description": "Wir starten Ihr Projekt und überwachen die Leistung, um den Erfolg zu gewährleisten.",
+          "duration": "1 Woche",
+          "tools": ["Vercel", "AWS", "Analytics"],
+          "visualExample": {
+            "title": "Deployment",
+            "description": "Live-Website und aktive Überwachung"
+          }
+        }
+      },
+      "toolsLabel": "Tools:"
+    },
+    "cta": {
+      "title": "Bereit zu Starten?",
+      "subtitle": "Verwandeln Sie Ihre Idee in eine erfolgreiche digitale Lösung",
+      "button": "Angebot Anfordern"
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolio | Webbitz - Unsere Erfolgsgeschichten",
+      "description": "Entdecken Sie von Webbitz entwickelte Projekte: Websites, E-Commerce und innovative digitale Lösungen für erfolgreiche Kunden."
+    },
+    "hero": {
+      "title": "Projekte, die",
+      "titleAnimated": "den Unterschied machen",
+      "subtitle": {
+        "part1": "Entdecken Sie die ",
+        "part2": "innovativen Projekte",
+        "part3": ", die wir für unsere Kunden entwickelt haben.",
+        "part4": " Jede Lösung ist ",
+        "part5": "einzigartig und maßgeschneidert",
+        "part6": ", darauf ausgelegt, Erwartungen zu übertreffen und konkrete Ergebnisse zu erzielen."
+      }
+    },
+    "categories": {
+      "all": "Alle Projekte",
+      "web": "Webentwicklung",
+      "ai": "KI-Lösungen",
+      "automation": "Automatisierung",
+      "database": "Datenbank"
+    },
+    "projects": {
+      "aiFreightHub": {
+        "title": "AI Freight Hub - RnD Hub",
+        "description": "Komplettes Automatisierungssystem für die amerikanische Logistikwelt mit KI für automatische Suche und Angebotserstellung, täglich hunderte E-Mails versendend.",
+        "longDescription": "Entwickelt für RnD Hub, nutzt dieses revolutionäre Automatisierungssystem KI für automatische Suche und Angebotserstellung im amerikanischen Frachtsektor. Die Plattform verwaltet automatisch hunderte E-Mails täglich und bedient dutzende Kunden im US-Frachtmarkt.",
+        "client": "RnD Hub",
+        "duration": "6 Monate",
+        "results": [
+          { "metric": "Versendete E-Mails", "value": "50.000+", "description": "Automatische E-Mails täglich" },
+          { "metric": "Betreute Kunden", "value": "40+", "description": "Aktive Kunden auf Plattform" }
+        ],
+        "features": [
+          "KI für automatische Frachtsuche",
+          "Intelligentes Angebotssystem",
+          "Massive E-Mail-Automatisierung",
+          "Echtzeit-Analytics-Dashboard",
+          "Mehrstufiges Kundenmanagement",
+          "LKW-API-Integration"
+        ]
+      },
+      "thinkGoodWebsite": {
+        "title": "ThinkGood Music - Website",
+        "description": "Moderne und responsive Website für ThinkGood Music, mit elegantem Design und erweiterten Funktionen für Musikveranstaltungsmanagement.",
+        "longDescription": "Entwicklung einer modernen und responsiven Website für ThinkGood Music, mit elegantem Design, das die Markenidentität widerspiegelt. Die Website umfasst erweiterte Funktionen wie Veranstaltungsgalerie, Buchungssystem und Social-Media-Integration.",
+        "client": "ThinkGood Music",
+        "duration": "6 Wochen",
+        "results": [
+          { "metric": "Leistung", "value": "+180%", "description": "Ladegeschwindigkeit" },
+          { "metric": "Benutzererfahrung", "value": "+95%", "description": "Benutzerzufriedenheit" },
+          { "metric": "Konversionen", "value": "+150%", "description": "Konversionsrate" }
+        ],
+        "features": [
+          "Modernes responsives Design",
+          "Erweiterte Veranstaltungsgalerie",
+          "Integriertes Buchungssystem",
+          "Interaktive Veranstaltungs-Timeline",
+          "Social-Media-Integration",
+          "SEO-Optimierung"
+        ]
+      },
+      "thinkGoodChatbot": {
+        "title": "ThinkGood Music - Lead-Generierung Chatbot",
+        "description": "Erweiterte KI-Chatbot für automatische Lead-Generierung auf Website mit 30k monatlichen Besuchen, konvertiert Traffic in qualifizierte Leads durch intelligente Gespräche.",
+        "longDescription": "Entwicklung eines erweiterten KI-Chatbots für ThinkGood Music, Website mit 30k monatlichen Besuchen. Das System konvertiert automatisch Web-Traffic in qualifizierte Leads durch intelligente und personalisierte Gespräche.",
+        "client": "ThinkGood Music",
+        "duration": "4 Wochen",
+        "results": [
+          { "metric": "Monatlicher Traffic", "value": "30k", "description": "Monatliche eindeutige Besucher" },
+          { "metric": "Konversionsrate", "value": "+200%", "description": "Konversionsverbesserung" },
+          { "metric": "Qualifizierte Leads", "value": "+280%", "description": "Steigerung qualifizierter Leads" }
+        ],
+        "features": [
+          "Automatische Lead-Generierung",
+          "Personalisierte KI-Gespräche",
+          "Intelligentes Lead-Scoring",
+          "Direkte CRM-Integration",
+          "Gesprächsanalytik",
+          "Automatisches A/B-Testing"
+        ]
+      },
+      "thresholdWebsite": {
+        "title": "Threshold Coach - Web-Plattform",
+        "description": "Komplette von Grund auf entwickelte Web-Plattform für personalisiertes Coaching, mit moderner Architektur und erweiterte Benutzeroberfläche.",
+        "longDescription": "Komplette Web-Plattform, vollständig von WebBitz für Threshold Coach entwickelt. Das Projekt umfasst Frontend- und Backend-Entwicklung von Grund auf, spezifisch den Kundenanforderungen folgend.",
+        "client": "Threshold Coach",
+        "duration": "2 Monate",
+        "results": [
+          { "metric": "Website-Verkäufe", "value": "+200%", "description": "Seitenladegeschwindigkeit" },
+          { "metric": "Benutzererfahrung", "value": "+95%", "description": "Benutzerzufriedenheit" },
+          { "metric": "Konversionen", "value": "+150%", "description": "Konversionsrate" }
+        ],
+        "features": [
+          "Komplette Entwicklung von Grund auf",
+          "Moderne skalierbare Architektur",
+          "Anpassbare Dashboards",
+          "Integriertes Zahlungssystem",
+          "Erweiterte responsive Design",
+          "Komplette SEO-Optimierung"
+        ]
+      },
+      "thresholdAI": {
+        "title": "Threshold Coach - 50 KI-Assistenten",
+        "description": "Entwicklung von fast 50 spezialisierten KI-Assistenten mit OpenAI/Anthropic-Umschaltung für personalisiertes Coaching und Benutzersupport.",
+        "longDescription": "Entwicklung eines kompletten Ökosystems von fast 50 spezialisierten KI-Assistenten für Threshold Coach. Jeder Assistent ist für spezifische Coaching-Bereiche optimiert mit der Möglichkeit, zwischen OpenAI und Anthropic zu wechseln.",
+        "client": "Threshold Coach",
+        "duration": "10 Monate",
+        "results": [
+          { "metric": "Entwickelte Assistenten", "value": "48", "description": "Spezialisierte KI-Assistenten" },
+          { "metric": "Gespräche", "value": "10k+", "description": "Monatliche Gespräche" },
+          { "metric": "Genauigkeit", "value": "+92%", "description": "KI-Antwortpräzision" }
+        ],
+        "features": [
+          "48 spezialisierte KI-Assistenten",
+          "OpenAI/Anthropic-Umschaltung",
+          "Benutzerindividualisierung",
+          "Erweiterte Gesprächsverwaltung",
+          "KI-Interaktionsanalytik",
+          "Kontinuierliches Modelltraining"
+        ]
+      },
+      "thresholdDatabase": {
+        "title": "Threshold Coach - Datenbank-Infrastruktur",
+        "description": "Unternehmens-Datenbank-Infrastruktur zur Verwaltung aller Benutzergespräche mit fast 50 KI-Assistenten, mit skalierbarer und sicherer Architektur.",
+        "longDescription": "Design und Implementierung einer Unternehmens-Datenbank-Infrastruktur für Threshold Coach. Das System verwaltet alle Benutzergespräche mit fast 50 KI-Assistenten und gewährleistet Skalierbarkeit, Sicherheit und hohe Leistung.",
+        "client": "Threshold Coach",
+        "duration": "4 Monate",
+        "results": [
+          { "metric": "Verwaltete Gespräche", "value": "50k+", "description": "Archivierte Gespräche" },
+          { "metric": "Verfügbarkeit", "value": "99.9%", "description": "Systemverfügbarkeit" },
+          { "metric": "Leistung", "value": "+300%", "description": "Abfragegeschwindigkeit" }
+        ],
+        "features": [
+          "Skalierbare Datenbankarchitektur",
+          "Massive Gesprächsverwaltung",
+          "Tägliche automatische Backups",
+          "Multi-Zone-Replikation",
+          "Echtzeit-Überwachung",
+          "Erweiterte Abfrageoptimierung"
+        ]
+      },
+      "welpyChatbot": {
+        "title": "Welpy - Lead-Generierung Chatbot",
+        "description": "Erweiterte KI-Chatbot für automatische Lead-Generierung auf Website mit 40k monatlichen Besuchen, konvertiert Traffic in qualifizierte Leads durch intelligente Gespräche.",
+        "longDescription": "Entwicklung eines erweiterten KI-Chatbots für Welpy, wichtige Website mit 40k monatlichen Besuchen. Das System konvertiert automatisch Web-Traffic in qualifizierte Leads durch intelligente und personalisierte Gespräche.",
+        "client": "Welpy",
+        "duration": "6 Wochen",
+        "results": [
+          { "metric": "Monatlicher Traffic", "value": "40k", "description": "Monatliche eindeutige Besucher" },
+          { "metric": "Konversionsrate", "value": "+180%", "description": "Konversionsverbesserung" },
+          { "metric": "Qualifizierte Leads", "value": "+250%", "description": "Steigerung qualifizierter Leads" }
+        ],
+        "features": [
+          "Automatische Lead-Generierung",
+          "Personalisierte KI-Gespräche",
+          "Intelligentes Lead-Scoring",
+          "Direkte CRM-Integration",
+          "Gesprächsanalytik",
+          "Automatisches A/B-Testing"
+        ]
+      },
+      "admissionHub": {
+        "title": "The Admission Hub - Komplette Plattform",
+        "description": "Komplette von Grund auf entwickelte Web-Plattform für Universitätszulassungsdienste, mit Kandidatenverwaltungssystem und erweiterten Dashboards.",
+        "longDescription": "Komplette Entwicklung von Grund auf von The Admission Hub, Plattform spezialisiert auf Universitätszulassungsdienste. Das Projekt umfasst Frontend- und Backend-Entwicklung, Kandidatenverwaltungssystem, Berater-Dashboards, Zahlungssystem und vollständige Nachverfolgung des Zulassungsprozesses.",
+        "client": "The Admission Hub",
+        "duration": "10 Wochen",
+        "results": [
+          { "metric": "Verwaltete Kandidaten", "value": "1000+", "description": "Kandidaten auf Plattform" },
+          { "metric": "Automatisierung", "value": "+90%", "description": "Automatisierte Prozesse" },
+          { "metric": "Effizienz", "value": "+200%", "description": "Workflow-Verbesserung" }
+        ],
+        "features": [
+          "Kandidatenverwaltungssystem",
+          "Erweiterte Berater-Dashboards",
+          "Zulassungsprozess-Nachverfolgung",
+          "Integriertes Zahlungssystem",
+          "Dokumentenverwaltung",
+          "Automatische Benachrichtigungen"
+        ]
+      },
+      "vistamare": {
+        "title": "Vistamare - Website",
+        "description": "Moderne und responsive Website für Vistamare, mit elegantem Design und erweiterten Funktionen.",
+        "longDescription": "Entwicklung einer modernen und responsiven Website für Vistamare, mit elegantem Design, das die Markenidentität widerspiegelt. Die Website umfasst erweiterte Funktionen wie Bildergalerie, Buchungssystem und Social-Media-Integration.",
+        "client": "Vistamare",
+        "duration": "4 Wochen",
+        "results": [
+          { "metric": "Leistung", "value": "+150%", "description": "Ladegeschwindigkeit" },
+          { "metric": "Benutzererfahrung", "value": "+90%", "description": "Benutzerzufriedenheit" },
+          { "metric": "Konversionen", "value": "+120%", "description": "Konversionsrate" }
+        ],
+        "features": [
+          "Modernes responsives Design",
+          "Erweiterte Bildergalerie",
+          "Buchungssystem",
+          "Social-Media-Integration",
+          "SEO-Optimierung",
+          "Erweiterte Analytik"
+        ]
+      }
+    },
+    "modal": {
+      "projectDescription": "Projektbeschreibung",
+      "mainFeatures": "Hauptmerkmale",
+      "technologiesUsed": "Verwendete Technologien",
+      "projectDetails": "Projektdetails",
+      "client": "Kunde:",
+      "year": "Jahr:",
+      "development": "Entwicklung:",
+      "team": "Team:",
+      "results": "Erzielte Ergebnisse",
+      "visitSite": "Website besuchen",
+      "sourceCode": "Quellcode"
+    },
+    "cta": {
+      "title": "Haben Sie ein Projekt im Kopf?",
+      "subtitle": "Verwandeln wir Ihre Idee in die nächste Erfolgsgeschichte unseres Portfolios",
+      "button": "Lasst uns zusammenarbeiten"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontakt | Webbitz - Sprechen wir über Ihr Projekt",
+      "description": "Kontaktieren Sie Webbitz, um Ihr Projekt zu besprechen. Wir hören auf Ihre Bedürfnisse und erstellen maßgeschneiderte Lösungen für Ihr Unternehmen."
+    },
+    "hero": {
+      "title1": "Sprechen wir über Ihr",
+      "title2": "Projekt",
+      "subtitle": {
+        "part1": "Haben Sie eine Idee im Kopf? ",
+        "part2": "Kontaktieren Sie uns",
+        "part3": ", um sie Wirklichkeit werden zu lassen. ",
+        "part4": "Wir hören auf Ihre Bedürfnisse und erstellen ",
+        "part5": "maßgeschneiderte Lösungen",
+        "part6": " für Ihr Unternehmen."
+      }
+    },
+    "info": {
+      "email": {
+        "title": "Email",
+        "value": "hello@webbitz.it",
+        "description": "Wir antworten innerhalb von 2 Stunden"
+      },
+      "phone": {
+        "title": "Telefon",
+        "value": "+39 339 179 7616",
+        "description": "Mo-Fr 9:00-18:00"
+      },
+      "location": {
+        "title": "Standort",
+        "value": "Pontedera (PI), Italien",
+        "description": "Wir arbeiten in ganz Italien"
+      },
+      "hours": {
+        "title": "Öffnungszeiten",
+        "value": "24/7 Support",
+        "description": "Immer verfügbare Unterstützung"
+      }
+    },
+    "form": {
+      "title": "Erzählen Sie uns Ihre Idee",
+      "steps": {
+        "basic": {
+          "title": "Grundinformationen",
+          "subtitle": "Beginnen wir mit den wesentlichen Informationen"
+        },
+        "project": {
+          "title": "Projektdetails",
+          "subtitle": "Erzählen Sie uns von Ihrem Projekt"
+        },
+        "message": {
+          "title": "Ihre Nachricht",
+          "subtitle": "Erzählen Sie uns mehr über Ihr Projekt"
+        }
+      },
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Ihr Name",
+          "required": "Name ist erforderlich"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "ihre-email@beispiel.com",
+          "required": "Email ist erforderlich",
+          "invalid": "Bitte geben Sie eine gültige Email ein"
+        },
+        "phone": {
+          "label": "Telefon",
+          "placeholder": "+39 123 456 7890"
+        },
+        "company": {
+          "label": "Unternehmen",
+          "placeholder": "Name Ihres Unternehmens"
+        },
+        "service": {
+          "label": "Gewünschter Service",
+          "placeholder": "Wählen Sie einen Service",
+          "required": "Bitte wählen Sie einen Service",
+          "other": "Anderer Service",
+          "otherDescription": {
+            "label": "Spezifizieren Sie den gewünschten Service",
+            "placeholder": "Beschreiben Sie den gesuchten Service",
+            "required": "Bitte spezifizieren Sie den gewünschten Service"
+          }
+        },
+        "budget": {
+          "label": "Budget",
+          "required": "Bitte wählen Sie ein Budget"
+        },
+        "timeline": {
+          "label": "Zeitplan"
+        },
+        "message": {
+          "label": "Projektbeschreibung",
+          "placeholder": "Beschreiben Sie Ihr Projekt, Ihre Ziele und alle Details, die Sie für wichtig halten...",
+          "required": "Projektbeschreibung ist erforderlich"
+        }
+      },
+      "services": [
+        {
+          "id": "web",
+          "name": "React Webentwicklung"
+        },
+        {
+          "id": "ai",
+          "name": "KI-Lösungen"
+        },
+        {
+          "id": "automation",
+          "name": "Prozessautomatisierung"
+        },
+        {
+          "id": "mobile",
+          "name": "Mobile Apps"
+        },
+        {
+          "id": "ecommerce",
+          "name": "E-commerce"
+        },
+        {
+          "id": "consulting",
+          "name": "Digitale Beratung"
+        }
+      ],
+      "budgets": [
+        {
+          "id": "1k-5k",
+          "name": "€1.000 - €5.000"
+        },
+        {
+          "id": "5k+",
+          "name": "€5.000+"
+        },
+        {
+          "id": "discuss",
+          "name": "Zu besprechen"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "urgent",
+          "name": "Dringend (1-2 Wochen)"
+        },
+        {
+          "id": "normal",
+          "name": "Normal (1-2 Monate)"
+        },
+        {
+          "id": "flexible",
+          "name": "Flexibel (3+ Monate)"
+        },
+        {
+          "id": "planning",
+          "name": "Planungsphase"
+        }
+      ],
+      "buttons": {
+        "back": "Zurück",
+        "next": "Weiter",
+        "submit": "Nachricht Senden",
+        "submitting": "Wird gesendet..."
+      },
+      "success": {
+        "title": "Nachricht Gesendet!",
+        "description": "Danke für Ihre Kontaktaufnahme. Wir antworten innerhalb von 2 Arbeitsstunden.",
+        "button": "Weitere Nachricht Senden"
+      }
+    },
+    "chat": {
+      "title": "Webbitz Assistent",
+      "status": "Jetzt online",
+      "placeholder": "Schreiben Sie eine Nachricht...",
+      "initialMessage": "Hallo! 👋 Ich bin der virtuelle Assistent von Webbitz. Wie kann ich Ihnen heute helfen?",
+      "response": "Vielen Dank für Ihre Nachricht! Einer unserer Experten wird Sie bald kontaktieren. In der Zwischenzeit können Sie das Formular ausfüllen, um uns weitere Details zu Ihrem Projekt zu geben. 🚀"
+    }
+  },
+  "footer": {
+    "description": "Wir verwandeln Ihre Ideen in außergewöhnliche digitale Erlebnisse. Premium-Lösungen für Unternehmen, die sich abheben wollen.",
+    "contact": {
+      "email": "info@webbitz.it",
+      "phone": "+39 339 179 7616",
+      "location": "Pontedera (PI), Italien"
+    },
+    "links": {
+      "servizi": {
+        "title": "Dienstleistungen",
+        "items": [
+          { "name": "Webentwicklung", "href": "/services#web" },
+          { "name": "KI-Chatbot", "href": "/services#chatbot" },
+          { "name": "SEO & Marketing", "href": "/services#seo" },
+          { "name": "Markenidentität", "href": "/services#branding" }
+        ]
+      },
+      "azienda": {
+        "title": "Unternehmen",
+        "items": [
+          { "name": "Über Uns", "href": "/about" },
+          { "name": "Portfolio", "href": "/portfolio" },
+          { "name": "Referenzen", "href": "/testimonials" },
+          { "name": "Blog", "href": "/blog" }
+        ]
+      },
+      "supporto": {
+        "title": "Support",
+        "items": [
+          { "name": "Kontakt", "href": "/contact" },
+          { "name": "FAQ", "href": "/faq" },
+          { "name": "Datenschutz", "href": "/privacy" },
+          { "name": "Nutzungsbedingungen", "href": "/terms" }
+        ]
+      }
+    },
+    "newsletter": {
+      "title": "Bleiben Sie Informiert",
+      "description": "Erhalten Sie die neuesten Nachrichten über Design, Technologie und digitale Strategien",
+      "placeholder": "Ihre E-Mail",
+      "button": "Abonnieren"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "copyright": "© 2025 Webbitz. Alle Rechte vorbehalten.",
+    "backToTop": "Nach oben"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "close": "Schließen",
+    "save": "Speichern",
+    "cancel": "Abbrechen"
+  }
+} 

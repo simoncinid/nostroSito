@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 declare global {
   interface Window {
@@ -9,6 +10,7 @@ declare global {
 }
 
 const ClientsMap = () => {
+  const { t } = useTranslation()
   const mapRef = useRef<HTMLDivElement>(null)
 
   // Stile personalizzato per la mappa (viola e bianco)
@@ -172,7 +174,7 @@ const ClientsMap = () => {
                 ${location.name}
               </h3>
               <p style="color: #6B7280; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
-                Cliente Webbitz - Progetto completato
+                ${t('clientsMap.clientInfo')}
               </p>
               ${location.link ? `<button 
                 style="
@@ -190,7 +192,7 @@ const ClientsMap = () => {
                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(139, 92, 246, 0.25)';"
                 onclick="window.open('${location.link}', '_blank')"
               >
-                Visita Sito
+                ${t('clientsMap.visitSite')}
               </button>` : ''}
             </div>
           `
@@ -228,12 +230,12 @@ const ClientsMap = () => {
         window.initMap = undefined
       }
     }
-  }, [])
+  }, [t])
 
   return (
-    <div className="container-premium">
-      <h2 className="heading-lg text-gray-900 mb-6 text-center">
-        Progetti <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Internazionali</span>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
+        {t('clientsMap.title')} <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">{t('clientsMap.titleHighlight')}</span>
       </h2>
       {/* Mappa Google Maps */}
       <motion.div
@@ -249,17 +251,17 @@ const ClientsMap = () => {
         />
         {/* Overlay con legenda */}
         <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
-          <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Clicca sui marker per scoprire i progetti</p>
+          <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">{t('clientsMap.clickMarkers')}</p>
           <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-purple-700">
             <div className="w-3 h-3 bg-purple-600 rounded-full"></div>
-            <span>Progetti completati</span>
+            <span>{t('clientsMap.completedProjects')}</span>
           </div>
         </div>
         {/* Stats overlay */}
         <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
           <div className="text-center">
             <div className="text-lg md:text-2xl font-bold text-purple-600">6</div>
-            <div className="text-xs text-gray-600">Clienti Attivi</div>
+            <div className="text-xs text-gray-600">{t('clientsMap.activeClients')}</div>
           </div>
         </div>
       </motion.div>

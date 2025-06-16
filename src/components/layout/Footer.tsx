@@ -9,38 +9,27 @@ import {
   Twitter,
   ArrowUp
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import logo from '../../assets/logos/WEBBITZ_5.png'
 
 const Footer = () => {
+  const { t } = useTranslation()
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // Get footer links from translations
   const footerLinks = {
-    servizi: [
-      { name: 'Sviluppo Web', href: '/services#web' },
-      { name: 'Chatbot AI', href: '/services#chatbot' },
-      { name: 'SEO & Marketing', href: '/services#seo' },
-      { name: 'Brand Identity', href: '/services#branding' },
-    ],
-    azienda: [
-      { name: 'Chi Siamo', href: '/about' },
-      { name: 'Portfolio', href: '/portfolio' },
-      { name: 'Testimonianze', href: '/testimonials' },
-      { name: 'Blog', href: '/blog' },
-    ],
-    supporto: [
-      { name: 'Contatti', href: '/contact' },
-      { name: 'FAQ', href: '/faq' },
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Termini di Servizio', href: '/terms' },
-    ]
+    servizi: t('footer.links.servizi', { returnObjects: true }),
+    azienda: t('footer.links.azienda', { returnObjects: true }),
+    supporto: t('footer.links.supporto', { returnObjects: true })
   }
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Instagram, href: '#', label: t('footer.social.instagram') },
+    { icon: Linkedin, href: '#', label: t('footer.social.linkedin') },
+    { icon: Twitter, href: '#', label: t('footer.social.twitter') },
   ]
 
   return (
@@ -79,8 +68,7 @@ const Footer = () => {
             
             <div className="flex-1 max-w-2xl">
               <p className="text-gray-300 leading-relaxed">
-                Trasformiamo le tue idee in esperienze digitali straordinarie. 
-                Soluzioni premium per aziende che vogliono distinguersi.
+                {t('footer.description')}
               </p>
             </div>
           </motion.div>
@@ -89,21 +77,21 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
             <div className="flex items-center space-x-3 text-gray-300">
               <Mail className="w-5 h-5 text-primary-400" />
-              <span>info@webbitz.it</span>
+              <span>{t('footer.contact.email')}</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-300">
               <Phone className="w-5 h-5 text-primary-400" />
-              <span>+39 339 179 7616</span>
+              <span>{t('footer.contact.phone')}</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-300">
               <MapPin className="w-5 h-5 text-primary-400" />
-              <span>Pontedera (PI), Italia</span>
+              <span>{t('footer.contact.location')}</span>
             </div>
           </div>
 
           {/* Links Sections - Centered Grid */}
           <div className="grid grid-cols-3 gap-2 md:gap-8 max-w-4xl mx-auto mb-6 md:mb-12">
-            {Object.entries(footerLinks).map(([category, links], index) => (
+            {Object.entries(footerLinks).map(([category, section], index) => (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 20 }}
@@ -111,11 +99,11 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <h3 className="text-sm md:text-lg font-display font-semibold text-white mb-2 md:mb-6 capitalize">
-                  {category}
+                <h3 className="text-sm md:text-lg font-display font-semibold text-white mb-2 md:mb-6">
+                  {(section as any).title}
                 </h3>
                 <ul className="space-y-1 md:space-y-3">
-                  {links.map((link) => (
+                  {(section as any).items.map((link: any) => (
                     <li key={link.name}>
                       <Link
                         to={link.href}
@@ -140,19 +128,19 @@ const Footer = () => {
             className="max-w-2xl mx-auto p-4 md:p-8 rounded-2xl bg-gradient-to-r from-primary-600/10 to-primary-800/10 border border-primary-500/20 text-center"
           >
             <h3 className="text-2xl font-display font-bold text-white mb-4">
-              Resta Aggiornato
+              {t('footer.newsletter.title')}
             </h3>
             <p className="text-gray-300 mb-6">
-              Ricevi le ultime novità su design, tecnologia e strategie digitali
+              {t('footer.newsletter.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="La tua email"
+                placeholder={t('footer.newsletter.placeholder')}
                 className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent backdrop-blur-sm"
               />
               <button className="btn-primary whitespace-nowrap">
-                Iscriviti
+                {t('footer.newsletter.button')}
               </button>
             </div>
           </motion.div>
@@ -180,7 +168,7 @@ const Footer = () => {
 
               {/* Copyright - Center */}
               <div className="text-gray-400 text-sm text-center">
-                © 2025 Webbitz. Tutti i diritti riservati.
+                {t('footer.copyright')}
               </div>
 
               {/* Back to Top - Bottom */}
@@ -189,7 +177,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center text-white shadow-glow hover:shadow-glow-lg transition-all duration-300"
-                aria-label="Torna su"
+                aria-label={t('footer.backToTop')}
               >
                 <ArrowUp className="w-5 h-5" />
               </motion.button>
@@ -201,4 +189,4 @@ const Footer = () => {
   )
 }
 
-export default Footer 
+export default Footer

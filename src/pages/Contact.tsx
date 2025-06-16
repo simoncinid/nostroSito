@@ -2,6 +2,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, Loader, Globe, ArrowRight, Zap, Target, Code, Bot, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 interface FormData {
   name: string;
@@ -23,11 +24,11 @@ interface ChatMessage {
 }
 
 const Contact = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
-  
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -47,7 +48,7 @@ const Contact = () => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: 1,
-      text: "Ciao! 👋 Sono l'assistente virtuale di Webbitz. Come posso aiutarti oggi?",
+      text: t('contact.chat.initialMessage'),
       isBot: true,
       timestamp: new Date()
     }
@@ -59,55 +60,38 @@ const Contact = () => {
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const formInView = useInView(formRef, { once: true, amount: 0.2 });
 
-  const services = [
-    { id: 'web', name: 'Sviluppo Web React', icon: Code },
-    { id: 'ai', name: 'Soluzioni AI', icon: Bot },
-    { id: 'automation', name: 'Automazione Processi', icon: Zap },
-    { id: 'mobile', name: 'App Mobile', icon: Phone },
-    { id: 'ecommerce', name: 'E-commerce', icon: Globe },
-    { id: 'consulting', name: 'Consulenza Digitale', icon: Target }
-  ];
-
-  const budgetRanges = [
-    { id: '1k-5k', name: '€1.000 - €5.000' },
-    { id: '5k+', name: '€5.000+' },
-    { id: 'discuss', name: 'Da discutere' }
-  ];
-
-  const timelines = [
-    { id: 'urgent', name: 'Urgente (1-2 settimane)' },
-    { id: 'normal', name: 'Normale (1-2 mesi)' },
-    { id: 'flexible', name: 'Flessibile (3+ mesi)' },
-    { id: 'planning', name: 'Fase di pianificazione' }
-  ];
+  // Get services, budgets, and timelines from translations
+  const services = t('contact.form.services', { returnObjects: true }) as Array<{id: string, name: string}>;
+  const budgetRanges = t('contact.form.budgets', { returnObjects: true }) as Array<{id: string, name: string}>;
+  const timelines = t('contact.form.timelines', { returnObjects: true }) as Array<{id: string, name: string}>;
 
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
-      value: 'hello@webbitz.it',
-      description: 'Rispondiamo entro 2 ore',
+      title: t('contact.info.email.title'),
+      value: t('contact.info.email.value'),
+      description: t('contact.info.email.description'),
       gradient: 'from-blue-500 to-blue-700'
     },
     {
       icon: Phone,
-      title: 'Telefono',
-      value: '+39 339 179 7616',
-      description: 'Lun-Ven 9:00-18:00',
+      title: t('contact.info.phone.title'),
+      value: t('contact.info.phone.value'),
+      description: t('contact.info.phone.description'),
       gradient: 'from-green-500 to-green-700'
     },
     {
       icon: MapPin,
-      title: 'Sede',
-      value: 'Pontedera (PI), Italia',
-      description: 'Lavoriamo in tutta Italia',
+      title: t('contact.info.location.title'),
+      value: t('contact.info.location.value'),
+      description: t('contact.info.location.description'),
       gradient: 'from-purple-500 to-purple-700'
     },
     {
       icon: Clock,
-      title: 'Orari',
-      value: '24/7 Support',
-      description: 'Assistenza sempre disponibile',
+      title: t('contact.info.hours.title'),
+      value: t('contact.info.hours.value'),
+      description: t('contact.info.hours.description'),
       gradient: 'from-orange-500 to-orange-700'
     }
   ];
@@ -118,27 +102,27 @@ const Contact = () => {
     switch (step) {
       case 1:
         if (!formData.name.trim()) {
-          newErrors.name = 'Il nome è obbligatorio';
+          newErrors.name = t('contact.form.fields.name.required');
         }
         if (!formData.email.trim()) {
-          newErrors.email = 'L\'email è obbligatoria';
+          newErrors.email = t('contact.form.fields.email.required');
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-          newErrors.email = 'Inserisci un\'email valida';
+          newErrors.email = t('contact.form.fields.email.invalid');
         }
         break;
       case 2:
         if (!formData.service) {
-          newErrors.service = 'Seleziona un servizio';
+          newErrors.service = t('contact.form.fields.service.required');
         } else if (formData.service === 'other' && !formData.otherService.trim()) {
-          newErrors.otherService = 'Specifica il servizio richiesto';
+          newErrors.otherService = t('contact.form.fields.service.otherDescription.required');
         }
         if (!formData.budget) {
-          newErrors.budget = 'Seleziona un budget';
+          newErrors.budget = t('contact.form.fields.budget.required');
         }
         break;
       case 3:
         if (!formData.message.trim()) {
-          newErrors.message = 'La descrizione del progetto è obbligatoria';
+          newErrors.message = t('contact.form.fields.message.required');
         }
         break;
     }
@@ -149,7 +133,7 @@ const Contact = () => {
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // Rimuovi l'errore quando l'utente inizia a digitare
+    // Remove error when user starts typing
     if (errors[field]) {
       setErrors(prev => {
         const newErrors = { ...prev };
@@ -207,7 +191,7 @@ const Contact = () => {
     setTimeout(() => {
       const botResponse: ChatMessage = {
         id: chatMessages.length + 2,
-        text: "Grazie per il tuo messaggio! Un nostro esperto ti contatterà presto. Nel frattempo, puoi compilare il form per darci più dettagli sul tuo progetto. 🚀",
+        text: t('contact.chat.response'),
         isBot: true,
         timestamp: new Date()
       };
@@ -228,11 +212,9 @@ const Contact = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
       <Helmet>
-        <title>Contatti | Webbitz - Parliamo del tuo progetto</title>
-        <meta name="description" content="Contatta Webbitz per discutere del tuo progetto. Siamo qui per ascoltare le tue esigenze e creare soluzioni su misura per il tuo business." />
+        <title>{t('contact.meta.title')}</title>
+        <meta name="description" content={t('contact.meta.description')} />
       </Helmet>
-
-      {/* Animated Background rimosso per pulizia warning */}
 
       {/* Hero Section */}
       <section
@@ -252,7 +234,7 @@ const Contact = () => {
               className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                Parliamo del tuo
+                {t('contact.hero.title1')}
               </span>
               <br />
               <motion.span
@@ -262,7 +244,7 @@ const Contact = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
               >
-                Progetto
+                {t('contact.hero.title2')}
               </motion.span>
             </motion.h1>
 
@@ -272,8 +254,14 @@ const Contact = () => {
               transition={{ delay: 0.6, duration: 1 }}
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
-              Hai un'idea in mente? <span className="text-purple-700 font-semibold">Contattaci</span> per trasformarla in realtà. 
-              <span className="hidden md:inline"> Siamo qui per ascoltare le tue esigenze e creare <span className="text-purple-700 font-semibold">soluzioni su misura</span> per il tuo business.</span>
+              {t('contact.hero.subtitle.part1')}
+              <span className="text-purple-700 font-semibold">{t('contact.hero.subtitle.part2')}</span>
+              {t('contact.hero.subtitle.part3')}
+              <span className="hidden md:inline">
+                {t('contact.hero.subtitle.part4')}
+                <span className="text-purple-700 font-semibold">{t('contact.hero.subtitle.part5')}</span>
+                {t('contact.hero.subtitle.part6')}
+              </span>
             </motion.p>
           </motion.div>
         </div>
@@ -321,7 +309,7 @@ const Contact = () => {
             className="text-center mb-6 md:mb-8"
           >
             <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Raccontaci la tua idea
+              {t('contact.form.title')}
             </h2>
           </motion.div>
 
@@ -345,9 +333,9 @@ const Contact = () => {
                 >
                   <CheckCircle size={40} className="text-white" />
                 </motion.div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Messaggio Inviato!</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('contact.form.success.title')}</h3>
                 <p className="text-gray-600 mb-6">
-                  Grazie per averci contattato. Ti risponderemo entro 2 ore lavorative.
+                  {t('contact.form.success.description')}
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -358,7 +346,7 @@ const Contact = () => {
                   }}
                   className="bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-8 rounded-xl hover:shadow-lg transition-all duration-300"
                 >
-                  Invia un Altro Messaggio
+                  {t('contact.form.success.button')}
                 </motion.button>
               </motion.div>
             ) : (
@@ -372,14 +360,14 @@ const Contact = () => {
                     className="space-y-4 md:space-y-6"
                   >
                     <div className="text-center mb-4 md:mb-8">
-                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Informazioni di Base</h3>
-                      <p className="text-gray-600 text-xs md:text-base">Iniziamo con le informazioni essenziali</p>
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">{t('contact.form.steps.basic.title')}</h3>
+                      <p className="text-gray-600 text-xs md:text-base">{t('contact.form.steps.basic.subtitle')}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                       <div>
                         <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
-                          Nome *
+                          {t('contact.form.fields.name.label')} *
                           {errors.name && <span className="text-red-500 text-xs ml-2">{errors.name}</span>}
                         </label>
                         <input
@@ -390,12 +378,12 @@ const Contact = () => {
                           className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 text-xs md:text-base ${
                             errors.name ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
                           }`}
-                          placeholder="Il tuo nome"
+                          placeholder={t('contact.form.fields.name.placeholder')}
                         />
                       </div>
                       <div>
                         <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
-                          Email *
+                          {t('contact.form.fields.email.label')} *
                           {errors.email && <span className="text-red-500 text-xs ml-2">{errors.email}</span>}
                         </label>
                         <input
@@ -406,27 +394,27 @@ const Contact = () => {
                           className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 text-xs md:text-base ${
                             errors.email ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
                           }`}
-                          placeholder="la-tua-email@esempio.com"
+                          placeholder={t('contact.form.fields.email.placeholder')}
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Telefono</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">{t('contact.form.fields.phone.label')}</label>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
                           className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-xs md:text-base"
-                          placeholder="+39 123 456 7890"
+                          placeholder={t('contact.form.fields.phone.placeholder')}
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">Azienda</label>
+                        <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">{t('contact.form.fields.company.label')}</label>
                         <input
                           type="text"
                           value={formData.company}
                           onChange={(e) => handleInputChange('company', e.target.value)}
                           className="w-full px-3 py-2 md:px-4 md:py-3 border border-purple-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-xs md:text-base"
-                          placeholder="Nome della tua azienda"
+                          placeholder={t('contact.form.fields.company.placeholder')}
                         />
                       </div>
                     </div>
@@ -442,13 +430,13 @@ const Contact = () => {
                     className="space-y-4 md:space-y-6"
                   >
                     <div className="text-center mb-4 md:mb-8">
-                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Dettagli del Progetto</h3>
-                      <p className="text-gray-600 text-xs md:text-base">Parlaci del tuo progetto</p>
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">{t('contact.form.steps.project.title')}</h3>
+                      <p className="text-gray-600 text-xs md:text-base">{t('contact.form.steps.project.subtitle')}</p>
                     </div>
 
                     <div>
                       <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">
-                        Servizio Richiesto *
+                        {t('contact.form.fields.service.label')} *
                         {errors.service && <span className="text-red-500 text-xs ml-2">{errors.service}</span>}
                       </label>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
@@ -465,7 +453,6 @@ const Contact = () => {
                                 : 'border-purple-200 hover:border-purple-300'
                             } ${errors.service ? 'border-red-500' : ''}`}
                           >
-                            <service.icon size={16} className="mb-1 md:mb-2" />
                             <div className="font-semibold text-xs md:text-sm">{service.name}</div>
                           </motion.button>
                         ))}
@@ -479,13 +466,13 @@ const Contact = () => {
                           className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
                         />
                         <label htmlFor="otherService" className="text-sm font-medium text-gray-700">
-                          Altro servizio
+                          {t('contact.form.fields.service.other')}
                         </label>
                       </div>
                       {formData.service === 'other' && (
                         <div className="mt-4">
                           <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
-                            Specifica il servizio richiesto *
+                            {t('contact.form.fields.service.otherDescription.label')} *
                             {errors.otherService && <span className="text-red-500 text-xs ml-2">{errors.otherService}</span>}
                           </label>
                           <input
@@ -495,7 +482,7 @@ const Contact = () => {
                             className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 text-xs md:text-base ${
                               errors.otherService ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
                             }`}
-                            placeholder="Descrivi il servizio che stai cercando"
+                            placeholder={t('contact.form.fields.service.otherDescription.placeholder')}
                           />
                         </div>
                       )}
@@ -504,7 +491,7 @@ const Contact = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                       <div>
                         <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">
-                          Budget *
+                          {t('contact.form.fields.budget.label')} *
                           {errors.budget && <span className="text-red-500 text-xs ml-2">{errors.budget}</span>}
                         </label>
                         <div className="space-y-1 md:space-y-2">
@@ -528,7 +515,7 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">Timeline</label>
+                        <label className="block text-gray-700 font-semibold mb-2 md:mb-4 text-xs md:text-base">{t('contact.form.fields.timeline.label')}</label>
                         <div className="space-y-1 md:space-y-2">
                           {timelines.map((timeline) => (
                             <motion.button
@@ -561,13 +548,13 @@ const Contact = () => {
                     className="space-y-4 md:space-y-6"
                   >
                     <div className="text-center mb-4 md:mb-8">
-                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Il Tuo Messaggio</h3>
-                      <p className="text-gray-600 text-xs md:text-base">Raccontaci di più sul tuo progetto</p>
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">{t('contact.form.steps.message.title')}</h3>
+                      <p className="text-gray-600 text-xs md:text-base">{t('contact.form.steps.message.subtitle')}</p>
                     </div>
 
                     <div>
                       <label className="block text-gray-700 font-semibold mb-1 md:mb-2 text-xs md:text-base">
-                        Descrizione del Progetto *
+                        {t('contact.form.fields.message.label')} *
                         {errors.message && <span className="text-red-500 text-xs ml-2">{errors.message}</span>}
                       </label>
                       <textarea
@@ -578,7 +565,7 @@ const Contact = () => {
                         className={`w-full px-3 py-2 md:px-4 md:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 resize-none text-xs md:text-base ${
                           errors.message ? 'border-red-500' : 'border-purple-200 focus:border-purple-500'
                         }`}
-                        placeholder="Descrivi il tuo progetto, i tuoi obiettivi e qualsiasi dettaglio che ritieni importante..."
+                        placeholder={t('contact.form.fields.message.placeholder')}
                       />
                     </div>
                   </motion.div>
@@ -606,7 +593,7 @@ const Contact = () => {
                         onClick={prevStep}
                         className="px-4 py-2 md:px-6 md:py-3 border border-purple-200 text-purple-700 font-semibold rounded-xl hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 text-xs md:text-base"
                       >
-                        Indietro
+                        {t('contact.form.buttons.back')}
                       </motion.button>
                     )}
 
@@ -618,7 +605,7 @@ const Contact = () => {
                         onClick={nextStep}
                         className="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-1 md:gap-2 text-xs md:text-base"
                       >
-                        Avanti
+                        {t('contact.form.buttons.next')}
                         <ArrowRight size={16} className="md:w-5 md:h-5" />
                       </motion.button>
                     ) : (
@@ -632,12 +619,12 @@ const Contact = () => {
                         {isSubmitting ? (
                           <>
                             <Loader className="animate-spin" size={16} />
-                            Invio in corso...
+                            {t('contact.form.buttons.submitting')}
                           </>
                         ) : (
                           <>
                             <Send size={16} />
-                            Invia Messaggio
+                            {t('contact.form.buttons.submit')}
                           </>
                         )}
                       </motion.button>
@@ -650,57 +637,6 @@ const Contact = () => {
         </div>
       </motion.section>
 
-      {/* Testimonials */}
-      {/* Testimonials 
-      <motion.section className="relative py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Cosa Dicono i Clienti
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-center mb-4">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-purple-600 text-sm">{testimonial.company}</p>
-                  </div>
-                </div>
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic">"{testimonial.text}"</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-      */}
-
       {/* Chat Widget */}
       <AnimatePresence>
         {isChatOpen && (
@@ -712,8 +648,8 @@ const Contact = () => {
           >
             <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white p-4 rounded-t-2xl flex justify-between items-center">
               <div>
-                <h3 className="font-bold">Assistente Webbitz</h3>
-                <p className="text-sm opacity-90">Online ora</p>
+                <h3 className="font-bold">{t('contact.chat.title')}</h3>
+                <p className="text-sm opacity-90">{t('contact.chat.status')}</p>
               </div>
               <button
                 onClick={() => setIsChatOpen(false)}
@@ -749,7 +685,7 @@ const Contact = () => {
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
-                  placeholder="Scrivi un messaggio..."
+                  placeholder={t('contact.chat.placeholder')}
                   className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 text-sm"
                 />
                 <motion.button

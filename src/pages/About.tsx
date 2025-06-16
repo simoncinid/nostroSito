@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { 
   Palette, 
   //Users, 
@@ -12,6 +13,7 @@ import {
 const TeamMemberCard = lazy(() => import('../components/TeamMemberCard'));
 
 const About = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
@@ -37,25 +39,25 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Diego",
-      role: "Sviluppatore Web & AI",
-      description: "Esperto in React, Node.js e intelligenza artificiale. Trasforma idee complesse in soluzioni digitali eleganti e raffinate.",
+      name: t('about.team.members.diego.name'),
+      role: t('about.team.members.diego.role'),
+      description: t('about.team.members.diego.description'),
       skills: ["React", "AI/ML", "Node.js", "Python", "TypeScript"],
-      experience: "2+ anni",
-      projects: "10+",
-      specialty: "Architetture scalabili e soluzioni AI",
+      experience: t('about.team.members.diego.experience'),
+      projects: t('about.team.members.diego.projects'),
+      specialty: t('about.team.members.diego.specialty'),
       gradient: "from-blue-500 to-purple-600",
       roleGradient: "from-blue-500 to-purple-600",
       icon: Brain
     },
     {
-      name: "Tommaso",
-      role: "Sviluppatore Web & Designer",
-      description: "Combina creatività e codice per creare esperienze utente straordinarie. Maestro del design system e UX.",
+      name: t('about.team.members.tommaso.name'),
+      role: t('about.team.members.tommaso.role'),
+      description: t('about.team.members.tommaso.description'),
       skills: ["React", "UI/UX", "Figma", "CSS", "Design Systems"],
-      experience: "2+ anni",
-      projects: "5+",
-      specialty: "Design-to-code perfetto",
+      experience: t('about.team.members.tommaso.experience'),
+      projects: t('about.team.members.tommaso.projects'),
+      specialty: t('about.team.members.tommaso.specialty'),
       gradient: "from-purple-100 to-pink-600",
       roleGradient: "from-purple-500 to-pink-600",
       icon: Palette
@@ -77,8 +79,8 @@ const About = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
       <Helmet>
-        <title>Chi Siamo | Webbitz - Il Team Giovane che Trasforma le Tue Idee</title>
-        <meta name="description" content="Scopri il team di Webbitz: giovani professionisti appassionati di tecnologia che trasformano le tue idee in soluzioni digitali innovative." />
+        <title>{t('about.meta.title')}</title>
+        <meta name="description" content={t('about.meta.description')} />
       </Helmet>
       
       {/* Animated Background */}
@@ -121,7 +123,7 @@ const About = () => {
               className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                Trasformiamo Idee
+                {t('about.hero.title1')}
               </span>
               <br />
               <motion.span
@@ -131,7 +133,7 @@ const About = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
               >
-                In Realtà
+                {t('about.hero.title2')}
               </motion.span>
             </motion.h1>
             <motion.p
@@ -140,9 +142,8 @@ const About = () => {
               transition={{ delay: 0.6, duration: 1 }}
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
-              Siamo tre professionisti appassionati che combinano <span className="text-purple-700 font-semibold">creatività</span>, 
-              <span className="text-purple-700 font-semibold"> tecnologia</span> e <span className="text-purple-700 font-semibold">strategia</span> 
-              per creare soluzioni digitali che superano ogni aspettativa.
+              {t('about.hero.subtitle.part1')}<span className="text-purple-700 font-semibold">{t('about.hero.subtitle.part2')}</span>{t('about.hero.subtitle.part3')}
+              <span className="text-purple-700 font-semibold">{t('about.hero.subtitle.part4')}</span>{t('about.hero.subtitle.part5')}<span className="text-purple-700 font-semibold">{t('about.hero.subtitle.part6')}</span>{t('about.hero.subtitle.part7')}
             </motion.p>
           </motion.div>
         </div>
@@ -161,7 +162,7 @@ const About = () => {
               transition={{ delay: 0.4, duration: 1 }}
               className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent"
             >
-              Il team di sviluppo:
+              {t('about.team.title')}
             </motion.h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center items-stretch">
@@ -190,10 +191,10 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Pronto a Trasformare la Tua Idea?
+              {t('about.cta.title')}
             </h2>
             <p className="text-xl text-gray-700 mb-12">
-              Unisciti ai nostri clienti soddisfatti e porta la tua azienda al livello successivo
+              {t('about.cta.subtitle')}
             </p>
             
             <a
@@ -202,7 +203,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
             >
-              <span className="relative z-10">Iniziamo Insieme</span>
+              <span className="relative z-10">{t('about.cta.button')}</span>
               <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
             </a>
@@ -233,7 +234,7 @@ const About = () => {
             {/* Contenuto */}
             <div className="p-6 max-h-[60vh] overflow-y-auto">
               <p className="text-gray-600 mb-4">{selectedMember.description}</p>
-              <h4 className="font-semibold text-gray-900 mb-2">Competenze:</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">{t('about.team.labels.skills')}</h4>
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedMember.skills.map((skill, idx) => (
                   <span key={idx} className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">{skill}</span>
@@ -242,15 +243,15 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-gray-900">{selectedMember.experience}</div>
-                  <div className="text-gray-600 text-sm">Esperienza</div>
+                  <div className="text-gray-600 text-sm">{t('about.team.labels.experience')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-gray-900">{selectedMember.projects}</div>
-                  <div className="text-gray-600 text-sm">Progetti</div>
+                  <div className="text-gray-600 text-sm">{t('about.team.labels.projects')}</div>
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-gray-600 text-sm font-medium">Specialità:</div>
+                <div className="text-gray-600 text-sm font-medium">{t('about.team.labels.specialty')}</div>
                 <div className="text-gray-900 font-semibold">{selectedMember.specialty}</div>
               </div>
             </div>

@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import logo from '../../assets/logos/WEBBITZ_5.png'
 import ContactFormModal from '../modals/ContactFormModal'
+import LanguageSelector from '../LanguageSelector'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +23,11 @@ const Navbar = () => {
   }, [])
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Chi Siamo', path: '/about' },
-    { name: 'Servizi', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Contatti', path: '/contact' },
+    { name: 'nav.home', path: '/' },
+    { name: 'nav.about', path: '/about' },
+    { name: 'nav.services', path: '/services' },
+    { name: 'nav.portfolio', path: '/portfolio' },
+    { name: 'nav.contact', path: '/contact' },
   ]
 
   const toggleMenu = () => {
@@ -78,7 +81,7 @@ const Navbar = () => {
                       : 'text-gray-700 hover:text-primary-600'
                   }`}
                 >
-                  {item.name}
+                  {t(item.name)}
                   <motion.div
                     className="absolute bottom-0 left-0 h-0.5 bg-gradient-primary"
                     initial={{ width: 0 }}
@@ -92,8 +95,9 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* Language Selector & CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
+              <LanguageSelector />
               <button
                 onClick={() => {
                   setIsContactModalOpen(true)
@@ -101,7 +105,7 @@ const Navbar = () => {
                 }}
                 className="btn-primary group relative overflow-hidden py-2 px-4 text-sm"
               >
-                <span className="relative z-10">Inizia Ora</span>
+                <span className="relative z-10">{t('nav.startNow')}</span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-900"
                   initial={{ x: '-100%' }}
@@ -111,35 +115,38 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="lg:hidden p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
-            >
-              <AnimatePresence mode="wait">
-                {isOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="w-6 h-6 text-gray-700" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="w-6 h-6 text-gray-700" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </button>
+            {/* Mobile Language Selector & Menu Button */}
+            <div className="lg:hidden flex items-center space-x-2">
+              <LanguageSelector />
+              <button
+                onClick={toggleMenu}
+                className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+              >
+                <AnimatePresence mode="wait">
+                  {isOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="w-6 h-6 text-gray-700" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="w-6 h-6 text-gray-700" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -171,7 +178,7 @@ const Navbar = () => {
                             : 'text-gray-700 hover:bg-gray-50'
                         }`}
                       >
-                        {item.name}
+                        {t(item.name)}
                       </Link>
                     </motion.div>
                   ))}
@@ -188,7 +195,7 @@ const Navbar = () => {
                       }}
                       className="btn-primary w-full text-center"
                     >
-                      Inizia Ora
+                      {t('nav.startNow')}
                     </button>
                   </motion.div>
                 </div>

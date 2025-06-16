@@ -1,0 +1,772 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "startNow": "Commencer"
+  },
+  "language": {
+    "select": "Sélectionner la Langue",
+    "italian": "Italien",
+    "english": "Anglais",
+    "french": "Français",
+    "spanish": "Espagnol",
+    "german": "Allemand"
+  },
+  "hero": {
+    "title1": "Votre potentiel",
+    "title2": "enfin en ligne",
+    "subtitle": {
+      "part1": "Petites et moyennes entreprises",
+      "part2": ", il est temps de ",
+      "part3": "vous faire connaître au monde",
+      "part4": ". Nous créons votre présence numérique avec des sites web professionnels, des ",
+      "part5": "solutions IA",
+      "part6": " et des stratégies qui apportent des résultats concrets."
+    },
+    "services": {
+      "website": {
+        "title": "Site Web Professionnel",
+        "desc": "Votre vitrine numérique parfaite"
+      },
+      "ai": {
+        "title": "Assistant IA 24/7",
+        "desc": "Répondez toujours aux clients"
+      },
+      "results": {
+        "title": "Résultats Garantis",
+        "desc": "Plus de visibilité, plus de clients"
+      }
+    },
+    "cta": {
+      "primary": "Démarrer votre projet",
+      "secondary": "Découvrir nos travaux"
+    }
+  },
+  "features": {
+    "title": "Pourquoi Choisir",
+    "titleHighlight": "Webbitz",
+    "subtitle": "Nous combinons technologie de pointe, design innovant et stratégies gagnantes pour créer des solutions numériques qui font la différence",
+    "items": {
+      "website": {
+        "title": "Sites Web Premium",
+        "description": "Design responsive et performants qui convertissent les visiteurs en clients"
+      },
+      "chatbot": {
+        "title": "Chatbots IA Avancés",
+        "description": "Assistants virtuels intelligents pour la génération de leads 24/7"
+      },
+      "seo": {
+        "title": "SEO & Marketing",
+        "description": "Stratégies basées sur les données pour dominer les moteurs de recherche"
+      },
+      "brand": {
+        "title": "Identité de Marque",
+        "description": "Identités visuelles mémorables qui distinguent votre marque"
+      },
+      "security": {
+        "title": "Sécurité Garantie",
+        "description": "Protection avancée et sauvegardes automatiques pour votre tranquillité"
+      },
+      "performance": {
+        "title": "Performance Optimale",
+        "description": "Vitesses de chargement éclair et optimisation continue"
+      }
+    }
+  },
+  "clientsMap": {
+    "title": "Projets",
+    "titleHighlight": "Internationaux",
+    "clickMarkers": "Cliquez sur les marqueurs pour découvrir les projets",
+    "completedProjects": "Projets terminés",
+    "activeClients": "Clients Actifs",
+    "clientInfo": "Client Webbitz - Projet terminé",
+    "visitSite": "Visiter le Site"
+  },
+  "worksCarousel": {
+    "title": "Nos",
+    "titleHighlight": "Travaux",
+    "projects": {
+      "vistamare": "Site web Vistamare",
+      "rndhub": "Automatisation RNDhub", 
+      "admissionhub": "Site web AdmissionHub",
+      "welpy": "ChatBot Welpy",
+      "threshold": "Site web Threshold"
+    }
+  },
+  "packages": {
+    "badge": "Packages Webbitz",
+    "title": "Solutions",
+    "titleHighlight": "Tout-en-Un",
+    "titleEnd": "pour Votre Succès",
+    "subtitle": "Packages complets qui combinent site web, chatbot IA, SEO et identité de marque. Tout ce dont vous avez besoin pour dominer le marché numérique.",
+    "essential": {
+      "name": "Webbitz Essential",
+      "badge": "Plus Populaire",
+      "description": "La solution complète pour votre entreprise numérique",
+      "cta": "Choisir Essential"
+    },
+    "premium": {
+      "name": "Webbitz Premium",
+      "badge": "Valeur Maximale",
+      "description": "Essential + Identité de Marque complète pour dominer le marché",
+      "cta": "Choisir Premium"
+    },
+    "features": {
+      "chatbot": "Chatbot générateur de leads",
+      "website": "Site web personnalisé",
+      "seo": "SEO Optimisé",
+      "brand": "Identité de Marque Complète"
+    },
+    "includes": "Ce qui est Inclus:",
+    "contactQuote": "Contactez-nous pour un devis personnalisé"
+  },
+  "about": {
+    "meta": {
+      "title": "À Propos | Webbitz - L'Équipe Jeune qui Transforme Vos Idées",
+      "description": "Découvrez l'équipe Webbitz : jeunes professionnels passionnés de technologie qui transforment vos idées en solutions numériques innovantes."
+    },
+    "hero": {
+      "title1": "Nous Transformons les Idées",
+      "title2": "En Réalité",
+      "subtitle": {
+        "part1": "Nous sommes trois professionnels passionnés qui combinent ",
+        "part2": "créativité",
+        "part3": ", ",
+        "part4": "technologie",
+        "part5": " et ",
+        "part6": "stratégie",
+        "part7": " pour créer des solutions numériques qui dépassent toutes les attentes."
+      }
+    },
+    "team": {
+      "title": "L'équipe de développement :",
+      "members": {
+        "diego": {
+          "name": "Diego",
+          "role": "Développeur Web & IA",
+          "description": "Expert en React, Node.js et intelligence artificielle. Transforme les idées complexes en solutions numériques élégantes et raffinées.",
+          "specialty": "Architectures évolutives et solutions IA",
+          "experience": "2+ ans",
+          "projects": "10+"
+        },
+        "tommaso": {
+          "name": "Tommaso",
+          "role": "Développeur Web & Designer",
+          "description": "Combine créativité et code pour créer des expériences utilisateur extraordinaires. Maître des systèmes de design et UX.",
+          "specialty": "Design-to-code parfait",
+          "experience": "2+ ans",
+          "projects": "5+"
+        }
+      },
+      "labels": {
+        "skills": "Compétences :",
+        "experience": "Expérience",
+        "projects": "Projets",
+        "specialty": "Spécialité :"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Idée ?",
+      "subtitle": "Rejoignez nos clients satisfaits et amenez votre entreprise au niveau supérieur",
+      "button": "Commençons Ensemble"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Services | Webbitz - Solutions Numériques pour Votre Entreprise",
+      "description": "Découvrez les services de Webbitz : développement web, chatbots IA, automatisation et solutions de base de données. Transformez votre présence numérique avec nos solutions innovantes."
+    },
+    "hero": {
+      "title": "Solutions Numériques",
+      "titleAnimated": "Sur Mesure",
+      "subtitle": {
+        "part1": "Nous développons des ",
+        "part2": "technologies de pointe",
+        "part3": " pour transformer votre entreprise. Du développement web React aux ",
+        "part4": "solutions IA",
+        "part5": ", chaque projet est unique et personnalisé."
+      }
+    },
+    "mainServices": {
+      "title": "Services Principaux",
+      "services": {
+        "webDevelopment": {
+          "title": "Développement Web React",
+          "subtitle": "Sites web sur mesure, aucun template",
+          "description": "Nous développons des applications web modernes utilisant React. Chaque projet est unique, écrit à partir de zéro pour garantir des performances optimales et une évolutivité.",
+          "features": [
+            "React 18 + TypeScript",
+            "Design responsive et mobile-first",
+            "Performances optimisées (Core Web Vitals)",
+            "SEO technique avancé",
+            "Architecture évolutive",
+            "Tests automatisés"
+          ],
+          "technologies": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"]
+        },
+        "aiSolutions": {
+          "title": "Solutions IA",
+          "subtitle": "Intelligence artificielle pour les entreprises",
+          "description": "Nous créons des chatbots intelligents, des assistants virtuels et des systèmes d'automatisation basés sur l'IA pour améliorer l'efficacité commerciale et l'expérience client.",
+          "features": [
+            "Chatbots pour la génération de leads",
+            "Assistants virtuels personnalisés",
+            "Analyse prédictive des données",
+            "Automatisation du service client",
+            "Intégration CRM/ERP",
+            "Machine Learning personnalisé"
+          ],
+          "technologies": ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"]
+        },
+        "automation": {
+          "title": "Automatisation des Processus",
+          "subtitle": "Efficacité et productivité maximales",
+          "description": "Nous automatisons les processus métier répétitifs, de la saisie de données à la génération de documents, libérant un temps précieux pour les activités stratégiques.",
+          "features": [
+            "Automatisation de la saisie de données",
+            "Génération automatique de documents",
+            "Flux de travail personnalisés",
+            "Intégration de systèmes existants",
+            "Tableau de bord de surveillance",
+            "Suivi ROI et analytique"
+          ],
+          "technologies": ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"]
+        }
+      },
+      "modal": {
+        "featuresTitle": "Caractéristiques :",
+        "technologiesTitle": "Technologies :",
+        "requestQuote": "Demander un Devis"
+      }
+    },
+    "process": {
+      "title": "Notre Processus",
+      "subtitle": "Une approche structurée pour transformer vos idées en solutions numériques réussies",
+      "steps": {
+        "analysis": {
+          "step": "01",
+          "title": "Analyse et Stratégie",
+          "description": "Nous analysons vos besoins et définissons une stratégie claire pour votre projet numérique.",
+          "duration": "1-2 semaines",
+          "tools": ["Analytics", "Research", "Strategy"],
+          "visualExample": {
+            "title": "Rapport Stratégique",
+            "description": "Analyse détaillée et plan d'action"
+          }
+        },
+        "design": {
+          "step": "02",
+          "title": "Design et UX",
+          "description": "Nous créons un design attrayant et une expérience utilisateur optimale pour vos visiteurs.",
+          "duration": "2-3 semaines",
+          "tools": ["Figma", "Adobe XD", "Sketch"],
+          "visualExample": {
+            "title": "Système de Design",
+            "description": "Design UI/UX complet et interactif"
+          }
+        },
+        "development": {
+          "step": "03",
+          "title": "Développement",
+          "description": "Nous développons votre projet en utilisant les technologies les plus modernes et performantes.",
+          "duration": "3-4 semaines",
+          "tools": ["React", "Next.js", "Node.js"],
+          "visualExample": {
+            "title": "Code Source",
+            "description": "Développement frontend et backend"
+          }
+        },
+        "testing": {
+          "step": "04",
+          "title": "Tests",
+          "description": "Nous testons chaque fonctionnalité pour garantir la qualité et des performances optimales.",
+          "duration": "1 semaine",
+          "tools": ["Jest", "Cypress", "Lighthouse"],
+          "visualExample": {
+            "title": "Rapport de Tests",
+            "description": "Rapport complet des tests exécutés"
+          }
+        },
+        "launch": {
+          "step": "05",
+          "title": "Lancement",
+          "description": "Nous lançons votre projet et surveillons les performances pour garantir le succès.",
+          "duration": "1 semaine",
+          "tools": ["Vercel", "AWS", "Analytics"],
+          "visualExample": {
+            "title": "Déploiement",
+            "description": "Site en ligne et surveillance active"
+          }
+        }
+      },
+      "toolsLabel": "Outils :"
+    },
+    "cta": {
+      "title": "Prêt à Commencer ?",
+      "subtitle": "Transformons votre idée en une solution numérique réussie",
+      "button": "Demander un Devis"
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolio | Webbitz - Nos Histoires de Succès",
+      "description": "Explorez les projets développés par Webbitz : sites web, e-commerce et solutions numériques innovantes pour des clients prospères."
+    },
+    "hero": {
+      "title": "Projets qui",
+      "titleAnimated": "Font la Différence",
+      "subtitle": {
+        "part1": "Découvrez les ",
+        "part2": "projets innovants",
+        "part3": " que nous avons créés pour nos clients.",
+        "part4": " Chaque solution est ",
+        "part5": "unique et personnalisée",
+        "part6": ", conçue pour dépasser les attentes et générer des résultats concrets."
+      }
+    },
+    "categories": {
+      "all": "Tous les Projets",
+      "web": "Développement Web",
+      "ai": "Solutions IA",
+      "automation": "Automatisation",
+      "database": "Base de Données"
+    },
+    "projects": {
+      "aiFreightHub": {
+        "title": "AI Freight Hub - RnD Hub",
+        "description": "Système d'automatisation complet pour le monde du camionnage américain avec IA pour recherche et devis automatiques, envoi de centaines d'emails quotidiens.",
+        "longDescription": "Développé pour RnD Hub, ce système d'automatisation révolutionnaire utilise l'IA pour la recherche et la cotation automatiques dans le secteur du fret américain. La plateforme gère automatiquement des centaines d'emails par jour, servant des dizaines de clients sur le marché du transport de marchandises américain.",
+        "client": "RnD Hub",
+        "duration": "6 mois",
+        "results": [
+          { "metric": "Emails Envoyés", "value": "50 000+", "description": "Emails automatiques quotidiens" },
+          { "metric": "Clients Servis", "value": "40+", "description": "Clients actifs sur la plateforme" }
+        ],
+        "features": [
+          "IA pour recherche automatique de fret",
+          "Système de devis intelligent",
+          "Automatisation d'emails massive",
+          "Tableau de bord analytique en temps réel",
+          "Gestion clients multi-niveaux",
+          "Intégration API camionnage"
+        ]
+      },
+      "thinkGoodWebsite": {
+        "title": "ThinkGood Music - Site Web",
+        "description": "Site web moderne et responsive pour ThinkGood Music, avec design élégant et fonctionnalités avancées pour la gestion d'événements musicaux.",
+        "longDescription": "Développement d'un site web moderne et responsive pour ThinkGood Music, avec un design élégant qui reflète l'identité de la marque. Le site inclut des fonctionnalités avancées comme une galerie d'événements, un système de réservation et une intégration avec les réseaux sociaux.",
+        "client": "ThinkGood Music",
+        "duration": "6 semaines",
+        "results": [
+          { "metric": "Performance", "value": "+180%", "description": "Vitesse de chargement" },
+          { "metric": "Expérience Utilisateur", "value": "+95%", "description": "Satisfaction utilisateur" },
+          { "metric": "Conversions", "value": "+150%", "description": "Taux de conversion" }
+        ],
+        "features": [
+          "Design responsive moderne",
+          "Galerie d'événements avancée",
+          "Système de réservation intégré",
+          "Timeline d'événements interactive",
+          "Intégration réseaux sociaux",
+          "Optimisation SEO"
+        ]
+      },
+      "thinkGoodChatbot": {
+        "title": "ThinkGood Music - Chatbot Génération de Leads",
+        "description": "Chatbot IA avancé pour génération automatique de leads sur site avec 30k visites mensuelles, convertissant le trafic en leads qualifiés grâce à des conversations intelligentes.",
+        "longDescription": "Développement d'un chatbot IA avancé pour ThinkGood Music, site avec 30k visites mensuelles. Le système convertit automatiquement le trafic web en leads qualifiés grâce à des conversations intelligentes et personnalisées.",
+        "client": "ThinkGood Music",
+        "duration": "4 semaines",
+        "results": [
+          { "metric": "Trafic Mensuel", "value": "30k", "description": "Visiteurs uniques mensuels" },
+          { "metric": "Taux de Conversion", "value": "+200%", "description": "Amélioration des conversions" },
+          { "metric": "Leads Qualifiés", "value": "+280%", "description": "Augmentation des leads qualifiés" }
+        ],
+        "features": [
+          "Génération de leads automatique",
+          "Conversations IA personnalisées",
+          "Notation de leads intelligente",
+          "Intégration CRM directe",
+          "Analytique des conversations",
+          "Tests A/B automatiques"
+        ]
+      },
+      "thresholdWebsite": {
+        "title": "Threshold Coach - Plateforme Web",
+        "description": "Plateforme web complète développée à partir de zéro pour le coaching personnalisé, avec architecture moderne et interface utilisateur avancée.",
+        "longDescription": "Plateforme web complète développée entièrement par WebBitz pour Threshold Coach. Le projet inclut le développement frontend et backend à partir de zéro, suivant spécifiquement les exigences du client.",
+        "client": "Threshold Coach",
+        "duration": "2 mois",
+        "results": [
+          { "metric": "Ventes Site", "value": "+200%", "description": "Vitesse de chargement des pages" },
+          { "metric": "Expérience Utilisateur", "value": "+95%", "description": "Satisfaction utilisateur" },
+          { "metric": "Conversions", "value": "+150%", "description": "Taux de conversion" }
+        ],
+        "features": [
+          "Développement complet à partir de zéro",
+          "Architecture moderne évolutive",
+          "Tableaux de bord personnalisables",
+          "Système de paiement intégré",
+          "Design responsive avancé",
+          "Optimisation SEO complète"
+        ]
+      },
+      "thresholdAI": {
+        "title": "Threshold Coach - 50 Assistants IA",
+        "description": "Développement de près de 50 assistants IA spécialisés avec basculement OpenAI/Anthropic pour coaching personnalisé et support utilisateurs.",
+        "longDescription": "Développement d'un écosystème complet de près de 50 assistants IA spécialisés pour Threshold Coach. Chaque assistant est optimisé pour des domaines spécifiques du coaching avec la possibilité de basculer entre OpenAI et Anthropic.",
+        "client": "Threshold Coach",
+        "duration": "10 mois",
+        "results": [
+          { "metric": "Assistants Développés", "value": "48", "description": "Assistants IA spécialisés" },
+          { "metric": "Conversations", "value": "10k+", "description": "Conversations mensuelles" },
+          { "metric": "Précision", "value": "+92%", "description": "Précision des réponses IA" }
+        ],
+        "features": [
+          "48 assistants IA spécialisés",
+          "Basculement OpenAI/Anthropic",
+          "Personnalisation utilisateur",
+          "Gestion avancée des conversations",
+          "Analytique des interactions IA",
+          "Formation continue des modèles"
+        ]
+      },
+      "thresholdDatabase": {
+        "title": "Threshold Coach - Infrastructure Base de Données",
+        "description": "Infrastructure de base de données entreprise pour gérer toutes les conversations utilisateurs avec près de 50 assistants IA, avec architecture évolutive et sécurisée.",
+        "longDescription": "Conception et implémentation d'une infrastructure de base de données entreprise pour Threshold Coach. Le système gère toutes les conversations utilisateurs avec près de 50 assistants IA, garantissant évolutivité, sécurité et performances élevées.",
+        "client": "Threshold Coach",
+        "duration": "4 mois",
+        "results": [
+          { "metric": "Conversations Gérées", "value": "50k+", "description": "Conversations archivées" },
+          { "metric": "Disponibilité", "value": "99.9%", "description": "Disponibilité du système" },
+          { "metric": "Performance", "value": "+300%", "description": "Vitesse des requêtes" }
+        ],
+        "features": [
+          "Architecture de base de données évolutive",
+          "Gestion massive des conversations",
+          "Sauvegardes automatiques quotidiennes",
+          "Réplication multi-zones",
+          "Surveillance en temps réel",
+          "Optimisation avancée des requêtes"
+        ]
+      },
+      "welpyChatbot": {
+        "title": "Welpy - Chatbot Génération de Leads",
+        "description": "Chatbot IA avancé pour génération automatique de leads sur site avec 40k visites mensuelles, convertissant le trafic en leads qualifiés grâce à des conversations intelligentes.",
+        "longDescription": "Développement d'un chatbot IA avancé pour Welpy, site important avec 40k visites mensuelles. Le système convertit automatiquement le trafic web en leads qualifiés grâce à des conversations intelligentes et personnalisées.",
+        "client": "Welpy",
+        "duration": "6 semaines",
+        "results": [
+          { "metric": "Trafic Mensuel", "value": "40k", "description": "Visiteurs uniques mensuels" },
+          { "metric": "Taux de Conversion", "value": "+180%", "description": "Amélioration des conversions" },
+          { "metric": "Leads Qualifiés", "value": "+250%", "description": "Augmentation des leads qualifiés" }
+        ],
+        "features": [
+          "Génération de leads automatique",
+          "Conversations IA personnalisées",
+          "Notation de leads intelligente",
+          "Intégration CRM directe",
+          "Analytique des conversations",
+          "Tests A/B automatiques"
+        ]
+      },
+      "admissionHub": {
+        "title": "The Admission Hub - Plateforme Complète",
+        "description": "Plateforme web complète développée à partir de zéro pour services d'admission universitaire, avec système de gestion de candidats et tableaux de bord avancés.",
+        "longDescription": "Développement complet à partir de zéro de The Admission Hub, plateforme spécialisée dans les services d'admission universitaire. Le projet inclut développement frontend et backend, système de gestion de candidats, tableaux de bord pour consultants, système de paiement et suivi complet du processus d'admission.",
+        "client": "The Admission Hub",
+        "duration": "10 semaines",
+        "results": [
+          { "metric": "Candidats Gérés", "value": "1000+", "description": "Candidats sur la plateforme" },
+          { "metric": "Automatisation", "value": "+90%", "description": "Processus automatisés" },
+          { "metric": "Efficacité", "value": "+200%", "description": "Amélioration du workflow" }
+        ],
+        "features": [
+          "Système de gestion de candidats",
+          "Tableaux de bord consultant avancés",
+          "Suivi du processus d'admission",
+          "Système de paiement intégré",
+          "Gestion de documents",
+          "Notifications automatiques"
+        ]
+      },
+      "vistamare": {
+        "title": "Vistamare - Site Web",
+        "description": "Site web moderne et responsive pour Vistamare, avec design élégant et fonctionnalités avancées.",
+        "longDescription": "Développement d'un site web moderne et responsive pour Vistamare, avec un design élégant qui reflète l'identité de la marque. Le site inclut des fonctionnalités avancées comme galerie d'images, système de réservation et intégration avec les réseaux sociaux.",
+        "client": "Vistamare",
+        "duration": "4 semaines",
+        "results": [
+          { "metric": "Performance", "value": "+150%", "description": "Vitesse de chargement" },
+          { "metric": "Expérience Utilisateur", "value": "+90%", "description": "Satisfaction utilisateur" },
+          { "metric": "Conversions", "value": "+120%", "description": "Taux de conversion" }
+        ],
+        "features": [
+          "Design responsive moderne",
+          "Galerie d'images avancée",
+          "Système de réservation",
+          "Intégration réseaux sociaux",
+          "Optimisation SEO",
+          "Analytique avancée"
+        ]
+      }
+    },
+    "modal": {
+      "projectDescription": "Description du Projet",
+      "mainFeatures": "Caractéristiques Principales",
+      "technologiesUsed": "Technologies Utilisées",
+      "projectDetails": "Détails du Projet",
+      "client": "Client :",
+      "year": "Année :",
+      "development": "Développement :",
+      "team": "Équipe :",
+      "results": "Résultats Obtenus",
+      "visitSite": "Visiter le Site",
+      "sourceCode": "Code Source"
+    },
+    "cta": {
+      "title": "Avez-vous un Projet en Tête ?",
+      "subtitle": "Transformons votre idée en la prochaine histoire de succès de notre portfolio",
+      "button": "Commençons à Collaborer"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | Webbitz - Parlons de Votre Projet",
+      "description": "Contactez Webbitz pour discuter de votre projet. Nous sommes là pour écouter vos besoins et créer des solutions sur mesure pour votre entreprise."
+    },
+    "hero": {
+      "title1": "Parlons de Votre",
+      "title2": "Projet",
+      "subtitle": {
+        "part1": "Vous avez une idée en tête ? ",
+        "part2": "Contactez-nous",
+        "part3": " pour la transformer en réalité. ",
+        "part4": "Nous sommes là pour écouter vos besoins et créer des ",
+        "part5": "solutions sur mesure",
+        "part6": " pour votre entreprise."
+      }
+    },
+    "info": {
+      "email": {
+        "title": "Email",
+        "value": "hello@webbitz.it",
+        "description": "Nous répondons sous 2 heures"
+      },
+      "phone": {
+        "title": "Téléphone",
+        "value": "+39 339 179 7616",
+        "description": "Lun-Ven 9h00-18h00"
+      },
+      "location": {
+        "title": "Lieu",
+        "value": "Pontedera (PI), Italie",
+        "description": "Nous travaillons dans toute l'Italie"
+      },
+      "hours": {
+        "title": "Horaires",
+        "value": "Support 24/7",
+        "description": "Assistance toujours disponible"
+      }
+    },
+    "form": {
+      "title": "Racontez-nous votre idée",
+      "steps": {
+        "basic": {
+          "title": "Informations de Base",
+          "subtitle": "Commençons par les informations essentielles"
+        },
+        "project": {
+          "title": "Détails du Projet",
+          "subtitle": "Parlez-nous de votre projet"
+        },
+        "message": {
+          "title": "Votre Message",
+          "subtitle": "Dites-nous en plus sur votre projet"
+        }
+      },
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Votre nom",
+          "required": "Le nom est obligatoire"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "votre-email@exemple.com",
+          "required": "L'email est obligatoire",
+          "invalid": "Veuillez saisir un email valide"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "+39 123 456 7890"
+        },
+        "company": {
+          "label": "Entreprise",
+          "placeholder": "Nom de votre entreprise"
+        },
+        "service": {
+          "label": "Service Demandé",
+          "placeholder": "Sélectionnez un service",
+          "required": "Veuillez sélectionner un service",
+          "other": "Autre service",
+          "otherDescription": {
+            "label": "Spécifiez le service demandé",
+            "placeholder": "Décrivez le service que vous recherchez",
+            "required": "Veuillez spécifier le service demandé"
+          }
+        },
+        "budget": {
+          "label": "Budget",
+          "required": "Veuillez sélectionner un budget"
+        },
+        "timeline": {
+          "label": "Calendrier"
+        },
+        "message": {
+          "label": "Description du Projet",
+          "placeholder": "Décrivez votre projet, vos objectifs et tout détail que vous jugez important...",
+          "required": "La description du projet est obligatoire"
+        }
+      },
+      "services": [
+        {
+          "id": "web",
+          "name": "Développement Web React"
+        },
+        {
+          "id": "ai",
+          "name": "Solutions IA"
+        },
+        {
+          "id": "automation",
+          "name": "Automatisation des Processus"
+        },
+        {
+          "id": "mobile",
+          "name": "Applications Mobile"
+        },
+        {
+          "id": "ecommerce",
+          "name": "E-commerce"
+        },
+        {
+          "id": "consulting",
+          "name": "Conseil Digital"
+        }
+      ],
+      "budgets": [
+        {
+          "id": "1k-5k",
+          "name": "€1 000 - €5 000"
+        },
+        {
+          "id": "5k+",
+          "name": "€5 000+"
+        },
+        {
+          "id": "discuss",
+          "name": "À discuter"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "urgent",
+          "name": "Urgent (1-2 semaines)"
+        },
+        {
+          "id": "normal",
+          "name": "Normal (1-2 mois)"
+        },
+        {
+          "id": "flexible",
+          "name": "Flexible (3+ mois)"
+        },
+        {
+          "id": "planning",
+          "name": "Phase de planification"
+        }
+      ],
+      "buttons": {
+        "back": "Retour",
+        "next": "Suivant",
+        "submit": "Envoyer le Message",
+        "submitting": "Envoi en cours..."
+      },
+      "success": {
+        "title": "Message Envoyé !",
+        "description": "Merci de nous avoir contactés. Nous vous répondrons sous 2 heures ouvrables.",
+        "button": "Envoyer un Autre Message"
+      }
+    },
+    "chat": {
+      "title": "Assistant Webbitz",
+      "status": "En ligne maintenant",
+      "placeholder": "Écrivez un message...",
+      "initialMessage": "Bonjour ! 👋 Je suis l'assistant virtuel de Webbitz. Comment puis-je vous aider aujourd'hui ?",
+      "response": "Merci pour votre message ! Un de nos experts vous contactera bientôt. En attendant, vous pouvez remplir le formulaire pour nous donner plus de détails sur votre projet. 🚀"
+    }
+  },
+  "footer": {
+    "description": "Nous transformons vos idées en expériences numériques extraordinaires. Solutions premium pour les entreprises qui veulent se démarquer.",
+    "contact": {
+      "email": "info@webbitz.it",
+      "phone": "+39 339 179 7616",
+      "location": "Pontedera (PI), Italie"
+    },
+    "links": {
+      "servizi": {
+        "title": "Services",
+        "items": [
+          { "name": "Développement Web", "href": "/services#web" },
+          { "name": "Chatbot IA", "href": "/services#chatbot" },
+          { "name": "SEO & Marketing", "href": "/services#seo" },
+          { "name": "Identité de Marque", "href": "/services#branding" }
+        ]
+      },
+      "azienda": {
+        "title": "Entreprise",
+        "items": [
+          { "name": "À Propos", "href": "/about" },
+          { "name": "Portfolio", "href": "/portfolio" },
+          { "name": "Témoignages", "href": "/testimonials" },
+          { "name": "Blog", "href": "/blog" }
+        ]
+      },
+      "supporto": {
+        "title": "Support",
+        "items": [
+          { "name": "Contact", "href": "/contact" },
+          { "name": "FAQ", "href": "/faq" },
+          { "name": "Politique de Confidentialité", "href": "/privacy" },
+          { "name": "Conditions de Service", "href": "/terms" }
+        ]
+      }
+    },
+    "newsletter": {
+      "title": "Restez Informé",
+      "description": "Recevez les dernières nouvelles sur le design, la technologie et les stratégies numériques",
+      "placeholder": "Votre email",
+      "button": "S'abonner"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "copyright": "© 2025 Webbitz. Tous droits réservés.",
+    "backToTop": "Retour en haut"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "close": "Fermer",
+    "save": "Sauvegarder",
+    "cancel": "Annuler"
+  }
+} 

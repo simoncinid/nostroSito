@@ -15,29 +15,18 @@ import {
   ChevronRight
 } from 'lucide-react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Project {
   id: number;
-  title: string;
+  titleKey: string;
   category: string;
-  description: string;
-  longDescription: string;
   image: string;
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
-  client: string;
   year: string;
-  duration: string;
   team: string[];
-  results: {
-    metric: string;
-    value: string;
-    description: string;
-  }[];
-  features: string[];
-  challenges: string[];
-  solutions: string[];
   gradient: string;
   icon: any;
   isInternational?: boolean;
@@ -45,6 +34,7 @@ interface Project {
 }
 
 const Portfolio = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
@@ -56,7 +46,6 @@ const Portfolio = () => {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // PAGINAZIONE
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6;
 
@@ -73,369 +62,127 @@ const Portfolio = () => {
   }, []);
 
   const categories = [
-    { id: 'all', name: 'Tutti i Progetti', icon: Layers },
-    { id: 'web', name: 'Sviluppo Web', icon: Code },
-    { id: 'ai', name: 'Soluzioni AI', icon: Bot },
-    { id: 'automation', name: 'Automazione', icon: Zap },
-    { id: 'database', name: 'Database', icon: Database }
+    { id: 'all', nameKey: 'all', icon: Layers },
+    { id: 'web', nameKey: 'web', icon: Code },
+    { id: 'ai', nameKey: 'ai', icon: Bot },
+    { id: 'automation', nameKey: 'automation', icon: Zap },
+    { id: 'database', nameKey: 'database', icon: Database }
   ];
 
   const projects: Project[] = [
     {
       id: 1,
-      title: "AI Freight Hub - RnD Hub",
+      titleKey: "aiFreightHub",
       category: "automation",
-      description: "Sistema di automazione completo per il mondo trucking americano con AI per ricerca e quotazione automatica, invio di centinaia di email al giorno.",
-      longDescription: "Sviluppato per RnD Hub, questo sistema di automazione rivoluzionario utilizza AI per la ricerca e quotazione automatica nel settore freight americano. La piattaforma gestisce automaticamente centinaia di email al giorno, servendo decine di clienti nel mercato del trasporto merci USA. Il sistema include algoritmi di matching intelligenti, automazione completa del processo di quotazione e gestione clienti avanzata.",
       image: "/images/ChatBot_RNDhub.png",
       technologies: ["Python", "SMTP Email Automation", "API Integration", "Google Cloud Services"],
       liveUrl: "https://rndhub.io/",
-      client: "RnD Hub",
       year: "2024",
-      duration: "6 mesi",
       team: ["Diego", "Tommaso"],
-      results: [
-        { metric: "Email Inviate", value: "50.000+", description: "Email automatiche al giorno" },
-        { metric: "Clienti Serviti", value: "40+", description: "Clienti attivi sulla piattaforma" },
-      ],
-      features: [
-        "AI per ricerca automatica freight",
-        "Sistema di quotazione intelligente",
-        "Automazione email massiva",
-        "Dashboard analytics real-time",
-        "Gestione clienti multi-livello",
-        "Integrazione API trucking"
-      ],
-      challenges: [
-        "Gestione volumi email elevati",
-        "Algoritmi di matching complessi",
-        "Integrazione con sistemi USA"
-      ],
-      solutions: [
-        "Queue system per email processing",
-        "Machine learning per matching",
-        "API gateway ottimizzate"
-      ],
       gradient: "from-green-500 to-blue-600",
       icon: Zap,
       isInternational: true
     },
     {
       id: 2,
-      title: "ThinkGood Music - Sito Web",
+      titleKey: "thinkGoodWebsite",
       category: "web",
-      description: "Sito web moderno e responsive per ThinkGood Music, con design elegante e funzionalità avanzate per la gestione degli eventi musicali.",
-      longDescription: "Sviluppo di un sito web moderno e responsive per ThinkGood Music, con un design elegante che riflette l'identità del brand. Il sito include funzionalità avanzate come galleria eventi, sistema di prenotazione e integrazione con social media. Particolarmente curata la sezione eventi con timeline interattiva e sistema di prenotazione integrato.",
       image: "/images/thinkgood.png",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
       liveUrl: "https://thinkgoodmusic.com",
-      client: "ThinkGood Music",
       year: "2024",
-      duration: "6 settimane",
       team: ["Diego", "Tommaso"],
-      results: [
-        { metric: "Performance", value: "+180%", description: "Velocità caricamento" },
-        { metric: "User Experience", value: "+95%", description: "Soddisfazione utente" },
-        { metric: "Conversioni", value: "+150%", description: "Tasso di conversione" }
-      ],
-      features: [
-        "Design responsive moderno",
-        "Galleria eventi avanzata",
-        "Sistema prenotazioni integrato",
-        "Timeline eventi interattiva",
-        "Integrazione social media",
-        "SEO optimization"
-      ],
-      challenges: [
-        "Design elegante e moderno",
-        "Performance ottimale",
-        "Integrazione prenotazioni"
-      ],
-      solutions: [
-        "UI/UX design premium",
-        "Ottimizzazione performance",
-        "API prenotazioni robusta"
-      ],
       gradient: "from-blue-500 to-purple-600",
       icon: Code,
       isInternational: false
     },
     {
       id: 3,
-      title: "ThinkGood Music - Chatbot Lead Generation",
+      titleKey: "thinkGoodChatbot",
       category: "ai",
-      description: "Chatbot AI avanzato per lead generation automatica su sito con 30k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
-      longDescription: "Sviluppo di un chatbot AI avanzato per ThinkGood Music, sito con 30k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
       image: "/images/thinkgood.png",
       technologies: ["OpenAI GPT-4", "JavaScript", "React", "Node.js", "CRM Integration", "Analytics"],
       liveUrl: "https://thinkgoodmusic.com",
-      client: "ThinkGood Music",
       year: "2024",
-      duration: "4 settimane",
       team: ["Diego", "Simone"],
-      results: [
-        { metric: "Traffico Mensile", value: "30k", description: "Visitatori unici mensili" },
-        { metric: "Conversion Rate", value: "+200%", description: "Miglioramento conversioni" },
-        { metric: "Lead Qualificati", value: "+280%", description: "Incremento leads qualificati" }
-      ],
-      features: [
-        "Lead generation automatica",
-        "Conversazioni AI personalizzate",
-        "Lead scoring intelligente",
-        "Integrazione CRM diretta",
-        "Analytics conversazioni",
-        "A/B testing automatico"
-      ],
-      challenges: [
-        "Gestione traffico elevato",
-        "Qualificazione leads automatica",
-        "Integrazione con sistemi esistenti"
-      ],
-      solutions: [
-        "Load balancing chatbot",
-        "Algoritmi di lead scoring",
-        "API integration robuste"
-      ],
       gradient: "from-purple-500 to-pink-600",
       icon: Bot,
       isHighTraffic: true
     },
     {
       id: 4,
-      title: "Threshold Coach - Piattaforma Web",
+      titleKey: "thresholdWebsite",
       category: "web",
-      description: "Piattaforma web completa sviluppata da zero per coaching personalizzato, con architettura moderna e interfaccia utente avanzata.",
-      longDescription: "Piattaforma web completa sviluppata interamente da WebBitz per Threshold Coach. Il progetto include lo sviluppo frontend e backend da zero, seguendo specificatamente gli ordini del committente. La piattaforma offre un'esperienza utente moderna con dashboard personalizzabili, gestione utenti avanzata e integrazione con sistemi di pagamento internazionali.",
       image: "/images/Threshold.png",
       technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "Stripe", "AWS"],
       liveUrl: "https://www.threshold.coach/",
-      client: "Threshold Coach",
       year: "2024",
-      duration: "2 mesi",
       team: ["Diego", "Tommaso", "Simone"],
-      results: [
-        { metric: "Vendite sito", value: "+200%", description: "Velocità caricamento pagine" },
-        { metric: "User Experience", value: "+95%", description: "Soddisfazione utente" },
-        { metric: "Conversioni", value: "+150%", description: "Tasso di conversione" }
-      ],
-      features: [
-        "Sviluppo completo da zero",
-        "Architettura scalabile moderna",
-        "Dashboard personalizzabili",
-        "Sistema di pagamenti integrato",
-        "Responsive design avanzato",
-        "SEO optimization completa"
-      ],
-      challenges: [
-        "Sviluppo completo da zero",
-        "Requisiti specifici del cliente",
-        "Integrazione sistemi di pagamento"
-      ],
-      solutions: [
-        "Architettura modulare scalabile",
-        "Iterazioni continue con il cliente",
-        "Testing completo pre-deploy"
-      ],
       gradient: "from-blue-500 to-purple-600",
       icon: Code,
       isInternational: true
     },
     {
       id: 5,
-      title: "Threshold Coach - 50 Assistenti AI",
+      titleKey: "thresholdAI",
       category: "ai",
-      description: "Sviluppo di quasi 50 assistenti AI specializzati con toggle OpenAI/Anthropic per coaching personalizzato e supporto utenti.",
-      longDescription: "Sviluppo di un ecosistema completo di quasi 50 assistenti AI specializzati per Threshold Coach. Ogni assistente è ottimizzato per specifiche aree del coaching con la possibilità di switchare tra OpenAI e Anthropic. Il sistema include gestione conversazioni avanzata, personalizzazione AI per ogni utente e analytics dettagliate sulle interazioni.",
       image: "/images/Threshold.png",
       technologies: ["OpenAI GPT-4", "Anthropic Claude", "Python", "Vector DB", "React", "Node.js"],
       liveUrl: "https://www.threshold.coach/",
-      client: "Threshold Coach",
       year: "2024",
-      duration: "10 mesi",
       team: ["Diego", "Simone"],
-      results: [
-        { metric: "Assistenti Sviluppati", value: "48", description: "Assistenti AI specializzati" },
-        { metric: "Conversazioni", value: "10k+", description: "Conversazioni mensili" },
-        { metric: "Accuratezza", value: "+92%", description: "Precisione risposte AI" }
-      ],
-      features: [
-        "48 assistenti AI specializzati",
-        "Toggle OpenAI/Anthropic",
-        "Personalizzazione per utente",
-        "Gestione conversazioni avanzata",
-        "Analytics interazioni AI",
-        "Training continuo modelli"
-      ],
-      challenges: [
-        "Gestione multipli modelli AI",
-        "Personalizzazione per 50 assistenti",
-        "Ottimizzazione costi API"
-      ],
-      solutions: [
-        "Architettura modulare per AI",
-        "System prompting avanzato",
-        "Caching intelligente risposte"
-      ],
       gradient: "from-purple-500 to-pink-600",
       icon: Bot,
       isInternational: true
     },
     {
       id: 6,
-      title: "Threshold Coach - Infrastruttura Database",
+      titleKey: "thresholdDatabase",
       category: "database",
-      description: "Infrastruttura database enterprise per gestire tutte le conversazioni degli utenti con quasi 50 assistenti AI, con architettura scalabile e sicura.",
-      longDescription: "Progettazione e implementazione di un'infrastruttura database enterprise per Threshold Coach. Il sistema gestisce tutte le conversazioni degli utenti con quasi 50 assistenti AI, garantendo scalabilità, sicurezza e performance elevate. Include backup automatici, replication, ottimizzazione query e monitoring avanzato.",
       image: "/images/Threshold.png",
       technologies: ["PostgreSQL", "Redis", "MongoDB", "AWS RDS", "Data Analytics", "Backup Systems"],
       liveUrl: "https://www.threshold.coach/",
-      client: "Threshold Coach",
       year: "2024",
-      duration: "4 mesi",
       team: ["Diego", "Tommaso"],
-      results: [
-        { metric: "Conversazioni Gestite", value: "50k+", description: "Conversazioni archiviate" },
-        { metric: "Uptime", value: "99.9%", description: "Disponibilità sistema" },
-        { metric: "Performance", value: "+300%", description: "Velocità query" }
-      ],
-      features: [
-        "Architettura database scalabile",
-        "Gestione conversazioni massive",
-        "Backup automatici giornalieri",
-        "Replication multi-zona",
-        "Monitoring real-time",
-        "Ottimizzazione query avanzata"
-      ],
-      challenges: [
-        "Gestione dati conversazioni massive",
-        "Performance con 50 assistenti",
-        "Sicurezza dati sensibili"
-      ],
-      solutions: [
-        "Sharding intelligente database",
-        "Indexing ottimizzato",
-        "Crittografia end-to-end"
-      ],
       gradient: "from-green-400 to-blue-600",
       icon: Database,
       isInternational: true
     },
     {
       id: 7,
-      title: "Welpy - Chatbot Lead Generation",
+      titleKey: "welpyChatbot",
       category: "ai",
-      description: "Chatbot AI avanzato per lead generation automatica su sito con 40k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
-      longDescription: "Sviluppo di un chatbot AI avanzato per Welpy, sito importante con 40k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
       image: "/images/ChatBot_welpy.png",
       technologies: ["OpenAI GPT-4", "JavaScript", "React", "Node.js", "CRM Integration", "Analytics"],
       liveUrl: "https://www.welpy.it/",
-      client: "Welpy",
       year: "2024",
-      duration: "6 settimane",
       team: ["Diego", "Simone"],
-      results: [
-        { metric: "Traffico Mensile", value: "40k", description: "Visitatori unici mensili" },
-        { metric: "Conversion Rate", value: "+180%", description: "Miglioramento conversioni" },
-        { metric: "Lead Qualificati", value: "+250%", description: "Incremento leads qualificati" }
-      ],
-      features: [
-        "Lead generation automatica",
-        "Conversazioni AI personalizzate",
-        "Lead scoring intelligente",
-        "Integrazione CRM diretta",
-        "Analytics conversazioni",
-        "A/B testing automatico"
-      ],
-      challenges: [
-        "Gestione traffico elevato",
-        "Qualificazione leads automatica",
-        "Integrazione con sistemi esistenti"
-      ],
-      solutions: [
-        "Load balancing chatbot",
-        "Algoritmi di lead scoring",
-        "API integration robuste"
-      ],
       gradient: "from-orange-500 to-red-600",
       icon: Bot,
       isHighTraffic: true
     },
     {
       id: 8,
-      title: "The Admission Hub - Piattaforma Completa",
+      titleKey: "admissionHub",
       category: "web",
-      description: "Piattaforma web completa sviluppata da zero per servizi di ammissione universitaria, con sistema di gestione candidati e dashboard avanzate.",
-      longDescription: "Sviluppo completo da zero di The Admission Hub, piattaforma specializzata nei servizi di ammissione universitaria. Il progetto include sviluppo frontend e backend, sistema di gestione candidati, dashboard per consultants, sistema di pagamenti e tracking completo del processo di ammissione.",
       image: "/images/AdmissionHub.png",
       technologies: ["React", "Node.js", "TypeScript", "MongoDB", "Stripe", "AWS"],
       liveUrl: "https://theadmissionhub.com",
-      client: "The Admission Hub",
       year: "2024",
-      duration: "10 settimane",
       team: ["Diego", "Tommaso", "Simone"],
-      results: [
-        { metric: "Candidati Gestiti", value: "1000+", description: "Candidati sulla piattaforma" },
-        { metric: "Automazione", value: "+90%", description: "Processi automatizzati" },
-        { metric: "Efficienza", value: "+200%", description: "Miglioramento workflow" }
-      ],
-      features: [
-        "Sistema gestione candidati",
-        "Dashboard consultant avanzate",
-        "Tracking processo ammissione",
-        "Sistema pagamenti integrato",
-        "Document management",
-        "Notifiche automatiche"
-      ],
-      challenges: [
-        "Gestione processi complessi",
-        "Integrazione sistemi universitari",
-        "Scalabilità per crescita"
-      ],
-      solutions: [
-        "Workflow engine personalizzato",
-        "API integration standardizzate",
-        "Architettura cloud scalabile"
-      ],
       gradient: "from-blue-400 to-cyan-600",
       icon: Code,
       isInternational: true
     },
     {
       id: 9,
-      title: "Vistamare - Sito Web",
+      titleKey: "vistamare",
       category: "web",
-      description: "Sito web moderno e responsive per Vistamare, con design elegante e funzionalità avanzate.",
-      longDescription: "Sviluppo di un sito web moderno e responsive per Vistamare, con un design elegante che riflette l'identità del brand. Il sito include funzionalità avanzate come galleria immagini, sistema di prenotazione e integrazione con social media.",
       image: "/images/Vistamare.png",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
       liveUrl: "https://vistamare.vercel.app/",
-      client: "Vistamare",
       year: "2024",
-      duration: "4 settimane",
       team: ["Diego", "Tommaso"],
-      results: [
-        { metric: "Performance", value: "+150%", description: "Velocità caricamento" },
-        { metric: "User Experience", value: "+90%", description: "Soddisfazione utente" },
-        { metric: "Conversioni", value: "+120%", description: "Tasso di conversione" }
-      ],
-      features: [
-        "Design responsive moderno",
-        "Galleria immagini avanzata",
-        "Sistema prenotazioni",
-        "Integrazione social media",
-        "SEO optimization",
-        "Analytics avanzate"
-      ],
-      challenges: [
-        "Design elegante e moderno",
-        "Performance ottimale",
-        "Integrazione prenotazioni"
-      ],
-      solutions: [
-        "UI/UX design premium",
-        "Ottimizzazione performance",
-        "API prenotazioni robusta"
-      ],
       gradient: "from-purple-500 to-pink-600",
       icon: Code,
       isInternational: false
@@ -446,19 +193,16 @@ const Portfolio = () => {
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
 
-  // Calcolo pagine
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
   const paginatedProjects = filteredProjects.slice(
     (currentPage - 1) * projectsPerPage,
     currentPage * projectsPerPage
   );
 
-  // Quando cambio categoria, resetto la pagina
   React.useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory]);
 
-  // Scroll in alto quando cambio pagina
   React.useEffect(() => {
     if (portfolioRef.current) {
       portfolioRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -468,8 +212,8 @@ const Portfolio = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
       <Helmet>
-        <title>Portfolio | Webbitz - I Nostri Progetti di Successo</title>
-        <meta name="description" content="Esplora i progetti realizzati da Webbitz: siti web, e-commerce e soluzioni digitali innovative per clienti di successo." />
+        <title>{t('portfolio.meta.title')}</title>
+        <meta name="description" content={t('portfolio.meta.description')} />
       </Helmet>
 
       {/* Animated Background */}
@@ -512,7 +256,7 @@ const Portfolio = () => {
               className="text-4xl md:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-                Progetti che
+                {t('portfolio.hero.title')}
               </span>
               <br />
               <motion.span
@@ -522,7 +266,7 @@ const Portfolio = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
               >
-                Fanno la Differenza
+                {t('portfolio.hero.titleAnimated')}
               </motion.span>
             </motion.h1>
 
@@ -532,9 +276,14 @@ const Portfolio = () => {
               transition={{ delay: 0.6, duration: 1 }}
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
-              Scopri i <span className="text-purple-700 font-semibold">progetti innovativi</span> che abbiamo realizzato per i nostri clienti. 
-              <span className="hidden md:inline"> Ogni soluzione è <span className="text-purple-700 font-semibold">unica e personalizzata</span>, 
-              progettata per superare le aspettative e generare risultati concreti.</span>
+              {t('portfolio.hero.subtitle.part1')}
+              <span className="text-purple-700 font-semibold">{t('portfolio.hero.subtitle.part2')}</span>
+              {t('portfolio.hero.subtitle.part3')}
+              <span className="hidden md:inline">
+                {t('portfolio.hero.subtitle.part4')}
+                <span className="text-purple-700 font-semibold">{t('portfolio.hero.subtitle.part5')}</span>
+                {t('portfolio.hero.subtitle.part6')}
+              </span>
             </motion.p>
           </motion.div>
         </div>
@@ -562,7 +311,7 @@ const Portfolio = () => {
                   style={{ minWidth: 0 }}
                 >
                   {React.createElement(categories[0].icon, { size: 16 })}
-                  <span className="whitespace-nowrap overflow-hidden text-ellipsis">{categories[0].name}</span>
+                  <span className="whitespace-nowrap overflow-hidden text-ellipsis">{t(`portfolio.categories.${categories[0].nameKey}`)}</span>
                 </button>
               </div>
               <div className="grid grid-cols-2 gap-2 md:hidden">
@@ -577,12 +326,12 @@ const Portfolio = () => {
                     }`}
                   >
                     {React.createElement(category.icon, { size: 16 })}
-                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{category.name}</span>
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{t(`portfolio.categories.${category.nameKey}`)}</span>
                   </button>
                 ))}
               </div>
               
-              {/* Versione desktop (invariata) */}
+              {/* Versione desktop */}
               {categories.map(category => (
                 <button
                   key={`desktop-${category.id}`}
@@ -594,7 +343,7 @@ const Portfolio = () => {
                   }`}
                 >
                   <category.icon size={18} />
-                  {category.name}
+                  {t(`portfolio.categories.${category.nameKey}`)}
                 </button>
               ))}
             </div>
@@ -604,98 +353,101 @@ const Portfolio = () => {
           <motion.div
             className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
           >
-            {paginatedProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl overflow-hidden hover:border-purple-300 hover:shadow-lg transition-all duration-500"
-              >
-                {/* Project Image */}
-                <div className="relative h-32 md:h-48 overflow-hidden">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  {/* Category Badge */}
-                  <div className="absolute top-2 left-2 md:top-4 md:left-4">
-                    <div className={`flex items-center gap-2 px-2 py-0.5 md:px-3 md:py-1 bg-gradient-to-r ${project.gradient} rounded-full text-white font-semibold`}>
-                      <project.icon size={12} className="md:hidden" />
-                      <project.icon size={14} className="hidden md:inline" />
-                      <span
-                        className="truncate"
-                        style={{ fontSize: 'clamp(0.75rem, 2.5vw, 1rem)', maxWidth: '110px' }}
-                      >
-                        {categories.find(cat => cat.id === project.category)?.name}
-                      </span>
+            {paginatedProjects.map((project) => {
+              const projectData = t(`portfolio.projects.${project.titleKey}`, { returnObjects: true }) as any;
+              
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl overflow-hidden hover:border-purple-300 hover:shadow-lg transition-all duration-500"
+                >
+                  {/* Project Image */}
+                  <div className="relative h-32 md:h-48 overflow-hidden">
+                    <motion.img
+                      src={project.image}
+                      alt={projectData.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    {/* Category Badge */}
+                    <div className="absolute top-2 left-2 md:top-4 md:left-4">
+                      <div className={`flex items-center gap-2 px-2 py-0.5 md:px-3 md:py-1 bg-gradient-to-r ${project.gradient} rounded-full text-white font-semibold`}>
+                        <project.icon size={12} className="md:hidden" />
+                        <project.icon size={14} className="hidden md:inline" />
+                        <span
+                          className="truncate"
+                          style={{ fontSize: 'clamp(0.75rem, 2.5vw, 1rem)', maxWidth: '110px' }}
+                        >
+                          {t(`portfolio.categories.${categories.find(cat => cat.id === project.category)?.nameKey}`)}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  {/* Action Buttons - Sempre visibili per mobile */}
-                  <div className="absolute bottom-2 right-2 flex gap-2 md:bottom-4 md:right-4">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={() => setSelectedProject(project)}
-                      className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
-                    >
-                      <Eye size={16} className="md:hidden" />
-                      <Eye size={18} className="hidden md:inline" />
-                    </motion.button>
-                    {project.liveUrl && (
-                      <motion.a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    {/* Action Buttons */}
+                    <div className="absolute bottom-2 right-2 flex gap-2 md:bottom-4 md:right-4">
+                      <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        onClick={() => setSelectedProject(project)}
                         className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
                       >
-                        <ExternalLink size={16} className="md:hidden" />
-                        <ExternalLink size={18} className="hidden md:inline" />
-                      </motion.a>
-                    )}
-                  </div>
-                </div>
-                {/* Project Info */}
-                <div className="p-3 md:p-6 flex flex-col items-start justify-between">
-                  <h3
-                    className="font-bold text-gray-900 mb-0 md:mb-2 group-hover:text-purple-700 transition-colors duration-300 truncate w-full"
-                    style={{ fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)' }}
-                  >
-                    {project.title}
-                  </h3>
-                  {/* Su mobile non mostro descrizione, tecnologie e meta */}
-                  {/* Solo su desktop */}
-                  <div className="hidden md:block w-full">
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium"
+                        <Eye size={16} className="md:hidden" />
+                        <Eye size={18} className="hidden md:inline" />
+                      </motion.button>
+                      {project.liveUrl && (
+                        <motion.a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="w-8 h-8 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
                         >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-medium">
-                          +{project.technologies.length - 3}
-                        </span>
+                          <ExternalLink size={16} className="md:hidden" />
+                          <ExternalLink size={18} className="hidden md:inline" />
+                        </motion.a>
                       )}
                     </div>
-                    <div className="flex justify-between items-center text-sm text-gray-500">
-                      <span>{project.client}</span>
-                      <span>{project.year}</span>
+                  </div>
+                  {/* Project Info */}
+                  <div className="p-3 md:p-6 flex flex-col items-start justify-between">
+                    <h3
+                      className="font-bold text-gray-900 mb-0 md:mb-2 group-hover:text-purple-700 transition-colors duration-300 truncate w-full"
+                      style={{ fontSize: 'clamp(0.95rem, 2.8vw, 1.25rem)' }}
+                    >
+                      {projectData.title}
+                    </h3>
+                    {/* Solo su desktop */}
+                    <div className="hidden md:block w-full">
+                      <p className="text-gray-600 mb-4 leading-relaxed">
+                        {projectData.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-2 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-medium">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex justify-between items-center text-sm text-gray-500">
+                        <span>{projectData.client}</span>
+                        <span>{project.year}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           {/* PAGINATION CONTROLS */}
@@ -712,7 +464,6 @@ const Portfolio = () => {
               >
                 <ChevronLeft size={18} />
               </button>
-              {/* Numeri di pagina */}
               {[...Array(totalPages)].map((_, i) => (
                 <button
                   key={i}
@@ -763,7 +514,7 @@ const Portfolio = () => {
               <div className="relative">
                 <img
                   src={selectedProject.image}
-                  alt={selectedProject.title}
+                  alt={t(`portfolio.projects.${selectedProject.titleKey}.title`)}
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -776,8 +527,8 @@ const Portfolio = () => {
                 </button>
 
                 <div className="absolute bottom-6 left-6 text-white">
-                  <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
-                  <p className="text-white/90">{selectedProject.client} • {selectedProject.year}</p>
+                  <h2 className="text-3xl font-bold mb-2">{t(`portfolio.projects.${selectedProject.titleKey}.title`)}</h2>
+                  <p className="text-white/90">{t(`portfolio.projects.${selectedProject.titleKey}.client`)} • {selectedProject.year}</p>
                 </div>
               </div>
 
@@ -786,14 +537,14 @@ const Portfolio = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Main Content */}
                   <div className="lg:col-span-2">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Descrizione del Progetto</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('portfolio.modal.projectDescription')}</h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">
-                      {selectedProject.longDescription}
+                      {t(`portfolio.projects.${selectedProject.titleKey}.longDescription`)}
                     </p>
 
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">Caratteristiche Principali</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">{t('portfolio.modal.mainFeatures')}</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                      {selectedProject.features.map((feature, index) => (
+                      {(t(`portfolio.projects.${selectedProject.titleKey}.features`, { returnObjects: true }) as string[]).map((feature, index) => (
                         <div key={index} className="flex items-center gap-2 text-gray-600">
                           <div className="w-2 h-2 bg-purple-500 rounded-full" />
                           {feature}
@@ -801,7 +552,7 @@ const Portfolio = () => {
                       ))}
                     </div>
 
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">Tecnologie Utilizzate</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">{t('portfolio.modal.technologiesUsed')}</h4>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {selectedProject.technologies.map((tech, index) => (
                         <span
@@ -817,31 +568,31 @@ const Portfolio = () => {
                   {/* Sidebar */}
                   <div className="space-y-6">
                     <div className="bg-gray-50 rounded-2xl p-6">
-                      <h4 className="font-bold text-gray-900 mb-4">Dettagli Progetto</h4>
+                      <h4 className="font-bold text-gray-900 mb-4">{t('portfolio.modal.projectDetails')}</h4>
                       <div className="space-y-3 text-sm">
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Cliente:</span>
-                          <span className="font-semibold text-gray-900">{selectedProject.client}</span>
+                          <span className="text-gray-600">{t('portfolio.modal.client')}</span>
+                          <span className="font-semibold text-gray-900">{t(`portfolio.projects.${selectedProject.titleKey}.client`)}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Anno:</span>
+                          <span className="text-gray-600">{t('portfolio.modal.year')}</span>
                           <span className="font-semibold text-gray-900">{selectedProject.year}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Sviluppo:</span>
-                          <span className="font-semibold text-gray-900">{selectedProject.duration}</span>
+                          <span className="text-gray-600">{t('portfolio.modal.development')}</span>
+                          <span className="font-semibold text-gray-900">{t(`portfolio.projects.${selectedProject.titleKey}.duration`)}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Team:</span>
+                          <span className="text-gray-600">{t('portfolio.modal.team')}</span>
                           <span className="font-semibold text-gray-900">{selectedProject.team.join(', ')}</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-gray-50 rounded-2xl p-6">
-                      <h4 className="font-bold text-gray-900 mb-4">Risultati Ottenuti</h4>
+                      <h4 className="font-bold text-gray-900 mb-4">{t('portfolio.modal.results')}</h4>
                       <div className="space-y-4">
-                        {selectedProject.results.map((result, index) => (
+                        {(t(`portfolio.projects.${selectedProject.titleKey}.results`, { returnObjects: true }) as any[]).map((result, index) => (
                           <div key={index} className="text-center">
                             <div className="text-2xl font-bold text-purple-600 mb-1">{result.value}</div>
                             <div className="text-sm font-semibold text-gray-900 mb-1">{result.metric}</div>
@@ -861,7 +612,7 @@ const Portfolio = () => {
                           className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                         >
                           <ExternalLink size={18} />
-                          Visita il Sito
+                          {t('portfolio.modal.visitSite')}
                         </a>
                       )}
                       {selectedProject.githubUrl && (
@@ -872,7 +623,7 @@ const Portfolio = () => {
                           className="w-full bg-gray-800 text-white font-semibold py-3 px-6 rounded-xl hover:bg-gray-700 transition-all duration-300 flex items-center justify-center gap-2"
                         >
                           <Github size={18} />
-                          Codice Sorgente
+                          {t('portfolio.modal.sourceCode')}
                         </a>
                       )}
                     </div>
@@ -894,10 +645,10 @@ const Portfolio = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
-              Hai un Progetto in Mente?
+              {t('portfolio.cta.title')}
             </h2>
             <p className="text-xl text-gray-700 mb-12">
-              Trasformiamo la tua idea nel prossimo caso di successo del nostro portfolio
+              {t('portfolio.cta.subtitle')}
             </p>
             
             <a
@@ -906,7 +657,7 @@ const Portfolio = () => {
               rel="noopener noreferrer"
               className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
             >
-              <span className="relative z-10">Iniziamo a Collaborare</span>
+              <span className="relative z-10">{t('portfolio.cta.button')}</span>
               <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
             </a>

@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion'
 import { Globe, Bot, TrendingUp, Palette, Shield, Zap, ArrowRight, ExternalLink } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import WorksCarousel from './WorksCarousel'
 
 const Features = () => {
+  const { t } = useTranslation()
+  
   const features = [
     {
       icon: Globe,
-      title: 'Siti Web Premium',
-      description: 'Design responsive e performanti che convertono visitatori in clienti',
+      title: 'features.items.website.title',
+      description: 'features.items.website.description',
       color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-50',
       iconColor: 'text-blue-600',
@@ -16,8 +19,8 @@ const Features = () => {
     },
     {
       icon: Bot,
-      title: 'Chatbot AI Avanzati',
-      description: 'Assistenti virtuali intelligenti per lead generation 24/7',
+      title: 'features.items.chatbot.title',
+      description: 'features.items.chatbot.description',
       color: 'from-primary-500 to-primary-600',
       bgColor: 'bg-primary-50',
       iconColor: 'text-primary-600',
@@ -26,8 +29,8 @@ const Features = () => {
     },
     {
       icon: TrendingUp,
-      title: 'SEO & Marketing',
-      description: 'Strategie data-driven per dominare i motori di ricerca',
+      title: 'features.items.seo.title',
+      description: 'features.items.seo.description',
       color: 'from-green-500 to-green-600',
       bgColor: 'bg-green-50',
       iconColor: 'text-green-600',
@@ -36,8 +39,8 @@ const Features = () => {
     },
     {
       icon: Palette,
-      title: 'Brand Identity',
-      description: 'Identità visive memorabili che distinguono il tuo brand',
+      title: 'features.items.brand.title',
+      description: 'features.items.brand.description',
       color: 'from-pink-500 to-pink-600',
       bgColor: 'bg-pink-50',
       iconColor: 'text-pink-600',
@@ -46,8 +49,8 @@ const Features = () => {
     },
     {
       icon: Shield,
-      title: 'Sicurezza Garantita',
-      description: 'Protezione avanzata e backup automatici per la tua tranquillità',
+      title: 'features.items.security.title',
+      description: 'features.items.security.description',
       color: 'from-orange-500 to-orange-600',
       bgColor: 'bg-orange-50',
       iconColor: 'text-orange-600',
@@ -56,8 +59,8 @@ const Features = () => {
     },
     {
       icon: Zap,
-      title: 'Performance Ottimali',
-      description: 'Velocità di caricamento fulminee e ottimizzazione continua',
+      title: 'features.items.performance.title',
+      description: 'features.items.performance.description',
       color: 'from-yellow-500 to-yellow-600',
       bgColor: 'bg-yellow-50',
       iconColor: 'text-yellow-600',
@@ -81,14 +84,13 @@ const Features = () => {
           className="text-center mb-12"
         >
           <h2 className="heading-lg text-gray-900 mb-6">
-            Perché Scegliere{' '}
+            {t('features.title')}{' '}
             <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-              Webbitz
+              {t('features.titleHighlight')}
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Combiniamo tecnologia all'avanguardia, design innovativo e strategie vincenti 
-            per creare soluzioni digitali che fanno la differenza
+            {t('features.subtitle')}
           </p>
         </motion.div>
 
@@ -144,10 +146,10 @@ const Features = () => {
 
                 {/* Content */}
                 <h3 className={`font-extrabold mb-1 bg-gradient-to-r ${feature.color} bg-clip-text text-transparent text-base md:text-xl lg:text-xl`}>
-                  {feature.title}
+                  {t(feature.title)}
                 </h3>
                 <p className="text-gray-600 text-xs md:text-base lg:text-base">
-                  {feature.description}
+                  {t(feature.description)}
                 </p>
               </motion.div>
             </motion.div>

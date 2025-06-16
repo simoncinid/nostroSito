@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Check, Zap, Crown, ArrowRight, Sparkles, Info, MessageSquare, Code, Bot, Search, Settings, Globe, X, ChevronRight, Star, Smartphone, Laptop, Monitor, Terminal } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { LucideIcon } from 'lucide-react'
 
 // Definizione dei tipi
@@ -623,6 +624,7 @@ const FeaturePopup = ({ isOpen, onClose, title, description, icon: Icon, feature
 }
 
 const WebbitzPackages = () => {
+  const { t } = useTranslation()
   const [popup, setPopup] = useState<PopupState>({ open: false, title: '', description: '', icon: null })
 
   const openPopup = (title: string, description: string, icon: LucideIcon, featureType: string) => {
@@ -664,39 +666,39 @@ const WebbitzPackages = () => {
   const packages: PackageInfo[] = [
     {
       id: 'essential',
-      name: 'Webbitz Essential',
+      name: t('packages.essential.name'),
       price: '1999',
       originalPrice: '2999',
-      badge: 'Più Popolare',
+      badge: t('packages.essential.badge'),
       badgeColor: 'bg-primary-500',
       icon: Zap,
-      description: 'La soluzione completa per il tuo business digitale',
+      description: t('packages.essential.description'),
       features: [
-        { text: 'Chatbot che genera lead', info: 'chatbot', icon: Bot },
-        { text: 'Sito Web  personalizzato', info: 'sito', icon: Globe },
-        { text: 'SEO Ottimizzata', info: 'seo', icon: Search },
+        { text: t('packages.features.chatbot'), info: 'chatbot', icon: Bot },
+        { text: t('packages.features.website'), info: 'sito', icon: Globe },
+        { text: t('packages.features.seo'), info: 'seo', icon: Search },
         { text: '', info: 'sito' } // Feature vuota per allineare con il pacchetto Premium
       ],
-      cta: 'Scegli Essential',
+      cta: t('packages.essential.cta'),
       whatsappLink: 'https://wa.me/3391797616?text=Sono%20interessato%20al%20pacchetto%20Essential',
       popular: true
     },
     {
       id: 'premium',
-      name: 'Webbitz Premium',
+      name: t('packages.premium.name'),
       price: '2299',
       originalPrice: '3499',
-      badge: 'Valore Massimo',
+      badge: t('packages.premium.badge'),
       badgeColor: 'bg-gradient-to-r from-yellow-400 to-yellow-600',
       icon: Crown,
-      description: 'Essential + Brand Identity completa per dominare il mercato',
+      description: t('packages.premium.description'),
       features: [
-        { text: 'Chatbot che genera lead', info: 'chatbot', icon: Bot },
-        { text: 'Sito Web personalizzato', info: 'sito', icon: Globe },
-        { text: 'SEO Ottimizzata', info: 'seo', icon: Search },
-        { text: 'Brand Identity Completa', info: 'brand', icon: Settings }
+        { text: t('packages.features.chatbot'), info: 'chatbot', icon: Bot },
+        { text: t('packages.features.website'), info: 'sito', icon: Globe },
+        { text: t('packages.features.seo'), info: 'seo', icon: Search },
+        { text: t('packages.features.brand'), info: 'brand', icon: Settings }
       ],
-      cta: 'Scegli Premium',
+      cta: t('packages.premium.cta'),
       whatsappLink: 'https://wa.me/3391797616?text=Sono%20interessato%20al%20pacchetto%20Premium',
       popular: false
     }
@@ -725,20 +727,19 @@ const WebbitzPackages = () => {
             className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-primary-500/20 border border-primary-400/30 backdrop-blur-sm mb-8"
           >
             <Sparkles className="w-5 h-5 text-primary-400" />
-            <span className="text-primary-300 font-medium">Pacchetti Webbitz</span>
+            <span className="text-primary-300 font-medium">{t('packages.badge')}</span>
           </motion.div>
 
           <h2 className="heading-lg text-white mb-6">
-            Soluzioni{' '}
+            {t('packages.title')}{' '}
             <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
-              All-in-One
+              {t('packages.titleHighlight')}
             </span>
-            {' '}per il Tuo Successo
+            {' '}{t('packages.titleEnd')}
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Pacchetti completi che combinano sito web, chatbot AI, SEO e brand identity. 
-            Tutto quello che serve per dominare il mercato digitale.
+            {t('packages.subtitle')}
           </p>
         </motion.div>
 
@@ -787,13 +788,13 @@ const WebbitzPackages = () => {
                   <p className="text-gray-300 text-sm md:text-base mb-3 md:mb-6">{pkg.description}</p>
                   {/* Preventivo personalizzato */}
                   <div className="flex items-center justify-center mb-1 md:mb-2">
-                    <span className="text-sm md:text-lg font-semibold text-primary-500">Contattaci per avere un preventivo personalizzato</span>
+                    <span className="text-sm md:text-lg font-semibold text-primary-500">{t('packages.contactQuote')}</span>
                   </div>
                 </div>
 
                  {/* Features - Nuova versione centrata con info popup */}
                  <div className="mb-4 md:mb-8 text-center flex flex-col">
-                  <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">Cosa Include:</h4>
+                  <h4 className="text-white font-semibold mb-3 md:mb-6 text-sm md:text-base">{t('packages.includes')}</h4>
                   <ul className="flex flex-col gap-2 md:gap-4 px-0">
                     {pkg.features.map((feature, idx) => (
                       feature.text ? (

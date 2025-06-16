@@ -2,15 +2,47 @@ import { motion, useMotionValue } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Code, Bot, Zap, Sparkles, Globe, Cpu, Rocket } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import logo from '../../assets/logos/WEBBITZ_4.png'
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation()
   
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
+
+  const services = [
+    { 
+      icon: Code, 
+      title: 'hero.services.website.title', 
+      desc: 'hero.services.website.desc',
+      gradient: "from-blue-400 to-indigo-600",
+      bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
+      secondaryIcon: Globe,
+      animation: "float"
+    },
+    { 
+      icon: Bot, 
+      title: 'hero.services.ai.title', 
+      desc: 'hero.services.ai.desc',
+      gradient: "from-purple-400 to-pink-600",
+      bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
+      secondaryIcon: Cpu,
+      animation: "pulse"
+    },
+    { 
+      icon: Zap, 
+      title: 'hero.services.results.title', 
+      desc: 'hero.services.results.desc',
+      gradient: "from-amber-400 to-orange-600",
+      bg: "linear-gradient(45deg, rgba(251, 191, 36, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)",
+      secondaryIcon: Rocket,
+      animation: "bounce"
+    }
+  ]
   
 
 
@@ -198,7 +230,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-4xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent leading-tight"
           >
-            Il tuo potenziale
+            {t('hero.title1')}
             <br />
             <motion.span
               animate={{ 
@@ -207,7 +239,7 @@ const Hero = () => {
               transition={{ duration: 3, repeat: Infinity }}
               className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
             >
-              finalmente online
+              {t('hero.title2')}
             </motion.span>
           </motion.h1>
 
@@ -218,10 +250,9 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
-            <span className="text-purple-700 font-semibold">Piccole e medie attività</span>, è arrivato il momento di 
-            <span className="text-purple-700 font-semibold"> farvi conoscere al mondo</span>. 
-            Creiamo la vostra presenza digitale con siti web professionali, 
-            <span className="text-purple-700 font-semibold"> soluzioni AI</span> e strategie che portano risultati concreti.
+            <span className="text-purple-700 font-semibold">{t('hero.subtitle.part1')}</span>{t('hero.subtitle.part2')}
+            <span className="text-purple-700 font-semibold">{t('hero.subtitle.part3')}</span>{t('hero.subtitle.part4')}
+            <span className="text-purple-700 font-semibold">{t('hero.subtitle.part5')}</span>{t('hero.subtitle.part6')}
           </motion.p>
 
           {/* Service Highlights */}
@@ -233,35 +264,7 @@ const Hero = () => {
           >
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-1 gap-4">
-              {[
-                { 
-                  icon: Code, 
-                  title: "Sito Web Professionale", 
-                  desc: "La vostra vetrina digitale perfetta",
-                  gradient: "from-blue-400 to-indigo-600",
-                  bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
-                  secondaryIcon: Globe,
-                  animation: "float"
-                },
-                { 
-                  icon: Bot, 
-                  title: "Assistente AI 24/7", 
-                  desc: "Rispondete ai clienti sempre",
-                  gradient: "from-purple-400 to-pink-600",
-                  bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
-                  secondaryIcon: Cpu,
-                  animation: "pulse"
-                },
-                { 
-                  icon: Zap, 
-                  title: "Risultati Garantiti", 
-                  desc: "Più visibilità, più clienti",
-                  gradient: "from-amber-400 to-orange-600",
-                  bg: "linear-gradient(45deg, rgba(251, 191, 36, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)",
-                  secondaryIcon: Rocket,
-                  animation: "bounce"
-                }
-              ].map((service, index) => (
+              {services.map((service, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ 
@@ -288,10 +291,10 @@ const Hero = () => {
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <h3 className={`text-lg font-bold mb-1 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                        {service.title}
+                        {t(service.title)}
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
-                        {service.desc}
+                        {t(service.desc)}
                       </p>
                     </div>
                   </div>
@@ -320,35 +323,7 @@ const Hero = () => {
 
             {/* Desktop Layout */}
             <div className="hidden md:grid grid-cols-3 gap-6">
-              {[
-                { 
-                  icon: Code, 
-                  title: "Sito Web Professionale", 
-                  desc: "La vostra vetrina digitale perfetta",
-                  gradient: "from-blue-400 to-indigo-600",
-                  bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
-                  secondaryIcon: Globe,
-                  animation: "float"
-                },
-                { 
-                  icon: Bot, 
-                  title: "Assistente AI 24/7", 
-                  desc: "Rispondete ai clienti sempre",
-                  gradient: "from-purple-400 to-pink-600",
-                  bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
-                  secondaryIcon: Cpu,
-                  animation: "pulse"
-                },
-                { 
-                  icon: Zap, 
-                  title: "Risultati Garantiti", 
-                  desc: "Più visibilità, più clienti",
-                  gradient: "from-amber-400 to-orange-600",
-                  bg: "linear-gradient(45deg, rgba(251, 191, 36, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)",
-                  secondaryIcon: Rocket,
-                  animation: "bounce"
-                }
-              ].map((service, index) => (
+              {services.map((service, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ 
@@ -404,9 +379,9 @@ const Hero = () => {
                   
                   {/* Title and description */}
                   <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                    {service.title}
+                    {t(service.title)}
                   </h3>
-                  <p className="text-gray-700 text-base">{service.desc}</p>
+                  <p className="text-gray-700 text-base">{t(service.desc)}</p>
                   
                   {/* Animated border accent */}
                   <motion.div 
@@ -433,7 +408,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 overflow-hidden"
               >
-                <span className="relative z-10">Inizia il tuo progetto</span>
+                <span className="relative z-10">{t('hero.cta.primary')}</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>
@@ -445,7 +420,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group bg-white/80 backdrop-blur-lg border border-purple-200 hover:border-purple-300 text-gray-900 font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 hover:shadow-lg"
               >
-                <span>Scopri i nostri lavori</span>
+                <span>{t('hero.cta.secondary')}</span>
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
