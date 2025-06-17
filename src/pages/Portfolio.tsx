@@ -180,7 +180,7 @@ const Portfolio = () => {
       category: "web",
       image: "/images/Vistamare.png",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
-      liveUrl: "https://vistamare.vercel.app/",
+      liveUrl: "https://vistamarerosignano.it/",
       year: "2024",
       team: ["Diego", "Tommaso"],
       gradient: "from-purple-500 to-pink-600",

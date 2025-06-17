@@ -10,7 +10,7 @@ const WorksCarousel = () => {
     {
       img: '/images/Vistamare.png',
       nameKey: 'vistamare',
-      link: 'https://vistamare.vercel.app/'
+      link: 'https://vistamarerosignano.it/'
     },
     {
       img: '/images/ChatBot_RNDhub.png',
