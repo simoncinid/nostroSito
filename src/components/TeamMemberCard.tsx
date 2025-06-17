@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Info } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface TeamMemberProps {
   member: {
@@ -18,6 +19,8 @@ interface TeamMemberProps {
 }
 
 const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
+  const { t } = useTranslation();
+  
   const getImagePath = (name: string) => {
     return `/images/${name.toLowerCase()}.png`;
   };
@@ -96,7 +99,7 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
 
           {/* Skills */}
           <div className="text-center mb-6">
-            <h4 className="text-gray-900 font-semibold mb-3">Competenze:</h4>
+            <h4 className="text-gray-900 font-semibold mb-3">{t('about.team.labels.skills')}</h4>
             <div className="flex flex-wrap justify-center gap-2">
               {member.skills.map((skill, skillIndex) => (
                 <motion.span
@@ -115,17 +118,17 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900">{member.experience}</div>
-              <div className="text-gray-600 text-sm">Esperienza</div>
+              <div className="text-gray-600 text-sm">{t('about.team.labels.experience')}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900">{member.projects}</div>
-              <div className="text-gray-600 text-sm">Progetti</div>
+              <div className="text-gray-600 text-sm">{t('about.team.labels.projects')}</div>
             </div>
           </div>
 
           {/* Specialty */}
           <div className="text-center">
-            <div className="text-gray-600 text-sm font-medium">Specialità:</div>
+            <div className="text-gray-600 text-sm font-medium">{t('about.team.labels.specialty')}</div>
             <div className="text-gray-900 font-semibold">{member.specialty}</div>
           </div>
         </div>

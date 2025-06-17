@@ -120,8 +120,13 @@
       "seo": "Optimierte SEO",
       "brand": "Komplette Markenidentität"
     },
-    "includes": "Was Enthalten Ist:",
-    "contactQuote": "Kontaktieren Sie uns für ein individuelles Angebot"
+    "includes": "Was enthalten ist:",
+    "contactQuote": "Maßgeschneidertes Angebot",
+    "bottomCTA": {
+      "title": "Nicht Sicher? Lass uns Reden!",
+      "description": "Jedes Projekt ist einzigartig. Kontaktiere uns für eine kostenlose Beratung und entdecke, welche Lösung perfekt für dich ist.",
+      "button": "Kostenlose Beratung"
+    }
   },
   "about": {
     "meta": {
@@ -554,7 +559,7 @@
     "info": {
       "email": {
         "title": "Email",
-        "value": "hello@webbitz.it",
+        "value": "reservationwebbitz@gmail.com",
         "description": "Wir antworten innerhalb von 2 Stunden"
       },
       "phone": {
@@ -714,7 +719,7 @@
   "footer": {
     "description": "Wir verwandeln Ihre Ideen in außergewöhnliche digitale Erlebnisse. Premium-Lösungen für Unternehmen, die sich abheben wollen.",
     "contact": {
-      "email": "info@webbitz.it",
+      "email": "reservationwebbitz@gmail.com",
       "phone": "+39 339 179 7616",
       "location": "Pontedera (PI), Italien"
     },

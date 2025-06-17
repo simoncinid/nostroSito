@@ -100,8 +100,8 @@
     "badge": "Pacchetti Webbitz",
     "title": "Soluzioni",
     "titleHighlight": "All-in-One",
-    "titleEnd": "per il Tuo Successo",
-    "subtitle": "Pacchetti completi che combinano sito web, chatbot AI, SEO e brand identity. Tutto quello che serve per dominare il mercato digitale.",
+    "titleEnd": "per te",
+    "subtitle": "Scegli il pacchetto perfetto per le tue esigenze. Ogni progetto è personalizzato e ottimizzato per il successo della tua attività.",
     "essential": {
       "name": "Webbitz Essential",
       "badge": "Più Popolare",
@@ -120,8 +120,13 @@
       "seo": "SEO Ottimizzata",
       "brand": "Brand Identity Completa"
     },
-    "includes": "Cosa Include:",
-    "contactQuote": "Contattaci per avere un preventivo personalizzato"
+    "includes": "Cosa include:",
+    "contactQuote": "Preventivo su misura",
+    "bottomCTA": {
+      "title": "Non Sicuro? Parliamone!",
+      "description": "Ogni progetto è unico. Contattaci per una consulenza gratuita e scopri quale soluzione è perfetta per te.",
+      "button": "Consulenza Gratuita"
+    }
   },
   "about": {
     "meta": {
@@ -554,7 +559,7 @@
     "info": {
       "email": {
         "title": "Email",
-        "value": "hello@webbitz.it",
+        "value": "reservationwebbitz@gmail.com",
         "description": "Rispondiamo entro 2 ore"
       },
       "phone": {
@@ -714,7 +719,7 @@
   "footer": {
     "description": "Trasformiamo le tue idee in esperienze digitali straordinarie. Soluzioni premium per aziende che vogliono distinguersi.",
     "contact": {
-      "email": "info@webbitz.it",
+      "email": "reservationwebbitz@gmail.com",
       "phone": "+39 339 179 7616",
       "location": "Pontedera (PI), Italia"
     },

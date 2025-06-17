@@ -871,11 +871,10 @@ const WebbitzPackages = () => {
         >
           <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Non Sicuro? Parliamone!
+              {t('packages.bottomCTA.title')}
             </h3>
             <p className="text-gray-300 mb-6">
-              Ogni progetto è unico. Contattaci per una consulenza gratuita 
-              e scopri quale soluzione è perfetta per te.
+              {t('packages.bottomCTA.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -885,7 +884,7 @@ const WebbitzPackages = () => {
                 className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-primary text-white rounded-xl shadow-glow hover:shadow-glow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 <MessageSquare className="w-5 h-5" />
-                <span>Consulenza Gratuita</span>
+                <span>{t('packages.bottomCTA.button')}</span>
               </a>
             </div>
           </div>
