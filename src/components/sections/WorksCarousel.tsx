@@ -92,7 +92,14 @@ const WorksCarousel = () => {
                 style={{ width: CARD_WIDTH, height: 320 }}
                 whileHover={{ scale: 1.04 }}
               >
+                <a 
+                    href={card.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex flex-col items-center justify-center w-full h-full text-purple-600 hover:text-purple-800 transition-colors duration-300"
+                  >
                 <div className="w-full h-64 bg-gray-100 flex items-center justify-center rounded-2xl mb-4 shadow-sm">
+                
                   <img
                     src={card.img}
                     alt={t(`worksCarousel.projects.${card.nameKey}`)}
@@ -104,15 +111,11 @@ const WorksCarousel = () => {
                   <span className="font-semibold text-lg text-gray-700">
                     {t(`worksCarousel.projects.${card.nameKey}`)}
                   </span>
-                  <a 
-                    href={card.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-purple-600 hover:text-purple-800 transition-colors duration-300"
-                  >
+                  
                     <FiExternalLink size={20} />
-                  </a>
+                  
                 </div>
+                </a>
               </motion.div>
             ))}
           </motion.div>
