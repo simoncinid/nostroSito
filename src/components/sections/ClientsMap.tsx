@@ -158,7 +158,7 @@ const ClientsMap = () => {
     { lat: 43.5515, lng: 11.2412, name: "La Bottega della Scuderia (Firenze)", link: "https://labottegadellascruderia.com" },
     { lat: 43.6167, lng: 10.2833, name: "Bagno Paradiso (Livorno)", link: "https://bagnoparadisotirrenia.it" },
     { lat: 40.8518, lng: 14.2681, name: "Napoli Into Core (Napoli)", link: "https://napolintocore.it" },
-    { lat: 43.7719, lng: 11.2484, name: "Spicchio Di Luna (Firenze)", link: "https://spicchiodiluna.it" },
+    { lat: 43.5500, lng: 10.3167, name: "Spicchio Di Luna (Livorno)", link: "https://spicchiodiluna.it" },
     { lat: 40.8518, lng: 14.2681, name: "Diaz Microtorrefazione (Napoli)", link: "https://diazmicrotorrefazione.com" }
   ]
 
