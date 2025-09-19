@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# 🚀 Webbitz - Premium Digital Agency Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un sito web ultra-moderno da $1,000,000 per Webbitz Digital Agency.
 
-## Available Scripts
+## ✨ Caratteristiche Premium
 
-In the project directory, you can run:
+- **Design Ultra-Moderno** con palette viola e bianco luxury
+- **Animazioni Incredibili** con Framer Motion
+- **Mappa Interattiva dei Clienti** (caratteristica unica!)
+- **Pacchetti Webbitz** chiaramente presentati (€1999 e €2299)
+- **Responsive Design** perfetto su tutti i dispositivi
+- **Performance Ottimizzate** per velocità massima
 
-### `npm start`
+## 🛠️ Tecnologie Utilizzate
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 18** + TypeScript
+- **Tailwind CSS** (configurazione custom)
+- **Framer Motion** (animazioni premium)
+- **React Router** (navigazione SPA)
+- **Lucide React** (icone moderne)
+- **Vite** (build tool veloce)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Deploy su Vercel
 
-### `npm test`
+1. Connetti il repository a Vercel
+2. Vercel rileverà automaticamente Vite
+3. Il deploy avverrà automaticamente
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Comandi di Build
 
-### `npm run build`
+```bash
+# Installazione dipendenze
+npm install --legacy-peer-deps
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Build di produzione
+npm run build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Preview locale
+npm run preview
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Struttura del Progetto
 
-### `npm run eject`
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx      # Navbar glassmorphism
+│   │   └── Footer.tsx      # Footer premium
+│   └── sections/
+│       ├── Hero.tsx        # Hero con animazioni 3D
+│       ├── ClientsMap.tsx  # Mappa interattiva clienti
+│       ├── WebbitzPackages.tsx # Pacchetti pricing
+│       ├── Stats.tsx       # Statistiche animate
+│       ├── Features.tsx    # Caratteristiche servizi
+│       └── Testimonials.tsx # Recensioni clienti
+├── pages/
+│   ├── Home.tsx           # Homepage completa
+│   ├── About.tsx          # Chi Siamo
+│   ├── Services.tsx       # Servizi
+│   ├── Portfolio.tsx      # Portfolio
+│   └── Contact.tsx        # Contatti
+└── types/
+    └── smoothscroll-polyfill.d.ts # Tipi TypeScript
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🎨 Design System
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Colori Primari**: Viola (#8B5CF6, #7C3AED)
+- **Font**: Inter (corpo), Space Grotesk (titoli)
+- **Effetti**: Glassmorphism, Glow, Gradients
+- **Animazioni**: Scroll-triggered, Hover effects, Micro-interactions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🌟 Caratteristiche Uniche
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Mappa Interattiva dei Clienti
+- 6 clienti posizionati geograficamente in Italia
+- Marker cliccabili con animazioni
+- Modal popup con progetti realizzati
+- Tooltip informativi al hover
 
-## Learn More
+### Pacchetti Webbitz
+- **Essential**: €1999 (Sito + Chatbot + SEO)
+- **Premium**: €2299 (Essential + Brand Identity)
+- Design cards premium con animazioni
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Animazioni Premium
+- Hero con elementi fluttuanti
+- Contatori animati nelle statistiche
+- Scroll-triggered animations
+- Micro-interactions su hover
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Responsive Design
 
-### Code Splitting
+- Mobile-first approach
+- Breakpoints ottimizzati
+- Touch-friendly interactions
+- Performance ottimizzate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Webbitz Digital Agency** - Trasformiamo le tue idee digitali in esperienze straordinarie 🇮🇹✨

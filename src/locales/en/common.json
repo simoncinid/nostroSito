@@ -1,0 +1,998 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "startNow": "Get Started"
+  },
+  "language": {
+    "select": "Select Language",
+    "italian": "Italian",
+    "english": "English",
+    "french": "French",
+    "spanish": "Spanish",
+    "german": "German"
+  },
+  "hero": {
+    "title1": "Your potential",
+    "title2": "finally online",
+    "subtitle": {
+      "part1": "Small and medium businesses",
+      "part2": ", it's time to ",
+      "part3": "let the world know you",
+      "part4": ". We create your digital presence with professional websites, ",
+      "part5": "AI solutions",
+      "part6": " and strategies that deliver concrete results."
+    },
+    "services": {
+      "website": {
+        "title": "Professional Website",
+        "desc": "Your perfect digital showcase"
+      },
+      "ai": {
+        "title": "AI Assistant 24/7",
+        "desc": "Always respond to customers"
+      },
+      "results": {
+        "title": "Guaranteed Results",
+        "desc": "More visibility, more customers"
+      }
+    },
+    "cta": {
+      "primary": "Start your project",
+      "secondary": "Discover our work"
+    }
+  },
+  "features": {
+    "title": "Why Choose",
+    "titleHighlight": "Webbitz",
+    "subtitle": "We combine cutting-edge technology, innovative design and winning strategies to create digital solutions that make a difference",
+    "items": {
+      "website": {
+        "title": "Premium Websites",
+        "description": "Responsive and performant designs that convert visitors into customers"
+      },
+      "chatbot": {
+        "title": "Advanced AI Chatbots",
+        "description": "Intelligent virtual assistants for 24/7 lead generation"
+      },
+      "seo": {
+        "title": "SEO & Marketing",
+        "description": "Data-driven strategies to dominate search engines"
+      },
+      "brand": {
+        "title": "Brand Identity",
+        "description": "Memorable visual identities that distinguish your brand"
+      },
+      "security": {
+        "title": "Guaranteed Security",
+        "description": "Advanced protection and automatic backups for your peace of mind"
+      },
+      "performance": {
+        "title": "Optimal Performance",
+        "description": "Lightning-fast loading speeds and continuous optimization"
+      }
+    }
+  },
+  "clientsMap": {
+    "title": "International",
+    "titleHighlight": "Projects",
+    "clickMarkers": "Click on markers to discover projects",
+    "completedProjects": "Completed projects",
+    "activeClients": "Active Clients",
+    "clientInfo": "Webbitz Client - Project completed",
+    "visitSite": "Visit Site",
+    "scrollToSeeAll": "Scroll to see all"
+  },
+  "worksCarousel": {
+    "title": "Our",
+    "titleHighlight": "Works",
+    "projects": {
+      "vistamare": "Vistamare Website",
+      "rndhub": "RNDhub Automation", 
+      "admissionhub": "AdmissionHub Website",
+      "welpy": "Welpy ChatBot",
+      "threshold": "Threshold Website",
+      "area287": "Area287 E-Commerce",
+      "fantozzi": "Fantozzi Bar Website",
+      "scuderia": "Ristoro Antica Scuderia",
+      "bottega": "La Bottega della Scuderia",
+      "bagnoparadiso": "Bagno Paradiso",
+      "napoli": "Napoli Into Core",
+      "sdl": "Spicchio Di Luna",
+      "diaz": "Diaz Microtorrefazione"
+    }
+  },
+  "packages": {
+    "badge": "Webbitz Packages",
+    "title": "Solutions",
+    "titleHighlight": "All-in-One",
+    "titleEnd": "for Your Success",
+    "subtitle": "Complete packages that combine website, AI chatbot, SEO and brand identity. Everything you need to dominate the digital market.",
+    "essential": {
+      "name": "Webbitz Essential",
+      "badge": "Most Popular",
+      "description": "The complete solution for your digital business",
+      "cta": "Choose Essential"
+    },
+    "premium": {
+      "name": "Webbitz Premium",
+      "badge": "Maximum Value",
+      "description": "Essential + Complete Brand Identity to dominate the market",
+      "cta": "Choose Premium"
+    },
+    "features": {
+      "chatbot": "Lead generating chatbot",
+      "website": "Custom website",
+      "seo": "Optimized SEO",
+      "brand": "Complete Brand Identity"
+    },
+    "includes": "What's included:",
+    "contactQuote": "Custom quote",
+    "bottomCTA": {
+      "title": "Not Sure? Let's Talk!",
+      "description": "Every project is unique. Contact us for a free consultation and discover which solution is perfect for you.",
+      "button": "Free Consultation"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us | Webbitz - The Young Team that Transforms Your Ideas",
+      "description": "Discover the Webbitz team: young professionals passionate about technology who transform your ideas into innovative digital solutions."
+    },
+    "hero": {
+      "title1": "We Transform Ideas",
+      "title2": "Into Reality",
+      "subtitle": {
+        "part1": "We are three passionate professionals who combine ",
+        "part2": "creativity",
+        "part3": ", ",
+        "part4": "technology",
+        "part5": " and ",
+        "part6": "strategy",
+        "part7": " to create digital solutions that exceed every expectation."
+      }
+    },
+    "team": {
+      "title": "The development team:",
+      "members": {
+        "diego": {
+          "name": "Diego",
+          "role": "Web Developer & AI",
+          "description": "Expert in React, Node.js and artificial intelligence. Transforms complex ideas into elegant and refined digital solutions.",
+          "specialty": "Scalable architectures and AI solutions",
+          "experience": "2+ years",
+          "projects": "10+"
+        },
+        "tommaso": {
+          "name": "Tommaso",
+          "role": "Web Developer & Designer",
+          "description": "Combines creativity and code to create extraordinary user experiences. Master of design systems and UX.",
+          "specialty": "Perfect design-to-code",
+          "experience": "2+ years",
+          "projects": "5+"
+        }
+      },
+      "labels": {
+        "skills": "Skills:",
+        "experience": "Experience",
+        "projects": "Projects",
+        "specialty": "Specialty:",
+        "tapForMore": "Tap to learn more"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Idea?",
+      "subtitle": "Join our satisfied clients and take your business to the next level",
+      "button": "Let's Start Together"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Services | Webbitz - Digital Solutions for Your Business",
+      "description": "Discover Webbitz services: web development, AI chatbots, automation and database solutions. Transform your digital presence with our innovative solutions."
+    },
+    "hero": {
+      "title": "Digital Solutions",
+      "titleAnimated": "Tailored for You",
+      "subtitle": {
+        "part1": "We develop ",
+        "part2": "cutting-edge technologies",
+        "part3": " to transform your business. From React web development to ",
+        "part4": "AI solutions",
+        "part5": ", every project is unique and personalized."
+      }
+    },
+    "mainServices": {
+      "title": "Main Services",
+      "services": {
+        "webDevelopment": {
+          "title": "React Web Development",
+          "subtitle": "Custom websites from scratch, no templates",
+          "description": "We develop modern web applications using React. Every project is unique, written from scratch to ensure optimal performance and scalability.",
+          "features": [
+            "React 18 + TypeScript",
+            "Responsive and mobile-first design",
+            "Optimized performance (Core Web Vitals)",
+            "Advanced technical SEO",
+            "Scalable architecture",
+            "Automated testing"
+          ],
+          "technologies": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"]
+        },
+        "aiSolutions": {
+          "title": "AI Solutions",
+          "subtitle": "Artificial intelligence for business",
+          "description": "We create intelligent chatbots, virtual assistants and AI-based automation systems to improve business efficiency and customer experience.",
+          "features": [
+            "Chatbots for lead generation",
+            "Personalized virtual assistants",
+            "Predictive data analysis",
+            "Customer service automation",
+            "CRM/ERP integration",
+            "Custom Machine Learning"
+          ],
+          "technologies": ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"]
+        },
+        "automation": {
+          "title": "Process Automation",
+          "subtitle": "Maximum efficiency and productivity",
+          "description": "We automate repetitive business processes, from data entry to document generation, freeing up valuable time for strategic activities.",
+          "features": [
+            "Data entry automation",
+            "Automatic document generation",
+            "Custom workflows",
+            "Existing systems integration",
+            "Monitoring dashboard",
+            "ROI tracking and analytics"
+          ],
+          "technologies": ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"]
+        }
+      },
+      "modal": {
+        "featuresTitle": "Features:",
+        "technologiesTitle": "Technologies:",
+        "requestQuote": "Request Quote"
+      }
+    },
+    "process": {
+      "title": "Our Process",
+      "subtitle": "A structured approach to transform your ideas into successful digital solutions",
+      "steps": {
+        "analysis": {
+          "step": "01",
+          "title": "Analysis & Strategy",
+          "description": "We analyze your needs and define a clear strategy for your digital project.",
+          "duration": "1-2 weeks",
+          "tools": ["Analytics", "Research", "Strategy"],
+          "visualExample": {
+            "title": "Strategic Report",
+            "description": "Detailed analysis and action plan"
+          }
+        },
+        "design": {
+          "step": "02",
+          "title": "Design & UX",
+          "description": "We create engaging design and optimal user experience for your visitors.",
+          "duration": "2-3 weeks",
+          "tools": ["Figma", "Adobe XD", "Sketch"],
+          "visualExample": {
+            "title": "Design System",
+            "description": "Complete and interactive UI/UX design"
+          }
+        },
+        "development": {
+          "step": "03",
+          "title": "Development",
+          "description": "We develop your project using the most modern and performant technologies.",
+          "duration": "3-4 weeks",
+          "tools": ["React", "Next.js", "Node.js"],
+          "visualExample": {
+            "title": "Source Code",
+            "description": "Frontend and backend development"
+          }
+        },
+        "testing": {
+          "step": "04",
+          "title": "Testing",
+          "description": "We test every functionality to ensure quality and optimal performance.",
+          "duration": "1 week",
+          "tools": ["Jest", "Cypress", "Lighthouse"],
+          "visualExample": {
+            "title": "Test Report",
+            "description": "Complete report of executed tests"
+          }
+        },
+        "launch": {
+          "step": "05",
+          "title": "Launch",
+          "description": "We launch your project and monitor performance to ensure success.",
+          "duration": "1 week",
+          "tools": ["Vercel", "AWS", "Analytics"],
+          "visualExample": {
+            "title": "Deployment",
+            "description": "Live site and active monitoring"
+          }
+        }
+      },
+      "toolsLabel": "Tools:"
+    },
+    "cta": {
+      "title": "Ready to Start?",
+      "subtitle": "Transform your idea into a successful digital solution",
+      "button": "Request Quote"
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolio | Webbitz - Our Success Stories",
+      "description": "Explore projects developed by Webbitz: websites, e-commerce and innovative digital solutions for successful clients."
+    },
+    "hero": {
+      "title": "Projects that",
+      "titleAnimated": "Make the Difference",
+      "subtitle": {
+        "part1": "Discover the ",
+        "part2": "innovative projects",
+        "part3": " we've created for our clients.",
+        "part4": " Every solution is ",
+        "part5": "unique and customized",
+        "part6": ", designed to exceed expectations and generate concrete results."
+      }
+    },
+    "categories": {
+      "all": "All Projects",
+      "web": "Web Development",
+      "ai": "AI Solutions",
+      "automation": "Automation",
+      "database": "Database",
+      "ecommerce": "E-Commerce"
+    },
+    "projects": {
+      "aiFreightHub": {
+        "title": "AI Freight Hub - RnD Hub",
+        "description": "Complete automation system for the American trucking world with AI for automatic search and quotation, sending hundreds of emails daily.",
+        "longDescription": "Developed for RnD Hub, this revolutionary automation system uses AI for automatic search and quotation in the American freight sector. The platform automatically manages hundreds of emails daily, serving dozens of clients in the US freight market. The system includes intelligent matching algorithms, complete quotation process automation and advanced client management.",
+        "client": "RnD Hub",
+        "duration": "6 months",
+        "results": [
+          { "metric": "Emails Sent", "value": "50,000+", "description": "Automatic emails daily" },
+          { "metric": "Clients Served", "value": "40+", "description": "Active clients on platform" }
+        ],
+        "features": [
+          "AI for automatic freight search",
+          "Intelligent quotation system",
+          "Massive email automation",
+          "Real-time analytics dashboard",
+          "Multi-level client management",
+          "Trucking API integration"
+        ]
+      },
+      "thinkGoodWebsite": {
+        "title": "ThinkGood Music - Website",
+        "description": "Modern and responsive website for ThinkGood Music, with elegant design and advanced features for music event management.",
+        "longDescription": "Development of a modern and responsive website for ThinkGood Music, with elegant design that reflects the brand identity. The site includes advanced features like event gallery, booking system and social media integration. Particularly curated events section with interactive timeline and integrated booking system.",
+        "client": "ThinkGood Music",
+        "duration": "6 weeks",
+        "results": [
+          { "metric": "Performance", "value": "+180%", "description": "Loading speed" },
+          { "metric": "User Experience", "value": "+95%", "description": "User satisfaction" },
+          { "metric": "Conversions", "value": "+150%", "description": "Conversion rate" }
+        ],
+        "features": [
+          "Modern responsive design",
+          "Advanced event gallery",
+          "Integrated booking system",
+          "Interactive event timeline",
+          "Social media integration",
+          "SEO optimization"
+        ]
+      },
+      "thinkGoodChatbot": {
+        "title": "ThinkGood Music - Lead Generation Chatbot",
+        "description": "Advanced AI chatbot for automatic lead generation on site with 30k monthly visits, converting traffic into qualified leads through intelligent conversations.",
+        "longDescription": "Development of an advanced AI chatbot for ThinkGood Music, site with 30k monthly visits. The system automatically converts web traffic into qualified leads through intelligent and personalized conversations. The chatbot includes lead scoring, CRM integration and advanced analytics to continuously optimize conversions.",
+        "client": "ThinkGood Music",
+        "duration": "4 weeks",
+        "results": [
+          { "metric": "Monthly Traffic", "value": "30k", "description": "Monthly unique visitors" },
+          { "metric": "Conversion Rate", "value": "+200%", "description": "Conversion improvement" },
+          { "metric": "Qualified Leads", "value": "+280%", "description": "Qualified leads increase" }
+        ],
+        "features": [
+          "Automatic lead generation",
+          "Personalized AI conversations",
+          "Intelligent lead scoring",
+          "Direct CRM integration",
+          "Conversation analytics",
+          "Automatic A/B testing"
+        ]
+      },
+      "thresholdWebsite": {
+        "title": "Threshold Coach - Web Platform",
+        "description": "Complete web platform developed from scratch for personalized coaching, with modern architecture and advanced user interface.",
+        "longDescription": "Complete web platform developed entirely by WebBitz for Threshold Coach. The project includes frontend and backend development from scratch, specifically following client requirements. The platform offers a modern user experience with customizable dashboards, advanced user management and integration with international payment systems.",
+        "client": "Threshold Coach",
+        "duration": "2 months",
+        "results": [
+          { "metric": "Site Sales", "value": "+200%", "description": "Page loading speed" },
+          { "metric": "User Experience", "value": "+95%", "description": "User satisfaction" },
+          { "metric": "Conversions", "value": "+150%", "description": "Conversion rate" }
+        ],
+        "features": [
+          "Complete development from scratch",
+          "Modern scalable architecture",
+          "Customizable dashboards",
+          "Integrated payment system",
+          "Advanced responsive design",
+          "Complete SEO optimization"
+        ]
+      },
+      "thresholdAI": {
+        "title": "Threshold Coach - 50 AI Assistants",
+        "description": "Development of nearly 50 specialized AI assistants with OpenAI/Anthropic toggle for personalized coaching and user support.",
+        "longDescription": "Development of a complete ecosystem of nearly 50 specialized AI assistants for Threshold Coach. Each assistant is optimized for specific coaching areas with the ability to switch between OpenAI and Anthropic. The system includes advanced conversation management, AI personalization for each user and detailed interaction analytics.",
+        "client": "Threshold Coach",
+        "duration": "10 months",
+        "results": [
+          { "metric": "Assistants Developed", "value": "48", "description": "Specialized AI assistants" },
+          { "metric": "Conversations", "value": "10k+", "description": "Monthly conversations" },
+          { "metric": "Accuracy", "value": "+92%", "description": "AI response precision" }
+        ],
+        "features": [
+          "48 specialized AI assistants",
+          "OpenAI/Anthropic toggle",
+          "User personalization",
+          "Advanced conversation management",
+          "AI interaction analytics",
+          "Continuous model training"
+        ]
+      },
+      "thresholdDatabase": {
+        "title": "Threshold Coach - Database Infrastructure",
+        "description": "Enterprise database infrastructure to manage all user conversations with nearly 50 AI assistants, with scalable and secure architecture.",
+        "longDescription": "Design and implementation of enterprise database infrastructure for Threshold Coach. The system manages all user conversations with nearly 50 AI assistants, ensuring scalability, security and high performance. Includes automatic backups, replication, query optimization and advanced monitoring.",
+        "client": "Threshold Coach",
+        "duration": "4 months",
+        "results": [
+          { "metric": "Conversations Managed", "value": "50k+", "description": "Archived conversations" },
+          { "metric": "Uptime", "value": "99.9%", "description": "System availability" },
+          { "metric": "Performance", "value": "+300%", "description": "Query speed" }
+        ],
+        "features": [
+          "Scalable database architecture",
+          "Massive conversation management",
+          "Daily automatic backups",
+          "Multi-zone replication",
+          "Real-time monitoring",
+          "Advanced query optimization"
+        ]
+      },
+      "welpyChatbot": {
+        "title": "Welpy - Lead Generation Chatbot",
+        "description": "Advanced AI chatbot for automatic lead generation on site with 40k monthly visits, converting traffic into qualified leads through intelligent conversations.",
+        "longDescription": "Development of an advanced AI chatbot for Welpy, important site with 40k monthly visits. The system automatically converts web traffic into qualified leads through intelligent and personalized conversations. The chatbot includes lead scoring, CRM integration and advanced analytics to continuously optimize conversions.",
+        "client": "Welpy",
+        "duration": "6 weeks",
+        "results": [
+          { "metric": "Monthly Traffic", "value": "40k", "description": "Monthly unique visitors" },
+          { "metric": "Conversion Rate", "value": "+180%", "description": "Conversion improvement" },
+          { "metric": "Qualified Leads", "value": "+250%", "description": "Qualified leads increase" }
+        ],
+        "features": [
+          "Automatic lead generation",
+          "Personalized AI conversations",
+          "Intelligent lead scoring",
+          "Direct CRM integration",
+          "Conversation analytics",
+          "Automatic A/B testing"
+        ]
+      },
+      "admissionHub": {
+        "title": "The Admission Hub - Complete Platform",
+        "description": "Complete web platform developed from scratch for university admission services, with candidate management system and advanced dashboards.",
+        "longDescription": "Complete development from scratch of The Admission Hub, platform specialized in university admission services. The project includes frontend and backend development, candidate management system, consultant dashboards, payment system and complete admission process tracking.",
+        "client": "The Admission Hub",
+        "duration": "10 weeks",
+        "results": [
+          { "metric": "Candidates Managed", "value": "1000+", "description": "Candidates on platform" },
+          { "metric": "Automation", "value": "+90%", "description": "Automated processes" },
+          { "metric": "Efficiency", "value": "+200%", "description": "Workflow improvement" }
+        ],
+        "features": [
+          "Candidate management system",
+          "Advanced consultant dashboards",
+          "Admission process tracking",
+          "Integrated payment system",
+          "Document management",
+          "Automatic notifications"
+        ]
+      },
+      "vistamare": {
+        "title": "Vistamare - Website",
+        "description": "Modern and responsive website for Vistamare, with elegant design and advanced features.",
+        "longDescription": "Development of a modern and responsive website for Vistamare, with elegant design that reflects the brand identity. The site includes advanced features like image gallery, booking system and social media integration.",
+        "client": "Vistamare",
+        "duration": "4 weeks",
+        "results": [
+          { "metric": "Performance", "value": "+150%", "description": "Loading speed" },
+          { "metric": "User Experience", "value": "+90%", "description": "User satisfaction" },
+          { "metric": "Conversions", "value": "+120%", "description": "Conversion rate" }
+        ],
+        "features": [
+          "Modern responsive design",
+          "Advanced image gallery",
+          "Booking system",
+          "Social media integration",
+          "SEO optimization",
+          "Advanced analytics"
+        ]
+      },
+      "area287Website": {
+        "title": "Area287 - Website",
+        "description": "Website for a street clothing store in Pontedera",
+        "longDescription": "Development of a complete website for Area287, street clothing store in Pontedera. The site presents the brand through a modern and engaging design, with sections dedicated to the store's history, collections and special initiatives.",
+        "client": "Area287",
+        "duration": "4 weeks",
+        "results": [
+          { "metric": "Visits", "value": "+250%", "description": "Monthly traffic" },
+          { "metric": "Engagement", "value": "+180%", "description": "Time on site" },
+          { "metric": "Brand Awareness", "value": "+200%", "description": "Brand recognition" }
+        ],
+        "features": [
+          "Modern and responsive design",
+          "Brand storytelling sections",
+          "Product gallery",
+          "Social media integration",
+          "SEO optimized",
+          "High performance"
+        ]
+      },
+      "area287Ecommerce": {
+        "title": "Area287 - E-Commerce",
+        "description": "E-Commerce for a street clothing store in Pontedera",
+        "longDescription": "Development of a complete e-commerce for Area287, street clothing store in Pontedera. The platform includes product catalog, secure payment system, order management and Shopify integration for optimal inventory management.",
+        "client": "Area287",
+        "duration": "6 weeks",
+        "results": [
+          { "metric": "Online Sales", "value": "+200%", "description": "Sales increase" },
+          { "metric": "Traffic", "value": "+180%", "description": "Monthly visits" },
+          { "metric": "Conversions", "value": "+150%", "description": "Conversion rate" }
+        ],
+        "features": [
+          "Complete product catalog",
+          "Secure payment system",
+          "Advanced order management",
+          "Shopify integration",
+          "Responsive design",
+          "SEO optimized"
+        ]
+      },
+      "fantozziBarWebsite": {
+        "title": "Fantozzi Bar - Website",
+        "description": "Showcase website to tell the story of the historic Fantozzi bar in Pontedera, with online booking functionality via Pienissimo",
+        "longDescription": "Development of a showcase website for Bar Fantozzi, historic venue in Pontedera. The site tells the bar's story through engaging images and content, with integration of the Pienissimo online booking system to allow customers to book tables directly from the website.",
+        "client": "Fantozzi Bar",
+        "duration": "5 weeks",
+        "results": [
+          { "metric": "Online Bookings", "value": "+300%", "description": "Booking increase" },
+          { "metric": "Visibility", "value": "+250%", "description": "Monthly visits" },
+          { "metric": "Engagement", "value": "+180%", "description": "Time on site" }
+        ],
+        "features": [
+          "Responsive WordPress design",
+          "Pienissimo booking system",
+          "Historic photo gallery",
+          "Bar history section",
+          "Digital menu",
+          "SEO optimized"
+        ]
+      },
+      "ristoroAnticaScuderiaWebsite": {
+        "title": "Ristoro Antica Scuderia - Website",
+        "description": "Luxury website for the gourmet restaurant Antica Scuderia, nestled in the Chianti hills between Florence and Siena",
+        "longDescription": "Development of an elegant and refined website for Ristoro L'Antica Scuderia, a fine dining restaurant located in the heart of Chianti. The site reflects the exclusive atmosphere of the venue, with sophisticated design that enhances the Tuscan culinary tradition and the luxury gastronomic experience offered by the restaurant.",
+        "client": "Ristoro L'Antica Scuderia",
+        "duration": "6 weeks",
+        "results": [
+          { "metric": "Online Bookings", "value": "+400%", "description": "Booking increase" },
+          { "metric": "Premium Visibility", "value": "+350%", "description": "Luxury client visits" },
+          { "metric": "Engagement", "value": "+220%", "description": "Time on site" }
+        ],
+        "technologies": ["WordPress", "HTML", "CSS", "Elementor"],
+        "category": "web",
+        "features": [
+          "Elegant and refined design",
+          "Integrated booking system",
+          "Gourmet photo gallery",
+          "Tasting menu section",
+          "Restaurant history",
+          "Premium SEO optimized"
+        ]
+      },
+      "bottegaScuderiaWebsite": {
+        "title": "La Bottega della Scuderia - Website",
+        "description": "Luxury website for the gourmet boutique of Scuderia, specialized in exclusive culinary experiences and high-quality products",
+        "longDescription": "Development of an elegant and refined website for La Bottega della Scuderia, luxury gourmet space that offers exclusive culinary experiences, premium wine tastings and high-quality artisanal products. The site reflects the exclusive atmosphere of the boutique, with sophisticated design that enhances the premium gastronomic experience and selected products.",
+        "client": "La Bottega della Scuderia",
+        "duration": "5 weeks",
+        "results": [
+          { "metric": "Experience Bookings", "value": "+350%", "description": "Booking increase" },
+          { "metric": "Premium Visibility", "value": "+300%", "description": "Luxury client visits" },
+          { "metric": "Engagement", "value": "+200%", "description": "Time on site" }
+        ],
+        "technologies": ["WordPress", "HTML", "CSS", "Elementor"],
+        "category": "web",
+        "features": [
+          "Elegant and refined design",
+          "Experience booking system",
+          "Gourmet products gallery",
+          "Tastings section",
+          "Boutique history",
+          "Premium SEO optimized"
+        ]
+      },
+      "bagnoParadisoWebsite": {
+        "title": "Bagno Paradiso - Website",
+        "description": "Showcase website for Bagno Paradiso in Tirrenia, beach establishment with premium services and marine atmosphere",
+        "longDescription": "Development of a modern and attractive website for Bagno Paradiso in Tirrenia, beach establishment that offers premium services on the Tuscan coast. The site captures the marine and relaxing atmosphere of the establishment, with fresh design and colors that evoke the sea, enhancing the services offered and the quality beach experience.",
+        "client": "Bagno Paradiso",
+        "duration": "4 weeks",
+        "results": [
+          { "metric": "Umbrella Bookings", "value": "+280%", "description": "Booking increase" },
+          { "metric": "Seasonal Visibility", "value": "+250%", "description": "Summer visits" },
+          { "metric": "Engagement", "value": "+180%", "description": "Time on site" }
+        ],
+        "technologies": ["React", "HTML", "CSS"],
+        "category": "web",
+        "features": [
+          "Modern and fresh design",
+          "Umbrella booking system",
+          "Marine photo gallery",
+          "Services section",
+          "Interactive map",
+          "SEO optimized"
+        ]
+      },
+      "napoliIntoCoreWebsite": {
+        "title": "Napoli Into Core - Website",
+        "description": "Website for room booking in Naples with integrated booking system and complete accommodation management",
+        "longDescription": "Development of a professional website for Napoli Into Core, accommodation facility in the heart of Naples that offers a complete and intuitive booking system. The site allows customers to easily book rooms, view real-time availability and manage their bookings, with modern design that enhances the beauty of the Neapolitan city.",
+        "client": "Napoli Into Core",
+        "duration": "5 weeks",
+        "results": [
+          { "metric": "Online Bookings", "value": "+320%", "description": "Booking increase" },
+          { "metric": "Occupancy Rate", "value": "+280%", "description": "Occupancy rate" },
+          { "metric": "Engagement", "value": "+220%", "description": "Time on site" }
+        ],
+        "technologies": ["WordPress", "Elementor", "HTML", "CSS"],
+        "category": "web",
+        "features": [
+          "Integrated booking system",
+          "Real-time availability management",
+          "Room photo gallery",
+          "Interactive Naples map",
+          "Services section",
+          "SEO optimized"
+        ]
+      },
+      "spicchioDiLunaWebsite": {
+        "title": "Spicchio Di Luna - Website",
+        "description": "Showcase website for Spicchio Di Luna pizzeria, with digital menu and authentic gastronomic atmosphere",
+        "longDescription": "Development of an attractive website for Spicchio Di Luna pizzeria, venue that brings Italian culinary tradition to the heart of the city. The site captures the warm and familiar atmosphere of the pizzeria, with modern design that enhances traditional dishes, interactive digital menu and authentic gastronomic experience offered by the venue.",
+        "client": "Spicchio Di Luna",
+        "duration": "4 weeks",
+        "results": [
+          { "metric": "Monthly Visits", "value": "+300%", "description": "Visit increase" },
+          { "metric": "Table Bookings", "value": "+250%", "description": "Table bookings" },
+          { "metric": "Engagement", "value": "+200%", "description": "Time on site" }
+        ],
+        "technologies": ["React", "HTML", "CSS"],
+        "category": "web",
+        "features": [
+          "Interactive digital menu",
+          "Dish photo gallery",
+          "Booking system",
+          "Pizzeria history section",
+          "Responsive design",
+          "SEO optimized"
+        ]
+      },
+      "diazMicrotorrefazioneWebsite": {
+        "title": "Diaz Microtorrefazione - Website",
+        "description": "Website for Diaz Microtorrefazione, specialized in artisanal coffee roasting of high quality",
+        "longDescription": "Development of a complete website for Diaz Microtorrefazione, artisanal micro-roastery that tells the passion for quality coffee. The site presents the company's story, artisanal roasting processes and different coffee varieties, with an elegant design that enhances craftsmanship and tradition.",
+        "client": "Diaz Microtorrefazione",
+        "duration": "4 weeks",
+        "results": [
+          { "metric": "Visits", "value": "+300%", "description": "Monthly traffic" },
+          { "metric": "Brand Awareness", "value": "+250%", "description": "Brand recognition" },
+          { "metric": "Engagement", "value": "+200%", "description": "Time on site" }
+        ],
+        "features": [
+          "Elegant and professional design",
+          "Corporate storytelling",
+          "Roasting processes section",
+          "Product gallery",
+          "Coffee blog",
+          "SEO optimized"
+        ]
+      },
+      "diazMicrotorrefazioneEcommerce": {
+        "title": "Diaz Microtorrefazione - E-Commerce",
+        "description": "E-commerce website for Diaz Microtorrefazione, specialized in artisanal coffee roasting of high quality",
+        "longDescription": "Development of a complete e-commerce for Diaz Microtorrefazione, artisanal micro-roastery that brings the passion for quality coffee directly to consumers. The site offers an elegant and intuitive shopping experience, with detailed product catalog, secure payment system and complete order management, enhancing the craftsmanship and quality of products.",
+        "client": "Diaz Microtorrefazione",
+        "duration": "6 weeks",
+        "results": [
+          { "metric": "Online Sales", "value": "+400%", "description": "Sales increase" },
+          { "metric": "Customers", "value": "+350%", "description": "New customers" },
+          { "metric": "Engagement", "value": "+280%", "description": "Time on site" }
+        ],
+        "features": [
+          "Complete product catalog",
+          "Secure payment system",
+          "Advanced order management",
+          "Coffee blog section",
+          "Responsive design",
+          "SEO optimized"
+        ]
+      }
+    },
+    "modal": {
+      "projectDescription": "Project Description",
+      "mainFeatures": "Main Features",
+      "technologiesUsed": "Technologies Used",
+      "projectDetails": "Project Details",
+      "client": "Client:",
+      "year": "Year:",
+      "development": "Development:",
+      "team": "Team:",
+      "results": "Results Achieved",
+      "visitSite": "Visit Site",
+      "sourceCode": "Source Code"
+    },
+    "cta": {
+      "title": "Have a Project in Mind?",
+      "subtitle": "Transform your idea into the next success story in our portfolio",
+      "button": "Let's Start Collaborating"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | Webbitz - Let's Talk About Your Project",
+      "description": "Contact Webbitz to discuss your project. We're here to listen to your needs and create tailored solutions for your business."
+    },
+    "hero": {
+      "title1": "Let's Talk About Your",
+      "title2": "Project",
+      "subtitle": {
+        "part1": "Do you have an idea in mind? ",
+        "part2": "Contact us",
+        "part3": " to turn it into reality. ",
+        "part4": "We're here to listen to your needs and create ",
+        "part5": "tailored solutions",
+        "part6": " for your business."
+      }
+    },
+    "info": {
+      "email": {
+        "title": "Email",
+        "value": "reservationwebbitz@gmail.com",
+        "description": "We respond within 2 hours"
+      },
+      "phone": {
+        "title": "Phone",
+        "value": "+39 339 179 7616",
+        "description": "Mon-Fri 9:00-18:00"
+      },
+      "location": {
+        "title": "Location",
+        "value": "Pontedera (PI), Italy",
+        "description": "We work throughout Italy"
+      },
+      "hours": {
+        "title": "Hours",
+        "value": "24/7 Support",
+        "description": "Always available assistance"
+      }
+    },
+    "form": {
+      "title": "Tell us your idea",
+      "steps": {
+        "basic": {
+          "title": "Basic Information",
+          "subtitle": "Let's start with the essential information"
+        },
+        "project": {
+          "title": "Project Details",
+          "subtitle": "Tell us about your project"
+        },
+        "message": {
+          "title": "Your Message",
+          "subtitle": "Tell us more about your project"
+        }
+      },
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "required": "Name is required"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your-email@example.com",
+          "required": "Email is required",
+          "invalid": "Please enter a valid email"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "+39 123 456 7890"
+        },
+        "company": {
+          "label": "Company",
+          "placeholder": "Your company name"
+        },
+        "service": {
+          "label": "Requested Service",
+          "placeholder": "Select a service",
+          "required": "Please select a service",
+          "other": "Other service",
+          "otherDescription": {
+            "label": "Specify the requested service",
+            "placeholder": "Describe the service you're looking for",
+            "required": "Please specify the requested service"
+          }
+        },
+        "budget": {
+          "label": "Budget",
+          "required": "Please select a budget"
+        },
+        "timeline": {
+          "label": "Timeline"
+        },
+        "message": {
+          "label": "Project Description",
+          "placeholder": "Describe your project, your goals and any details you think are important...",
+          "required": "Project description is required"
+        }
+      },
+      "services": [
+        {
+          "id": "web",
+          "name": "React Web Development"
+        },
+        {
+          "id": "ai",
+          "name": "AI Solutions"
+        },
+        {
+          "id": "automation",
+          "name": "Process Automation"
+        },
+        {
+          "id": "mobile",
+          "name": "Mobile Apps"
+        },
+        {
+          "id": "ecommerce",
+          "name": "E-commerce"
+        },
+        {
+          "id": "consulting",
+          "name": "Digital Consulting"
+        }
+      ],
+      "budgets": [
+        {
+          "id": "1k-5k",
+          "name": "€1,000 - €5,000"
+        },
+        {
+          "id": "5k+",
+          "name": "€5,000+"
+        },
+        {
+          "id": "discuss",
+          "name": "To be discussed"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "urgent",
+          "name": "Urgent (1-2 weeks)"
+        },
+        {
+          "id": "normal",
+          "name": "Normal (1-2 months)"
+        },
+        {
+          "id": "flexible",
+          "name": "Flexible (3+ months)"
+        },
+        {
+          "id": "planning",
+          "name": "Planning phase"
+        }
+      ],
+      "buttons": {
+        "back": "Back",
+        "next": "Next",
+        "submit": "Send Message",
+        "submitting": "Sending..."
+      },
+      "success": {
+        "title": "Message Sent!",
+        "description": "Thank you for contacting us. We'll respond within 2 business hours.",
+        "button": "Send Another Message"
+      }
+    },
+    "chat": {
+      "title": "Webbitz Assistant",
+      "status": "Online now",
+      "placeholder": "Write a message...",
+      "initialMessage": "Hello! 👋 I'm Webbitz's virtual assistant. How can I help you today?",
+      "response": "Thank you for your message! One of our experts will contact you soon. In the meantime, you can fill out the form to give us more details about your project. 🚀"
+    }
+  },
+  "footer": {
+    "description": "We transform your ideas into extraordinary digital experiences. Premium solutions for companies that want to stand out.",
+    "contact": {
+      "email": "reservationwebbitz@gmail.com",
+      "phone": "+39 339 179 7616",
+      "location": "Pontedera (PI), Italy"
+    },
+    "links": {
+      "servizi": {
+        "title": "Services",
+        "items": [
+          { "name": "Web Development", "href": "/services#web" },
+          { "name": "AI Chatbot", "href": "/services#chatbot" },
+          { "name": "SEO & Marketing", "href": "/services#seo" },
+          { "name": "Brand Identity", "href": "/services#branding" }
+        ]
+      },
+      "azienda": {
+        "title": "Company",
+        "items": [
+          { "name": "About Us", "href": "/about" },
+          { "name": "Portfolio", "href": "/portfolio" },
+          { "name": "Testimonials", "href": "/testimonials" },
+          { "name": "Blog", "href": "/blog" }
+        ]
+      },
+      "supporto": {
+        "title": "Support",
+        "items": [
+          { "name": "Contact", "href": "/contact" },
+          { "name": "FAQ", "href": "/faq" },
+          { "name": "Privacy Policy", "href": "/privacy" },
+          { "name": "Terms of Service", "href": "/terms" }
+        ]
+      }
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Get the latest news on design, technology and digital strategies",
+      "placeholder": "Your email",
+      "button": "Subscribe"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "copyright": "© 2025 Webbitz. All rights reserved.",
+    "backToTop": "Back to top"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+} 

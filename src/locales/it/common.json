@@ -1,0 +1,998 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi Siamo",
+    "services": "Servizi",
+    "portfolio": "Portfolio",
+    "contact": "Contatti",
+    "startNow": "Inizia Ora"
+  },
+  "language": {
+    "select": "Seleziona Lingua",
+    "italian": "Italiano",
+    "english": "Inglese",
+    "french": "Francese",
+    "spanish": "Spagnolo",
+    "german": "Tedesco"
+  },
+  "hero": {
+    "title1": "Il tuo potenziale",
+    "title2": "finalmente online",
+    "subtitle": {
+      "part1": "Piccole e medie attività",
+      "part2": ", è arrivato il momento di ",
+      "part3": "farvi conoscere al mondo",
+      "part4": ". Creiamo la vostra presenza digitale con siti web professionali, ",
+      "part5": "soluzioni AI",
+      "part6": " e strategie che portano risultati concreti."
+    },
+    "services": {
+      "website": {
+        "title": "Sito Web Professionale",
+        "desc": "La vostra vetrina digitale perfetta"
+      },
+      "ai": {
+        "title": "Assistente AI 24/7",
+        "desc": "Rispondete ai clienti sempre"
+      },
+      "results": {
+        "title": "Risultati Garantiti",
+        "desc": "Più visibilità, più clienti"
+      }
+    },
+    "cta": {
+      "primary": "Inizia il tuo progetto",
+      "secondary": "Scopri i nostri lavori"
+    }
+  },
+  "features": {
+    "title": "Perché Scegliere",
+    "titleHighlight": "Webbitz",
+    "subtitle": "Combiniamo tecnologia all'avanguardia, design innovativo e strategie vincenti per creare soluzioni digitali che fanno la differenza",
+    "items": {
+      "website": {
+        "title": "Siti Web Premium",
+        "description": "Design responsive e performanti che convertono visitatori in clienti"
+      },
+      "chatbot": {
+        "title": "Chatbot AI Avanzati",
+        "description": "Assistenti virtuali intelligenti per lead generation 24/7"
+      },
+      "seo": {
+        "title": "SEO & Marketing",
+        "description": "Strategie data-driven per dominare i motori di ricerca"
+      },
+      "brand": {
+        "title": "Brand Identity",
+        "description": "Identità visive memorabili che distinguono il tuo brand"
+      },
+      "security": {
+        "title": "Sicurezza Garantita",
+        "description": "Protezione avanzata e backup automatici per la tua tranquillità"
+      },
+      "performance": {
+        "title": "Performance Ottimali",
+        "description": "Velocità di caricamento fulminee e ottimizzazione continua"
+      }
+    }
+  },
+  "clientsMap": {
+    "title": "Progetti",
+    "titleHighlight": "Internazionali",
+    "clickMarkers": "Clicca sui marker per scoprire i progetti",
+    "completedProjects": "Progetti completati",
+    "activeClients": "Clienti Attivi",
+    "clientInfo": "Cliente Webbitz - Progetto completato",
+    "visitSite": "Visita Sito",
+    "scrollToSeeAll": "Scorri per vedere tutti"
+  },
+  "worksCarousel": {
+    "title": "I Nostri",
+    "titleHighlight": "Lavori",
+    "projects": {
+      "vistamare": "Sito web Vistamare",
+      "rndhub": "Automazione RNDhub", 
+      "admissionhub": "Sito web AdmissionHub",
+      "welpy": "ChatBot Welpy",
+      "threshold": "Sito web Threshold",
+      "area287": "E-Commerce Area287",
+      "fantozzi": "Sito web Fantozzi Bar",
+      "scuderia": "Ristoro Antica Scuderia",
+      "bottega": "La Bottega della Scuderia",
+      "bagnoparadiso": "Bagno Paradiso",
+      "napoli": "Napoli Into Core",
+      "sdl": "Spicchio Di Luna",
+      "diaz": "Diaz Microtorrefazione"
+    }
+  },
+  "packages": {
+    "badge": "Pacchetti Webbitz",
+    "title": "Soluzioni",
+    "titleHighlight": "All-in-One",
+    "titleEnd": "per te",
+    "subtitle": "Scegli il pacchetto perfetto per le tue esigenze. Ogni progetto è personalizzato e ottimizzato per il successo della tua attività.",
+    "essential": {
+      "name": "Webbitz Essential",
+      "badge": "Più Popolare",
+      "description": "La soluzione completa per il tuo business digitale",
+      "cta": "Scegli Essential"
+    },
+    "premium": {
+      "name": "Webbitz Premium",
+      "badge": "Valore Massimo",
+      "description": "Essential + Brand Identity completa per dominare il mercato",
+      "cta": "Scegli Premium"
+    },
+    "features": {
+      "chatbot": "Chatbot che genera lead",
+      "website": "Sito Web personalizzato",
+      "seo": "SEO Ottimizzata",
+      "brand": "Brand Identity Completa"
+    },
+    "includes": "Cosa include:",
+    "contactQuote": "Preventivo su misura",
+    "bottomCTA": {
+      "title": "Non Sicuro? Parliamone!",
+      "description": "Ogni progetto è unico. Contattaci per una consulenza gratuita e scopri quale soluzione è perfetta per te.",
+      "button": "Consulenza Gratuita"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Chi Siamo | Webbitz - Il Team Giovane che Trasforma le Tue Idee",
+      "description": "Scopri il team di Webbitz: giovani professionisti appassionati di tecnologia che trasformano le tue idee in soluzioni digitali innovative."
+    },
+    "hero": {
+      "title1": "Trasformiamo Idee",
+      "title2": "In Realtà",
+      "subtitle": {
+        "part1": "Siamo quattro professionisti appassionati che combinano ",
+        "part2": "creatività",
+        "part3": ", ",
+        "part4": "tecnologia",
+        "part5": " e ",
+        "part6": "strategia",
+        "part7": " per creare soluzioni digitali che superano ogni aspettativa."
+      }
+    },
+    "team": {
+      "title": "Il team di sviluppo:",
+      "members": {
+        "diego": {
+          "name": "Diego",
+          "role": "Sviluppatore Web & AI",
+          "description": "Esperto in React, Node.js e intelligenza artificiale. Trasforma idee complesse in soluzioni digitali eleganti e raffinate.",
+          "specialty": "Architetture scalabili e soluzioni AI",
+          "experience": "2+ anni",
+          "projects": "10+"
+        },
+        "tommaso": {
+          "name": "Tommaso",
+          "role": "Sviluppatore Web & Designer",
+          "description": "Combina creatività e codice per creare esperienze utente straordinarie. Maestro del design system e UX.",
+          "specialty": "Design-to-code perfetto",
+          "experience": "2+ anni",
+          "projects": "5+"
+        }
+      },
+      "labels": {
+        "skills": "Competenze:",
+        "experience": "Esperienza",
+        "projects": "Progetti",
+        "specialty": "Specialità:",
+        "tapForMore": "Tocca per saperne di più"
+      }
+    },
+    "cta": {
+      "title": "Pronto a Trasformare la Tua Idea?",
+      "subtitle": "Unisciti ai nostri clienti soddisfatti e porta la tua azienda al livello successivo",
+      "button": "Iniziamo Insieme"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Servizi | Webbitz - Soluzioni Digitali per la Tua Attività",
+      "description": "Scopri i servizi di Webbitz: sviluppo web, chatbot AI, automazione e soluzioni database. Trasforma la tua presenza digitale con le nostre soluzioni innovative."
+    },
+    "hero": {
+      "title": "Soluzioni Digitali",
+      "titleAnimated": "Su Misura",
+      "subtitle": {
+        "part1": "Sviluppiamo ",
+        "part2": "tecnologie all'avanguardia",
+        "part3": " per trasformare la tua azienda. Dalla creazione di siti web React alle ",
+        "part4": "soluzioni AI",
+        "part5": ", ogni progetto è unico e personalizzato."
+      }
+    },
+    "mainServices": {
+      "title": "Servizi Principali",
+      "services": {
+        "webDevelopment": {
+          "title": "Sviluppo Web React",
+          "subtitle": "Siti web da zero, zero template",
+          "description": "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
+          "features": [
+            "React 18 + TypeScript",
+            "Design responsive e mobile-first",
+            "Performance ottimizzate (Core Web Vitals)",
+            "SEO tecnico avanzato",
+            "Architettura scalabile",
+            "Testing automatizzato"
+          ],
+          "technologies": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"]
+        },
+        "aiSolutions": {
+          "title": "Soluzioni AI",
+          "subtitle": "Intelligenza artificiale per il business",
+          "description": "Creiamo chatbot intelligenti, assistenti virtuali e sistemi di automazione basati su AI per migliorare l'efficienza aziendale e l'esperienza cliente.",
+          "features": [
+            "Chatbot per lead generation",
+            "Assistenti virtuali personalizzati",
+            "Analisi predittiva dei dati",
+            "Automazione customer service",
+            "Integrazione CRM/ERP",
+            "Machine Learning custom"
+          ],
+          "technologies": ["OpenAI GPT", "Python", "TensorFlow", "LangChain", "Vector Databases"]
+        },
+        "automation": {
+          "title": "Automazione Processi",
+          "subtitle": "Efficienza e produttività massime",
+          "description": "Automatizziamo i processi aziendali ripetitivi, dall'inserimento dati alla generazione di documenti, liberando tempo prezioso per attività strategiche.",
+          "features": [
+            "Automazione inserimento dati",
+            "Generazione documenti automatica",
+            "Workflow personalizzati",
+            "Integrazione sistemi esistenti",
+            "Dashboard di monitoraggio",
+            "ROI tracking e analytics"
+          ],
+          "technologies": ["Python", "RPA Tools", "APIs", "Webhooks", "Cloud Functions"]
+        }
+      },
+      "modal": {
+        "featuresTitle": "Caratteristiche:",
+        "technologiesTitle": "Tecnologie:",
+        "requestQuote": "Richiedi Preventivo"
+      }
+    },
+    "process": {
+      "title": "Il Nostro Processo",
+      "subtitle": "Un approccio strutturato per trasformare le tue idee in soluzioni digitali di successo",
+      "steps": {
+        "analysis": {
+          "step": "01",
+          "title": "Analisi & Strategia",
+          "description": "Analizziamo le tue esigenze e definiamo una strategia chiara per il tuo progetto digitale.",
+          "duration": "1-2 settimane",
+          "tools": ["Analytics", "Research", "Strategy"],
+          "visualExample": {
+            "title": "Report Strategico",
+            "description": "Analisi dettagliata e piano d'azione"
+          }
+        },
+        "design": {
+          "step": "02",
+          "title": "Design & UX",
+          "description": "Creiamo un design accattivante e un'esperienza utente ottimale per i tuoi visitatori.",
+          "duration": "2-3 settimane",
+          "tools": ["Figma", "Adobe XD", "Sketch"],
+          "visualExample": {
+            "title": "Design System",
+            "description": "UI/UX design completo e interattivo"
+          }
+        },
+        "development": {
+          "step": "03",
+          "title": "Sviluppo",
+          "description": "Sviluppiamo il tuo progetto utilizzando le tecnologie più moderne e performanti.",
+          "duration": "3-4 settimane",
+          "tools": ["React", "Next.js", "Node.js"],
+          "visualExample": {
+            "title": "Codice Sorgente",
+            "description": "Sviluppo frontend e backend"
+          }
+        },
+        "testing": {
+          "step": "04",
+          "title": "Testing",
+          "description": "Testiamo ogni funzionalità per garantire qualità e performance ottimali.",
+          "duration": "1 settimana",
+          "tools": ["Jest", "Cypress", "Lighthouse"],
+          "visualExample": {
+            "title": "Test Report",
+            "description": "Report completo dei test eseguiti"
+          }
+        },
+        "launch": {
+          "step": "05",
+          "title": "Launch",
+          "description": "Lanciamo il tuo progetto e monitoriamo le performance per garantire il successo.",
+          "duration": "1 settimana",
+          "tools": ["Vercel", "AWS", "Analytics"],
+          "visualExample": {
+            "title": "Deployment",
+            "description": "Sito live e monitoraggio attivo"
+          }
+        }
+      },
+      "toolsLabel": "Strumenti:"
+    },
+    "cta": {
+      "title": "Pronto a Iniziare?",
+      "subtitle": "Trasformiamo la tua idea in una soluzione digitale di successo",
+      "button": "Richiedi Preventivo"
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolio | Webbitz - I Nostri Progetti di Successo",
+      "description": "Esplora i progetti realizzati da Webbitz: siti web, e-commerce e soluzioni digitali innovative per clienti di successo."
+    },
+    "hero": {
+      "title": "Progetti che",
+      "titleAnimated": "Fanno la Differenza",
+      "subtitle": {
+        "part1": "Scopri i ",
+        "part2": "progetti innovativi",
+        "part3": " che abbiamo realizzato per i nostri clienti.",
+        "part4": " Ogni soluzione è ",
+        "part5": "unica e personalizzata",
+        "part6": ", progettata per superare le aspettative e generare risultati concreti."
+      }
+    },
+    "categories": {
+      "all": "Tutti i Progetti",
+      "web": "Sviluppo Web",
+      "ai": "Soluzioni AI",
+      "automation": "Automazione",
+      "database": "Database",
+      "ecommerce": "E-Commerce"
+    },
+    "projects": {
+      "aiFreightHub": {
+        "title": "AI Freight Hub - RnD Hub",
+        "description": "Sistema di automazione completo per il mondo trucking americano con AI per ricerca e quotazione automatica, invio di centinaia di email al giorno.",
+        "longDescription": "Sviluppato per RnD Hub, questo sistema di automazione rivoluzionario utilizza AI per la ricerca e quotazione automatica nel settore freight americano. La piattaforma gestisce automaticamente centinaia di email al giorno, servendo decine di clienti nel mercato del trasporto merci USA. Il sistema include algoritmi di matching intelligenti, automazione completa del processo di quotazione e gestione clienti avanzata.",
+        "client": "RnD Hub",
+        "duration": "6 mesi",
+        "results": [
+          { "metric": "Email Inviate", "value": "50.000+", "description": "Email automatiche al giorno" },
+          { "metric": "Clienti Serviti", "value": "40+", "description": "Clienti attivi sulla piattaforma" }
+        ],
+        "features": [
+          "AI per ricerca automatica freight",
+          "Sistema di quotazione intelligente",
+          "Automazione email massiva",
+          "Dashboard analytics real-time",
+          "Gestione clienti multi-livello",
+          "Integrazione API trucking"
+        ]
+      },
+      "thinkGoodWebsite": {
+        "title": "ThinkGood Music - Sito Web",
+        "description": "Sito web moderno e responsive per ThinkGood Music, con design elegante e funzionalità avanzate per la gestione degli eventi musicali.",
+        "longDescription": "Sviluppo di un sito web moderno e responsive per ThinkGood Music, con un design elegante che riflette l'identità del brand. Il sito include funzionalità avanzate come galleria eventi, sistema di prenotazione e integrazione con social media. Particolarmente curata la sezione eventi con timeline interattiva e sistema di prenotazione integrato.",
+        "client": "ThinkGood Music",
+        "duration": "6 settimane",
+        "results": [
+          { "metric": "Performance", "value": "+180%", "description": "Velocità caricamento" },
+          { "metric": "User Experience", "value": "+95%", "description": "Soddisfazione utente" },
+          { "metric": "Conversioni", "value": "+150%", "description": "Tasso di conversione" }
+        ],
+        "features": [
+          "Design responsive moderno",
+          "Galleria eventi avanzata",
+          "Sistema prenotazioni integrato",
+          "Timeline eventi interattiva",
+          "Integrazione social media",
+          "SEO optimization"
+        ]
+      },
+      "thinkGoodChatbot": {
+        "title": "ThinkGood Music - Chatbot Lead Generation",
+        "description": "Chatbot AI avanzato per lead generation automatica su sito con 30k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
+        "longDescription": "Sviluppo di un chatbot AI avanzato per ThinkGood Music, sito con 30k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
+        "client": "ThinkGood Music",
+        "duration": "4 settimane",
+        "results": [
+          { "metric": "Traffico Mensile", "value": "30k", "description": "Visitatori unici mensili" },
+          { "metric": "Conversion Rate", "value": "+200%", "description": "Miglioramento conversioni" },
+          { "metric": "Lead Qualificati", "value": "+280%", "description": "Incremento leads qualificati" }
+        ],
+        "features": [
+          "Lead generation automatica",
+          "Conversazioni AI personalizzate",
+          "Lead scoring intelligente",
+          "Integrazione CRM diretta",
+          "Analytics conversazioni",
+          "A/B testing automatico"
+        ]
+      },
+      "thresholdWebsite": {
+        "title": "Threshold Coach - Piattaforma Web",
+        "description": "Piattaforma web completa sviluppata da zero per coaching personalizzato, con architettura moderna e interfaccia utente avanzata.",
+        "longDescription": "Piattaforma web completa sviluppata interamente da WebBitz per Threshold Coach. Il progetto include lo sviluppo frontend e backend da zero, seguendo specificatamente gli ordini del committente. La piattaforma offre un'esperienza utente moderna con dashboard personalizzabili, gestione utenti avanzata e integrazione con sistemi di pagamento internazionali.",
+        "client": "Threshold Coach",
+        "duration": "2 mesi",
+        "results": [
+          { "metric": "Vendite sito", "value": "+200%", "description": "Velocità caricamento pagine" },
+          { "metric": "User Experience", "value": "+95%", "description": "Soddisfazione utente" },
+          { "metric": "Conversioni", "value": "+150%", "description": "Tasso di conversione" }
+        ],
+        "features": [
+          "Sviluppo completo da zero",
+          "Architettura scalabile moderna",
+          "Dashboard personalizzabili",
+          "Sistema di pagamenti integrato",
+          "Responsive design avanzato",
+          "SEO optimization completa"
+        ]
+      },
+      "thresholdAI": {
+        "title": "Threshold Coach - 50 Assistenti AI",
+        "description": "Sviluppo di quasi 50 assistenti AI specializzati con toggle OpenAI/Anthropic per coaching personalizzato e supporto utenti.",
+        "longDescription": "Sviluppo di un ecosistema completo di quasi 50 assistenti AI specializzati per Threshold Coach. Ogni assistente è ottimizzato per specifiche aree del coaching con la possibilità di switchare tra OpenAI e Anthropic. Il sistema include gestione conversazioni avanzata, personalizzazione AI per ogni utente e analytics dettagliate sulle interazioni.",
+        "client": "Threshold Coach",
+        "duration": "10 mesi",
+        "results": [
+          { "metric": "Assistenti Sviluppati", "value": "48", "description": "Assistenti AI specializzati" },
+          { "metric": "Conversazioni", "value": "10k+", "description": "Conversazioni mensili" },
+          { "metric": "Accuratezza", "value": "+92%", "description": "Precisione risposte AI" }
+        ],
+        "features": [
+          "48 assistenti AI specializzati",
+          "Toggle OpenAI/Anthropic",
+          "Personalizzazione per utente",
+          "Gestione conversazioni avanzata",
+          "Analytics interazioni AI",
+          "Training continuo modelli"
+        ]
+      },
+      "thresholdDatabase": {
+        "title": "Threshold Coach - Infrastruttura Database",
+        "description": "Infrastruttura database enterprise per gestire tutte le conversazioni degli utenti con quasi 50 assistenti AI, con architettura scalabile e sicura.",
+        "longDescription": "Progettazione e implementazione di un'infrastruttura database enterprise per Threshold Coach. Il sistema gestisce tutte le conversazioni degli utenti con quasi 50 assistenti AI, garantendo scalabilità, sicurezza e performance elevate. Include backup automatici, replication, ottimizzazione query e monitoring avanzato.",
+        "client": "Threshold Coach",
+        "duration": "4 mesi",
+        "results": [
+          { "metric": "Conversazioni Gestite", "value": "50k+", "description": "Conversazioni archiviate" },
+          { "metric": "Uptime", "value": "99.9%", "description": "Disponibilità sistema" },
+          { "metric": "Performance", "value": "+300%", "description": "Velocità query" }
+        ],
+        "features": [
+          "Architettura database scalabile",
+          "Gestione conversazioni massive",
+          "Backup automatici giornalieri",
+          "Replication multi-zona",
+          "Monitoring real-time",
+          "Ottimizzazione query avanzata"
+        ]
+      },
+      "welpyChatbot": {
+        "title": "Welpy - Chatbot Lead Generation",
+        "description": "Chatbot AI avanzato per lead generation automatica su sito con 40k accessi mensili, convertendo traffico in leads qualificati attraverso conversazioni intelligenti.",
+        "longDescription": "Sviluppo di un chatbot AI avanzato per Welpy, sito importante con 40k accessi mensili. Il sistema converte automaticamente il traffico web in leads qualificati attraverso conversazioni intelligenti e personalizzate. Il chatbot include lead scoring, integrazione CRM e analytics avanzate per ottimizzare continuamente le conversioni.",
+        "client": "Welpy",
+        "duration": "6 settimane",
+        "results": [
+          { "metric": "Traffico Mensile", "value": "40k", "description": "Visitatori unici mensili" },
+          { "metric": "Conversion Rate", "value": "+180%", "description": "Miglioramento conversioni" },
+          { "metric": "Lead Qualificati", "value": "+250%", "description": "Incremento leads qualificati" }
+        ],
+        "features": [
+          "Lead generation automatica",
+          "Conversazioni AI personalizzate",
+          "Lead scoring intelligente",
+          "Integrazione CRM diretta",
+          "Analytics conversazioni",
+          "A/B testing automatico"
+        ]
+      },
+      "admissionHub": {
+        "title": "The Admission Hub - Piattaforma Completa",
+        "description": "Piattaforma web completa sviluppata da zero per servizi di ammissione universitaria, con sistema di gestione candidati e dashboard avanzate.",
+        "longDescription": "Sviluppo completo da zero di The Admission Hub, piattaforma specializzata nei servizi di ammissione universitaria. Il progetto include sviluppo frontend e backend, sistema di gestione candidati, dashboard per consultants, sistema di pagamenti e tracking completo del processo di ammissione.",
+        "client": "The Admission Hub",
+        "duration": "10 settimane",
+        "results": [
+          { "metric": "Candidati Gestiti", "value": "1000+", "description": "Candidati sulla piattaforma" },
+          { "metric": "Automazione", "value": "+90%", "description": "Processi automatizzati" },
+          { "metric": "Efficienza", "value": "+200%", "description": "Miglioramento workflow" }
+        ],
+        "features": [
+          "Sistema gestione candidati",
+          "Dashboard consultant avanzate",
+          "Tracking processo ammissione",
+          "Sistema pagamenti integrato",
+          "Document management",
+          "Notifiche automatiche"
+        ]
+      },
+      "vistamare": {
+        "title": "Vistamare - Sito Web",
+        "description": "Sito web moderno e responsive per Vistamare, con design elegante e funzionalità avanzate.",
+        "longDescription": "Sviluppo di un sito web moderno e responsive per Vistamare, con un design elegante che riflette l'identità del brand. Il sito include funzionalità avanzate come galleria immagini, sistema di prenotazione e integrazione con social media.",
+        "client": "Vistamare",
+        "duration": "4 settimane",
+        "results": [
+          { "metric": "Performance", "value": "+150%", "description": "Velocità caricamento" },
+          { "metric": "User Experience", "value": "+90%", "description": "Soddisfazione utente" },
+          { "metric": "Conversioni", "value": "+120%", "description": "Tasso di conversione" }
+        ],
+        "features": [
+          "Design responsive moderno",
+          "Galleria immagini avanzata",
+          "Sistema prenotazioni",
+          "Integrazione social media",
+          "SEO optimization",
+          "Analytics avanzate"
+        ]
+      },
+      "area287Website": {
+        "title": "Area287 - Sito Web",
+        "description": "Sito web per un negozio di abbigliamento street a Pontedera",
+        "longDescription": "Sviluppo di un sito web completo per Area287, negozio di abbigliamento street a Pontedera. Il sito presenta il brand attraverso un design moderno e coinvolgente, con sezioni dedicate alla storia del negozio, alle collezioni e alle iniziative speciali.",
+        "client": "Area287",
+        "duration": "4 settimane",
+        "results": [
+          { "metric": "Visite", "value": "+250%", "description": "Traffico mensile" },
+          { "metric": "Engagement", "value": "+180%", "description": "Tempo di permanenza" },
+          { "metric": "Brand Awareness", "value": "+200%", "description": "Riconoscimento brand" }
+        ],
+        "features": [
+          "Design moderno e responsive",
+          "Sezioni brand storytelling",
+          "Galleria prodotti",
+          "Integrazione social media",
+          "SEO ottimizzato",
+          "Performance elevate"
+        ]
+      },
+      "area287Ecommerce": {
+        "title": "Area287 - E-Commerce",
+        "description": "E-Commerce per un negozio di abbigliamento street a Pontedera",
+        "longDescription": "Sviluppo di un e-commerce completo per Area287, negozio di abbigliamento street a Pontedera. La piattaforma include catalogo prodotti, sistema di pagamento sicuro, gestione ordini e integrazione con Shopify per una gestione ottimale dell'inventario.",
+        "client": "Area287",
+        "duration": "6 settimane",
+        "results": [
+          { "metric": "Vendite Online", "value": "+200%", "description": "Incremento vendite" },
+          { "metric": "Traffico", "value": "+180%", "description": "Visite mensili" },
+          { "metric": "Conversioni", "value": "+150%", "description": "Tasso conversione" }
+        ],
+        "features": [
+          "Catalogo prodotti completo",
+          "Sistema pagamenti sicuro",
+          "Gestione ordini avanzata",
+          "Integrazione Shopify",
+          "Design responsive",
+          "SEO ottimizzato"
+        ]
+      },
+      "fantozziBarWebsite": {
+        "title": "Fantozzi Bar - Sito Web",
+        "description": "Sito Web vetrina per raccontare lo storico bar fantozzi di pontedera, con funzionalità di prenotazione online tramite pienissimo",
+        "longDescription": "Sviluppo di un sito web vetrina per il Bar Fantozzi, storico locale di Pontedera. Il sito racconta la storia del bar attraverso immagini e contenuti coinvolgenti, con integrazione del sistema di prenotazione online Pienissimo per permettere ai clienti di prenotare tavoli direttamente dal sito.",
+        "client": "Fantozzi Bar",
+        "duration": "5 settimane",
+        "results": [
+          { "metric": "Prenotazioni Online", "value": "+300%", "description": "Incremento prenotazioni" },
+          { "metric": "Visibilità", "value": "+250%", "description": "Visite mensili" },
+          { "metric": "Engagement", "value": "+180%", "description": "Tempo di permanenza" }
+        ],
+        "features": [
+          "Design responsive WordPress",
+          "Sistema prenotazioni Pienissimo",
+          "Galleria foto storiche",
+          "Sezione storia del bar",
+          "Menu digitale",
+          "SEO ottimizzato"
+        ]
+      },
+      "ristoroAnticaScuderiaWebsite": {
+        "title": "Ristoro Antica Scuderia - Sito Web",
+        "description": "Sito web di lusso per il ristorante gourmet Antica Scuderia, immerso nelle colline del Chianti tra Firenze e Siena",
+        "longDescription": "Sviluppo di un sito web elegante e raffinato per il Ristoro L'Antica Scuderia, ristorante di alta cucina situato nel cuore del Chianti. Il sito riflette l'atmosfera esclusiva del locale, con design sofisticato che valorizza la tradizione culinaria toscana e l'esperienza gastronomica di lusso offerta dal ristorante.",
+        "client": "Ristoro L'Antica Scuderia",
+        "duration": "6 settimane",
+        "results": [
+          { "metric": "Prenotazioni Online", "value": "+400%", "description": "Incremento prenotazioni" },
+          { "metric": "Visibilità Premium", "value": "+350%", "description": "Visite da clientela di lusso" },
+          { "metric": "Engagement", "value": "+220%", "description": "Tempo di permanenza" }
+        ],
+        "technologies": ["WordPress", "HTML", "CSS", "Elementor"],
+        "category": "web",
+        "features": [
+          "Design elegante e raffinato",
+          "Sistema prenotazioni integrato",
+          "Galleria foto gourmet",
+          "Sezione menu degustazione",
+          "Storia del ristorante",
+          "SEO premium ottimizzato"
+        ]
+      },
+      "bottegaScuderiaWebsite": {
+        "title": "La Bottega della Scuderia - Sito Web",
+        "description": "Sito web di lusso per la bottega gourmet della Scuderia, specializzata in esperienze culinarie esclusive e prodotti di alta qualità",
+        "longDescription": "Sviluppo di un sito web elegante e raffinato per La Bottega della Scuderia, spazio gourmet di lusso che offre esperienze culinarie esclusive, degustazioni di vini pregiati e prodotti artigianali di alta qualità. Il sito riflette l'atmosfera esclusiva della bottega, con design sofisticato che valorizza l'esperienza gastronomica premium e i prodotti selezionati.",
+        "client": "La Bottega della Scuderia",
+        "duration": "5 settimane",
+        "results": [
+          { "metric": "Prenotazioni Esperienze", "value": "+350%", "description": "Incremento prenotazioni" },
+          { "metric": "Visibilità Premium", "value": "+300%", "description": "Visite da clientela di lusso" },
+          { "metric": "Engagement", "value": "+200%", "description": "Tempo di permanenza" }
+        ],
+        "technologies": ["WordPress", "HTML", "CSS", "Elementor"],
+        "category": "web",
+        "features": [
+          "Design elegante e raffinato",
+          "Sistema prenotazioni esperienze",
+          "Galleria prodotti gourmet",
+          "Sezione degustazioni",
+          "Storia della bottega",
+          "SEO premium ottimizzato"
+        ]
+      },
+      "bagnoParadisoWebsite": {
+        "title": "Bagno Paradiso - Sito Web",
+        "description": "Sito web vetrina per il Bagno Paradiso di Tirrenia, stabilimento balneare con servizi premium e atmosfera marina",
+        "longDescription": "Sviluppo di un sito web moderno e accattivante per il Bagno Paradiso di Tirrenia, stabilimento balneare che offre servizi premium sulla costa toscana. Il sito cattura l'atmosfera marina e rilassante dello stabilimento, con design fresco e colori che richiamano il mare, valorizzando i servizi offerti e l'esperienza balneare di qualità.",
+        "client": "Bagno Paradiso",
+        "duration": "4 settimane",
+        "results": [
+          { "metric": "Prenotazioni Ombrelloni", "value": "+280%", "description": "Incremento prenotazioni" },
+          { "metric": "Visibilità Stagionale", "value": "+250%", "description": "Visite estive" },
+          { "metric": "Engagement", "value": "+180%", "description": "Tempo di permanenza" }
+        ],
+        "technologies": ["React", "HTML", "CSS"],
+        "category": "web",
+        "features": [
+          "Design moderno e fresco",
+          "Sistema prenotazioni ombrelloni",
+          "Galleria foto marine",
+          "Sezione servizi",
+          "Mappa interattiva",
+          "SEO ottimizzato"
+        ]
+      },
+      "napoliIntoCoreWebsite": {
+        "title": "Napoli Into Core - Sito Web",
+        "description": "Sito web per prenotazione camere a Napoli con sistema di prenotazione integrato e gestione completa degli alloggi",
+        "longDescription": "Sviluppo di un sito web professionale per Napoli Into Core, struttura ricettiva nel cuore di Napoli che offre un sistema di prenotazione completo e intuitivo. Il sito permette ai clienti di prenotare facilmente le camere, visualizzare disponibilità in tempo reale e gestire le proprie prenotazioni, con design moderno che valorizza la bellezza della città partenopea.",
+        "client": "Napoli Into Core",
+        "duration": "5 settimane",
+        "results": [
+          { "metric": "Prenotazioni Online", "value": "+320%", "description": "Incremento prenotazioni" },
+          { "metric": "Occupazione", "value": "+280%", "description": "Tasso di occupazione" },
+          { "metric": "Engagement", "value": "+220%", "description": "Tempo di permanenza" }
+        ],
+        "technologies": ["WordPress", "Elementor", "HTML", "CSS"],
+        "category": "web",
+        "features": [
+          "Sistema prenotazioni integrato",
+          "Gestione disponibilità real-time",
+          "Galleria foto camere",
+          "Mappa interattiva Napoli",
+          "Sezione servizi",
+          "SEO ottimizzato"
+        ]
+      },
+      "spicchioDiLunaWebsite": {
+        "title": "Spicchio Di Luna - Sito Web",
+        "description": "Sito web vetrina per la pizzeria Spicchio Di Luna, con menu digitale e atmosfera gastronomica autentica",
+        "longDescription": "Sviluppo di un sito web accattivante per la pizzeria Spicchio Di Luna, locale che porta la tradizione culinaria italiana nel cuore della città. Il sito cattura l'atmosfera calda e familiare della pizzeria, con design moderno che valorizza i piatti tradizionali, il menu digitale interattivo e l'esperienza gastronomica autentica offerta dal locale.",
+        "client": "Spicchio Di Luna",
+        "duration": "4 settimane",
+        "results": [
+          { "metric": "Visite Mensili", "value": "+300%", "description": "Incremento visite" },
+          { "metric": "Prenotazioni", "value": "+250%", "description": "Prenotazioni tavoli" },
+          { "metric": "Engagement", "value": "+200%", "description": "Tempo di permanenza" }
+        ],
+        "technologies": ["React", "HTML", "CSS"],
+        "category": "web",
+        "features": [
+          "Menu digitale interattivo",
+          "Galleria foto piatti",
+          "Sistema prenotazioni",
+          "Sezione storia pizzeria",
+          "Design responsive",
+          "SEO ottimizzato"
+        ]
+      },
+      "diazMicrotorrefazioneWebsite": {
+        "title": "Diaz Microtorrefazione - Sito Web",
+        "description": "Sito web per Diaz Microtorrefazione, specializzata nella torrefazione artigianale di caffè di alta qualità",
+        "longDescription": "Sviluppo di un sito web completo per Diaz Microtorrefazione, microtorrefazione artigianale che racconta la passione per il caffè di qualità. Il sito presenta la storia dell'azienda, i processi di torrefazione artigianale e le diverse varietà di caffè, con un design elegante che valorizza l'artigianalità e la tradizione.",
+        "client": "Diaz Microtorrefazione",
+        "duration": "4 settimane",
+        "results": [
+          { "metric": "Visite", "value": "+300%", "description": "Traffico mensile" },
+          { "metric": "Brand Awareness", "value": "+250%", "description": "Riconoscimento brand" },
+          { "metric": "Engagement", "value": "+200%", "description": "Tempo di permanenza" }
+        ],
+        "features": [
+          "Design elegante e professionale",
+          "Storytelling aziendale",
+          "Sezione processi di torrefazione",
+          "Galleria prodotti",
+          "Blog caffè",
+          "SEO ottimizzato"
+        ]
+      },
+      "diazMicrotorrefazioneEcommerce": {
+        "title": "Diaz Microtorrefazione - E-Commerce",
+        "description": "Sito web e-commerce per Diaz Microtorrefazione, specializzata nella torrefazione artigianale di caffè di alta qualità",
+        "longDescription": "Sviluppo di un e-commerce completo per Diaz Microtorrefazione, microtorrefazione artigianale che porta la passione per il caffè di qualità direttamente ai consumatori. Il sito offre un'esperienza di acquisto elegante e intuitiva, con catalogo prodotti dettagliato, sistema di pagamento sicuro e gestione ordini completa, valorizzando l'artigianalità e la qualità dei prodotti.",
+        "client": "Diaz Microtorrefazione",
+        "duration": "6 settimane",
+        "results": [
+          { "metric": "Vendite Online", "value": "+400%", "description": "Incremento vendite" },
+          { "metric": "Clienti", "value": "+350%", "description": "Nuovi clienti" },
+          { "metric": "Engagement", "value": "+280%", "description": "Tempo di permanenza" }
+        ],
+        "features": [
+          "Catalogo prodotti completo",
+          "Sistema pagamenti sicuro",
+          "Gestione ordini avanzata",
+          "Sezione blog caffè",
+          "Design responsive",
+          "SEO ottimizzato"
+        ]
+      }
+    },
+    "modal": {
+      "projectDescription": "Descrizione del Progetto",
+      "mainFeatures": "Caratteristiche Principali",
+      "technologiesUsed": "Tecnologie Utilizzate",
+      "projectDetails": "Dettagli Progetto",
+      "client": "Cliente:",
+      "year": "Anno:",
+      "development": "Sviluppo:",
+      "team": "Team:",
+      "results": "Risultati Ottenuti",
+      "visitSite": "Visita il Sito",
+      "sourceCode": "Codice Sorgente"
+    },
+    "cta": {
+      "title": "Hai un Progetto in Mente?",
+      "subtitle": "Trasformiamo la tua idea nel prossimo caso di successo del nostro portfolio",
+      "button": "Iniziamo a Collaborare"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contatti | Webbitz - Parliamo del tuo progetto",
+      "description": "Contatta Webbitz per discutere del tuo progetto. Siamo qui per ascoltare le tue esigenze e creare soluzioni su misura per il tuo business."
+    },
+    "hero": {
+      "title1": "Parliamo del tuo",
+      "title2": "Progetto",
+      "subtitle": {
+        "part1": "Hai un'idea in mente? ",
+        "part2": "Contattaci",
+        "part3": " per trasformarla in realtà. ",
+        "part4": "Siamo qui per ascoltare le tue esigenze e creare ",
+        "part5": "soluzioni su misura",
+        "part6": " per il tuo business."
+      }
+    },
+    "info": {
+      "email": {
+        "title": "Email",
+        "value": "reservationwebbitz@gmail.com",
+        "description": "Rispondiamo entro 2 ore"
+      },
+      "phone": {
+        "title": "Telefono",
+        "value": "+39 339 179 7616",
+        "description": "Lun-Ven 9:00-18:00"
+      },
+      "location": {
+        "title": "Sede",
+        "value": "Pontedera (PI), Italia",
+        "description": "Lavoriamo in tutta Italia"
+      },
+      "hours": {
+        "title": "Orari",
+        "value": "24/7 Support",
+        "description": "Assistenza sempre disponibile"
+      }
+    },
+    "form": {
+      "title": "Raccontaci la tua idea",
+      "steps": {
+        "basic": {
+          "title": "Informazioni di Base",
+          "subtitle": "Iniziamo con le informazioni essenziali"
+        },
+        "project": {
+          "title": "Dettagli del Progetto",
+          "subtitle": "Parlaci del tuo progetto"
+        },
+        "message": {
+          "title": "Il Tuo Messaggio",
+          "subtitle": "Raccontaci di più sul tuo progetto"
+        }
+      },
+      "fields": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Il tuo nome",
+          "required": "Il nome è obbligatorio"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "la-tua-email@esempio.com",
+          "required": "L'email è obbligatoria",
+          "invalid": "Inserisci un'email valida"
+        },
+        "phone": {
+          "label": "Telefono",
+          "placeholder": "+39 123 456 7890"
+        },
+        "company": {
+          "label": "Azienda",
+          "placeholder": "Nome della tua azienda"
+        },
+        "service": {
+          "label": "Servizio Richiesto",
+          "placeholder": "Seleziona un servizio",
+          "required": "Seleziona un servizio",
+          "other": "Altro servizio",
+          "otherDescription": {
+            "label": "Specifica il servizio richiesto",
+            "placeholder": "Descrivi il servizio che stai cercando",
+            "required": "Specifica il servizio richiesto"
+          }
+        },
+        "budget": {
+          "label": "Budget",
+          "required": "Seleziona un budget"
+        },
+        "timeline": {
+          "label": "Timeline"
+        },
+        "message": {
+          "label": "Descrizione del Progetto",
+          "placeholder": "Descrivi il tuo progetto, i tuoi obiettivi e qualsiasi dettaglio che ritieni importante...",
+          "required": "La descrizione del progetto è obbligatoria"
+        }
+      },
+      "services": [
+        {
+          "id": "web",
+          "name": "Sviluppo Web React"
+        },
+        {
+          "id": "ai",
+          "name": "Soluzioni AI"
+        },
+        {
+          "id": "automation",
+          "name": "Automazione Processi"
+        },
+        {
+          "id": "mobile",
+          "name": "App Mobile"
+        },
+        {
+          "id": "ecommerce",
+          "name": "E-commerce"
+        },
+        {
+          "id": "consulting",
+          "name": "Consulenza Digitale"
+        }
+      ],
+      "budgets": [
+        {
+          "id": "1k-5k",
+          "name": "€1.000 - €5.000"
+        },
+        {
+          "id": "5k+",
+          "name": "€5.000+"
+        },
+        {
+          "id": "discuss",
+          "name": "Da discutere"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "urgent",
+          "name": "Urgente (1-2 settimane)"
+        },
+        {
+          "id": "normal",
+          "name": "Normale (1-2 mesi)"
+        },
+        {
+          "id": "flexible",
+          "name": "Flessibile (3+ mesi)"
+        },
+        {
+          "id": "planning",
+          "name": "Fase di pianificazione"
+        }
+      ],
+      "buttons": {
+        "back": "Indietro",
+        "next": "Avanti",
+        "submit": "Invia Messaggio",
+        "submitting": "Invio in corso..."
+      },
+      "success": {
+        "title": "Messaggio Inviato!",
+        "description": "Grazie per averci contattato. Ti risponderemo entro 2 ore lavorative.",
+        "button": "Invia un Altro Messaggio"
+      }
+    },
+    "chat": {
+      "title": "Assistente Webbitz",
+      "status": "Online ora",
+      "placeholder": "Scrivi un messaggio...",
+      "initialMessage": "Ciao! 👋 Sono l'assistente virtuale di Webbitz. Come posso aiutarti oggi?",
+      "response": "Grazie per il tuo messaggio! Un nostro esperto ti contatterà presto. Nel frattempo, puoi compilare il form per darci più dettagli sul tuo progetto. 🚀"
+    }
+  },
+  "footer": {
+    "description": "Trasformiamo le tue idee in esperienze digitali straordinarie. Soluzioni premium per aziende che vogliono distinguersi.",
+    "contact": {
+      "email": "reservationwebbitz@gmail.com",
+      "phone": "+39 339 179 7616",
+      "location": "Pontedera (PI), Italia"
+    },
+    "links": {
+      "servizi": {
+        "title": "Servizi",
+        "items": [
+          { "name": "Sviluppo Web", "href": "/services#web" },
+          { "name": "Chatbot AI", "href": "/services#chatbot" },
+          { "name": "SEO & Marketing", "href": "/services#seo" },
+          { "name": "Brand Identity", "href": "/services#branding" }
+        ]
+      },
+      "azienda": {
+        "title": "Azienda",
+        "items": [
+          { "name": "Chi Siamo", "href": "/about" },
+          { "name": "Portfolio", "href": "/portfolio" },
+          { "name": "Testimonianze", "href": "/testimonials" },
+          { "name": "Blog", "href": "/blog" }
+        ]
+      },
+      "supporto": {
+        "title": "Supporto",
+        "items": [
+          { "name": "Contatti", "href": "/contact" },
+          { "name": "FAQ", "href": "/faq" },
+          { "name": "Privacy Policy", "href": "/privacy" },
+          { "name": "Termini di Servizio", "href": "/terms" }
+        ]
+      }
+    },
+    "newsletter": {
+      "title": "Resta Aggiornato",
+      "description": "Ricevi le ultime novità su design, tecnologia e strategie digitali",
+      "placeholder": "La tua email",
+      "button": "Iscriviti"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "copyright": "© 2025 Webbitz. Tutti i diritti riservati.",
+    "backToTop": "Torna su"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "close": "Chiudi",
+    "save": "Salva",
+    "cancel": "Annulla"
+  }
+} 
