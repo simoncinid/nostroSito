@@ -146,20 +146,20 @@ const ClientsMap = () => {
 
   // Posizioni dei clienti
   const clientLocations = [
-    { lat: 45.4642, lng: 9.1900, name: "ThinkGood Music (Milano)", link: "https://thinkgoodmusic.com" },
+    { lat: 45.4592, lng: 9.1768, name: "ThinkGood Music (Milano)", link: "https://thinkgoodmusic.com" },
     { lat: 51.7520, lng: -1.2577, name: "Threshold Coach (Oxfordshire)", link: "https://www.threshold.coach/" },
     { lat: 40.6331, lng: -89.3985, name: "RnD Hub (Illinois)", link: "https://rndhub.io/" },
     { lat: 45.4064, lng: 11.8768, name: "Welpy (Padova)", link: "https://www.welpy.it/" },
-    { lat: 45.4742, lng: 9.2100, name: "The Admission Hub (Milano)", link: "https://theadmissionhub.com/" },
+    { lat: 45.5230, lng: 9.1765, name: "The Admission Hub (Milano)", link: "https://theadmissionhub.com/" },
     { lat: 43.3947, lng: 10.4177, name: "Vistamare (Livorno)", link: "https://www.vistamarerosignano.it/" },
     { lat: 43.6619, lng: 10.6306, name: "Area287 (Pisa)", link: "https://area287.it" },
     { lat: 43.6719, lng: 10.6406, name: "Fantozzi Bar (Pisa)", link: "https://barfantozzi.it" },
-    { lat: 43.5511, lng: 11.2408, name: "Ristoro L'Antica Scuderia (Firenze)", link: "https://www.ristorolanticascuderia.it/" },
+    { lat: 43.5511, lng: 11.2408, name: "Ristoro L'Antica Scuderia (Barberino Tavernelle)", link: "https://www.ristorolanticascuderia.it/" },
     { lat: 43.5515, lng: 11.2412, name: "La Bottega della Scuderia (Firenze)", link: "https://labottegadellascruderia.com" },
     { lat: 43.6167, lng: 10.2833, name: "Bagno Paradiso (Livorno)", link: "https://bagnoparadisotirrenia.it" },
-    { lat: 40.8518, lng: 14.2681, name: "Napoli Into Core (Napoli)", link: "https://napolintocore.it" },
+    { lat: 40.8356, lng: 14.2250, name: "Napoli Into Core (Napoli)", link: "https://napolintocore.it" },
     { lat: 43.5500, lng: 10.3167, name: "Spicchio Di Luna (Livorno)", link: "https://spicchiodiluna.it" },
-    { lat: 40.8518, lng: 14.2681, name: "Diaz Microtorrefazione (Napoli)", link: "https://diazmicrotorrefazione.com" }
+    { lat: 40.8520, lng: 14.2613, name: "Diaz Microtorrefazione (Napoli)", link: "https://diazmicrotorrefazione.com" }
   ]
 
   useEffect(() => {
