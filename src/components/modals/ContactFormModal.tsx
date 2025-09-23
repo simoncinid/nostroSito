@@ -203,8 +203,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             required
                             value={formData.name}
                             onChange={(e) => handleInputChange('name', e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 ${
-                              errors.name ? 'border-red-500' : 'border-gray-200 focus:border-purple-500'
+                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 ${
+                              errors.name ? 'border-red-500' : 'border-gray-200 focus:border-blue-500'
                             }`}
                             placeholder="Il tuo nome"
                           />
@@ -219,8 +219,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             required
                             value={formData.email}
                             onChange={(e) => handleInputChange('email', e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 ${
-                              errors.email ? 'border-red-500' : 'border-gray-200 focus:border-purple-500'
+                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 ${
+                              errors.email ? 'border-red-500' : 'border-gray-200 focus:border-blue-500'
                             }`}
                             placeholder="la-tua-email@esempio.com"
                           />
@@ -231,7 +231,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => handleInputChange('phone', e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                            className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                             placeholder="+39 123 456 7890"
                           />
                         </div>
@@ -241,7 +241,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             type="text"
                             value={formData.company}
                             onChange={(e) => handleInputChange('company', e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                            className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                             placeholder="Nome della tua azienda"
                           />
                         </div>
@@ -270,8 +270,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                               onClick={() => handleInputChange('service', service.id)}
                               className={`p-3 border rounded-xl text-left transition-all duration-300 ${
                                 formData.service === service.id
-                                  ? 'border-purple-500 bg-purple-50 text-purple-700'
-                                  : 'border-gray-200 hover:border-purple-300'
+                                  ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                  : 'border-gray-200 hover:border-blue-300'
                               } ${errors.service ? 'border-red-500' : ''}`}
                             >
                               <span className="text-xl mb-1 block">{service.icon}</span>
@@ -285,7 +285,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             id="otherService"
                             checked={formData.service === 'other'}
                             onChange={(e) => handleInputChange('service', e.target.checked ? 'other' : '')}
-                            className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                            className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                           />
                           <label htmlFor="otherService" className="text-sm font-medium text-gray-700">
                             Altro servizio
@@ -301,8 +301,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                               type="text"
                               value={formData.otherService}
                               onChange={(e) => handleInputChange('otherService', e.target.value)}
-                              className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 ${
-                                errors.otherService ? 'border-red-500' : 'border-gray-200 focus:border-purple-500'
+                              className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 ${
+                                errors.otherService ? 'border-red-500' : 'border-gray-200 focus:border-blue-500'
                               }`}
                               placeholder="Descrivi il servizio che stai cercando"
                             />
@@ -324,8 +324,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                                 onClick={() => handleInputChange('budget', budget.id)}
                                 className={`w-full p-3 border rounded-xl text-left transition-all duration-300 ${
                                   formData.budget === budget.id
-                                    ? 'border-purple-500 bg-purple-50 text-purple-700'
-                                    : 'border-gray-200 hover:border-purple-300'
+                                    ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                    : 'border-gray-200 hover:border-blue-300'
                                 } ${errors.budget ? 'border-red-500' : ''}`}
                               >
                                 {budget.name}
@@ -344,8 +344,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                                 onClick={() => handleInputChange('timeline', timeline.id)}
                                 className={`w-full p-3 border rounded-xl text-left transition-all duration-300 ${
                                   formData.timeline === timeline.id
-                                    ? 'border-purple-500 bg-purple-50 text-purple-700'
-                                    : 'border-gray-200 hover:border-purple-300'
+                                    ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                    : 'border-gray-200 hover:border-blue-300'
                                 }`}
                               >
                                 {timeline.name}
@@ -375,8 +375,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                           rows={5}
                           value={formData.message}
                           onChange={(e) => handleInputChange('message', e.target.value)}
-                          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-200 resize-none ${
-                            errors.message ? 'border-red-500' : 'border-gray-200 focus:border-purple-500'
+                          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none ${
+                            errors.message ? 'border-red-500' : 'border-gray-200 focus:border-blue-500'
                           }`}
                           placeholder="Descrivi il tuo progetto, i tuoi obiettivi e qualsiasi dettaglio che ritieni importante..."
                         />
@@ -391,7 +391,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                         <div
                           key={step}
                           className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            step <= currentStep ? 'bg-purple-600' : 'bg-gray-300'
+                            step <= currentStep ? 'bg-blue-600' : 'bg-gray-300'
                           }`}
                         />
                       ))}
@@ -412,7 +412,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                         <button
                           type="button"
                           onClick={nextStep}
-                          className="px-4 py-2 bg-purple-600 text-white font-medium rounded-xl hover:bg-purple-700 transition-all duration-300"
+                          className="px-4 py-2 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-all duration-300"
                         >
                           Avanti
                         </button>
@@ -420,7 +420,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="px-6 py-2 bg-purple-600 text-white font-medium rounded-xl hover:bg-purple-700 transition-all duration-300 disabled:opacity-50"
+                          className="px-6 py-2 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-all duration-300 disabled:opacity-50"
                         >
                           {isSubmitting ? 'Invio in corso...' : 'Invia Messaggio'}
                         </button>

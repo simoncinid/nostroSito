@@ -19,7 +19,7 @@ const Card = ({ value, isActive }: { value: ValueType; isActive: boolean }) => {
     <motion.div
       className={`
         bg-white/80 backdrop-blur-xl border rounded-2xl p-6 cursor-pointer h-full flex flex-col items-center justify-center relative
-        ${isActive ? 'border-purple-300 shadow-lg' : 'border-purple-200 shadow-sm'}
+        ${isActive ? 'border-blue-300 shadow-lg' : 'border-blue-200 shadow-sm'}
         transition-all duration-300
       `}
       whileHover={{ scale: isActive ? 1.03 : 1.05 }}
@@ -245,7 +245,7 @@ const CardAnimation = ({ value }: { value: string }) => {
                 return (
                   <motion.div
                     key={`sparkle-${i}`}
-                    className="absolute rounded-full bg-gradient-to-r from-pink-300 to-pink-500 opacity-70 mix-blend-screen"
+                    className="absolute rounded-full bg-gradient-to-r from-blue-300 to-blue-500 opacity-70 mix-blend-screen"
                     style={{ width: size, height: size / 3 }}
                     initial={{ x: 0, y: 0, scale: 0, opacity: 0, rotate: angle * (180/Math.PI) }}
                     animate={{
@@ -263,7 +263,7 @@ const CardAnimation = ({ value }: { value: string }) => {
               {[1, 2, 3].map((_, i) => (
                 <motion.div
                   key={`wave-${i}`}
-                  className="absolute rounded-full border-2 border-pink-500"
+                  className="absolute rounded-full border-2 border-blue-500"
                   style={{ width: 20, height: 20 }}
                   initial={{ opacity: 0.7, scale: 1 }}
                   animate={{ 

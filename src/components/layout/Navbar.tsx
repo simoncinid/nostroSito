@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import logo from '../../assets/logos/WEBBITZ_5.png'
+import logo from '../../assets/logos/LogoWebbitz.png'
 import ContactFormModal from '../modals/ContactFormModal'
 
 const Navbar = () => {
@@ -62,8 +62,8 @@ const Navbar = () => {
                 <img 
                   src={logo} 
                   alt="Webbitz Logo" 
-                  className="w-28 h-28 object-contain"
-                  style={{ filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.3))' }}
+                  className="w-36 h-36 object-contain"
+                  style={{ filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))' }}
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
               </motion.div>

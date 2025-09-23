@@ -27,9 +27,9 @@ export const AIPoweredAnimation = () => {
         animate={{ 
           opacity: [0, 0.3, 0],
           background: [
-            "radial-gradient(circle at center, rgba(167, 139, 250, 0.1) 0%, rgba(109, 40, 217, 0) 70%)",
-            "radial-gradient(circle at center, rgba(167, 139, 250, 0.3) 0%, rgba(109, 40, 217, 0.1) 70%)",
-            "radial-gradient(circle at center, rgba(167, 139, 250, 0.1) 0%, rgba(109, 40, 217, 0) 70%)"
+            "radial-gradient(circle at center, rgba(96, 165, 250, 0.1) 0%, rgba(29, 78, 216, 0) 70%)",
+            "radial-gradient(circle at center, rgba(96, 165, 250, 0.3) 0%, rgba(29, 78, 216, 0.1) 70%)",
+            "radial-gradient(circle at center, rgba(96, 165, 250, 0.1) 0%, rgba(29, 78, 216, 0) 70%)"
           ]
         }}
         transition={{ duration: 2, times: [0, 0.5, 1] }}
@@ -39,7 +39,7 @@ export const AIPoweredAnimation = () => {
       <motion.div 
         className="absolute w-full h-full opacity-20"
         style={{
-          background: "radial-gradient(circle at center, transparent 0%, transparent 100%), repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(167, 139, 250, 0.1) 10px, rgba(167, 139, 250, 0.1) 11px), repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(167, 139, 250, 0.1) 10px, rgba(167, 139, 250, 0.1) 11px)"
+          background: "radial-gradient(circle at center, transparent 0%, transparent 100%), repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(96, 165, 250, 0.1) 10px, rgba(96, 165, 250, 0.1) 11px), repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(96, 165, 250, 0.1) 10px, rgba(96, 165, 250, 0.1) 11px)"
         }}
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ 
@@ -53,7 +53,7 @@ export const AIPoweredAnimation = () => {
       <motion.div className="relative w-56 h-56">
         {/* Aura energetica */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-br from-purple-500/10 to-violet-600/10 blur-xl"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-gradient-to-br from-blue-500/10 to-blue-600/10 blur-xl"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ 
             scale: [0.8, 1.5, 1.2],
@@ -202,7 +202,7 @@ export const AIPoweredAnimation = () => {
         </motion.div>
         
         {/* Interfaccia olografica HUD intorno al cervello */}
-        <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-purple-400/20"
+        <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-blue-400/20"
           initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
           animate={{ 
             opacity: [0, 0.7, 0],
@@ -212,7 +212,7 @@ export const AIPoweredAnimation = () => {
           transition={{ duration: 2, ease: "linear" }}
         />
         
-        <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full border border-purple-400/10"
+        <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full border border-blue-400/10"
           initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
           animate={{ 
             opacity: [0, 0.5, 0],
@@ -230,7 +230,7 @@ export const AIPoweredAnimation = () => {
           return (
             <motion.div 
               key={`data-stream-${i}`}
-              className="absolute left-1/2 top-1/2 h-0.5 bg-gradient-to-r from-purple-400/0 via-purple-500/80 to-purple-400/0"
+              className="absolute left-1/2 top-1/2 h-0.5 bg-gradient-to-r from-blue-400/0 via-blue-500/80 to-blue-400/0"
               style={{ 
                 width: 100,
                 transformOrigin: "0 center",
@@ -255,7 +255,7 @@ export const AIPoweredAnimation = () => {
         {[1, 2].map((_, i) => (
           <motion.div
             key={`scan-${i}`}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-500/30"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-500/30"
             style={{ width: 20, height: 20 }}
             initial={{ scale: 0, opacity: 0.7 }}
             animate={{ 
@@ -285,7 +285,7 @@ export const AIPoweredAnimation = () => {
             return (
               <motion.div
                 key={`binary-${digit}-${i}`}
-                className="absolute left-1/2 top-1/2 font-mono text-purple-300 font-semibold"
+                className="absolute left-1/2 top-1/2 font-mono text-blue-300 font-semibold"
                 style={{ 
                   fontSize: size,
                   marginLeft: -size/4,
@@ -464,7 +464,7 @@ export const CodiceZeroAnimation = () => {
         
         {/* Tag HTML/CSS/JS che si formano e volano */}
         {[
-          { text: "<div>", color: "#ec4899", delay: 0.5 }, // pink-500
+          { text: "<div>", color: "#3B82F6", delay: 0.5 }, // pink-500
           { text: "function()", color: "#f59e0b", delay: 0.7 }, // amber-500
           { text: "{style}", color: "#3b82f6", delay: 0.9 }, // blue-500
           { text: "</html>", color: "#ef4444", delay: 1.1 }, // red-500

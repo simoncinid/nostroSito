@@ -41,9 +41,9 @@ const Features = () => {
       icon: Palette,
       title: 'features.items.brand.title',
       description: 'features.items.brand.description',
-      color: 'from-pink-500 to-pink-600',
-      bgColor: 'bg-pink-50',
-      iconColor: 'text-pink-600',
+      color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-50',
+      iconColor: 'text-blue-600',
       secondaryIcon: Globe,
       animation: "float"
     },
@@ -107,9 +107,9 @@ const Features = () => {
                 whileHover={{ 
                   scale: 1.03, 
                   y: -5,
-                  boxShadow: "0 20px 30px rgba(139, 92, 246, 0.15)"
+                  boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
                 }}
-                className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-purple-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
+                className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-blue-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
               >
                 {/* Secondary floating icon */}
                 <motion.div 
@@ -156,11 +156,11 @@ const Features = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full my-8">
-          <div className="w-full max-w-5xl">
-            <WorksCarousel />
-          </div>
-        </div>
+      </div>
+      
+      {/* WorksCarousel fuori dal container-premium per larghezza completa */}
+      <div className="w-full">
+        <WorksCarousel />
       </div>
     </section>
   )

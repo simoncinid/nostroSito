@@ -431,7 +431,7 @@ const BrandAnimation = () => {
             animate={{ opacity: 1 }}
             className="absolute top-2 left-2 flex space-x-1"
           >
-            {['bg-primary-500', 'bg-indigo-500', 'bg-purple-500', 'bg-pink-500'].map((color, i) => (
+            {['bg-primary-500', 'bg-indigo-500', 'bg-blue-500', 'bg-blue-600'].map((color, i) => (
               <motion.div 
                 key={i}
                 initial={{ scale: 0, y: 10 }}

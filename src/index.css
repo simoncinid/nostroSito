@@ -4,12 +4,12 @@
 @tailwind utilities;
 
 :root {
-  /* Palette Viola Premium */
-  --primary-violet: #8B5CF6;
-  --primary-violet-dark: #7C3AED;
-  --primary-violet-light: #A78BFA;
-  --accent-violet: #DDD6FE;
-  --violet-glow: rgba(139, 92, 246, 0.3);
+  /* Palette Blu Premium */
+  --primary-blue: #3B82F6;
+  --primary-blue-dark: #2563EB;
+  --primary-blue-light: #60A5FA;
+  --accent-blue: #DBEAFE;
+  --blue-glow: rgba(59, 130, 246, 0.3);
   
   /* Grigi Premium */
   --gray-50: #FAFAFA;
@@ -18,8 +18,8 @@
   --gray-800: #1A1A1A;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-  --gradient-secondary: linear-gradient(135deg, #DDD6FE 0%, #A78BFA 100%);
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  --gradient-secondary: linear-gradient(135deg, #DBEAFE 0%, #60A5FA 100%);
   --gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
 }
 
@@ -59,7 +59,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-violet-dark);
+  background: var(--primary-blue-dark);
 }
 
 /* Animazioni globali */
@@ -126,12 +126,12 @@ body {
 }
 
 /* Glow effects */
-.glow-violet {
-  box-shadow: 0 0 30px var(--violet-glow);
+.glow-blue {
+  box-shadow: 0 0 30px var(--blue-glow);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px var(--violet-glow);
+  text-shadow: 0 0 20px var(--blue-glow);
 }
 
 /* Glassmorphism */
@@ -164,7 +164,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px var(--violet-glow);
+  box-shadow: 0 10px 30px var(--blue-glow);
 }
 
 .btn-primary::before {
@@ -247,15 +247,15 @@ body {
 
 /* Cursore personalizzato */
 * {
-  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%238B5CF6;stop-opacity:1" /><stop offset="100%" style="stop-color:%23EC4899;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradient)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradient)"/></svg>') 20 20, auto;
+  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563EB;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradient)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradient)"/></svg>') 20 20, auto;
 }
 
 /* Cursore per elementi cliccabili */
 button, a, [role="button"], input[type="button"], input[type="submit"] {
-  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientClick" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%238B5CF6;stop-opacity:1" /><stop offset="100%" style="stop-color:%23EC4899;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientClick)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientClick)"/></svg>') 20 20, pointer;
+  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientClick" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563EB;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientClick)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientClick)"/></svg>') 20 20, pointer;
 }
 
 /* Cursore per elementi di testo */
 input[type="text"], input[type="email"], input[type="password"], textarea {
-  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientText" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%238B5CF6;stop-opacity:1" /><stop offset="100%" style="stop-color:%23EC4899;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientText)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientText)"/></svg>') 20 20, text;
+  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientText" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563EB;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientText)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientText)"/></svg>') 20 20, text;
 }

@@ -60,7 +60,7 @@ const ClientsMap = () => {
       "elementType": "labels.text.fill",
       "stylers": [
         {
-          "color": "#7C3AED"
+          "color": "#2563EB"
         }
       ]
     },
@@ -81,7 +81,7 @@ const ClientsMap = () => {
       "elementType": "geometry.fill",
       "stylers": [
         {
-          "color": "#F5F3FF"
+          "color": "#EFF6FF"
         }
       ]
     },
@@ -90,7 +90,7 @@ const ClientsMap = () => {
       "elementType": "geometry.stroke",
       "stylers": [
         {
-          "color": "#8B5CF6"
+          "color": "#3B82F6"
         },
         {
           "weight": 1
@@ -111,7 +111,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#EDE9FE"
+          "color": "#DBEAFE"
         }
       ]
     },
@@ -120,7 +120,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#DDD6FE"
+          "color": "#DBEAFE"
         }
       ]
     },
@@ -129,7 +129,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#A78BFA"
+          "color": "#60A5FA"
         }
       ]
     },
@@ -138,7 +138,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#C4B5FD"
+          "color": "#93C5FD"
         }
       ]
     }
@@ -146,7 +146,7 @@ const ClientsMap = () => {
 
   // Posizioni dei clienti
   const clientLocations = [
-    { lat: 45.4592, lng: 9.1768, name: "ThinkGood Music (Milano)", link: "https://thinkgoodmusic.com" },
+    { lat: 45.4592, lng: 9.1768, name: "ThinkGood Music (Milano)", link: "https://www.thinkgoodmusic.com" },
     { lat: 51.7520, lng: -1.2577, name: "Threshold Coach (Oxfordshire)", link: "https://www.threshold.coach/" },
     { lat: 40.6331, lng: -89.3985, name: "RnD Hub (Illinois)", link: "https://rndhub.io/" },
     { lat: 45.4064, lng: 11.8768, name: "Welpy (Padova)", link: "https://www.welpy.it/" },
@@ -155,7 +155,7 @@ const ClientsMap = () => {
     { lat: 43.6619, lng: 10.6306, name: "Area287 (Pisa)", link: "https://area287.it" },
     { lat: 43.6719, lng: 10.6406, name: "Fantozzi Bar (Pisa)", link: "https://barfantozzi.it" },
     { lat: 43.5511, lng: 11.2408, name: "Ristoro L'Antica Scuderia (Barberino Tavernelle)", link: "https://www.ristorolanticascuderia.it/" },
-    { lat: 43.5515, lng: 11.2412, name: "La Bottega della Scuderia (Firenze)", link: "https://labottegadellascruderia.com" },
+    { lat: 43.5515, lng: 11.2412, name: "La Bottega della Scuderia (Firenze)", link: "https://labottegadellascuderia.com" },
     { lat: 43.6167, lng: 10.2833, name: "Bagno Paradiso (Livorno)", link: "https://bagnoparadisotirrenia.it" },
     { lat: 40.8356, lng: 14.2250, name: "Napoli Into Core (Napoli)", link: "https://napolintocore.it" },
     { lat: 43.5500, lng: 10.3167, name: "Spicchio Di Luna (Livorno)", link: "https://spicchiodiluna.it" },
@@ -210,7 +210,7 @@ const ClientsMap = () => {
           icon: {
             path: window.google.maps.SymbolPath.CIRCLE,
             scale: 12,
-            fillColor: '#D946EF', // fuxia
+            fillColor: '#3B82F6', // blu primario
             fillOpacity: 1,
             strokeColor: '#ffffff',
             strokeWeight: 4
@@ -222,7 +222,7 @@ const ClientsMap = () => {
         const infoWindow = new window.google.maps.InfoWindow({
           content: `
             <div style="padding: 15px; font-family: Inter, sans-serif; text-align: center; min-width: 200px;">
-              <h3 style="color: #7C3AED; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; text-align: center;">
+              <h3 style="color: #2563EB; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; text-align: center;">
                 ${location.name}
               </h3>
               <p style="color: #6B7280; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
@@ -230,7 +230,7 @@ const ClientsMap = () => {
               </p>
               ${location.link ? `<button 
                 style="
-                  background: linear-gradient(to right, #8B5CF6, #6D28D9); 
+                  background: linear-gradient(to right, #3B82F6, #2563EB); 
                   color: white; 
                   border: none; 
                   padding: 8px 16px; 
@@ -239,9 +239,9 @@ const ClientsMap = () => {
                   font-weight: 600;
                   cursor: pointer;
                   transition: all 0.2s;
-                  box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25);"
-                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(139, 92, 246, 0.3)';" 
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(139, 92, 246, 0.25)';"
+                  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(59, 130, 246, 0.3)';" 
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(59, 130, 246, 0.25)';"
                 onclick="window.open('${location.link}', '_blank')"
               >
                 ${t('clientsMap.visitSite')}
@@ -327,7 +327,7 @@ const ClientsMap = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-purple-200"
+        className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-blue-200"
       >
         <div 
           ref={mapRef} 
@@ -335,24 +335,24 @@ const ClientsMap = () => {
           style={{ minHeight: '16rem' }}
         />
         {/* Overlay con legenda */}
-        <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
+        <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-blue-200">
           <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">{t('clientsMap.clickMarkers')}</p>
-          <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-purple-700">
-            <div className="w-3 h-3 bg-purple-600 rounded-full"></div>
+          <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-blue-700">
+            <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
             <span>{t('clientsMap.completedProjects')}</span>
           </div>
         </div>
         {/* Stats overlay */}
-        <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-purple-200">
+        <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-blue-200">
           <div className="text-center">
-            <div className="text-lg md:text-2xl font-bold text-purple-600">{clientLocations.length}</div>
+            <div className="text-lg md:text-2xl font-bold text-blue-600">{clientLocations.length}</div>
             <div className="text-xs text-gray-600 mb-2">{t('clientsMap.activeClients')}</div>
             
             {/* Dropdown per lista clienti */}
             <div className="relative dropdown-container">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 text-xs text-purple-600 hover:text-purple-800 transition-colors duration-200"
+                className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 transition-colors duration-200"
               >
                 <MapPin size={12} />
                 <span>Lista Clienti</span>
@@ -361,21 +361,21 @@ const ClientsMap = () => {
               
               {/* Dropdown menu */}
               {isDropdownOpen && (
-                <div className="absolute top-6 right-0 bg-white rounded-lg shadow-lg border border-purple-200 py-2 min-w-[200px] max-h-[300px] overflow-y-auto z-10 scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-purple-100">
+                <div className="absolute top-6 right-0 bg-white rounded-lg shadow-lg border border-blue-200 py-2 min-w-[200px] max-h-[300px] overflow-y-auto z-10 scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100">
                   {clientLocations.map((location, index) => (
                     <button
                       key={index}
                       onMouseEnter={() => highlightMarker(index)}
                       onClick={() => selectClient(index)}
-                      className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200 flex items-center gap-2"
+                      className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 flex items-center gap-2"
                     >
-                      <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                       <span className="truncate">{location.name}</span>
                     </button>
                   ))}
                   {/* Indicatore scroll */}
                   {clientLocations.length > 8 && (
-                    <div className="text-center py-1 text-xs text-purple-500 border-t border-purple-100 mt-1">
+                    <div className="text-center py-1 text-xs text-blue-500 border-t border-blue-100 mt-1">
                       {t('clientsMap.scrollToSeeAll')}
                     </div>
                   )}

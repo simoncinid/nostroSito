@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import type { FC, ElementType } from 'react';
+import logo from '../assets/logos/LogoWebbitzIcona.jpeg';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -42,13 +43,13 @@ const mainServices: Service[] = [
       id: 0,
       icon: Code,
       titleKey: "webDevelopment",
-      gradient: "from-blue-500 to-purple-600"
+      gradient: "from-blue-500 to-blue-600"
     },
     {
       id: 1,
       icon: Bot,
       titleKey: "aiSolutions",
-      gradient: "from-purple-500 to-pink-600"
+      gradient: "from-blue-500 to-blue-600"
     },
     {
       id: 2,
@@ -123,7 +124,7 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
               {technologies.map((tech: string, idx: number) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm"
+                  className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm"
                 >
                   {tech}
                 </span>
@@ -138,7 +139,7 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
             href="https://wa.me/3391797616?text=Sono%20interessato%20ad%20un%20preventivo%20per%20il%20vostro%20servizio"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl shadow-glow hover:shadow-glow-lg transition-all duration-300 transform hover:-translate-y-1"
+            className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl shadow-glow hover:shadow-glow-lg transition-all duration-300 transform hover:-translate-y-1"
           >
             <MessageSquare className="w-5 h-5" />
             <span>{t('services.mainServices.modal.requestQuote')}</span>
@@ -184,7 +185,7 @@ const Services = () => {
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-blue-500/10 rounded-full blur-3xl"
           animate={{
             x: mousePosition.x * 0.1,
             y: mousePosition.y * 0.1,
@@ -193,7 +194,7 @@ const Services = () => {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-blue-500/10 rounded-full blur-3xl"
           animate={{
             x: -mousePosition.x * 0.05,
             y: -mousePosition.y * 0.05,
@@ -208,6 +209,30 @@ const Services = () => {
         ref={heroRef}
         className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
       >
+        {/* Logo Background Animation */}
+        <motion.div 
+          className="absolute inset-0 flex items-center justify-center opacity-5"
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 5, -5, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <img 
+            src={logo} 
+            alt="" 
+            className="w-[90%] max-w-none blur-2xl"
+            style={{ 
+              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))',
+              willChange: 'transform'
+            }}
+          />
+        </motion.div>
+
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -220,7 +245,7 @@ const Services = () => {
               transition={{ delay: 0.2, duration: 1 }}
               className="text-4xl md:text-7xl font-bold mb-8 leading-tight"
             >
-              <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
                 {t('services.hero.title')}
               </span>
               <br />
@@ -229,7 +254,7 @@ const Services = () => {
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
+                className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_100%]"
               >
                 {t('services.hero.titleAnimated')}
               </motion.span>
@@ -242,9 +267,9 @@ const Services = () => {
               className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
               {t('services.hero.subtitle.part1')}
-              <span className="text-purple-700 font-semibold">{t('services.hero.subtitle.part2')}</span>
+              <span className="text-blue-700 font-semibold">{t('services.hero.subtitle.part2')}</span>
               {t('services.hero.subtitle.part3')}
-              <span className="text-purple-700 font-semibold">{t('services.hero.subtitle.part4')}</span>
+              <span className="text-blue-700 font-semibold">{t('services.hero.subtitle.part4')}</span>
               {t('services.hero.subtitle.part5')}
             </motion.p>
           </motion.div>
@@ -263,7 +288,7 @@ const Services = () => {
             transition={{ duration: 1 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
               {t('services.mainServices.title')}
             </h2>
           </motion.div>
@@ -281,7 +306,7 @@ const Services = () => {
                   animate={servicesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.2, duration: 1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="group relative bg-white/80 backdrop-blur-xl border border-purple-200 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-purple-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
+                  className="group relative bg-white/80 backdrop-blur-xl border border-blue-200 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-blue-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
                 >
                   <div className="flex flex-col h-full items-center text-center">
                     <div className="min-h-[auto] md:min-h-[280px] flex flex-col items-center">
@@ -293,7 +318,7 @@ const Services = () => {
                       </motion.div>
 
                       <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{serviceData.title}</h3>
-                      <p className="text-purple-700 font-semibold mb-2 md:mb-4 text-sm md:text-base">{serviceData.subtitle}</p>
+                      <p className="text-blue-700 font-semibold mb-2 md:mb-4 text-sm md:text-base">{serviceData.subtitle}</p>
                       
                       {/* Descrizione e bottone visibili solo su desktop */}
                       <div className="hidden md:block">
@@ -346,7 +371,7 @@ const Services = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-purple-800 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
               {t('services.cta.title')}
             </h2>
             <p className="text-xl text-gray-700 mb-12">
@@ -356,20 +381,20 @@ const Services = () => {
             <motion.button
               whileHover={{ 
                 scale: 1.05, 
-                boxShadow: "0 25px 50px rgba(139, 92, 246, 0.5)",
+                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.5)",
                 y: -5
               }}
               whileTap={{ scale: 0.95 }}
-              className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg"
+              className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg"
               onClick={() => window.open('https://wa.me/3391797616?text=Sono%20interessato%20ad%20un%20preventivo%20per%20il%20vostro%20servizio', '_blank')}
             >
               <span className="relative z-10">{t('services.cta.button')}</span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
               />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-400/0 via-white/20 to-purple-400/0 opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-white/20 to-blue-400/0 opacity-0 group-hover:opacity-100"
                 initial={{ x: "-100%" }}
                 whileHover={{
                   x: "100%",
@@ -414,7 +439,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
     },
     {
       stepKey: "design", 
-      color: "from-purple-500 to-purple-600",
+      color: "from-blue-500 to-blue-600",
       icon: Palette
     },
     {
@@ -429,7 +454,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
     },
     {
       stepKey: "launch",
-      color: "from-pink-500 to-pink-600",
+      color: "from-blue-500 to-blue-600",
       icon: Rocket
     }
   ];
@@ -461,26 +486,26 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <h2 className="font-bold bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent"
+            <h2 className="font-bold bg-gradient-to-r from-gray-900 to-blue-600 bg-clip-text text-transparent"
               style={{ fontSize: 'clamp(1.3rem,6vw,2.7rem)' }}>
               {t('services.process.title')}
             </h2>
             <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
               <button
                 onClick={() => navigateTimeline('prev')}
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 transition-all duration-200 shadow-sm"
               >
                 <ChevronLeft size={16} />
               </button>
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
               >
                 {isPlaying ? <Pause size={18} /> : <Play size={18} />}
               </button>
               <button
                 onClick={() => navigateTimeline('next')}
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-600 transition-all duration-200 shadow-sm"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 transition-all duration-200 shadow-sm"
               >
                 <ChevronRight size={16} />
               </button>
@@ -497,7 +522,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
           <div className="relative mb-4">
             <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-700 ease-out"
+                className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-700 ease-out"
                 style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
               />
             </div>
@@ -513,10 +538,10 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
               >
                 <div className={`relative w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
                   index === activeStep 
-                    ? 'border-purple-500 bg-purple-500 shadow-lg' 
+                    ? 'border-blue-500 bg-blue-500 shadow-lg' 
                     : index < activeStep
                     ? 'border-green-500 bg-green-500'
-                    : 'border-gray-300 bg-white hover:border-purple-300'
+                    : 'border-gray-300 bg-white hover:border-blue-300'
                 }`}>
                   {index < activeStep ? (
                     <CheckCircle size={14} className="text-white sm:w-5 sm:h-5" />
@@ -554,13 +579,13 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
 
               {/* Seconda riga: Tempistica e Strumenti */}
               <div className="flex flex-col sm:flex-row items-center justify-between border-t border-gray-100 pt-3 sm:pt-4 gap-4 sm:gap-0">
-                <div className="flex items-center gap-2 text-purple-600 font-medium">
+                <div className="flex items-center gap-2 text-blue-600 font-medium">
                   <Clock size={16} className="sm:w-5 sm:h-5" />
                   <span style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>{t(`services.process.steps.${developmentProcess[activeStep].stepKey}.duration`)}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
                   <h4 className="font-semibold text-gray-900 flex items-center gap-2" style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>
-                    <Settings size={16} className="text-purple-600 sm:w-5 sm:h-5" />
+                    <Settings size={16} className="text-blue-600 sm:w-5 sm:h-5" />
                     {t('services.process.toolsLabel')}
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -586,8 +611,8 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                 onClick={() => setActiveStep(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === activeStep 
-                    ? 'bg-purple-600 w-6' 
-                    : 'bg-gray-300 hover:bg-purple-300'
+                    ? 'bg-blue-600 w-6' 
+                    : 'bg-gray-300 hover:bg-blue-300'
                 }`}
               />
             ))}

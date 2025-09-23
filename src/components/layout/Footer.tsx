@@ -10,7 +10,7 @@ import {
   ArrowUp
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import logo from '../../assets/logos/WEBBITZ_5.png'
+import logo from '../../assets/logos/LogoWebbitz.png'
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -59,8 +59,8 @@ const Footer = () => {
                 <img 
                   src={logo} 
                   alt="Webbitz Logo" 
-                  className="w-20 h-20 object-contain"
-                  style={{ filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.3))' }}
+                  className="w-48 h-48 object-contain"
+                  style={{ filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))' }}
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
               </motion.div>
@@ -137,18 +137,41 @@ const Footer = () => {
 
         {/* Contact Info - Above Bottom Bar */}
         <div className="max-w-6xl mx-auto px-4 py-6">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <div className="flex items-center space-x-3 text-gray-300">
-              <Mail className="w-5 h-5 text-primary-400" />
-              <span className="text-sm">{t('footer.contact.email')}</span>
+          <div className="flex flex-col items-center gap-6">
+            {/* Prima riga: Email e Location */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              <div className="flex items-center space-x-3 text-gray-300">
+                <Mail className="w-5 h-5 text-primary-400" />
+                <span className="text-sm">{t('footer.contact.email')}</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <MapPin className="w-5 h-5 text-primary-400" />
+                <span className="text-sm">{t('footer.contact.location')}</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-3 text-gray-300">
-              <Phone className="w-5 h-5 text-primary-400" />
-              <span className="text-sm">{t('footer.contact.phone')}</span>
-            </div>
-            <div className="flex items-center space-x-3 text-gray-300">
-              <MapPin className="w-5 h-5 text-primary-400" />
-              <span className="text-sm">{t('footer.contact.location')}</span>
+            
+            {/* Seconda riga: Team Contacts */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
+              <div className="flex flex-col items-center space-y-2 text-gray-300">
+                <Phone className="w-4 h-4 text-primary-400" />
+                <span className="text-xs font-medium">Francesco</span>
+                <span className="text-xs">370 337 4703</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2 text-gray-300">
+                <Phone className="w-4 h-4 text-primary-400" />
+                <span className="text-xs font-medium">Andrea</span>
+                <span className="text-xs">389 998 5029</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2 text-gray-300">
+                <Phone className="w-4 h-4 text-primary-400" />
+                <span className="text-xs font-medium">Diego</span>
+                <span className="text-xs">339 179 7616</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2 text-gray-300">
+                <Phone className="w-4 h-4 text-primary-400" />
+                <span className="text-xs font-medium">Tommaso</span>
+                <span className="text-xs">370 317 3289</span>
+              </div>
             </div>
           </div>
         </div>

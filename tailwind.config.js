@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#F5F3FF',
-          100: '#EDE9FE',
-          200: '#DDD6FE',
-          300: '#C4B5FD',
-          400: '#A78BFA',
-          500: '#8B5CF6',
-          600: '#7C3AED',
-          700: '#6D28D9',
-          800: '#5B21B6',
-          900: '#4C1D95',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
         },
         gray: {
           50: '#FAFAFA',
@@ -101,16 +101,16 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #DDD6FE 0%, #A78BFA 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #DBEAFE 0%, #60A5FA 100%)',
         'gradient-dark': 'linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)',
       },
       backdropBlur: {
         xs: '2px',
       },
       boxShadow: {
-        'glow': '0 0 30px rgba(139, 92, 246, 0.3)',
-        'glow-lg': '0 0 60px rgba(139, 92, 246, 0.4)',
+        'glow': '0 0 30px rgba(59, 130, 246, 0.3)',
+        'glow-lg': '0 0 60px rgba(59, 130, 246, 0.4)',
         'premium': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         'premium-lg': '0 35px 60px -12px rgba(0, 0, 0, 0.35)',
       },

@@ -47,7 +47,7 @@ const FixedLanguageSelector = () => {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center space-x-2 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 hover:text-purple-600"
+        className="flex items-center space-x-2 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 hover:text-blue-600"
       >
         <ReactCountryFlag
           countryCode={currentLanguage.countryCode}
@@ -79,7 +79,7 @@ const FixedLanguageSelector = () => {
                   className={`
                     w-full flex items-center space-x-3 px-4 py-2 text-left transition-all duration-200
                     ${currentLanguage.code === language.code 
-                      ? 'bg-purple-50 text-purple-600' 
+                      ? 'bg-blue-50 text-blue-600' 
                       : 'text-gray-700 hover:bg-gray-50'
                     }
                   `}

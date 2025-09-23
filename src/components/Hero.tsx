@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import logo from '../assets/logos/LogoWebbitzIcona.jpeg';
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -11,6 +12,30 @@ const Hero = () => {
       data-scroll-section
       className="h-screen flex items-center justify-center px-4 relative overflow-hidden"
     >
+      {/* Logo Background Animation */}
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center opacity-5"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, 5, -5, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <img 
+          src={logo} 
+          alt="" 
+          className="w-[90%] max-w-none blur-2xl"
+          style={{ 
+            filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))',
+            willChange: 'transform'
+          }}
+        />
+      </motion.div>
+
       <motion.div 
         className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent opacity-50"
         style={{ y: y1, willChange: "transform" }}
@@ -27,7 +52,7 @@ const Hero = () => {
             src={logo} 
             alt="Webbitz Logo" 
             className="h-32 md:h-40 mx-auto"
-            style={{ filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.3))' }}
+            style={{ filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.3))' }}
           />*/}
         </motion.div>
         <motion.h1 
