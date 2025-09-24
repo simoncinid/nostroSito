@@ -25,7 +25,7 @@ const Landing = () => {
     <div className="min-h-screen bg-gradient-to-b from-blue-950 to-blue-900">
       {/* Progress bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-blue-400 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary-400 origin-left z-50"
         style={{ scaleX }}
       />
 

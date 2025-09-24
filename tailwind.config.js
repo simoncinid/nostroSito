@@ -8,16 +8,28 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          200: '#BFDBFE',
-          300: '#93C5FD',
-          400: '#60A5FA',
-          500: '#3B82F6',
-          600: '#2563EB',
-          700: '#1D4ED8',
-          800: '#1E40AF',
-          900: '#1E3A8A',
+          50: '#E6F4FF',
+          100: '#CCE9FF',
+          200: '#99D3FF',
+          300: '#66BDFF',
+          400: '#33A7FF',
+          500: '#158CFF',
+          600: '#0F6ECC',
+          700: '#0B5099',
+          800: '#073266',
+          900: '#031433',
+        },
+        accent: {
+          50: '#FFE6FF',
+          100: '#FFCCFF',
+          200: '#FF99FF',
+          300: '#FF66FF',
+          400: '#FF33FF',
+          500: '#FE2AFF',
+          600: '#CC22CC',
+          700: '#991999',
+          800: '#661166',
+          900: '#330833',
         },
         gray: {
           50: '#FAFAFA',
@@ -64,8 +76,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(21, 140, 255, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(21, 140, 255, 0.6)' },
         },
         'gradient-x': {
           '0%, 100%': {
@@ -101,16 +113,16 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #DBEAFE 0%, #60A5FA 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #158CFF 0%, #FE2AFF 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #E6F4FF 0%, #FFE6FF 100%)',
         'gradient-dark': 'linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)',
       },
       backdropBlur: {
         xs: '2px',
       },
       boxShadow: {
-        'glow': '0 0 30px rgba(59, 130, 246, 0.3)',
-        'glow-lg': '0 0 60px rgba(59, 130, 246, 0.4)',
+        'glow': '0 0 30px rgba(21, 140, 255, 0.3)',
+        'glow-lg': '0 0 60px rgba(21, 140, 255, 0.4)',
         'premium': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         'premium-lg': '0 35px 60px -12px rgba(0, 0, 0, 0.35)',
       },

@@ -19,7 +19,7 @@ const Card = ({ value, isActive }: { value: ValueType; isActive: boolean }) => {
     <motion.div
       className={`
         bg-white/80 backdrop-blur-xl border rounded-2xl p-6 cursor-pointer h-full flex flex-col items-center justify-center relative
-        ${isActive ? 'border-blue-300 shadow-lg' : 'border-blue-200 shadow-sm'}
+        ${isActive ? 'border-primary-300 shadow-lg' : 'border-primary-200 shadow-sm'}
         transition-all duration-300
       `}
       whileHover={{ scale: isActive ? 1.03 : 1.05 }}
@@ -245,7 +245,7 @@ const CardAnimation = ({ value }: { value: string }) => {
                 return (
                   <motion.div
                     key={`sparkle-${i}`}
-                    className="absolute rounded-full bg-gradient-to-r from-blue-300 to-blue-500 opacity-70 mix-blend-screen"
+                    className="absolute rounded-full bg-gradient-to-r from-primary-300 to-primary-500 opacity-70 mix-blend-screen"
                     style={{ width: size, height: size / 3 }}
                     initial={{ x: 0, y: 0, scale: 0, opacity: 0, rotate: angle * (180/Math.PI) }}
                     animate={{
@@ -263,7 +263,7 @@ const CardAnimation = ({ value }: { value: string }) => {
               {[1, 2, 3].map((_, i) => (
                 <motion.div
                   key={`wave-${i}`}
-                  className="absolute rounded-full border-2 border-blue-500"
+                  className="absolute rounded-full border-2 border-primary-500"
                   style={{ width: 20, height: 20 }}
                   initial={{ opacity: 0.7, scale: 1 }}
                   animate={{ 
@@ -288,7 +288,7 @@ const CardAnimation = ({ value }: { value: string }) => {
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-30">
           {/* Effetto luccichio di sfondo */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-blue-600/5 rounded-2xl"
+            className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-primary-600/5 rounded-2xl"
             animate={{ 
               backgroundImage: [
                 "linear-gradient(to bottom right, rgba(79, 70, 229, 0.05), rgba(37, 99, 235, 0.05))",

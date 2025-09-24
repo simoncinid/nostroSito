@@ -11,9 +11,9 @@ const Features = () => {
       icon: Globe,
       title: 'features.items.website.title',
       description: 'features.items.website.description',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      iconColor: 'text-blue-600',
+      color: 'from-primary-500 to-primary-600',
+      bgColor: 'bg-primary-50',
+      iconColor: 'text-primary-600',
       secondaryIcon: ExternalLink,
       animation: "float"
     },
@@ -41,9 +41,9 @@ const Features = () => {
       icon: Palette,
       title: 'features.items.brand.title',
       description: 'features.items.brand.description',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      iconColor: 'text-blue-600',
+      color: 'from-primary-500 to-primary-600',
+      bgColor: 'bg-primary-50',
+      iconColor: 'text-primary-600',
       secondaryIcon: Globe,
       animation: "float"
     },
@@ -109,7 +109,7 @@ const Features = () => {
                   y: -5,
                   boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
                 }}
-                className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-blue-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
+                className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-primary-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
               >
                 {/* Secondary floating icon */}
                 <motion.div 

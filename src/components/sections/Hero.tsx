@@ -19,8 +19,8 @@ const Hero = () => {
       icon: Code, 
       title: 'hero.services.website.title', 
       desc: 'hero.services.website.desc',
-      gradient: "from-blue-400 to-indigo-600",
-      bg: "linear-gradient(45deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%)",
+      gradient: "from-primary-500 to-primary-700",
+      bg: "linear-gradient(45deg, rgba(21, 140, 255, 0.08) 0%, rgba(15, 110, 204, 0.08) 100%)",
       secondaryIcon: Globe,
       animation: "float"
     },
@@ -28,7 +28,7 @@ const Hero = () => {
       icon: Bot, 
       title: 'hero.services.ai.title', 
       desc: 'hero.services.ai.desc',
-      gradient: "from-blue-400 to-blue-600",
+      gradient: "from-primary-400 to-primary-600",
       bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
       secondaryIcon: Cpu,
       animation: "pulse"
@@ -37,8 +37,8 @@ const Hero = () => {
       icon: Zap, 
       title: 'hero.services.results.title', 
       desc: 'hero.services.results.desc',
-      gradient: "from-yellow-400 to-amber-500",
-      bg: "linear-gradient(45deg, rgba(250, 204, 21, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%)",
+      gradient: "from-accent-500 to-accent-700",
+      bg: "linear-gradient(45deg, rgba(254, 42, 255, 0.08) 0%, rgba(204, 34, 204, 0.08) 100%)",
       secondaryIcon: Rocket,
       animation: "bounce"
     }
@@ -66,7 +66,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-blue-100 pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-primary-50 to-primary-100 pt-20"
     >
       {/* Logo Background */}
       <motion.div 
@@ -99,7 +99,7 @@ const Hero = () => {
 
       {/* Floating Gradient Orbs */}
       <motion.div
-        className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full blur-3xl opacity-20"
+        className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full blur-3xl opacity-20"
         animate={{
           x: [0, 100, 0],
           y: [0, -50, 0],
@@ -112,7 +112,7 @@ const Hero = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full blur-3xl opacity-15"
+        className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full blur-3xl opacity-15"
         animate={{
           x: [0, -80, 0],
           y: [0, 60, 0],
@@ -127,7 +127,7 @@ const Hero = () => {
 
       {/* Mouse Follower Gradient */}
       <motion.div
-        className="absolute w-96 h-96 bg-gradient-radial from-blue-400/20 to-transparent rounded-full pointer-events-none blur-2xl"
+        className="absolute w-96 h-96 bg-gradient-radial from-primary-400/20 to-transparent rounded-full pointer-events-none blur-2xl"
         style={{
           left: mousePosition.x - 192,
           top: mousePosition.y - 192,
@@ -143,7 +143,7 @@ const Hero = () => {
       <div className="hidden md:block">
         {/* Posizionamento assoluto personalizzato per ogni icona */}
         <motion.div
-          className="absolute text-blue-400/30"
+          className="absolute text-primary-400/30"
           style={{ left: '10%', top: '18%' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
@@ -152,7 +152,7 @@ const Hero = () => {
           <Code size={48} />
         </motion.div>
         <motion.div
-          className="absolute text-blue-400/30"
+          className="absolute text-primary-400/30"
           style={{ left: '75%', top: '22%' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
@@ -161,7 +161,7 @@ const Hero = () => {
           <Bot size={48} />
         </motion.div>
         <motion.div
-          className="absolute text-blue-400/30"
+          className="absolute text-primary-400/30"
           style={{ left: '20%', top: '60%' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
@@ -170,7 +170,7 @@ const Hero = () => {
           <Zap size={48} />
         </motion.div>
         <motion.div
-          className="absolute text-blue-400/30"
+          className="absolute text-primary-400/30"
           style={{ left: '80%', top: '65%' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
@@ -179,7 +179,7 @@ const Hero = () => {
           <Globe size={48} />
         </motion.div>
         <motion.div
-          className="absolute text-blue-400/30"
+          className="absolute text-primary-400/30"
           style={{ left: '40%', top: '10%' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
@@ -188,7 +188,7 @@ const Hero = () => {
           <Cpu size={48} />
         </motion.div>
         <motion.div
-          className="absolute text-blue-400/30"
+          className="absolute text-primary-400/30"
           style={{ left: '60%', top: '75%' }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
@@ -228,7 +228,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-                          className="text-4xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent leading-tight"
+                          className="text-4xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent leading-tight"
           >
             {t('hero.title1')}
             <br />
@@ -237,7 +237,7 @@ const Hero = () => {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_100%]"
+              className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent bg-[length:200%_100%]"
             >
               {t('hero.title2')}
             </motion.span>
@@ -250,9 +250,9 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-lg md:text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
-            <span className="text-blue-700 font-semibold">{t('hero.subtitle.part1')}</span>{t('hero.subtitle.part2')}
-            <span className="text-blue-700 font-semibold">{t('hero.subtitle.part3')}</span>{t('hero.subtitle.part4')}
-            <span className="text-blue-700 font-semibold">{t('hero.subtitle.part5')}</span>{t('hero.subtitle.part6')}
+            <span className="text-primary-700 font-semibold">{t('hero.subtitle.part1')}</span>{t('hero.subtitle.part2')}
+            <span className="text-primary-700 font-semibold">{t('hero.subtitle.part3')}</span>{t('hero.subtitle.part4')}
+            <span className="text-primary-700 font-semibold">{t('hero.subtitle.part5')}</span>{t('hero.subtitle.part6')}
           </motion.p>
 
           {/* Service Highlights */}
@@ -272,7 +272,7 @@ const Hero = () => {
                     y: -5,
                     boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
                   }}
-                  className="relative overflow-hidden bg-white/95 border border-blue-200 rounded-xl p-4 hover:border-blue-300 transition-all duration-75 group"
+                  className="relative overflow-hidden bg-white/95 border border-primary-200 rounded-xl p-4 hover:border-primary-300 transition-all duration-75 group"
                   style={{ background: service.bg }}
                 >
                   <div className="flex items-start gap-4 relative z-10">
@@ -301,7 +301,7 @@ const Hero = () => {
                   
                   {/* Secondary floating icon */}
                   <motion.div 
-                    className="absolute top-2 right-2 opacity-30 text-blue-600"
+                    className="absolute top-2 right-2 opacity-30 text-primary-600"
                     animate={
                       service.animation === "float" 
                         ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
@@ -331,7 +331,7 @@ const Hero = () => {
                     y: -10,
                     boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
                   }}
-                  className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-blue-200 rounded-2xl p-5 hover:border-blue-300 transition-all duration-75 group text-center"
+                  className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-primary-200 rounded-2xl p-5 hover:border-primary-300 transition-all duration-75 group text-center"
                   style={{ background: service.bg }}
                 >
                   {/* Animated background pattern */}
@@ -339,7 +339,7 @@ const Hero = () => {
                     <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <pattern id={`grid-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
-                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-400" />
+                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary-400" />
                         </pattern>
                       </defs>
                       <rect width="100" height="100" fill={`url(#grid-${index})`} />
@@ -348,7 +348,7 @@ const Hero = () => {
                   
                   {/* Secondary floating icon */}
                   <motion.div 
-                    className="absolute top-3 right-3 opacity-30 text-blue-600"
+                    className="absolute top-3 right-3 opacity-30 text-primary-600"
                     animate={
                       service.animation === "float" 
                         ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
@@ -404,13 +404,13 @@ const Hero = () => {
           >
             <Link to="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(21, 140, 255, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 overflow-hidden"
+                className="group relative bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 overflow-hidden"
               >
                 <span className="relative z-10">{t('hero.cta.primary')}</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>
             </Link>
 
@@ -418,14 +418,14 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group bg-white/80 backdrop-blur-lg border border-blue-200 hover:border-blue-300 text-gray-900 font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 hover:shadow-lg"
+                className="group bg-white/80 backdrop-blur-lg border border-primary-200 hover:border-primary-300 text-gray-900 font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 hover:shadow-lg"
               >
                 <span>{t('hero.cta.secondary')}</span>
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 >
-                  <Sparkles className="text-blue-600" size={20} />
+                  <Sparkles className="text-primary-600" size={20} />
                 </motion.div>
               </motion.button>
             </Link>
@@ -443,12 +443,12 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-primary-400 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-blue-400 rounded-full mt-2"
+            className="w-1 h-3 bg-primary-400 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>

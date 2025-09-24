@@ -161,7 +161,7 @@ const WorksCarousel = () => {
                     href={card.link} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex flex-col items-center justify-center w-full h-full text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                    className="flex flex-col items-center justify-center w-full h-full text-primary-600 hover:text-primary-800 transition-colors duration-300"
                   >
                 <div className={`w-full bg-gray-100 flex items-center justify-center rounded-2xl mb-4 shadow-sm ${
                   window.innerWidth < 640 ? 'h-52' : 'h-64'

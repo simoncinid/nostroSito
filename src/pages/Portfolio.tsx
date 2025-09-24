@@ -72,11 +72,11 @@ const Portfolio = () => {
 
   const categories = [
     { id: 'all', nameKey: 'all', icon: Layers, gradient: 'from-gray-500 to-gray-600' },
-    { id: 'web', nameKey: 'web', icon: Code, gradient: 'from-blue-500 to-blue-600' },
-    { id: 'ai', nameKey: 'ai', icon: Bot, gradient: 'from-blue-500 to-blue-600' },
+    { id: 'web', nameKey: 'web', icon: Code, gradient: 'from-primary-500 to-accent-500' },
+    { id: 'ai', nameKey: 'ai', icon: Bot, gradient: 'from-primary-500 to-accent-500' },
     { id: 'automation', nameKey: 'automation', icon: Zap, gradient: 'from-green-500 to-green-600' },
     { id: 'database', nameKey: 'database', icon: Database, gradient: 'from-orange-500 to-orange-600' },
-    { id: 'ecommerce', nameKey: 'ecommerce', icon: ShoppingCart, gradient: 'from-blue-500 to-blue-600' }
+    { id: 'ecommerce', nameKey: 'ecommerce', icon: ShoppingCart, gradient: 'from-primary-500 to-accent-500' }
   ];
 
   const projects: Project[] = [
@@ -89,7 +89,7 @@ const Portfolio = () => {
       liveUrl: "https://rndhub.io/",
       year: "2024",
       team: ["Diego", "Tommaso"],
-      gradient: "from-green-500 to-blue-600",
+      gradient: "from-green-500 to-primary-600",
       icon: Zap,
       isInternational: true,
       clientName: "RnD Hub"
@@ -103,7 +103,7 @@ const Portfolio = () => {
       liveUrl: "https://www.thinkgoodmusic.com",
       year: "2024",
       team: ["Diego", "Tommaso"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "ThinkGood Music"
@@ -117,7 +117,7 @@ const Portfolio = () => {
       liveUrl: "https://www.thinkgoodmusic.com",
       year: "2024",
       team: ["Diego", "Simone"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Bot,
       isHighTraffic: true,
       clientName: "ThinkGood Music"
@@ -131,7 +131,7 @@ const Portfolio = () => {
       liveUrl: "https://www.threshold.coach/",
       year: "2024",
       team: ["Diego", "Tommaso", "Francesco"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: true,
       clientName: "Threshold Coach"
@@ -145,7 +145,7 @@ const Portfolio = () => {
       liveUrl: "https://www.threshold.coach/",
       year: "2024",
       team: ["Diego", "Simone"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Bot,
       isInternational: true,
       clientName: "Threshold Coach"
@@ -159,7 +159,7 @@ const Portfolio = () => {
       liveUrl: "https://www.threshold.coach/",
       year: "2024",
       team: ["Diego", "Tommaso", "Francesco"],
-      gradient: "from-green-400 to-blue-600",
+      gradient: "from-green-400 to-primary-600",
       icon: Database,
       isInternational: true,
       clientName: "Threshold Coach"
@@ -187,7 +187,7 @@ const Portfolio = () => {
       liveUrl: "https://theadmissionhub.com",
       year: "2024",
       team: ["Diego", "Tommaso", "Simone"],
-      gradient: "from-blue-400 to-cyan-600",
+      gradient: "from-primary-400 to-cyan-600",
       icon: Code,
       isInternational: true,
       clientName: "AdmissionHub"
@@ -201,7 +201,7 @@ const Portfolio = () => {
       liveUrl: "https://vistamarerosignano.it/",
       year: "2024",
       team: ["Diego", "Tommaso"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Vistamare"
@@ -215,7 +215,7 @@ const Portfolio = () => {
       liveUrl: "https://area287.it",
       year: "2025",
       team: ["Francesco", "Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Area287"
@@ -229,7 +229,7 @@ const Portfolio = () => {
       liveUrl: "https://area287.it",
       year: "2025",
       team: ["Francesco", "Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: ShoppingCart,
       isInternational: false,
       clientName: "Area287"
@@ -243,7 +243,7 @@ const Portfolio = () => {
       liveUrl: "https://barfantozzi.it",
       year: "2025",
       team: ["Francesco", "Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Fantozzi Bar"
@@ -257,7 +257,7 @@ const Portfolio = () => {
       liveUrl: "https://www.ristorolanticascuderia.it/",
       year: "2025",
       team: ["Francesco", "Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Ristoro L'Antica Scuderia"
@@ -271,7 +271,7 @@ const Portfolio = () => {
       liveUrl: "https://labottegadellascuderia.com",
       year: "2025",
       team: ["Francesco", "Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "La Bottega della Scuderia"
@@ -285,7 +285,7 @@ const Portfolio = () => {
       liveUrl: "https://bagnoparadisotirrenia.it",
       year: "2025",
       team: ["Francesco", "Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Bagno Paradiso"
@@ -299,7 +299,7 @@ const Portfolio = () => {
       liveUrl: "https://napolintocore.it",
       year: "2025",
       team: ["Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Napoli Into Core"
@@ -313,7 +313,7 @@ const Portfolio = () => {
       liveUrl: "https://spicchiodiluna.it",
       year: "2025",
       team: ["Diego", "Tommaso"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Spicchio Di Luna"
@@ -327,7 +327,7 @@ const Portfolio = () => {
       liveUrl: "https://diazmicrotorrefazione.com",
       year: "2025",
       team: ["Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: Code,
       isInternational: false,
       clientName: "Diaz Microtorrefazione"
@@ -341,7 +341,7 @@ const Portfolio = () => {
       liveUrl: "https://diazmicrotorrefazione.com",
       year: "2025",
       team: ["Andrea"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
       icon: ShoppingCart,
       isInternational: false,
       clientName: "Diaz Microtorrefazione"
@@ -395,7 +395,7 @@ const Portfolio = () => {
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-primary-400/10 to-primary-500/10 rounded-full blur-3xl"
           animate={{
             x: mousePosition.x * 0.1,
             y: mousePosition.y * 0.1,
@@ -404,7 +404,7 @@ const Portfolio = () => {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-primary-400/10 to-primary-500/10 rounded-full blur-3xl"
           animate={{
             x: -mousePosition.x * 0.05,
             y: -mousePosition.y * 0.05,
@@ -434,22 +434,22 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div>
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
                 {t('portfolio.hero.title')}
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent">
                 {t('portfolio.hero.titleAnimated')}
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
               {t('portfolio.hero.subtitle.part1')}
-              <span className="text-blue-700 font-semibold">{t('portfolio.hero.subtitle.part2')}</span>
+              <span className="text-primary-700 font-semibold">{t('portfolio.hero.subtitle.part2')}</span>
               {t('portfolio.hero.subtitle.part3')}
               <span className="hidden md:inline">
                 {t('portfolio.hero.subtitle.part4')}
-                <span className="text-blue-700 font-semibold">{t('portfolio.hero.subtitle.part5')}</span>
+                <span className="text-primary-700 font-semibold">{t('portfolio.hero.subtitle.part5')}</span>
                 {t('portfolio.hero.subtitle.part6')}
               </span>
             </p>
@@ -473,8 +473,8 @@ const Portfolio = () => {
                   onClick={() => setSelectedCategory(categories[0].id)}
                   className={`col-span-2 flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                     selectedCategory === categories[0].id
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
-                      : 'bg-white/80 backdrop-blur-lg border border-blue-200 text-gray-700 hover:border-blue-300 hover:shadow-md'
+                      ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
+                      : 'bg-white/80 backdrop-blur-lg border border-primary-200 text-gray-700 hover:border-primary-300 hover:shadow-md'
                   }`}
                   style={{ minWidth: 0 }}
                 >
@@ -489,8 +489,8 @@ const Portfolio = () => {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center justify-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                       selectedCategory === category.id
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
-                        : 'bg-white/80 backdrop-blur-lg border border-blue-200 text-gray-700 hover:border-blue-300 hover:shadow-md'
+                        ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
+                        : 'bg-white/80 backdrop-blur-lg border border-primary-200 text-gray-700 hover:border-primary-300 hover:shadow-md'
                     }`}
                   >
                     {React.createElement(category.icon, { size: 16 })}
@@ -511,8 +511,8 @@ const Portfolio = () => {
                   }}
                   className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 relative z-20 ${
                     selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
-                      : 'bg-white/80 backdrop-blur-lg border border-blue-200 text-gray-700 hover:border-blue-300 hover:shadow-md'
+                      ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
+                      : 'bg-white/80 backdrop-blur-lg border border-primary-200 text-gray-700 hover:border-primary-300 hover:shadow-md'
                   }`}
                 >
                   <category.icon size={18} />
@@ -537,7 +537,7 @@ const Portfolio = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4 }}
-                  className="group relative bg-white/80 backdrop-blur-xl border border-blue-200 rounded-xl md:rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-500 z-40"
+                  className="group relative bg-white/80 backdrop-blur-xl border border-primary-200 rounded-xl md:rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-lg transition-all duration-500 z-40"
                 >
                   {/* Project Image */}
                   <div className="relative h-20 md:h-32 overflow-hidden">
@@ -594,7 +594,7 @@ const Portfolio = () => {
                   {/* Project Info */}
                   <div className="p-2 md:p-4 flex flex-col items-start justify-between">
                     <h3
-                      className="font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-blue-700 transition-colors duration-300 truncate w-full"
+                      className="font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-primary-700 transition-colors duration-300 truncate w-full"
                       style={{ fontSize: 'clamp(0.85rem, 2.2vw, 1rem)' }}
                     >
                       {projectData.client || clientProject.clientName}
@@ -605,7 +605,7 @@ const Portfolio = () => {
                         {clientProject.allTechnologies.slice(0, 4).map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium"
+                            className="px-1.5 py-0.5 bg-primary-100 text-primary-700 rounded text-xs font-medium"
                           >
                             {tech}
                           </span>
@@ -687,7 +687,7 @@ const Portfolio = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mb-4 md:mb-6">
                       {(t(`portfolio.projects.${selectedProject.titleKey}.features`, { returnObjects: true }) as string[]).map((feature, index) => (
                         <div key={index} className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-500 rounded-full" />
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary-500 rounded-full" />
                           {feature}
                         </div>
                       ))}
@@ -698,7 +698,7 @@ const Portfolio = () => {
                       {selectedProject.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 md:px-3 md:py-1 bg-blue-100 text-blue-700 rounded-lg text-xs md:text-sm font-medium"
+                          className="px-2 py-1 md:px-3 md:py-1 bg-primary-100 text-primary-700 rounded-lg text-xs md:text-sm font-medium"
                         >
                           {tech}
                         </span>
@@ -735,7 +735,7 @@ const Portfolio = () => {
                       <div className="space-y-2 md:space-y-4">
                         {(t(`portfolio.projects.${selectedProject.titleKey}.results`, { returnObjects: true }) as any[]).map((result, index) => (
                           <div key={index} className="text-center">
-                            <div className="text-lg md:text-2xl font-bold text-blue-600 mb-1">{result.value}</div>
+                            <div className="text-lg md:text-2xl font-bold text-primary-600 mb-1">{result.value}</div>
                             <div className="text-xs md:text-sm font-semibold text-gray-900 mb-1">{result.metric}</div>
                             <div className="text-xs text-gray-600">{result.description}</div>
                           </div>
@@ -750,7 +750,7 @@ const Portfolio = () => {
                           href={selectedProject.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
+                          className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
                         >
                           <ExternalLink size={16} className="md:w-5 md:h-5" />
                           {t('portfolio.modal.visitSite')}
@@ -785,7 +785,7 @@ const Portfolio = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
               {t('portfolio.cta.title')}
             </h2>
             <p className="text-xl text-gray-700 mb-12">
@@ -796,11 +796,11 @@ const Portfolio = () => {
               href="https://wa.me/393391797616?text=Ciao,%20vorrei%20collaborare%20con%20voi%20su%20un%20nuovo%20progetto!"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
+              className="group relative bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
             >
               <span className="relative z-10">{t('portfolio.cta.button')}</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-white/20 to-blue-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400/0 via-white/20 to-accent-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
             </a>
           </motion.div>
         </div>

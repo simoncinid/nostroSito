@@ -47,8 +47,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: t('about.team.members.diego.specialty'),
-      gradient: "from-blue-500 to-blue-600",
-      roleGradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
+      roleGradient: "from-primary-500 to-accent-500",
       icon: Brain,
       image: "/images/diego.png"
     },
@@ -60,8 +60,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: t('about.team.members.tommaso.specialty'),
-      gradient: "from-blue-100 to-blue-600",
-      roleGradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-100 to-primary-600",
+      roleGradient: "from-primary-500 to-accent-500",
       icon: Palette,
       image: "/images/tommaso.png"
     },
@@ -73,8 +73,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: "Sviluppo full-stack e architetture scalabili",
-      gradient: "from-blue-500 to-blue-600",
-      roleGradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-500 to-accent-500",
+      roleGradient: "from-primary-500 to-accent-500",
       icon: Brain,
       image: "/images/francesco.JPG"
     },
@@ -86,8 +86,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: "Integrazione web e strategie social",
-      gradient: "from-blue-100 to-blue-600",
-      roleGradient: "from-blue-500 to-blue-600",
+      gradient: "from-primary-100 to-primary-600",
+      roleGradient: "from-primary-500 to-accent-500",
       icon: Palette,
       image: "/images/andrea.jpeg"
     }
@@ -103,7 +103,7 @@ const About = () => {
       {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-primary-400/10 to-primary-500/10 rounded-full blur-3xl"
           animate={{
             x: mousePosition.x * 0.1,
             y: mousePosition.y * 0.1,
@@ -112,7 +112,7 @@ const About = () => {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-blue-400/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-primary-400/10 to-primary-400/10 rounded-full blur-3xl"
           animate={{
             x: -mousePosition.x * 0.05,
             y: -mousePosition.y * 0.05,
@@ -142,17 +142,17 @@ const About = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div>
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
                 {t('about.hero.title1')}
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent">
                 {t('about.hero.title2')}
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
-              {t('about.hero.subtitle.part1')}<span className="text-blue-700 font-semibold">{t('about.hero.subtitle.part2')}</span>{t('about.hero.subtitle.part3')}
-              <span className="text-blue-700 font-semibold">{t('about.hero.subtitle.part4')}</span>{t('about.hero.subtitle.part5')}<span className="text-blue-700 font-semibold">{t('about.hero.subtitle.part6')}</span>{t('about.hero.subtitle.part7')}
+              {t('about.hero.subtitle.part1')}<span className="text-primary-700 font-semibold">{t('about.hero.subtitle.part2')}</span>{t('about.hero.subtitle.part3')}
+              <span className="text-primary-700 font-semibold">{t('about.hero.subtitle.part4')}</span>{t('about.hero.subtitle.part5')}<span className="text-primary-700 font-semibold">{t('about.hero.subtitle.part6')}</span>{t('about.hero.subtitle.part7')}
             </p>
           </div>
         </div>
@@ -170,7 +170,7 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 1 }}
-              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent"
+              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent"
             >
               {t('about.team.title')}
             </motion.h2>
@@ -201,7 +201,7 @@ const About = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
               {t('about.cta.title')}
             </h2>
             <p className="text-xl text-gray-700 mb-12">
@@ -212,11 +212,11 @@ const About = () => {
               href="https://wa.me/393391797616?text=Ciao,%20voglio%20iniziare%20un%20progetto%20con%20voi!"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
+              className="group relative bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
             >
               <span className="relative z-10">{t('about.cta.button')}</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-white/20 to-blue-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400/0 via-white/20 to-accent-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
             </a>
           </motion.div>
         </div>
@@ -248,7 +248,7 @@ const About = () => {
               <h4 className="font-semibold text-gray-900 mb-2">{t('about.team.labels.skills')}</h4>
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedMember.skills.map((skill, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">{skill}</span>
+                  <span key={idx} className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">{skill}</span>
                 ))}
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4">

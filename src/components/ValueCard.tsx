@@ -11,7 +11,7 @@ interface ValueCardProps {
 
 const ValueCard = ({ value }: ValueCardProps) => {
   return (
-    <div className="bg-white/80 backdrop-blur-xl border border-blue-200 rounded-2xl p-8 h-full hover:border-blue-300 hover:shadow-lg transition-all duration-500 overflow-hidden">
+    <div className="bg-white/80 backdrop-blur-xl border border-primary-200 rounded-2xl p-8 h-full hover:border-primary-300 hover:shadow-lg transition-all duration-500 overflow-hidden">
       {/* Icon */}
       <motion.div
         whileHover={{ scale: 1.1 }}

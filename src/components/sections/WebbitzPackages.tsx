@@ -86,7 +86,7 @@ const WebsiteAnimation = () => {
           <motion.div
             animate={{ scale: [0.95, 1.05, 0.95] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="bg-gray-800 rounded p-2 text-xs text-blue-400 font-mono"
+            className="bg-gray-800 rounded p-2 text-xs text-primary-400 font-mono"
           >
             {'<div className="app-container">'}
           </motion.div>
@@ -305,7 +305,7 @@ const SEOAnimation = () => {
       <div className="bg-gray-100 border-b border-gray-200 p-2 flex items-center">
         <div className="bg-white flex-1 rounded-full flex items-center px-3 py-1 border border-gray-300">
           <Search className="w-3 h-3 text-gray-400 mr-2" />
-          <div className="text-xs text-blue-600">sito web personalizzato</div>
+          <div className="text-xs text-primary-600">sito web personalizzato</div>
         </div>
       </div>
       
@@ -321,7 +321,7 @@ const SEOAnimation = () => {
             animate={{ opacity: step >= 1 ? 1 : 0, y: step >= 1 ? 0 : 10 }}
             className="mb-3 pb-2 border-b border-gray-100"
           >
-            <div className="text-xs text-blue-700 font-medium mb-0.5">Webbitz | Siti Web Personalizzati - Realizzazione Siti Custom</div>
+            <div className="text-xs text-primary-700 font-medium mb-0.5">Webbitz | Siti Web Personalizzati - Realizzazione Siti Custom</div>
             <div className="text-xs text-green-700">www.webbitz.it › servizi › sito-personalizzato</div>
             <div className="text-xs text-gray-600">Sviluppiamo siti web da zero, senza template o WordPress...</div>
             
@@ -335,7 +335,7 @@ const SEOAnimation = () => {
                   <Star key={i} className="w-2 h-2 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <div className="text-[10px] text-blue-600">142 recensioni</div>
+              <div className="text-[10px] text-primary-600">142 recensioni</div>
             </motion.div>
           </motion.div>
           
@@ -345,7 +345,7 @@ const SEOAnimation = () => {
             animate={{ opacity: step >= 3 ? 1 : 0, y: step >= 3 ? 0 : 10 }}
             className="mb-3 pb-2 border-b border-gray-100"
           >
-            <div className="text-xs text-blue-700 font-medium mb-0.5">Realizzazione Siti Web | Agenzia Web</div>
+            <div className="text-xs text-primary-700 font-medium mb-0.5">Realizzazione Siti Web | Agenzia Web</div>
             <div className="text-xs text-green-700">www.altrocompetitor.it</div>
             <div className="text-xs text-gray-600">Sviluppiamo siti web personalizzati per aziende...</div>
           </motion.div>
@@ -356,7 +356,7 @@ const SEOAnimation = () => {
             animate={{ opacity: step >= 4 ? 1 : 0, y: step >= 4 ? 0 : 10 }}
             className="mb-3 pb-2 border-b border-gray-100"
           >
-            <div className="text-xs text-blue-700 font-medium mb-0.5">Siti Web Personalizzati - Sviluppo...</div>
+            <div className="text-xs text-primary-700 font-medium mb-0.5">Siti Web Personalizzati - Sviluppo...</div>
             <div className="text-xs text-green-700">www.altroweb.it</div>
             <div className="text-xs text-gray-600">Web design e sviluppo siti...</div>
           </motion.div>
@@ -366,7 +366,7 @@ const SEOAnimation = () => {
             animate={{ opacity: step >= 4 ? 1 : 0, y: step >= 4 ? 0 : 10 }}
             className="mb-3"
           >
-            <div className="text-xs text-blue-700 font-medium mb-0.5">Template Siti Web - Soluzioni...</div>
+            <div className="text-xs text-primary-700 font-medium mb-0.5">Template Siti Web - Soluzioni...</div>
             <div className="text-xs text-green-700">www.templateweb.it</div>
             <div className="text-xs text-gray-600">Template e temi WordPress...</div>
           </motion.div>
@@ -431,7 +431,7 @@ const BrandAnimation = () => {
             animate={{ opacity: 1 }}
             className="absolute top-2 left-2 flex space-x-1"
           >
-            {['bg-primary-500', 'bg-indigo-500', 'bg-blue-500', 'bg-blue-600'].map((color, i) => (
+            {['bg-primary-500', 'bg-indigo-500', 'bg-primary-500', 'bg-primary-600'].map((color, i) => (
               <motion.div 
                 key={i}
                 initial={{ scale: 0, y: 10 }}
@@ -500,20 +500,20 @@ const CodeAnimation = () => {
   }, [line]);
   
   const codeLines = [
-    { text: "import React from 'react';", color: "text-blue-400" },
-    { text: "import { motion } from 'framer-motion';", color: "text-blue-400" },
+    { text: "import React from 'react';", color: "text-primary-400" },
+    { text: "import { motion } from 'framer-motion';", color: "text-primary-400" },
     { text: "", color: "text-white" },
     { text: "const WebbitzComponent = () => {", color: "text-yellow-300" },
     { text: "  const [isActive, setIsActive] = useState(false);", color: "text-white" },
     { text: "", color: "text-white" },
     { text: "  return (", color: "text-white" },
-    { text: '    <div className="container">', color: "text-blue-300" },
+    { text: '    <div className="container">', color: "text-primary-300" },
     { text: "      <Header />", color: "text-green-300" },
-    { text: "    </div>", color: "text-blue-300" },
+    { text: "    </div>", color: "text-primary-300" },
     { text: "  );", color: "text-white" },
     { text: "};", color: "text-yellow-300" },
     { text: "", color: "text-white" },
-    { text: "export default WebbitzComponent;", color: "text-blue-400" }
+    { text: "export default WebbitzComponent;", color: "text-primary-400" }
   ];
   
   return (
