@@ -58,7 +58,6 @@ const Contact = () => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const formInView = useInView(formRef, { once: true, amount: 0.2 });
 
   // Get services, budgets, and timelines from translations
@@ -222,63 +221,31 @@ const Contact = () => {
         ref={heroRef}
         className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
       >
-        {/* Logo Background Animation */}
-        <motion.div 
-          className="absolute inset-0 flex items-center justify-center opacity-5"
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
+        {/* Logo Background Static */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-5">
           <img 
             src={logo} 
             alt="" 
             className="w-[90%] max-w-none blur-2xl"
             style={{ 
-              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))',
-              willChange: 'transform'
+              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))'
             }}
           />
-        </motion.div>
+        </div>
 
         <div className="max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="text-4xl md:text-7xl font-bold mb-8 leading-tight"
-            >
+          <div>
+            <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
                 {t('contact.hero.title1')}
               </span>
               <br />
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_100%]"
-              >
+              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 {t('contact.hero.title2')}
-              </motion.span>
-            </motion.h1>
+              </span>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6, duration: 1 }}
-              className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
-            >
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
               {t('contact.hero.subtitle.part1')}
               <span className="text-blue-700 font-semibold">{t('contact.hero.subtitle.part2')}</span>
               {t('contact.hero.subtitle.part3')}
@@ -287,8 +254,8 @@ const Contact = () => {
                 <span className="text-blue-700 font-semibold">{t('contact.hero.subtitle.part5')}</span>
                 {t('contact.hero.subtitle.part6')}
               </span>
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
 

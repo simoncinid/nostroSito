@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import logo from '../assets/logos/LogoWebbitzIcona.jpeg';
@@ -51,7 +51,6 @@ const Portfolio = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
   
-  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -420,63 +419,31 @@ const Portfolio = () => {
         ref={heroRef}
         className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
       >
-        {/* Logo Background Animation */}
-        <motion.div 
-          className="absolute inset-0 flex items-center justify-center opacity-5"
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
+        {/* Logo Background Static */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-5">
           <img 
             src={logo} 
             alt="" 
             className="w-[90%] max-w-none blur-2xl"
             style={{ 
-              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))',
-              willChange: 'transform'
+              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))'
             }}
           />
-        </motion.div>
+        </div>
 
         <div className="max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="text-4xl md:text-7xl font-bold mb-8 leading-tight"
-            >
+          <div>
+            <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-blue-600 bg-clip-text text-transparent">
                 {t('portfolio.hero.title')}
               </span>
               <br />
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_100%]"
-              >
+              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 {t('portfolio.hero.titleAnimated')}
-              </motion.span>
-            </motion.h1>
+              </span>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6, duration: 1 }}
-              className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed"
-            >
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
               {t('portfolio.hero.subtitle.part1')}
               <span className="text-blue-700 font-semibold">{t('portfolio.hero.subtitle.part2')}</span>
               {t('portfolio.hero.subtitle.part3')}
@@ -485,8 +452,8 @@ const Portfolio = () => {
                 <span className="text-blue-700 font-semibold">{t('portfolio.hero.subtitle.part5')}</span>
                 {t('portfolio.hero.subtitle.part6')}
               </span>
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -495,13 +462,12 @@ const Portfolio = () => {
         ref={portfolioRef}
         className="relative py-4 md:py-8 px-4"
       >
-        <div className="flex justify-center">
-          <div className="w-full" style={{ maxWidth: '80vw' }}>
+        <div className="max-w-7xl mx-auto">
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <div className="w-full grid grid-cols-1 md:flex md:flex-wrap justify-center gap-4">
-              {/* Mobile: 'Tutti i Progetti' sopra, largo il doppio, gli altri 2x2 sotto */}
-              <div className="grid grid-cols-2 gap-2 mb-2 md:hidden">
+          <div className="flex flex-wrap justify-center gap-4 mb-12 relative z-30">
+            {/* Mobile Layout */}
+            <div className="w-full md:hidden">
+              <div className="grid grid-cols-2 gap-2 mb-2">
                 <button
                   key={categories[0].id}
                   onClick={() => setSelectedCategory(categories[0].id)}
@@ -516,7 +482,7 @@ const Portfolio = () => {
                   <span className="whitespace-nowrap overflow-hidden text-ellipsis">{t(`portfolio.categories.${categories[0].nameKey}`)}</span>
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-2 md:hidden">
+              <div className="grid grid-cols-2 gap-2">
                 {categories.slice(1).map(category => (
                   <button
                     key={category.id}
@@ -532,13 +498,18 @@ const Portfolio = () => {
                   </button>
                 ))}
               </div>
-              
-              {/* Versione desktop */}
+            </div>
+            
+            {/* Desktop Layout */}
+            <div className="hidden md:flex flex-wrap justify-center gap-4 relative z-10">
               {categories.map(category => (
                 <button
                   key={`desktop-${category.id}`}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  onClick={() => {
+                    console.log('Category clicked:', category.id);
+                    setSelectedCategory(category.id);
+                  }}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 relative z-20 ${
                     selectedCategory === category.id
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-white/80 backdrop-blur-lg border border-blue-200 text-gray-700 hover:border-blue-300 hover:shadow-md'
@@ -553,10 +524,11 @@ const Portfolio = () => {
 
           {/* Projects Grid */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 relative z-30"
           >
             {filteredProjects && filteredProjects.length > 0 ? filteredProjects.map((clientProject) => {
               const firstProject = clientProject.projects[0];
+              if (!firstProject) return null; // Skip if no projects
               const projectData = t(`portfolio.projects.${firstProject.titleKey}`, { returnObjects: true }) as any;
               
               return (
@@ -565,7 +537,7 @@ const Portfolio = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4 }}
-                  className="group relative bg-white/80 backdrop-blur-xl border border-blue-200 rounded-xl md:rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-500"
+                  className="group relative bg-white/80 backdrop-blur-xl border border-blue-200 rounded-xl md:rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-500 z-40"
                 >
                   {/* Project Image */}
                   <div className="relative h-20 md:h-32 overflow-hidden">
@@ -591,12 +563,15 @@ const Portfolio = () => {
                       })}
                     </div>
                     {/* Action Buttons */}
-                    <div className="absolute bottom-2 right-2 flex gap-1 md:bottom-3 md:right-3">
+                    <div className="absolute bottom-2 right-2 flex gap-1 md:bottom-3 md:right-3 z-20">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        onClick={() => setSelectedProject(firstProject)}
-                        className="w-6 h-6 md:w-8 md:h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
+                        onClick={() => {
+                          console.log('Opening modal for project:', firstProject);
+                          setSelectedProject(firstProject);
+                        }}
+                        className="w-6 h-6 md:w-8 md:h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300 relative z-30"
                       >
                         <Eye size={12} className="md:hidden" />
                         <Eye size={14} className="hidden md:inline" />
@@ -608,7 +583,7 @@ const Portfolio = () => {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className="w-6 h-6 md:w-8 md:h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300"
+                          className="w-6 h-6 md:w-8 md:h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors duration-300 relative z-30"
                         >
                           <ExternalLink size={12} className="md:hidden" />
                           <ExternalLink size={14} className="hidden md:inline" />
@@ -657,7 +632,6 @@ const Portfolio = () => {
           </motion.div>
 
         </div>
-      </div>
       </motion.section>
 
       {/* Project Detail Modal */}
