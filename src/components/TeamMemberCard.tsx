@@ -95,7 +95,7 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
             </div>
 
             {/* Indicatore per espandere */}
-            <div className="mt-2 text-xs text-blue-600 font-medium">
+            <div className="mt-4 text-xs text-blue-600 font-medium">
               {t('about.team.labels.tapForMore')}
             </div>
           </div>
@@ -128,13 +128,13 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
 
           {/* Info */}
           <div className="text-center mb-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <h3 className="text-xl font-bold text-gray-900 mb-1">
               {member.name}
             </h3>
-            <p className={`text-base font-semibold bg-gradient-to-r ${member.roleGradient || member.gradient} bg-clip-text text-transparent mb-3`}>
+            <p className={`text-base font-semibold bg-gradient-to-r ${member.roleGradient || member.gradient} bg-clip-text text-transparent mb-6`}>
               {member.role}
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+            <p className="text-gray-600 leading-relaxed mb-6 text-sm">
               {member.description}
             </p>
           </div>

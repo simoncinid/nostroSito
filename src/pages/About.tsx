@@ -196,7 +196,7 @@ const About = () => {
         className="relative py-8 px-4 -mt-20 z-10"
       >
         <div className="flex justify-center">
-          <div className="w-full" style={{ maxWidth: '80vw' }}>
+          <div className="w-full max-w-7xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <motion.h2
               initial={{ opacity: 0, y: 50 }}

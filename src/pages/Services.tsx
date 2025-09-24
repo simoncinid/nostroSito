@@ -482,7 +482,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
   return (
     <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
       <div className="flex justify-center">
-        <div className="w-full" style={{ maxWidth: '80vw' }}>
+        <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">

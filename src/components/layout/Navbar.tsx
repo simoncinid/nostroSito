@@ -43,14 +43,16 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-4 left-0 right-0 z-50 transition-all duration-500 flex justify-center ${
+        className={`fixed top-0 lg:top-4 left-0 right-0 z-50 transition-all duration-500 flex justify-center w-full lg:w-auto max-w-full lg:max-w-[80vw] ${
           scrolled 
-            ? 'bg-white/40 backdrop-blur-md border border-white/10 shadow-premium' 
+            ? 'bg-white/90 lg:bg-white/40 backdrop-blur-md border-b lg:border border-white/10 shadow-lg lg:shadow-premium' 
             : 'bg-transparent'
-        } rounded-2xl`}
-        style={{ maxWidth: '80vw', margin: '0 auto' }}
+        } lg:rounded-2xl`}
+        style={{ 
+          margin: '0 auto'
+        }}
       >
-        <div className="px-6 w-full">
+        <div className="px-4 lg:px-6 w-full">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group flex-shrink-0" onClick={closeMenu}>
@@ -156,7 +158,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 rounded-b-2xl mx-4 mt-2"
+              className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 lg:rounded-b-2xl lg:mx-4 lg:mt-2"
             >
               <div className="px-6 py-8">
                 <div className="flex flex-col space-y-3">

@@ -553,12 +553,11 @@ const Portfolio = () => {
 
           {/* Projects Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4"
           >
             {filteredProjects && filteredProjects.length > 0 ? filteredProjects.map((clientProject) => {
               const firstProject = clientProject.projects[0];
               const projectData = t(`portfolio.projects.${firstProject.titleKey}`, { returnObjects: true }) as any;
-              
               
               return (
                 <motion.div
@@ -569,7 +568,7 @@ const Portfolio = () => {
                   className="group relative bg-white/80 backdrop-blur-xl border border-blue-200 rounded-xl md:rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-500"
                 >
                   {/* Project Image */}
-                  <div className="relative h-24 md:h-32 overflow-hidden">
+                  <div className="relative h-20 md:h-32 overflow-hidden">
                     <motion.img
                       src={clientProject.image}
                       alt={projectData.title}
@@ -675,7 +674,7 @@ const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[95vh] md:max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
@@ -683,7 +682,7 @@ const Portfolio = () => {
                 <img
                   src={selectedProject.image}
                   alt={t(`portfolio.projects.${selectedProject.titleKey}.title`)}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-32 md:h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 
@@ -694,38 +693,38 @@ const Portfolio = () => {
                   <X size={20} />
                 </button>
 
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h2 className="text-3xl font-bold mb-2">{t(`portfolio.projects.${selectedProject.titleKey}.title`)}</h2>
-                  <p className="text-white/90">{t(`portfolio.projects.${selectedProject.titleKey}.client`)} • {selectedProject.year}</p>
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white">
+                  <h2 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">{t(`portfolio.projects.${selectedProject.titleKey}.title`)}</h2>
+                  <p className="text-sm md:text-base text-white/90">{t(`portfolio.projects.${selectedProject.titleKey}.client`)} • {selectedProject.year}</p>
                 </div>
               </div>
 
               {/* Modal Content */}
-              <div className="p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="p-4 md:p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
                   {/* Main Content */}
                   <div className="lg:col-span-2">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('portfolio.modal.projectDescription')}</h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-4">{t('portfolio.modal.projectDescription')}</h3>
+                    <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
                       {t(`portfolio.projects.${selectedProject.titleKey}.longDescription`)}
                     </p>
 
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">{t('portfolio.modal.mainFeatures')}</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                    <h4 className="text-base md:text-xl font-bold text-gray-900 mb-2 md:mb-4">{t('portfolio.modal.mainFeatures')}</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mb-4 md:mb-6">
                       {(t(`portfolio.projects.${selectedProject.titleKey}.features`, { returnObjects: true }) as string[]).map((feature, index) => (
-                        <div key={index} className="flex items-center gap-2 text-gray-600">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                        <div key={index} className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-500 rounded-full" />
                           {feature}
                         </div>
                       ))}
                     </div>
 
-                    <h4 className="text-xl font-bold text-gray-900 mb-4">{t('portfolio.modal.technologiesUsed')}</h4>
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <h4 className="text-base md:text-xl font-bold text-gray-900 mb-2 md:mb-4">{t('portfolio.modal.technologiesUsed')}</h4>
+                    <div className="flex flex-wrap gap-1 md:gap-2 mb-4 md:mb-6">
                       {selectedProject.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium"
+                          className="px-2 py-1 md:px-3 md:py-1 bg-blue-100 text-blue-700 rounded-lg text-xs md:text-sm font-medium"
                         >
                           {tech}
                         </span>
@@ -734,10 +733,10 @@ const Portfolio = () => {
                   </div>
 
                   {/* Sidebar */}
-                  <div className="space-y-6">
-                    <div className="bg-gray-50 rounded-2xl p-6">
-                      <h4 className="font-bold text-gray-900 mb-4">{t('portfolio.modal.projectDetails')}</h4>
-                      <div className="space-y-3 text-sm">
+                  <div className="space-y-4 md:space-y-6">
+                    <div className="bg-gray-50 rounded-2xl p-4 md:p-6">
+                      <h4 className="text-sm md:text-base font-bold text-gray-900 mb-2 md:mb-4">{t('portfolio.modal.projectDetails')}</h4>
+                      <div className="space-y-2 md:space-y-3 text-xs md:text-sm">
                         <div className="flex justify-between">
                           <span className="text-gray-600">{t('portfolio.modal.client')}</span>
                           <span className="font-semibold text-gray-900">{t(`portfolio.projects.${selectedProject.titleKey}.client`)}</span>
@@ -757,13 +756,13 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    <div className="bg-gray-50 rounded-2xl p-6">
-                      <h4 className="font-bold text-gray-900 mb-4">{t('portfolio.modal.results')}</h4>
-                      <div className="space-y-4">
+                    <div className="bg-gray-50 rounded-2xl p-4 md:p-6">
+                      <h4 className="text-sm md:text-base font-bold text-gray-900 mb-2 md:mb-4">{t('portfolio.modal.results')}</h4>
+                      <div className="space-y-2 md:space-y-4">
                         {(t(`portfolio.projects.${selectedProject.titleKey}.results`, { returnObjects: true }) as any[]).map((result, index) => (
                           <div key={index} className="text-center">
-                            <div className="text-2xl font-bold text-blue-600 mb-1">{result.value}</div>
-                            <div className="text-sm font-semibold text-gray-900 mb-1">{result.metric}</div>
+                            <div className="text-lg md:text-2xl font-bold text-blue-600 mb-1">{result.value}</div>
+                            <div className="text-xs md:text-sm font-semibold text-gray-900 mb-1">{result.metric}</div>
                             <div className="text-xs text-gray-600">{result.description}</div>
                           </div>
                         ))}
@@ -771,15 +770,15 @@ const Portfolio = () => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="space-y-3">
+                    <div className="space-y-2 md:space-y-3">
                       {selectedProject.liveUrl && (
                         <a
                           href={selectedProject.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
                         >
-                          <ExternalLink size={18} />
+                          <ExternalLink size={16} className="md:w-5 md:h-5" />
                           {t('portfolio.modal.visitSite')}
                         </a>
                       )}
@@ -788,9 +787,9 @@ const Portfolio = () => {
                           href={selectedProject.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full bg-gray-800 text-white font-semibold py-3 px-6 rounded-xl hover:bg-gray-700 transition-all duration-300 flex items-center justify-center gap-2"
+                          className="w-full bg-gray-800 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-xl hover:bg-gray-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
                         >
-                          <Github size={18} />
+                          <Github size={16} className="md:w-5 md:h-5" />
                           {t('portfolio.modal.sourceCode')}
                         </a>
                       )}
