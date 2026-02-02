@@ -4,23 +4,24 @@
 @tailwind utilities;
 
 :root {
-  /* Palette Blu Premium */
-  --primary-blue: #158CFF;
-  --primary-blue-dark: #0F6ECC;
-  --primary-blue-light: #33A7FF;
-  --accent-blue: #FFE6FF;
-  --blue-glow: rgba(59, 130, 246, 0.3);
+  /* Palette Webbitz - Branding Orange & Primary */
+  --primary-orange: #E85002;
+  --primary-orange-dark: #C10801;
+  --primary-orange-light: #F16001;
+  --accent-cream: #D9C3AB;
+  --brand-glow: rgba(232, 80, 2, 0.3);
   
-  /* Grigi Premium */
-  --gray-50: #FAFAFA;
-  --gray-100: #F5F5F5;
-  --gray-900: #0A0A0A;
+  /* White #F9F9F9, Light Gray #A7A7A7, Gray #646464, Dark Gray #333333, Primary #000000 */
+  --gray-50: #F9F9F9;
+  --gray-100: #F0F0F0;
+  --gray-900: #000000;
   --gray-800: #1A1A1A;
   
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #158CFF 0%, #FE2AFF 100%);
-  --gradient-secondary: linear-gradient(135deg, #FFE6FF 0%, #E6F4FF 100%);
-  --gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+  /* Branding Gradient: #D9C3AB, #F16001, #C10801, #000000 */
+  --gradient-primary: linear-gradient(135deg, #E85002 0%, #C10801 100%);
+  --gradient-branding: linear-gradient(135deg, #D9C3AB 0%, #F16001 50%, #C10801 75%, #000000 100%);
+  --gradient-secondary: linear-gradient(135deg, #FFF4ED 0%, #F9E6DB 100%);
+  --gradient-dark: linear-gradient(135deg, #000000 0%, #333333 100%);
 }
 
 * {
@@ -36,8 +37,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background: #FAFAFA;
-  color: #0A0A0A;
+  background: #F9F9F9;
+  color: #000000;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -50,7 +51,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F5;
+  background: #F9F9F9;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -59,7 +60,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-blue-dark);
+  background: var(--primary-orange-dark);
 }
 
 /* Animazioni globali */
@@ -127,11 +128,11 @@ body {
 
 /* Glow effects */
 .glow-blue {
-  box-shadow: 0 0 30px var(--blue-glow);
+  box-shadow: 0 0 30px var(--brand-glow);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px var(--blue-glow);
+  text-shadow: 0 0 20px var(--brand-glow);
 }
 
 /* Glassmorphism */
@@ -164,7 +165,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px var(--blue-glow);
+  box-shadow: 0 10px 30px var(--brand-glow);
 }
 
 .btn-primary::before {
@@ -245,17 +246,17 @@ body {
   vertical-align: middle;
 }
 
-/* Cursore personalizzato */
+/* Cursore personalizzato - Branding Orange #E85002, #C10801 */
 * {
-  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563EB;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradient)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradient)"/></svg>') 20 20, auto;
+  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23E85002;stop-opacity:1" /><stop offset="100%" style="stop-color:%23C10801;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradient)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradient)"/></svg>') 20 20, auto;
 }
 
 /* Cursore per elementi cliccabili */
 button, a, [role="button"], input[type="button"], input[type="submit"] {
-  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientClick" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563EB;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientClick)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientClick)"/></svg>') 20 20, pointer;
+  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientClick" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23E85002;stop-opacity:1" /><stop offset="100%" style="stop-color:%23C10801;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientClick)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientClick)"/></svg>') 20 20, pointer;
 }
 
 /* Cursore per elementi di testo */
 input[type="text"], input[type="email"], input[type="password"], textarea {
-  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientText" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:1" /><stop offset="100%" style="stop-color:%232563EB;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientText)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientText)"/></svg>') 20 20, text;
+  cursor: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cursorGradientText" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23E85002;stop-opacity:1" /><stop offset="100%" style="stop-color:%23C10801;stop-opacity:1" /></radialGradient></defs><circle cx="20" cy="20" r="16" stroke="url(%23cursorGradientText)" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="8" fill="url(%23cursorGradientText)"/></svg>') 20 20, text;
 }

@@ -47,8 +47,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: t('about.team.members.diego.specialty'),
-      gradient: "from-primary-500 to-accent-500",
-      roleGradient: "from-primary-500 to-accent-500",
+      gradient: "from-primary-500 to-primary-900",
+      roleGradient: "from-primary-500 to-primary-900",
       icon: Brain,
       image: "/images/diego.png"
     },
@@ -60,8 +60,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: t('about.team.members.tommaso.specialty'),
-      gradient: "from-primary-100 to-primary-600",
-      roleGradient: "from-primary-500 to-accent-500",
+      gradient: "from-primary-500 to-primary-900",
+      roleGradient: "from-primary-500 to-primary-900",
       icon: Palette,
       image: "/images/tommaso.png"
     },
@@ -73,8 +73,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: "Sviluppo full-stack e architetture scalabili",
-      gradient: "from-primary-500 to-accent-500",
-      roleGradient: "from-primary-500 to-accent-500",
+      gradient: "from-primary-500 to-primary-900",
+      roleGradient: "from-primary-500 to-primary-900",
       icon: Brain,
       image: "/images/francesco.JPG"
     },
@@ -86,8 +86,8 @@ const About = () => {
       experience: "2+ anni",
       projects: "20+",
       specialty: "Integrazione web e strategie social",
-      gradient: "from-primary-100 to-primary-600",
-      roleGradient: "from-primary-500 to-accent-500",
+      gradient: "from-primary-500 to-primary-900",
+      roleGradient: "from-primary-500 to-primary-900",
       icon: Palette,
       image: "/images/andrea.jpeg"
     }
@@ -134,7 +134,7 @@ const About = () => {
             alt="" 
             className="w-[90%] max-w-none blur-2xl"
             style={{ 
-              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))'
+              filter: 'drop-shadow(0 0 100px rgba(232, 80, 2, 0.4))'
             }}
           />
         </div>
@@ -212,11 +212,11 @@ const About = () => {
               href="https://wa.me/393391797616?text=Ciao,%20voglio%20iniziare%20un%20progetto%20con%20voi!"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
+              className="group relative bg-gradient-to-r from-primary-500 to-primary-900 hover:from-primary-600 hover:to-primary-800 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 overflow-hidden text-lg inline-block"
             >
               <span className="relative z-10">{t('about.cta.button')}</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <span className="absolute inset-0 bg-gradient-to-r from-primary-400/0 via-white/20 to-accent-400/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400/0 via-white/20 to-primary-700/0 opacity-0 group-hover:opacity-100 pointer-events-none" />
             </a>
           </motion.div>
         </div>

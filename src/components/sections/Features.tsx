@@ -73,7 +73,7 @@ const Features = () => {
     <section className="py-12 bg-gray-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(232,80,2,0.1),transparent_70%)]" />
       </div>
 
       <div className="container-premium relative z-10">
@@ -107,7 +107,7 @@ const Features = () => {
                 whileHover={{ 
                   scale: 1.03, 
                   y: -5,
-                  boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
+                  boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
                 }}
                 className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-primary-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
               >

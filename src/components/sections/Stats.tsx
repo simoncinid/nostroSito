@@ -36,7 +36,7 @@ const Stats = () => {
     <section className="py-12 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(139,92,246,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(139,92,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(232,80,2,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(232,80,2,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
       </div>
 
       <div className="container-premium relative z-10">

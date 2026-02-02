@@ -37,7 +37,7 @@ const Footer = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-primary-700/20"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(232,80,2,0.1),transparent_50%)]"></div>
       </div>
 
       <div className="relative z-10">
@@ -60,7 +60,7 @@ const Footer = () => {
                   src={logo} 
                   alt="Webbitz Logo" 
                   className="w-48 h-48 object-contain"
-                  style={{ filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))' }}
+                  style={{ filter: 'drop-shadow(0 0 10px rgba(232, 80, 2, 0.3))' }}
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
               </motion.div>

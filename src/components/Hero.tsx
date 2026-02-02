@@ -30,7 +30,7 @@ const Hero = () => {
           alt="" 
           className="w-[90%] max-w-none blur-2xl"
           style={{ 
-            filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))',
+            filter: 'drop-shadow(0 0 100px rgba(232, 80, 2, 0.4))',
             willChange: 'transform'
           }}
         />
@@ -52,7 +52,7 @@ const Hero = () => {
             src={logo} 
             alt="Webbitz Logo" 
             className="h-32 md:h-40 mx-auto"
-            style={{ filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.3))' }}
+            style={{ filter: 'drop-shadow(0 0 20px rgba(232, 80, 2, 0.3))' }}
           />*/}
         </motion.div>
         <motion.h1 

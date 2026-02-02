@@ -91,10 +91,10 @@ const Contact = () => {
   ];
 
   const teamContacts = [
-    { name: 'Francesco', phone: '370 337 4703', gradient: 'from-purple-500 to-purple-700' },
-    { name: 'Andrea', phone: '389 998 5029', gradient: 'from-indigo-500 to-indigo-700' },
-    { name: 'Diego', phone: '339 179 7616', gradient: 'from-teal-500 to-teal-700' },
-    { name: 'Tommaso', phone: '370 317 3289', gradient: 'from-pink-500 to-pink-700' }
+    { name: 'Francesco', phone: '370 337 4703', gradient: 'from-primary-500 to-primary-900' },
+    { name: 'Andrea', phone: '389 998 5029', gradient: 'from-primary-500 to-primary-900' },
+    { name: 'Diego', phone: '339 179 7616', gradient: 'from-primary-500 to-primary-900' },
+    { name: 'Tommaso', phone: '370 317 3289', gradient: 'from-primary-500 to-primary-900' }
   ];
 
   const validateStep = (step: number): boolean => {
@@ -251,7 +251,7 @@ const Contact = () => {
             alt="" 
             className="w-[90%] max-w-none blur-2xl"
             style={{ 
-              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))'
+              filter: 'drop-shadow(0 0 100px rgba(232, 80, 2, 0.4))'
             }}
           />
         </div>

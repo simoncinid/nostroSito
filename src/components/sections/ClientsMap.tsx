@@ -60,7 +60,7 @@ const ClientsMap = () => {
       "elementType": "labels.text.fill",
       "stylers": [
         {
-          "color": "#0F6ECC"
+          "color": "#E85002"
         }
       ]
     },
@@ -81,7 +81,7 @@ const ClientsMap = () => {
       "elementType": "geometry.fill",
       "stylers": [
         {
-          "color": "#E6F4FF"
+          "color": "#FFF4ED"
         }
       ]
     },
@@ -90,7 +90,7 @@ const ClientsMap = () => {
       "elementType": "geometry.stroke",
       "stylers": [
         {
-          "color": "#158CFF"
+          "color": "#E85002"
         },
         {
           "weight": 1
@@ -111,7 +111,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#FFE6FF"
+          "color": "#FFF4ED"
         }
       ]
     },
@@ -120,7 +120,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#FFE6FF"
+          "color": "#FFF4ED"
         }
       ]
     },
@@ -129,7 +129,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#33A7FF"
+          "color": "#F16001"
         }
       ]
     },
@@ -138,7 +138,7 @@ const ClientsMap = () => {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#93C5FD"
+          "color": "#FFC9B3"
         }
       ]
     }
@@ -210,7 +210,7 @@ const ClientsMap = () => {
           icon: {
             path: window.google.maps.SymbolPath.CIRCLE,
             scale: 12,
-            fillColor: '#158CFF', // blu primario
+            fillColor: '#E85002', // branding orange
             fillOpacity: 1,
             strokeColor: '#ffffff',
             strokeWeight: 4
@@ -222,15 +222,15 @@ const ClientsMap = () => {
         const infoWindow = new window.google.maps.InfoWindow({
           content: `
             <div style="padding: 15px; font-family: Inter, sans-serif; text-align: center; min-width: 200px;">
-              <h3 style="color: #0F6ECC; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; text-align: center;">
+              <h3 style="color: #E85002; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; text-align: center;">
                 ${location.name}
               </h3>
-              <p style="color: #6B7280; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
+              <p style="color: #646464; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
                 ${t('clientsMap.clientInfo')}
               </p>
               ${location.link ? `<button 
                 style="
-                  background: linear-gradient(to right, #158CFF, #0F6ECC); 
+                  background: linear-gradient(to right, #E85002, #C10801); 
                   color: white; 
                   border: none; 
                   padding: 8px 16px; 
@@ -239,9 +239,9 @@ const ClientsMap = () => {
                   font-weight: 600;
                   cursor: pointer;
                   transition: all 0.2s;
-                  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);"
-                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(59, 130, 246, 0.3)';" 
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(59, 130, 246, 0.25)';"
+                  box-shadow: 0 4px 6px rgba(232, 80, 2, 0.25);"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(232, 80, 2, 0.3)';" 
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(232, 80, 2, 0.25)';"
                 onclick="window.open('${location.link}', '_blank')"
               >
                 ${t('clientsMap.visitSite')}

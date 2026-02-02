@@ -19,8 +19,8 @@ const Hero = () => {
       icon: Code, 
       title: 'hero.services.website.title', 
       desc: 'hero.services.website.desc',
-      gradient: "from-primary-500 to-primary-700",
-      bg: "linear-gradient(45deg, rgba(21, 140, 255, 0.08) 0%, rgba(15, 110, 204, 0.08) 100%)",
+      gradient: "from-primary-500 to-primary-900",
+      bg: "linear-gradient(45deg, rgba(232, 80, 2, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)",
       secondaryIcon: Globe,
       animation: "float"
     },
@@ -28,8 +28,8 @@ const Hero = () => {
       icon: Bot, 
       title: 'hero.services.ai.title', 
       desc: 'hero.services.ai.desc',
-      gradient: "from-primary-400 to-primary-600",
-      bg: "linear-gradient(45deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%)",
+      gradient: "from-primary-500 to-primary-900",
+      bg: "linear-gradient(45deg, rgba(232, 80, 2, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)",
       secondaryIcon: Cpu,
       animation: "pulse"
     },
@@ -37,8 +37,8 @@ const Hero = () => {
       icon: Zap, 
       title: 'hero.services.results.title', 
       desc: 'hero.services.results.desc',
-      gradient: "from-accent-500 to-accent-700",
-      bg: "linear-gradient(45deg, rgba(254, 42, 255, 0.08) 0%, rgba(204, 34, 204, 0.08) 100%)",
+      gradient: "from-primary-500 to-primary-900",
+      bg: "linear-gradient(45deg, rgba(232, 80, 2, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)",
       secondaryIcon: Rocket,
       animation: "bounce"
     }
@@ -68,9 +68,9 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-primary-50 to-primary-100 pt-20"
     >
-      {/* Logo Background */}
+      {/* Logo Background - intensità ridotta per leggibilità */}
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center opacity-5 hero-logo-bg"
+        className="absolute inset-0 flex items-center justify-center opacity-[0.02] hero-logo-bg"
         animate={{
           scale: [1, 1.1, 1],
           rotate: [0, 5, -5, 0],
@@ -86,20 +86,20 @@ const Hero = () => {
           alt="" 
           className="w-[95%] max-w-none blur-2xl hero-logo-img"
           style={{ 
-            filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))',
+            filter: 'drop-shadow(0 0 80px rgba(232, 80, 2, 0.12))',
             willChange: 'transform'
           }}
         />
       </motion.div>
 
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse-slow" />
+      {/* Animated Background Grid - intensità ridotta */}
+      <div className="absolute inset-0 opacity-[0.04]">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(232,80,2,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(232,80,2,0.15)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse-slow" />
       </div>
 
-      {/* Floating Gradient Orbs */}
+      {/* Floating Gradient Orbs - intensità ridotta */}
       <motion.div
-        className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full blur-3xl opacity-20"
+        className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full blur-3xl opacity-[0.08]"
         animate={{
           x: [0, 100, 0],
           y: [0, -50, 0],
@@ -112,7 +112,7 @@ const Hero = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full blur-3xl opacity-15"
+        className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full blur-3xl opacity-[0.06]"
         animate={{
           x: [0, -80, 0],
           y: [0, 60, 0],
@@ -125,16 +125,16 @@ const Hero = () => {
         }}
       />
 
-      {/* Mouse Follower Gradient */}
+      {/* Mouse Follower Gradient - intensità ridotta */}
       <motion.div
-        className="absolute w-96 h-96 bg-gradient-radial from-primary-400/20 to-transparent rounded-full pointer-events-none blur-2xl"
+        className="absolute w-96 h-96 bg-gradient-radial from-primary-400/10 to-transparent rounded-full pointer-events-none blur-2xl"
         style={{
           left: mousePosition.x - 192,
           top: mousePosition.y - 192,
         }}
         animate={{
           scale: isHovered ? 1.5 : 1,
-          opacity: isHovered ? 0.4 : 0.2,
+          opacity: isHovered ? 0.15 : 0.08,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       />
@@ -217,7 +217,7 @@ const Hero = () => {
               alt="Webbitz Logo" 
               className="h-32 md:h-40 mx-auto"
               style={{ 
-                filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.4))',
+                filter: 'drop-shadow(0 0 30px rgba(232, 80, 2, 0.4))',
                 willChange: 'transform'
               }}
             />*/}
@@ -270,7 +270,7 @@ const Hero = () => {
                   whileHover={{ 
                     scale: 1.02, 
                     y: -5,
-                    boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
+                    boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
                   }}
                   className="relative overflow-hidden bg-white/95 border border-primary-200 rounded-xl p-4 hover:border-primary-300 transition-all duration-75 group"
                   style={{ background: service.bg }}
@@ -329,7 +329,7 @@ const Hero = () => {
                   whileHover={{ 
                     scale: 1.05, 
                     y: -10,
-                    boxShadow: "0 20px 30px rgba(59, 130, 246, 0.15)"
+                    boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
                   }}
                   className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-primary-200 rounded-2xl p-5 hover:border-primary-300 transition-all duration-75 group text-center"
                   style={{ background: service.bg }}

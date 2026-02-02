@@ -216,7 +216,7 @@ const Services = () => {
             alt="" 
             className="w-[90%] max-w-none blur-2xl"
             style={{ 
-              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))'
+              filter: 'drop-shadow(0 0 100px rgba(232, 80, 2, 0.4))'
             }}
           />
         </div>
@@ -349,7 +349,7 @@ const Services = () => {
             <motion.button
               whileHover={{ 
                 scale: 1.05, 
-                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.5)",
+                boxShadow: "0 25px 50px rgba(232, 80, 2, 0.5)",
                 y: -5
               }}
               whileTap={{ scale: 0.95 }}

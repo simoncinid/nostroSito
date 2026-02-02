@@ -464,7 +464,7 @@ export const CodiceZeroAnimation = () => {
         
         {/* Tag HTML/CSS/JS che si formano e volano */}
         {[
-          { text: "<div>", color: "#158CFF", delay: 0.5 }, // pink-500
+          { text: "<div>", color: "#E85002", delay: 0.5 }, // branding orange
           { text: "function()", color: "#f59e0b", delay: 0.7 }, // amber-500
           { text: "{style}", color: "#3b82f6", delay: 0.9 }, // primary-500
           { text: "</html>", color: "#ef4444", delay: 1.1 }, // red-500

@@ -689,7 +689,7 @@ const WebbitzPackages = () => {
       price: '2299',
       originalPrice: '3499',
       badge: t('packages.premium.badge'),
-      badgeColor: 'bg-gradient-to-r from-yellow-400 to-yellow-600',
+      badgeColor: 'bg-gradient-to-r from-primary-500 to-primary-900',
       icon: Crown,
       description: t('packages.premium.description'),
       features: [
@@ -706,10 +706,10 @@ const WebbitzPackages = () => {
 
   return (
     <section className="py-12 pb-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-      {/* Background Effects */}
+      {/* Background Effects - intensità ridotta per leggibilità */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1),transparent_50%)]"></div>
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.1),transparent_50%)]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(232,80,2,0.04),transparent_50%)]"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(232,80,2,0.04),transparent_50%)]"></div>
       </div>
 
       <div className="container-premium relative z-10">

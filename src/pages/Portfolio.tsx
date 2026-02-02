@@ -426,7 +426,7 @@ const Portfolio = () => {
             alt="" 
             className="w-[90%] max-w-none blur-2xl"
             style={{ 
-              filter: 'drop-shadow(0 0 100px rgba(59, 130, 246, 0.4))'
+              filter: 'drop-shadow(0 0 100px rgba(232, 80, 2, 0.4))'
             }}
           />
         </div>
