@@ -44,6 +44,7 @@ const Contact = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitError, setSubmitError] = useState<string>('');
   const [currentStep, setCurrentStep] = useState(1);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
@@ -149,6 +150,7 @@ const Contact = () => {
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setSubmitError('');
 
     try {
       const res = await fetch('/api/send-lead', {
@@ -156,8 +158,16 @@ const Contact = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      await res.json().catch(() => ({}));
-      if (!res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      const isJson = contentType.includes('application/json');
+      const data = isJson ? await res.json().catch(() => ({})) : null;
+
+      if (!res.ok || !data?.success) {
+        const msg = data?.error || data?.detail ||
+          (res.status === 404 ? 'Servizio temporaneamente non disponibile. Riprova più tardi.' :
+            !isJson ? 'Il server non ha risposto correttamente. Controlla che l\'API sia configurata su Vercel.' :
+              `Errore ${res.status}. Riprova più tardi.`);
+        setSubmitError(msg);
         setSubmitStatus('error');
         setIsSubmitting(false);
         return;
@@ -179,7 +189,8 @@ const Contact = () => {
         setSubmitStatus('idle');
         setErrors({});
       }, 3000);
-    } catch {
+    } catch (err) {
+      setSubmitError('Connessione fallita. Controlla la rete e riprova.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -392,6 +403,11 @@ const Contact = () => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                {submitStatus === 'error' && submitError && (
+                  <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-red-800 text-sm">
+                    <strong>Invio fallito.</strong> {submitError}
+                  </div>
+                )}
                 {/* Step 1: Basic Info */}
                 {currentStep === 1 && (
                   <motion.div
