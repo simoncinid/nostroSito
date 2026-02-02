@@ -26,6 +26,13 @@ Un sito web ultra-moderno da $1,000,000 per Webbitz Digital Agency.
 2. Vercel rileverà automaticamente Vite
 3. Il deploy avverrà automaticamente
 
+### Variabili d'ambiente (form "Raccontaci la tua idea")
+
+Per ricevere i lead via email su **webbitz.official@gmail.com**, imposta su Vercel (Project → Settings → Environment Variables):
+
+- `GMAIL_USER`: `reservationwebbitz@gmail.com`
+- `GMAIL_APP_PASSWORD`: password app Gmail (16 caratteri, da [Account Google → Sicurezza → Password per le app](https://myaccount.google.com/apppasswords))
+
 ### Comandi di Build
 
 ```bash

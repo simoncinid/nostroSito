@@ -99,15 +99,20 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
     if (!validateStep(3)) return;
 
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    
-    // Reset form after success
-    setTimeout(() => {
+    setSubmitStatus('idle');
+
+    try {
+      const res = await fetch('/api/send-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+      setSubmitStatus('success');
       setFormData({
         name: '',
         email: '',
@@ -120,10 +125,16 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
         timeline: ''
       });
       setCurrentStep(1);
-      setSubmitStatus('idle');
-      setErrors({});
-      onClose();
-    }, 3000);
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setErrors({});
+        onClose();
+      }, 3000);
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = () => {
