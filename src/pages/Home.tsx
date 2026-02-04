@@ -27,7 +27,7 @@ const Home = () => {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-12 bg-white"
+        className="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
       >
         <ClientsMap />
       </motion.section>

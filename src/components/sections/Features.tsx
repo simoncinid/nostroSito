@@ -12,8 +12,8 @@ const Features = () => {
       title: 'features.items.website.title',
       description: 'features.items.website.description',
       color: 'from-primary-500 to-primary-600',
-      bgColor: 'bg-primary-50',
-      iconColor: 'text-primary-600',
+      bgColor: 'bg-primary-500/20',
+      iconColor: 'text-primary-400',
       secondaryIcon: ExternalLink,
       animation: "float"
     },
@@ -22,8 +22,8 @@ const Features = () => {
       title: 'features.items.chatbot.title',
       description: 'features.items.chatbot.description',
       color: 'from-primary-500 to-primary-600',
-      bgColor: 'bg-primary-50',
-      iconColor: 'text-primary-600',
+      bgColor: 'bg-primary-500/20',
+      iconColor: 'text-primary-400',
       secondaryIcon: TrendingUp,
       animation: "pulse"
     },
@@ -32,8 +32,8 @@ const Features = () => {
       title: 'features.items.seo.title',
       description: 'features.items.seo.description',
       color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50',
-      iconColor: 'text-green-600',
+      bgColor: 'bg-green-500/20',
+      iconColor: 'text-green-400',
       secondaryIcon: ArrowRight,
       animation: "bounce"
     },
@@ -42,8 +42,8 @@ const Features = () => {
       title: 'features.items.brand.title',
       description: 'features.items.brand.description',
       color: 'from-primary-500 to-primary-600',
-      bgColor: 'bg-primary-50',
-      iconColor: 'text-primary-600',
+      bgColor: 'bg-primary-500/20',
+      iconColor: 'text-primary-400',
       secondaryIcon: Globe,
       animation: "float"
     },
@@ -52,8 +52,8 @@ const Features = () => {
       title: 'features.items.security.title',
       description: 'features.items.security.description',
       color: 'from-orange-500 to-orange-600',
-      bgColor: 'bg-orange-50',
-      iconColor: 'text-orange-600',
+      bgColor: 'bg-orange-500/20',
+      iconColor: 'text-orange-400',
       secondaryIcon: Bot,
       animation: "pulse"
     },
@@ -62,15 +62,15 @@ const Features = () => {
       title: 'features.items.performance.title',
       description: 'features.items.performance.description',
       color: 'from-yellow-500 to-yellow-600',
-      bgColor: 'bg-yellow-50',
-      iconColor: 'text-yellow-600',
+      bgColor: 'bg-yellow-500/20',
+      iconColor: 'text-yellow-400',
       secondaryIcon: Shield,
       animation: "bounce"
     }
   ]
 
   return (
-    <section className="py-12 bg-gray-50 relative overflow-hidden">
+    <section className="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(232,80,2,0.1),transparent_70%)]" />
@@ -83,13 +83,13 @@ const Features = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="heading-lg text-gray-900 mb-6">
+          <h2 className="heading-lg text-white mb-6">
             {t('features.title')}{' '}
-            <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
               {t('features.titleHighlight')}
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t('features.subtitle')}
           </p>
         </motion.div>
@@ -109,7 +109,7 @@ const Features = () => {
                   y: -5,
                   boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
                 }}
-                className="relative overflow-hidden bg-white/95 rounded-xl p-3 border border-primary-100 transition-all duration-300 h-full text-center md:bg-white md:rounded-2xl md:p-5 md:border-gray-100 lg:bg-white lg:rounded-2xl lg:p-5 lg:border-gray-100"
+                className="relative overflow-hidden bg-white/5 backdrop-blur-xl rounded-xl p-3 border border-white/10 transition-all duration-300 h-full text-center md:rounded-2xl md:p-5 lg:rounded-2xl lg:p-5 hover:border-primary-400/30"
               >
                 {/* Secondary floating icon */}
                 <motion.div 
@@ -148,7 +148,7 @@ const Features = () => {
                 <h3 className={`font-extrabold mb-1 bg-gradient-to-r ${feature.color} bg-clip-text text-transparent text-base md:text-xl lg:text-xl`}>
                   {t(feature.title)}
                 </h3>
-                <p className="text-gray-600 text-xs md:text-base lg:text-base">
+                <p className="text-gray-300 text-xs md:text-base lg:text-base">
                   {t(feature.description)}
                 </p>
               </motion.div>

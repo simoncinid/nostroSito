@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/logos/LogoWebbitzIcona.jpeg';
+import logo from '../assets/logos/favicon.png';
 import { 
   Palette, 
   //Users, 
@@ -50,7 +50,7 @@ const About = () => {
       gradient: "from-primary-500 to-primary-900",
       roleGradient: "from-primary-500 to-primary-900",
       icon: Brain,
-      image: "/images/diego.png"
+      image: "/TeamWebbitzAI/diego.png"
     },
     {
       name: t('about.team.members.tommaso.name'),
@@ -63,7 +63,7 @@ const About = () => {
       gradient: "from-primary-500 to-primary-900",
       roleGradient: "from-primary-500 to-primary-900",
       icon: Palette,
-      image: "/images/tommaso.png"
+      image: "/TeamWebbitzAI/Tommi2.png"
     },
     {
       name: "Francesco",
@@ -76,7 +76,7 @@ const About = () => {
       gradient: "from-primary-500 to-primary-900",
       roleGradient: "from-primary-500 to-primary-900",
       icon: Brain,
-      image: "/images/francesco.JPG"
+      image: "/TeamWebbitzAI/Baro.png"
     },
     {
       name: "Andrea",
@@ -89,12 +89,12 @@ const About = () => {
       gradient: "from-primary-500 to-primary-900",
       roleGradient: "from-primary-500 to-primary-900",
       icon: Palette,
-      image: "/images/andrea.jpeg"
+      image: "/TeamWebbitzAI/Nocchia.png"
     }
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
       <Helmet>
         <title>{t('about.meta.title')}</title>
         <meta name="description" content={t('about.meta.description')} />
@@ -125,10 +125,10 @@ const About = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
+        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20 text-white"
       >
         {/* Logo Background Static */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5">
+        <div className="absolute inset-0 flex items-center justify-center pt-16 opacity-[0.02]">
           <img 
             src={logo} 
             alt="" 
@@ -142,15 +142,15 @@ const About = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div>
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
                 {t('about.hero.title1')}
               </span>
               <br />
-              <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-primary-400 bg-clip-text text-transparent">
                 {t('about.hero.title2')}
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               {t('about.hero.subtitle.part1')}<span className="text-primary-700 font-semibold">{t('about.hero.subtitle.part2')}</span>{t('about.hero.subtitle.part3')}
               <span className="text-primary-700 font-semibold">{t('about.hero.subtitle.part4')}</span>{t('about.hero.subtitle.part5')}<span className="text-primary-700 font-semibold">{t('about.hero.subtitle.part6')}</span>{t('about.hero.subtitle.part7')}
             </p>
@@ -170,7 +170,7 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 1 }}
-              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent"
+              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent"
             >
               {t('about.team.title')}
             </motion.h2>
@@ -201,10 +201,10 @@ const About = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
               {t('about.cta.title')}
             </h2>
-            <p className="text-xl text-gray-700 mb-12">
+            <p className="text-xl text-gray-300 mb-12">
               {t('about.cta.subtitle')}
             </p>
             
@@ -226,7 +226,7 @@ const About = () => {
       {selectedMember && isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
-          <div className="relative w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="relative w-full max-w-md bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-white/10">
             {/* Header con gradiente */}
             <div className={`bg-gradient-to-r ${selectedMember.gradient} p-6 flex items-center justify-between`}>
               <div className="flex items-center gap-4">
@@ -243,27 +243,27 @@ const About = () => {
               </button>
             </div>
             {/* Contenuto */}
-            <div className="p-6 max-h-[60vh] overflow-y-auto">
-              <p className="text-gray-600 mb-4">{selectedMember.description}</p>
-              <h4 className="font-semibold text-gray-900 mb-2">{t('about.team.labels.skills')}</h4>
+            <div className="p-6 max-h-[60vh] overflow-y-auto bg-gray-800">
+              <p className="text-gray-300 mb-4">{selectedMember.description}</p>
+              <h4 className="font-semibold text-white mb-2">{t('about.team.labels.skills')}</h4>
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedMember.skills.map((skill, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">{skill}</span>
+                  <span key={idx} className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">{skill}</span>
                 ))}
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">{selectedMember.experience}</div>
-                  <div className="text-gray-600 text-sm">{t('about.team.labels.experience')}</div>
+                  <div className="text-2xl font-bold text-white">{selectedMember.experience}</div>
+                  <div className="text-gray-400 text-sm">{t('about.team.labels.experience')}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">{selectedMember.projects}</div>
-                  <div className="text-gray-600 text-sm">{t('about.team.labels.projects')}</div>
+                  <div className="text-2xl font-bold text-white">{selectedMember.projects}</div>
+                  <div className="text-gray-400 text-sm">{t('about.team.labels.projects')}</div>
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-gray-600 text-sm font-medium">{t('about.team.labels.specialty')}</div>
-                <div className="text-gray-900 font-semibold">{selectedMember.specialty}</div>
+                <div className="text-gray-400 text-sm font-medium">{t('about.team.labels.specialty')}</div>
+                <div className="text-white font-semibold">{selectedMember.specialty}</div>
               </div>
             </div>
           </div>

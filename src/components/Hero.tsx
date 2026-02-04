@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import logo from '../assets/logos/LogoWebbitzIcona.jpeg';
+import logo from '../assets/logos/favicon.png';
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();

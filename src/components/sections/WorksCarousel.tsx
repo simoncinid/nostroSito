@@ -133,9 +133,9 @@ const WorksCarousel = () => {
   return (
     <section className="w-full py-12 mt-8">
       <div className="w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center px-4 sm:px-6 lg:px-8">
           {t('worksCarousel.title')}{' '}
-          <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
             {t('worksCarousel.titleHighlight')}
           </span>
         </h2>
@@ -161,9 +161,9 @@ const WorksCarousel = () => {
                     href={card.link} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex flex-col items-center justify-center w-full h-full text-primary-600 hover:text-primary-800 transition-colors duration-300"
+                    className="flex flex-col items-center justify-center w-full h-full text-primary-400 hover:text-primary-300 transition-colors duration-300"
                   >
-                <div className={`w-full bg-gray-100 flex items-center justify-center rounded-2xl mb-4 shadow-sm ${
+                <div className={`w-full bg-white/5 border border-white/10 flex items-center justify-center rounded-2xl mb-4 shadow-sm ${
                   window.innerWidth < 640 ? 'h-52' : 'h-64'
                 }`}>
                 
@@ -175,7 +175,7 @@ const WorksCarousel = () => {
                   />
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-lg text-gray-700">
+                  <span className="font-semibold text-lg text-gray-200">
                     {t(`worksCarousel.projects.${card.nameKey}`)}
                   </span>
                   

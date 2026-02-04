@@ -173,17 +173,17 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+            className="bg-gray-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-white/10"
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 p-4 rounded-t-2xl flex justify-between items-center">
-              <h2 className="text-xl font-bold text-gray-900">Richiedi una Consulenza</h2>
+            <div className="sticky top-0 bg-gray-800 border-b border-white/10 p-4 rounded-t-2xl flex justify-between items-center">
+              <h2 className="text-xl font-bold text-white">Richiedi una Consulenza</h2>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-xl transition-colors duration-300"
+                className="p-2 hover:bg-white/10 rounded-xl transition-colors duration-300 text-gray-300"
               >
-                <X className="w-5 h-5 text-gray-500" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
@@ -200,15 +200,15 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Messaggio Inviato!</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-2xl font-bold text-white mb-2">Messaggio Inviato!</h3>
+                  <p className="text-gray-300">
                     Grazie per averci contattato. Ti risponderemo entro 2 ore lavorative.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {submitStatus === 'error' && submitError && (
-                    <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-red-800 text-sm">
+                    <div className="rounded-xl bg-red-500/20 border border-red-400/50 px-4 py-3 text-red-200 text-sm">
                       <strong>Invio fallito.</strong> {submitError}
                     </div>
                   )}
@@ -222,7 +222,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
                             Nome *
                             {errors.name && <span className="text-red-500 text-xs ml-2">{errors.name}</span>}
                           </label>
@@ -231,14 +231,14 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             required
                             value={formData.name}
                             onChange={(e) => handleInputChange('name', e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 ${
-                              errors.name ? 'border-red-500' : 'border-gray-200 focus:border-primary-500'
+                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/5 text-white placeholder-gray-500 ${
+                              errors.name ? 'border-red-500' : 'border-white/20 focus:border-primary-500'
                             }`}
                             placeholder="Il tuo nome"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
                             Email *
                             {errors.email && <span className="text-red-500 text-xs ml-2">{errors.email}</span>}
                           </label>
@@ -247,29 +247,29 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             required
                             value={formData.email}
                             onChange={(e) => handleInputChange('email', e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 ${
-                              errors.email ? 'border-red-500' : 'border-gray-200 focus:border-primary-500'
+                            className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/5 text-white placeholder-gray-500 ${
+                              errors.email ? 'border-red-500' : 'border-white/20 focus:border-primary-500'
                             }`}
                             placeholder="la-tua-email@esempio.com"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Telefono</label>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">Telefono</label>
                           <input
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => handleInputChange('phone', e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                            className="w-full px-4 py-2 border border-white/20 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500 bg-white/5 text-white placeholder-gray-500"
                             placeholder="+39 123 456 7890"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Azienda</label>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">Azienda</label>
                           <input
                             type="text"
                             value={formData.company}
                             onChange={(e) => handleInputChange('company', e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                            className="w-full px-4 py-2 border border-white/20 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500 bg-white/5 text-white placeholder-gray-500"
                             placeholder="Nome della tua azienda"
                           />
                         </div>
@@ -286,7 +286,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                       className="space-y-4"
                     >
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Servizio Richiesto *
                           {errors.service && <span className="text-red-500 text-xs ml-2">{errors.service}</span>}
                         </label>
@@ -298,8 +298,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                               onClick={() => handleInputChange('service', service.id)}
                               className={`p-3 border rounded-xl text-left transition-all duration-300 ${
                                 formData.service === service.id
-                                  ? 'border-primary-500 bg-primary-50 text-primary-700'
-                                  : 'border-gray-200 hover:border-primary-300'
+                                  ? 'border-primary-500 bg-primary-500/20 text-primary-300'
+                                  : 'border-white/20 hover:border-primary-400/50 bg-white/5 text-gray-200'
                               } ${errors.service ? 'border-red-500' : ''}`}
                             >
                               <span className="text-xl mb-1 block">{service.icon}</span>
@@ -313,15 +313,15 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             id="otherService"
                             checked={formData.service === 'other'}
                             onChange={(e) => handleInputChange('service', e.target.checked ? 'other' : '')}
-                            className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                            className="w-4 h-4 text-primary-500 border-white/30 rounded focus:ring-primary-500 bg-white/5"
                           />
-                          <label htmlFor="otherService" className="text-sm font-medium text-gray-700">
+                          <label htmlFor="otherService" className="text-sm font-medium text-gray-300">
                             Altro servizio
                           </label>
                         </div>
                         {formData.service === 'other' && (
                           <div className="mt-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">
                               Specifica il servizio richiesto *
                               {errors.otherService && <span className="text-red-500 text-xs ml-2">{errors.otherService}</span>}
                             </label>
@@ -329,8 +329,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                               type="text"
                               value={formData.otherService}
                               onChange={(e) => handleInputChange('otherService', e.target.value)}
-                              className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 ${
-                                errors.otherService ? 'border-red-500' : 'border-gray-200 focus:border-primary-500'
+                              className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/5 text-white placeholder-gray-500 ${
+                                errors.otherService ? 'border-red-500' : 'border-white/20 focus:border-primary-500'
                               }`}
                               placeholder="Descrivi il servizio che stai cercando"
                             />
@@ -340,7 +340,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-gray-300 mb-2">
                             Budget *
                             {errors.budget && <span className="text-red-500 text-xs ml-2">{errors.budget}</span>}
                           </label>
@@ -352,8 +352,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                                 onClick={() => handleInputChange('budget', budget.id)}
                                 className={`w-full p-3 border rounded-xl text-left transition-all duration-300 ${
                                   formData.budget === budget.id
-                                    ? 'border-primary-500 bg-primary-50 text-primary-700'
-                                    : 'border-gray-200 hover:border-primary-300'
+                                    ? 'border-primary-500 bg-primary-500/20 text-primary-300'
+                                    : 'border-white/20 hover:border-primary-400/50 bg-white/5 text-gray-200'
                                 } ${errors.budget ? 'border-red-500' : ''}`}
                               >
                                 {budget.name}
@@ -363,7 +363,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">Timeline</label>
+                          <label className="block text-sm font-medium text-gray-300 mb-2">Timeline</label>
                           <div className="space-y-2">
                             {timelines.map((timeline) => (
                               <button
@@ -372,8 +372,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                                 onClick={() => handleInputChange('timeline', timeline.id)}
                                 className={`w-full p-3 border rounded-xl text-left transition-all duration-300 ${
                                   formData.timeline === timeline.id
-                                    ? 'border-primary-500 bg-primary-50 text-primary-700'
-                                    : 'border-gray-200 hover:border-primary-300'
+                                    ? 'border-primary-500 bg-primary-500/20 text-primary-300'
+                                    : 'border-white/20 hover:border-primary-400/50 bg-white/5 text-gray-200'
                                 }`}
                               >
                                 {timeline.name}
@@ -394,7 +394,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                       className="space-y-4"
                     >
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                           Descrizione del Progetto *
                           {errors.message && <span className="text-red-500 text-xs ml-2">{errors.message}</span>}
                         </label>
@@ -403,8 +403,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                           rows={5}
                           value={formData.message}
                           onChange={(e) => handleInputChange('message', e.target.value)}
-                          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 resize-none ${
-                            errors.message ? 'border-red-500' : 'border-gray-200 focus:border-primary-500'
+                          className={`w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none bg-white/5 text-white placeholder-gray-500 ${
+                            errors.message ? 'border-red-500' : 'border-white/20 focus:border-primary-500'
                           }`}
                           placeholder="Descrivi il tuo progetto, i tuoi obiettivi e qualsiasi dettaglio che ritieni importante..."
                         />
@@ -419,7 +419,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                         <div
                           key={step}
                           className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            step <= currentStep ? 'bg-primary-600' : 'bg-gray-300'
+                            step <= currentStep ? 'bg-primary-500' : 'bg-white/20'
                           }`}
                         />
                       ))}
@@ -430,7 +430,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                         <button
                           type="button"
                           onClick={prevStep}
-                          className="px-4 py-2 border border-gray-200 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition-all duration-300"
+                          className="px-4 py-2 border border-white/20 text-gray-200 font-medium rounded-xl hover:bg-white/10 transition-all duration-300"
                         >
                           Indietro
                         </button>

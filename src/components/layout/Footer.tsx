@@ -10,7 +10,7 @@ import {
   ArrowUp
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import logo from '../../assets/logos/LogoWebbitz.png'
+import logo from '../../assets/logos/logo-bianco.png'
 
 const Footer = () => {
   const { t } = useTranslation()

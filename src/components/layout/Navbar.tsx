@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import logo from '../../assets/logos/LogoWebbitz.png'
+import logo from '../../assets/logos/logo-bianco.png'
 import ContactFormModal from '../modals/ContactFormModal'
 
 const Navbar = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 lg:top-4 left-0 right-0 z-50 transition-all duration-500 flex justify-center w-full lg:w-auto max-w-full lg:max-w-[80vw] ${
           scrolled 
-            ? 'bg-white/90 lg:bg-white/40 backdrop-blur-md border-b lg:border border-white/10 shadow-lg lg:shadow-premium' 
+            ? 'bg-gray-900/95 lg:bg-gray-900/80 backdrop-blur-md border-b lg:border border-white/10 shadow-lg lg:shadow-premium' 
             : 'bg-transparent'
         } lg:rounded-2xl`}
         style={{ 
@@ -79,8 +79,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`relative px-3 py-2 font-medium text-sm transition-all duration-300 group ${
                     location.pathname === item.path
-                      ? 'text-primary-600'
-                      : 'text-gray-700 hover:text-primary-600'
+                      ? 'text-primary-400'
+                      : 'text-gray-300 hover:text-primary-400'
                   } ${item.isExtended ? 'px-6' : ''}`}
                 >
                   {t(item.name)}
@@ -120,7 +120,7 @@ const Navbar = () => {
             <div className="lg:hidden flex items-center">
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white"
               >
                 <AnimatePresence mode="wait">
                   {isOpen ? (
@@ -131,7 +131,7 @@ const Navbar = () => {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <X className="w-6 h-6 text-gray-700" />
+                      <X className="w-6 h-6 text-white" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -141,7 +141,7 @@ const Navbar = () => {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Menu className="w-6 h-6 text-gray-700" />
+                      <Menu className="w-6 h-6 text-white" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -158,7 +158,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 lg:rounded-b-2xl lg:mx-4 lg:mt-2"
+              className="lg:hidden absolute top-full left-0 right-0 bg-gray-900 shadow-xl border-t border-white/10 lg:rounded-b-2xl lg:mx-4 lg:mt-2"
             >
               <div className="px-6 py-8">
                 <div className="flex flex-col space-y-3">
@@ -174,8 +174,8 @@ const Navbar = () => {
                         onClick={closeMenu}
                         className={`block px-6 py-4 rounded-xl font-medium text-lg transition-all duration-300 ${
                           location.pathname === item.path
-                            ? 'bg-primary-100 text-primary-700 border-2 border-primary-300 shadow-md'
-                            : 'text-gray-800 hover:bg-gray-100 hover:text-primary-600'
+                            ? 'bg-primary-500/20 text-primary-300 border-2 border-primary-400/50 shadow-md'
+                            : 'text-gray-200 hover:bg-white/10 hover:text-primary-400'
                         }`}
                       >
                         {t(item.name)}

@@ -585,7 +585,7 @@ const FeaturePopup = ({ isOpen, onClose, title, description, icon: Icon, feature
     >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
       <motion.div 
-        className="bg-white rounded-2xl p-6 shadow-xl max-w-md w-full relative z-10 overflow-hidden"
+        className="bg-gray-800 rounded-2xl p-6 shadow-xl max-w-md w-full relative z-10 overflow-hidden border border-white/10"
         initial={{ y: 50 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", damping: 25 }}
@@ -593,20 +593,20 @@ const FeaturePopup = ({ isOpen, onClose, title, description, icon: Icon, feature
         <div className="absolute top-0 right-0 m-4">
           <button 
             onClick={onClose}
-            className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="p-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-gray-300"
           >
-            <X size={16} className="text-gray-500" />
+            <X size={16} className="text-gray-300" />
           </button>
         </div>
       
         <div className="flex items-center space-x-3 mb-4">
           <div className="bg-primary-500/20 p-3 rounded-full">
-            <Icon className="w-6 h-6 text-primary-600" />
+            <Icon className="w-6 h-6 text-primary-400" />
           </div>
-          <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+          <h3 className="text-xl font-bold text-white">{title}</h3>
         </div>
         
-        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-gray-300 mb-4">{description}</p>
         
         {/* Animazione in base al tipo */}
         <FeatureAnimation type={featureType} />

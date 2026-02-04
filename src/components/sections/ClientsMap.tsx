@@ -319,15 +319,15 @@ const ClientsMap = () => {
   return (
     <div className="flex justify-center py-16">
       <div className="w-full" style={{ maxWidth: '80vw' }}>
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
-        {t('clientsMap.title')} <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">{t('clientsMap.titleHighlight')}</span>
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
+        {t('clientsMap.title')} <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{t('clientsMap.titleHighlight')}</span>
       </h2>
       {/* Mappa Google Maps */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-primary-200"
+        className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-white/10"
       >
         <div 
           ref={mapRef} 
@@ -335,24 +335,24 @@ const ClientsMap = () => {
           style={{ minHeight: '16rem' }}
         />
         {/* Overlay con legenda */}
-        <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-primary-200">
-          <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">{t('clientsMap.clickMarkers')}</p>
-          <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-primary-700">
+        <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-gray-900/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-white/10">
+          <p className="text-xs md:text-sm text-gray-300 mb-2 md:mb-3">{t('clientsMap.clickMarkers')}</p>
+          <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-primary-400">
             <div className="w-3 h-3 bg-primary-600 rounded-full"></div>
             <span>{t('clientsMap.completedProjects')}</span>
           </div>
         </div>
         {/* Stats overlay */}
-        <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-white/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-primary-200">
+        <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-gray-900/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-white/10">
           <div className="text-center">
-            <div className="text-lg md:text-2xl font-bold text-primary-600">{clientLocations.length}</div>
-            <div className="text-xs text-gray-600 mb-2">{t('clientsMap.activeClients')}</div>
+            <div className="text-lg md:text-2xl font-bold text-primary-400">{clientLocations.length}</div>
+            <div className="text-xs text-gray-300 mb-2">{t('clientsMap.activeClients')}</div>
             
             {/* Dropdown per lista clienti */}
             <div className="relative dropdown-container">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 text-xs text-primary-600 hover:text-primary-800 transition-colors duration-200"
+                className="flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors duration-200"
               >
                 <MapPin size={12} />
                 <span>Lista Clienti</span>
@@ -361,13 +361,13 @@ const ClientsMap = () => {
               
               {/* Dropdown menu */}
               {isDropdownOpen && (
-                <div className="absolute top-6 right-0 bg-white rounded-lg shadow-lg border border-primary-200 py-2 min-w-[200px] max-h-[300px] overflow-y-auto z-10 scrollbar-thin scrollbar-thumb-primary-300 scrollbar-track-primary-100">
+                <div className="absolute top-6 right-0 bg-gray-800 rounded-lg shadow-lg border border-white/10 py-2 min-w-[200px] max-h-[300px] overflow-y-auto z-10">
                   {clientLocations.map((location, index) => (
                     <button
                       key={index}
                       onMouseEnter={() => highlightMarker(index)}
                       onClick={() => selectClient(index)}
-                      className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors duration-200 flex items-center gap-2"
+                      className="w-full text-left px-3 py-2 text-xs text-gray-200 hover:bg-white/10 hover:text-primary-400 transition-colors duration-200 flex items-center gap-2"
                     >
                       <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
                       <span className="truncate">{location.name}</span>
@@ -375,7 +375,7 @@ const ClientsMap = () => {
                   ))}
                   {/* Indicatore scroll */}
                   {clientLocations.length > 8 && (
-                    <div className="text-center py-1 text-xs text-primary-500 border-t border-primary-100 mt-1">
+                    <div className="text-center py-1 text-xs text-primary-400 border-t border-white/10 mt-1">
                       {t('clientsMap.scrollToSeeAll')}
                     </div>
                   )}

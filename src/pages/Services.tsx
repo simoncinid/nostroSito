@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import type { FC, ElementType } from 'react';
-import logo from '../assets/logos/LogoWebbitzIcona.jpeg';
+import logo from '../assets/logos/favicon.png';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -86,7 +86,7 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
         initial={{ scale: 0.95, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.95, y: 20 }}
-        className="relative w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+        className="relative w-full max-w-lg bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-white/10"
       >
         {/* Header con gradiente */}
         <div className={`bg-gradient-to-r ${service.gradient} p-6 flex items-start justify-between`}>
@@ -105,26 +105,26 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
         </div>
 
         {/* Contenuto */}
-        <div className="p-6 max-h-[60vh] overflow-y-auto">
-          <div className="prose prose-sm">
-            <p className="text-gray-600 mb-6">{serviceData.description}</p>
+        <div className="p-6 max-h-[60vh] overflow-y-auto bg-gray-800">
+          <div className="prose prose-sm prose-invert">
+            <p className="text-gray-300 mb-6">{serviceData.description}</p>
             
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('services.mainServices.modal.featuresTitle')}</h4>
+            <h4 className="text-lg font-semibold text-white mb-3">{t('services.mainServices.modal.featuresTitle')}</h4>
             <ul className="space-y-2 mb-6">
               {features.map((feature: string, idx: number) => (
-                <li key={idx} className="flex items-start gap-2 text-gray-600">
+                <li key={idx} className="flex items-start gap-2 text-gray-300">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('services.mainServices.modal.technologiesTitle')}</h4>
+            <h4 className="text-lg font-semibold text-white mb-3">{t('services.mainServices.modal.technologiesTitle')}</h4>
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech: string, idx: number) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm"
+                  className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm"
                 >
                   {tech}
                 </span>
@@ -134,7 +134,7 @@ const ServiceModal: FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
         </div>
 
         {/* Footer con CTA */}
-        <div className="p-6 bg-gray-50 border-t border-gray-100">
+        <div className="p-6 bg-gray-800/80 border-t border-white/10">
           <a
             href="https://wa.me/3391797616?text=Sono%20interessato%20ad%20un%20preventivo%20per%20il%20vostro%20servizio"
             target="_blank"
@@ -176,7 +176,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
       <Helmet>
         <title>{t('services.meta.title')}</title>
         <meta name="description" content={t('services.meta.description')} />
@@ -207,10 +207,10 @@ const Services = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20"
+        className="relative h-[500px] flex items-center justify-center px-4 pt-16 md:pt-16 mb-6 z-20 text-white"
       >
         {/* Logo Background Static */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5">
+        <div className="absolute inset-0 flex items-center justify-center pt-16 opacity-[0.02]">
           <img 
             src={logo} 
             alt="" 
@@ -224,16 +224,16 @@ const Services = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div>
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
                 {t('services.hero.title')}
               </span>
               <br />
-              <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-primary-400 bg-clip-text text-transparent">
                 {t('services.hero.titleAnimated')}
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               {t('services.hero.subtitle.part1')}
               <span className="text-primary-700 font-semibold">{t('services.hero.subtitle.part2')}</span>
               {t('services.hero.subtitle.part3')}
@@ -256,7 +256,7 @@ const Services = () => {
             transition={{ duration: 1 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 mt-20 md:mt-16 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
               {t('services.mainServices.title')}
             </h2>
           </motion.div>
@@ -274,7 +274,7 @@ const Services = () => {
                   animate={servicesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.2, duration: 1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="group relative bg-white/80 backdrop-blur-xl border border-primary-200 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-primary-300 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
+                  className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-4 md:p-8 hover:border-primary-400/30 hover:shadow-lg transition-all duration-500 flex flex-col h-full"
                 >
                   <div className="flex flex-col h-full items-center text-center">
                     <div className="min-h-[auto] md:min-h-[280px] flex flex-col items-center">
@@ -285,17 +285,17 @@ const Services = () => {
                         <service.icon size={24} className="text-white" />
                       </motion.div>
 
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{serviceData.title}</h3>
-                      <p className="text-primary-700 font-semibold mb-2 md:mb-4 text-sm md:text-base">{serviceData.subtitle}</p>
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{serviceData.title}</h3>
+                      <p className="text-primary-400 font-semibold mb-2 md:mb-4 text-sm md:text-base">{serviceData.subtitle}</p>
                       
                       {/* Descrizione e bottone visibili solo su desktop */}
                       <div className="hidden md:block">
-                        <p className="text-gray-600 leading-relaxed text-base">{serviceData.description}</p>
+                        <p className="text-gray-300 leading-relaxed text-base">{serviceData.description}</p>
                         <div className="mt-8 w-full">
-                          <h4 className="font-semibold text-gray-900 mb-3">{t('services.mainServices.modal.featuresTitle')}</h4>
+                          <h4 className="font-semibold text-white mb-3">{t('services.mainServices.modal.featuresTitle')}</h4>
                           <ul className="space-y-2">
                             {features.slice(0, 3).map((feature, idx) => (
-                              <li key={idx} className="flex items-center justify-center text-sm text-gray-600">
+                              <li key={idx} className="flex items-center justify-center text-sm text-gray-300">
                                 <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                                 {feature}
                               </li>
@@ -339,10 +339,10 @@ const Services = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
               {t('services.cta.title')}
             </h2>
-            <p className="text-xl text-gray-700 mb-12">
+            <p className="text-xl text-gray-300 mb-12">
               {t('services.cta.subtitle')}
             </p>
             
@@ -448,20 +448,20 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-16 px-4 bg-gradient-to-br from-gray-900/50 to-gray-800/50">
       <div className="flex justify-center">
         <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <h2 className="font-bold bg-gradient-to-r from-gray-900 to-primary-600 bg-clip-text text-transparent"
+            <h2 className="font-bold bg-gradient-to-r from-white to-primary-400 bg-clip-text text-transparent"
               style={{ fontSize: 'clamp(1.3rem,6vw,2.7rem)' }}>
               {t('services.process.title')}
             </h2>
             <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
               <button
                 onClick={() => navigateTimeline('prev')}
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary-50 hover:border-primary-200 hover:text-primary-600 transition-all duration-200 shadow-sm"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary-500/20 hover:border-primary-400/50 hover:text-primary-400 transition-all duration-200 shadow-sm"
               >
                 <ChevronLeft size={16} />
               </button>
@@ -473,22 +473,22 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
               </button>
               <button
                 onClick={() => navigateTimeline('next')}
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary-50 hover:border-primary-200 hover:text-primary-600 transition-all duration-200 shadow-sm"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary-500/20 hover:border-primary-400/50 hover:text-primary-400 transition-all duration-200 shadow-sm"
               >
                 <ChevronRight size={16} />
               </button>
             </div>
           </div>
-          <p className="text-gray-600 mx-auto mt-4" style={{ fontSize: 'clamp(0.95rem,3vw,1.2rem)', maxWidth: '95vw' }}>
+          <p className="text-gray-400 mx-auto mt-4" style={{ fontSize: 'clamp(0.95rem,3vw,1.2rem)', maxWidth: '95vw' }}>
             {t('services.process.subtitle')}
           </p>
         </div>
 
         {/* Main Container */}
-        <div className="bg-white rounded-2xl border border-gray-100 p-3 sm:p-6 shadow-lg">
+        <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-6 shadow-lg">
           {/* Progress Bar */}
           <div className="relative mb-4">
-            <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-700 ease-out"
                 style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
@@ -509,7 +509,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                     ? 'border-primary-500 bg-primary-500 shadow-lg' 
                     : index < activeStep
                     ? 'border-green-500 bg-green-500'
-                    : 'border-gray-300 bg-white hover:border-primary-300'
+                    : 'border-white/30 bg-white/5 hover:border-primary-400/50'
                 }`}>
                   {index < activeStep ? (
                     <CheckCircle size={14} className="text-white sm:w-5 sm:h-5" />
@@ -518,7 +518,7 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                       size={14} 
                       className={`${
                         index === activeStep ? 'text-white' : 
-                        index < activeStep ? 'text-white' : 'text-gray-500'
+                        index < activeStep ? 'text-white' : 'text-gray-400'
                       } sm:w-5 sm:h-5`} 
                     />
                   )}
@@ -536,23 +536,23 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                   {React.createElement(developmentProcess[activeStep].icon, { size: 22, className: "text-white sm:w-7 sm:h-7" })}
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 mb-2" style={{ fontSize: 'clamp(1.1rem,4vw,2.1rem)' }}>
+                  <h3 className="font-bold text-white mb-2" style={{ fontSize: 'clamp(1.1rem,4vw,2.1rem)' }}>
                     {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.title`)}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed" style={{ fontSize: 'clamp(0.95rem,2.5vw,1.15rem)' }}>
+                  <p className="text-gray-300 leading-relaxed" style={{ fontSize: 'clamp(0.95rem,2.5vw,1.15rem)' }}>
                     {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.description`)}
                   </p>
                 </div>
               </div>
 
               {/* Seconda riga: Tempistica e Strumenti */}
-              <div className="flex flex-col sm:flex-row items-center justify-between border-t border-gray-100 pt-3 sm:pt-4 gap-4 sm:gap-0">
-                <div className="flex items-center gap-2 text-primary-600 font-medium">
+              <div className="flex flex-col sm:flex-row items-center justify-between border-t border-white/10 pt-3 sm:pt-4 gap-4 sm:gap-0">
+                <div className="flex items-center gap-2 text-primary-400 font-medium">
                   <Clock size={16} className="sm:w-5 sm:h-5" />
                   <span style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>{t(`services.process.steps.${developmentProcess[activeStep].stepKey}.duration`)}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
-                  <h4 className="font-semibold text-gray-900 flex items-center gap-2" style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>
+                  <h4 className="font-semibold text-white flex items-center gap-2" style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>
                     <Settings size={16} className="text-primary-600 sm:w-5 sm:h-5" />
                     {t('services.process.toolsLabel')}
                   </h4>
@@ -579,8 +579,8 @@ const ProcessSection: FC<ProcessSectionProps> = () => {
                 onClick={() => setActiveStep(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === activeStep 
-                    ? 'bg-primary-600 w-6' 
-                    : 'bg-gray-300 hover:bg-primary-300'
+                    ? 'bg-primary-500 w-6' 
+                    : 'bg-white/20 hover:bg-primary-400/50'
                 }`}
               />
             ))}

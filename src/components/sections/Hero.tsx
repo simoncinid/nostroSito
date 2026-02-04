@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Code, Bot, Zap, Sparkles, Globe, Cpu, Rocket } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import logo from '../../assets/logos/LogoWebbitzIcona.jpeg'
+import logo from '../../assets/logos/favicon.png'
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -66,7 +66,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-primary-50 to-primary-100 pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-20"
     >
       {/* Logo Background - intensità ridotta per leggibilità */}
       <motion.div 
@@ -228,7 +228,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-                          className="text-4xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600 bg-clip-text text-transparent leading-tight"
+                          className="text-4xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent leading-tight"
           >
             {t('hero.title1')}
             <br />
@@ -248,7 +248,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part1')}</span>{t('hero.subtitle.part2')}
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part3')}</span>{t('hero.subtitle.part4')}
@@ -272,7 +272,7 @@ const Hero = () => {
                     y: -5,
                     boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
                   }}
-                  className="relative overflow-hidden bg-white/95 border border-primary-200 rounded-xl p-4 hover:border-primary-300 transition-all duration-75 group"
+                  className="relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:border-primary-400/30 transition-all duration-75 group"
                   style={{ background: service.bg }}
                 >
                   <div className="flex items-start gap-4 relative z-10">
@@ -293,7 +293,7 @@ const Hero = () => {
                       <h3 className={`text-lg font-bold mb-1 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
                         {t(service.title)}
                       </h3>
-                      <p className="text-gray-700 text-sm leading-relaxed">
+                      <p className="text-gray-300 text-sm leading-relaxed">
                         {t(service.desc)}
                       </p>
                     </div>
@@ -331,7 +331,7 @@ const Hero = () => {
                     y: -10,
                     boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
                   }}
-                  className="relative overflow-hidden bg-white/90 backdrop-blur-lg border border-primary-200 rounded-2xl p-5 hover:border-primary-300 transition-all duration-75 group text-center"
+                  className="relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:border-primary-400/30 transition-all duration-75 group text-center"
                   style={{ background: service.bg }}
                 >
                   {/* Animated background pattern */}
@@ -381,7 +381,7 @@ const Hero = () => {
                   <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
                     {t(service.title)}
                   </h3>
-                  <p className="text-gray-700 text-base">{t(service.desc)}</p>
+                  <p className="text-gray-300 text-base">{t(service.desc)}</p>
                   
                   {/* Animated border accent */}
                   <motion.div 
@@ -418,7 +418,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group bg-white/80 backdrop-blur-lg border border-primary-200 hover:border-primary-300 text-gray-900 font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 hover:shadow-lg"
+                className="group bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 hover:shadow-lg"
               >
                 <span>{t('hero.cta.secondary')}</span>
                 <motion.div
