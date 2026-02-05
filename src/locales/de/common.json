@@ -727,6 +727,153 @@
       "response": "Vielen Dank für Ihre Nachricht! Einer unserer Experten wird Sie bald kontaktieren. In der Zwischenzeit können Sie das Formular ausfüllen, um uns weitere Details zu Ihrem Projekt zu geben. 🚀"
     }
   },
+  "privacy": {
+    "meta": {
+      "title": "Datenschutzerklärung | Webbitz",
+      "description": "Datenschutzhinweis nach DSGVO: Verarbeitung personenbezogener Daten, Cookies/Analytics, Rechte und Kontakt."
+    },
+    "hero": {
+      "title": "Datenschutzerklärung",
+      "subtitle": "Dieser Hinweis erklärt, wie wir personenbezogene Daten verarbeiten, wenn Sie die Website nutzen oder uns kontaktieren."
+    },
+    "lastUpdatedLabel": "Zuletzt aktualisiert:",
+    "lastUpdatedDate": "05.02.2026",
+    "tocTitle": "Inhalt",
+    "sections": [
+      {
+        "id": "controller",
+        "title": "Verantwortlicher",
+        "content": [
+          "Verantwortlicher ist Webbitz.",
+          "Für Datenschutzanfragen erreichen Sie uns per E‑Mail: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "data",
+        "title": "Verarbeitete Daten",
+        "content": [
+          "Vom Nutzer bereitgestellte Daten: Bei Nutzung des Kontaktformulars können wir Name, E‑Mail, Telefon, Unternehmen, Service/Budget/Zeitrahmen und den Nachrichtentext verarbeiten.",
+          "Nutzungs-/Protokolldaten: Systeme können technische Informationen (z. B. IP‑Adresse, User‑Agent, besuchte Seiten, Datum/Uhrzeit) für Betrieb und Sicherheit erfassen.",
+          "Cookies und ähnliche Technologien: Die Website kann technische Cookies, Analyse-Tools (Analytics) und Inhalte Dritter (z. B. Karten) verwenden."
+        ]
+      },
+      {
+        "id": "purposes",
+        "title": "Zwecke",
+        "content": [
+          "Bearbeitung und Beantwortung von Anfragen sowie Informationen zu Leistungen und Angeboten.",
+          "Sicherstellung des Betriebs der Website, Missbrauchsprävention und Verbesserung der Nutzererfahrung.",
+          "Aggregierte Analyse der Website-Performance zur Optimierung von Inhalten und Navigation."
+        ]
+      },
+      {
+        "id": "legal",
+        "title": "Rechtsgrundlage",
+        "content": [
+          "Vorvertragliche/vertragliche Maßnahmen (Anfragen beantworten, Leistung erbringen).",
+          "Berechtigtes Interesse (Sicherheit, Missbrauchs-/Betrugsprävention, Serviceverbesserung).",
+          "Einwilligung, soweit erforderlich, für nicht notwendige Cookies/Tools."
+        ]
+      },
+      {
+        "id": "processing",
+        "title": "Verarbeitung und Sicherheit",
+        "content": [
+          "Wir verarbeiten Daten mit geeigneten technischen und organisatorischen Maßnahmen für die genannten Zwecke.",
+          "Wir treffen angemessene Schutzmaßnahmen; absolute Sicherheit kann nicht garantiert werden."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "Speicherdauer",
+        "content": [
+          "Wir speichern Daten so lange, wie es zur Bearbeitung von Anfragen sowie zur Erfüllung gesetzlicher Pflichten oder zur Rechtsverteidigung erforderlich ist.",
+          "Allgemein: Kontaktdaten und Nachrichten können bis zu 12 Monate gespeichert werden, sofern keine längere Aufbewahrung aufgrund einer laufenden Beziehung oder rechtlicher Anforderungen nötig ist."
+        ]
+      },
+      {
+        "id": "recipients",
+        "title": "Empfänger",
+        "content": [
+          "Daten können durch Dienstleister verarbeitet werden, die Website und Services unterstützen (z. B. Hosting, E‑Mail, Analytics, Karten) – je nach Rolle als Auftragsverarbeiter oder eigenständige Verantwortliche.",
+          "Wir verkaufen keine personenbezogenen Daten. Eine Weitergabe an Behörden erfolgt nur, wenn gesetzlich erforderlich."
+        ]
+      },
+      {
+        "id": "third-parties",
+        "title": "Drittanbieter-Dienste",
+        "content": [
+          "Kontaktformular: Übermittelte Daten werden an unsere Systeme gesendet und per E‑Mail weitergeleitet, um antworten zu können.",
+          "Analytics: Wir nutzen Mess-Tools (z. B. Vercel Analytics), um die Nutzung zu verstehen und die Website zu verbessern.",
+          "Karten: Einige Seiten können Google Maps laden; Google kann Daten gemäß eigener Richtlinien verarbeiten."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "Cookie-Einstellungen",
+        "content": [
+          "Sie können Cookies in den Browser-Einstellungen verwalten oder deaktivieren. Das Deaktivieren technischer Cookies kann Funktionen beeinträchtigen.",
+          "Wenn nicht notwendige Cookies/Tools eingesetzt werden, kann eine Einwilligung über Banner/Präferenzverwaltung eingeholt werden."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "Ihre Rechte",
+        "content": [
+          "Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch nach DSGVO.",
+          "Sie haben außerdem das Recht, eine Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen.",
+          "Zur Ausübung Ihrer Rechte: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "Änderungen",
+        "content": [
+          "Wir können diesen Hinweis gelegentlich aktualisieren. Änderungen werden auf dieser Seite mit Datum veröffentlicht."
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ | Webbitz",
+      "description": "Häufig gestellte Fragen zu unseren Leistungen, Zeitplänen und Preisen. Finden Sie die Antworten zu Webbitz."
+    },
+    "hero": {
+      "title": "Häufig gestellte Fragen",
+      "subtitle": "Hier sind die Antworten auf die Fragen, die uns am häufigsten gestellt werden. Finden Sie nicht, was Sie suchen? Kontaktieren Sie uns."
+    },
+    "items": [
+      {
+        "question": "Welche Leistungen bieten Sie an?",
+        "answer": "Wir bieten Webseiten- und Web-App-Entwicklung, KI-Chatbots und -Lösungen, SEO und digitales Marketing sowie Markenidentität. Jedes Projekt wird auf Ihre Bedürfnisse zugeschnitten."
+      },
+      {
+        "question": "Wie lange dauert ein Projekt?",
+        "answer": "Das hängt von der Komplexität ab: Eine Präsentationsseite kann in 2–4 Wochen fertig sein, ein E-Commerce- oder KI-Projekt in der Regel 1–3 Monate. Nach dem ersten Gespräch geben wir Ihnen eine klare Schätzung."
+      },
+      {
+        "question": "Wie funktioniert das Angebot?",
+        "answer": "Nach Ihrer Kontaktaufnahme vereinbaren wir einen Anruf oder ein Treffen, um Ziele und Budget zu klären. Sie erhalten ein transparentes Angebot ohne Verpflichtung. Keine versteckten Kosten."
+      },
+      {
+        "question": "Arbeiten Sie nur in Italien?",
+        "answer": "Wir sind in Pontedera (PI) ansässig, arbeiten aber mit Kunden in ganz Italien und im Ausland. Alles kann remote und in mehreren Sprachen abgewickelt werden."
+      },
+      {
+        "question": "Bieten Sie Support nach dem Launch?",
+        "answer": "Ja. Wir bieten Wartung, Updates und technischen Support nach dem Go-Live. Wir können maßgeschneiderte Support-Pakete vereinbaren."
+      },
+      {
+        "question": "Wie kann ich starten?",
+        "answer": "Schreiben Sie uns über die Kontaktseite, per WhatsApp oder über das Formular. Wir antworten innerhalb von 24 Stunden für ein kostenloses erstes Gespräch."
+      }
+    ],
+    "cta": {
+      "text": "Keine passende Antwort gefunden? Schreiben Sie uns, wir helfen gern.",
+      "button": "Kontakt"
+    }
+  },
   "footer": {
     "description": "Wir verwandeln Ihre Ideen in außergewöhnliche digitale Erlebnisse. Premium-Lösungen für Unternehmen, die sich abheben wollen.",
     "contact": {

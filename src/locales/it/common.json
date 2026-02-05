@@ -937,6 +937,153 @@
       "response": "Grazie per il tuo messaggio! Un nostro esperto ti contatterà presto. Nel frattempo, puoi compilare il form per darci più dettagli sul tuo progetto. 🚀"
     }
   },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy | Webbitz",
+      "description": "Informativa privacy ai sensi del GDPR: come raccogliamo e utilizziamo i dati, cookie/analytics, diritti dell’utente e contatti."
+    },
+    "hero": {
+      "title": "Privacy Policy",
+      "subtitle": "Questa informativa descrive come trattiamo i dati personali quando visiti il sito o ci contatti tramite i nostri canali."
+    },
+    "lastUpdatedLabel": "Ultimo aggiornamento:",
+    "lastUpdatedDate": "05/02/2026",
+    "tocTitle": "Indice",
+    "sections": [
+      {
+        "id": "controller",
+        "title": "Titolare del trattamento",
+        "content": [
+          "Il Titolare del trattamento è Webbitz.",
+          "Per qualunque richiesta relativa alla privacy puoi contattarci via email: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "data",
+        "title": "Dati trattati",
+        "content": [
+          "Dati forniti dall’utente: quando compili il form di contatto possiamo raccogliere nome, email, telefono, azienda, preferenze di servizio/budget/timeline e il contenuto del messaggio.",
+          "Dati di navigazione: come la maggior parte dei siti, i sistemi informatici e le procedure software possono acquisire informazioni tecniche (es. indirizzo IP, user agent, pagine visitate, data/ora) per il corretto funzionamento e la sicurezza.",
+          "Cookie e tecnologie similari: il sito può usare cookie tecnici e strumenti di misurazione/analisi delle visite (es. analytics) e contenuti di terze parti (es. mappe)."
+        ]
+      },
+      {
+        "id": "purposes",
+        "title": "Finalità del trattamento",
+        "content": [
+          "Gestire e rispondere alle richieste inviate tramite form/contatti e fornire informazioni su servizi e preventivi.",
+          "Garantire il funzionamento del sito, prevenire abusi e migliorare l’esperienza utente.",
+          "Analizzare in forma aggregata le performance del sito (es. statistiche di utilizzo) per ottimizzarne contenuti e navigazione."
+        ]
+      },
+      {
+        "id": "legal",
+        "title": "Base giuridica",
+        "content": [
+          "Esecuzione di misure precontrattuali/contrattuali (rispondere a richieste e fornire un servizio).",
+          "Legittimo interesse (sicurezza del sito, prevenzione frodi/abusi, miglioramento del servizio).",
+          "Consenso, ove richiesto, per cookie e strumenti non strettamente necessari."
+        ]
+      },
+      {
+        "id": "processing",
+        "title": "Modalità del trattamento e sicurezza",
+        "content": [
+          "Il trattamento avviene con strumenti informatici e organizzativi adeguati alle finalità indicate.",
+          "Adottiamo misure ragionevoli per proteggere i dati; nessun sistema è tuttavia totalmente sicuro."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "Conservazione dei dati",
+        "content": [
+          "Conserviamo i dati per il tempo necessario a gestire le richieste e per obblighi di legge o esigenze difensive.",
+          "In linea generale: i dati di contatto e i messaggi possono essere conservati fino a 12 mesi, salvo ulteriori necessità connesse al rapporto o a obblighi normativi."
+        ]
+      },
+      {
+        "id": "recipients",
+        "title": "Destinatari e categorie di destinatari",
+        "content": [
+          "I dati possono essere trattati da fornitori che supportano l’erogazione del sito e dei servizi (es. hosting, invio email, analytics, mappe) in qualità di responsabili o autonomi titolari, secondo i rispettivi ruoli.",
+          "Non vendiamo i dati personali. I dati possono essere comunicati alle autorità competenti se previsto dalla legge."
+        ]
+      },
+      {
+        "id": "third-parties",
+        "title": "Servizi di terze parti utilizzati",
+        "content": [
+          "Modulo contatti: i dati inseriti vengono inviati ai nostri sistemi e inoltrati via email per poter rispondere alla richiesta.",
+          "Analytics: utilizziamo strumenti di misurazione (es. Vercel Analytics) per capire come viene usato il sito e migliorarlo.",
+          "Mappe: alcune pagine possono caricare Google Maps; Google può raccogliere dati secondo le proprie policy."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "Cookie e preferenze",
+        "content": [
+          "Puoi gestire o disabilitare i cookie dalle impostazioni del browser. La disabilitazione dei cookie tecnici potrebbe compromettere alcune funzionalità del sito.",
+          "Se vengono impiegati cookie o strumenti non essenziali, potremmo richiedere il consenso tramite apposito banner/strumento di gestione preferenze."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "Diritti dell’interessato",
+        "content": [
+          "Hai diritto di ottenere accesso ai dati, rettifica, cancellazione, limitazione, portabilità e di opporti al trattamento nei casi previsti dal GDPR.",
+          "Hai inoltre diritto di proporre reclamo al Garante per la Protezione dei Dati Personali.",
+          "Per esercitare i diritti puoi scrivere a: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "Modifiche a questa informativa",
+        "content": [
+          "Potremmo aggiornare questa informativa periodicamente. Le modifiche saranno pubblicate su questa pagina con indicazione della data di aggiornamento."
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ | Webbitz",
+      "description": "Domande frequenti su servizi, tempi e prezzi. Trova le risposte che cerchi su Webbitz."
+    },
+    "hero": {
+      "title": "Domande frequenti",
+      "subtitle": "Ecco le risposte alle domande che ci fanno più spesso. Non trovi quello che cerchi? Contattaci."
+    },
+    "items": [
+      {
+        "question": "Quali servizi offrite?",
+        "answer": "Offriamo sviluppo siti web e web app, chatbot e soluzioni AI, SEO e marketing digitale, e creazione di brand identity. Ogni progetto è cucito su misura sulle tue esigenze."
+      },
+      {
+        "question": "Quanto tempo richiede un progetto?",
+        "answer": "Dipende dalla complessità: un sito vetrina può essere pronto in 2-4 settimane, mentre un e-commerce o un progetto con AI richiedono in genere 1-3 mesi. Ti daremo una stima chiara dopo il primo colloquio."
+      },
+      {
+        "question": "Come funziona il preventivo?",
+        "answer": "Dopo averci contattati, fissiamo una chiamata o un incontro per capire obiettivi e budget. Ti inviamo un preventivo trasparente senza impegno. Nessun costo nascosto."
+      },
+      {
+        "question": "Lavorate solo in Italia?",
+        "answer": "Siamo based a Pontedera (PI) ma lavoriamo con clienti in tutta Italia e all'estero. Possiamo gestire tutto in remoto e in più lingue."
+      },
+      {
+        "question": "Fornite assistenza dopo il lancio?",
+        "answer": "Sì. Offriamo manutenzione, aggiornamenti e supporto tecnico dopo il rilascio. Possiamo concordare pacchetti di assistenza su misura."
+      },
+      {
+        "question": "Come posso iniziare?",
+        "answer": "Scrivi dalla pagina Contatti, inviaci un messaggio su WhatsApp o compila il form. Ti rispondiamo entro 24 ore per fissare un primo colloquio gratuito."
+      }
+    ],
+    "cta": {
+      "text": "Non hai trovato la risposta? Scrivici, siamo qui per aiutarti.",
+      "button": "Contattaci"
+    }
+  },
   "footer": {
     "description": "Trasformiamo le tue idee in esperienze digitali straordinarie. Soluzioni premium per aziende che vogliono distinguersi.",
     "contact": {

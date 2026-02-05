@@ -9,6 +9,8 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
+import Faq from './pages/Faq'
+import Privacy from './pages/Privacy'
 import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 
@@ -33,6 +35,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />

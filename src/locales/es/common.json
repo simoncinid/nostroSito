@@ -727,6 +727,153 @@
       "response": "¡Gracias por tu mensaje! Uno de nuestros expertos te contactará pronto. Mientras tanto, puedes llenar el formulario para darnos más detalles sobre tu proyecto. 🚀"
     }
   },
+  "privacy": {
+    "meta": {
+      "title": "Política de Privacidad | Webbitz",
+      "description": "Aviso de privacidad (RGPD): cómo tratamos datos personales, cookies/analytics, derechos del usuario y contacto."
+    },
+    "hero": {
+      "title": "Política de Privacidad",
+      "subtitle": "Este aviso explica cómo tratamos los datos personales cuando navegas por el sitio o te pones en contacto con nosotros."
+    },
+    "lastUpdatedLabel": "Última actualización:",
+    "lastUpdatedDate": "05/02/2026",
+    "tocTitle": "Índice",
+    "sections": [
+      {
+        "id": "controller",
+        "title": "Responsable del tratamiento",
+        "content": [
+          "El responsable del tratamiento es Webbitz.",
+          "Para cualquier solicitud de privacidad puedes escribir a: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "data",
+        "title": "Datos que tratamos",
+        "content": [
+          "Datos proporcionados por el usuario: al usar el formulario de contacto podemos recoger nombre, email, teléfono, empresa, preferencias de servicio/presupuesto/plazos y el contenido del mensaje.",
+          "Datos de navegación: nuestros sistemas pueden recopilar información técnica (p. ej. IP, user agent, páginas visitadas, fecha/hora) por funcionamiento y seguridad.",
+          "Cookies y tecnologías similares: el sitio puede usar cookies técnicas, herramientas de medición (analytics) y contenido de terceros (p. ej. mapas)."
+        ]
+      },
+      {
+        "id": "purposes",
+        "title": "Finalidades",
+        "content": [
+          "Gestionar y responder solicitudes y proporcionar información sobre servicios y presupuestos.",
+          "Asegurar el funcionamiento del sitio, prevenir abusos y mejorar la experiencia de usuario.",
+          "Analizar el rendimiento del sitio de forma agregada para optimizar contenidos y navegación."
+        ]
+      },
+      {
+        "id": "legal",
+        "title": "Base jurídica",
+        "content": [
+          "Medidas precontractuales/contractuales (responder solicitudes y prestar un servicio).",
+          "Interés legítimo (seguridad, prevención de fraudes/abusos, mejora del servicio).",
+          "Consentimiento, cuando sea necesario, para cookies/herramientas no esenciales."
+        ]
+      },
+      {
+        "id": "processing",
+        "title": "Cómo tratamos los datos y seguridad",
+        "content": [
+          "Tratamos los datos con medidas técnicas y organizativas adecuadas a las finalidades indicadas.",
+          "Aplicamos medidas razonables de seguridad; ningún sistema es completamente seguro."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "Conservación",
+        "content": [
+          "Conservamos los datos el tiempo necesario para gestionar solicitudes y cumplir obligaciones legales o necesidades defensivas.",
+          "Como regla general: los datos de contacto y mensajes pueden conservarse hasta 12 meses, salvo necesidad de un periodo mayor por relación en curso o por ley."
+        ]
+      },
+      {
+        "id": "recipients",
+        "title": "Destinatarios",
+        "content": [
+          "Los datos pueden ser tratados por proveedores que soportan el sitio y los servicios (p. ej. hosting, envío de email, analytics, mapas), según sus roles.",
+          "No vendemos datos personales. Podemos comunicar datos a autoridades cuando lo exija la ley."
+        ]
+      },
+      {
+        "id": "third-parties",
+        "title": "Servicios de terceros",
+        "content": [
+          "Formulario de contacto: los datos enviados se envían a nuestros sistemas y se reenvían por email para poder responder.",
+          "Analytics: usamos herramientas de medición (p. ej. Vercel Analytics) para entender el uso y mejorar el sitio.",
+          "Mapas: algunas páginas pueden cargar Google Maps; Google puede recopilar datos según sus políticas."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "Preferencias de cookies",
+        "content": [
+          "Puedes gestionar o desactivar cookies desde la configuración del navegador. Desactivar cookies técnicas puede afectar funcionalidades.",
+          "Si se usan cookies/herramientas no esenciales, podemos solicitar consentimiento mediante banner/gestor de preferencias."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "Tus derechos",
+        "content": [
+          "Puedes ejercer derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición según el RGPD.",
+          "También puedes presentar una reclamación ante la autoridad de control competente.",
+          "Para ejercer derechos: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "Cambios",
+        "content": [
+          "Podemos actualizar este aviso periódicamente. Los cambios se publicarán en esta página con la fecha de actualización."
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ | Webbitz",
+      "description": "Preguntas frecuentes sobre servicios, plazos y precios. Encuentra las respuestas que buscas sobre Webbitz."
+    },
+    "hero": {
+      "title": "Preguntas frecuentes",
+      "subtitle": "Estas son las respuestas a las preguntas que más nos hacen. ¿No encuentras lo que buscas? Contáctanos."
+    },
+    "items": [
+      {
+        "question": "¿Qué servicios ofrecen?",
+        "answer": "Ofrecemos desarrollo de sitios web y aplicaciones web, chatbots y soluciones con IA, SEO y marketing digital, y creación de identidad de marca. Cada proyecto se adapta a tus necesidades."
+      },
+      {
+        "question": "¿Cuánto tarda un proyecto?",
+        "answer": "Depende de la complejidad: un sitio vitrina puede estar listo en 2-4 semanas, mientras que un e-commerce o proyecto con IA suele llevar 1-3 meses. Te daremos una estimación clara tras la primera reunión."
+      },
+      {
+        "question": "¿Cómo funciona el presupuesto?",
+        "answer": "Después de contactarnos, fijamos una llamada o reunión para entender objetivos y presupuesto. Te enviamos un presupuesto transparente sin compromiso. Sin costes ocultos."
+      },
+      {
+        "question": "¿Trabajan solo en Italia?",
+        "answer": "Estamos en Pontedera (PI) pero trabajamos con clientes en toda Italia y en el extranjero. Podemos gestionarlo todo en remoto y en varios idiomas."
+      },
+      {
+        "question": "¿Ofrecen soporte después del lanzamiento?",
+        "answer": "Sí. Ofrecemos mantenimiento, actualizaciones y soporte técnico tras el lanzamiento. Podemos acordar paquetes de soporte a medida."
+      },
+      {
+        "question": "¿Cómo puedo empezar?",
+        "answer": "Escribe desde la página de Contacto, envíanos un WhatsApp o rellena el formulario. Te respondemos en 24 horas para fijar una primera consulta gratuita."
+      }
+    ],
+    "cta": {
+      "text": "¿No encontraste tu respuesta? Escríbenos, estamos aquí para ayudarte.",
+      "button": "Contáctanos"
+    }
+  },
   "footer": {
     "description": "Transformamos tus ideas en experiencias digitales extraordinarias. Soluciones premium para empresas que quieren destacar.",
     "contact": {
