@@ -195,16 +195,31 @@ const Hero = () => {
             </motion.span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle - Hidden on mobile, shown on desktop */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="hidden md:block text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
           >
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part1')}</span>{t('hero.subtitle.part2')}
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part3')}</span>{t('hero.subtitle.part4')}
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part5')}</span>{t('hero.subtitle.part6')}
+          </motion.p>
+
+          {/* Slogan - Mobile */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="md:hidden text-lg italic text-center mb-8"
+          >
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">We Design,</span>
+            <br />
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">We Build,</span>
+            <br />
+            <span className="text-primary-500 font-semibold">You</span>
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"> Grow.</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -212,16 +227,16 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-4 mb-8"
+            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mt-4 mb-8"
           >
             <Link to="/contact">
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(232, 80, 2, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-gradient-to-r from-primary-500 to-primary-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-500 ease-out flex items-center gap-3 overflow-hidden"
+                className="group relative bg-gradient-to-r from-primary-500 to-primary-600 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all duration-500 ease-out flex items-center gap-2 md:gap-3 overflow-hidden text-sm md:text-base"
               >
                 <span className="relative z-10">{t('hero.cta.primary')}</span>
-                <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" size={18} />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-primary-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
               </motion.button>
             </Link>
@@ -230,14 +245,14 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 hover:shadow-lg"
+                className="group bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all duration-300 flex items-center gap-2 md:gap-3 hover:shadow-lg text-sm md:text-base"
               >
                 <span>{t('hero.cta.secondary')}</span>
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 >
-                  <Sparkles className="text-primary-600" size={20} />
+                  <Sparkles className="text-primary-600" size={18} />
                 </motion.div>
               </motion.button>
             </Link>
