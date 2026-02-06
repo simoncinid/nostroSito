@@ -5,7 +5,6 @@ import logo from '../assets/logos/favicon.png';
 import { 
   ExternalLink, 
   Github, 
-  Eye, 
   X, 
   Code,
   Bot,

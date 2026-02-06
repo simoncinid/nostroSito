@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { FC, ElementType } from 'react';
 import logo from '../assets/logos/favicon.png';
 import { 

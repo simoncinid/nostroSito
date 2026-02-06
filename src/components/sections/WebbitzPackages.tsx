@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Zap, Crown, ArrowRight, Sparkles, MessageSquare, Bot, Search, Globe, Briefcase, Palette, BarChart3, Database, Settings, Smartphone, Check, Info, X, ChevronRight, Star, Laptop, Monitor, Terminal, Code } from 'lucide-react'
+import { Zap, Crown, ArrowRight, Sparkles, MessageSquare, Bot, Search, Globe, Briefcase, Palette, BarChart3, Database, Settings, Smartphone, Check, Info, X, ChevronRight, Star, Laptop, Monitor, Code } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { LucideIcon } from 'lucide-react'
