@@ -131,7 +131,7 @@ const Navbar = () => {
                   animate={{ rotate: theme === 'dark' ? 0 : 180 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {theme === 'dark' ? <Sun className="w-5 h-5 text-primary-400" /> : <Moon className="w-5 h-5 text-primary-400" />}
+                  {theme === 'dark' ? <Sun className="w-6 h-6 text-primary-400" /> : <Moon className="w-6 h-6 text-primary-400" />}
                 </motion.div>
               </button>
               
