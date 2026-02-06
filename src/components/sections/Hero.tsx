@@ -195,31 +195,28 @@ const Hero = () => {
             </motion.span>
           </motion.h1>
 
-          {/* Subtitle - Hidden on mobile, shown on desktop */}
+          {/* Slogan */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.35 }}
+            className="text-base md:text-xl italic text-center mb-4 md:mb-6"
+          >
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">We Design, We Build, </span>
+            <span className="text-primary-500 font-semibold">You</span>
+            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"> Grow.</span>
+          </motion.p>
+
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="hidden md:block text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
+            className="text-xs md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
           >
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part1')}</span>{t('hero.subtitle.part2')}
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part3')}</span>{t('hero.subtitle.part4')}
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part5')}</span>{t('hero.subtitle.part6')}
-          </motion.p>
-
-          {/* Slogan - Mobile */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="md:hidden text-lg italic text-center mb-8"
-          >
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">We Design,</span>
-            <br />
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">We Build,</span>
-            <br />
-            <span className="text-primary-500 font-semibold">You</span>
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"> Grow.</span>
           </motion.p>
 
           {/* CTA Buttons */}
