@@ -1,148 +1,38 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown, MapPin } from 'lucide-react'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
-declare global {
-  interface Window {
-    google: any;
-    initMap?: () => void;
-    openInfoWindow?: any;
+// Custom marker icon
+const customIcon = new L.Icon({
+  iconUrl: 'data:image/svg+xml;base64,' + btoa(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+      <circle cx="12" cy="12" r="10" fill="#E85002" stroke="#ffffff" stroke-width="3"/>
+    </svg>
+  `),
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+  popupAnchor: [0, -16]
+})
+
+// Component to fly to location
+const FlyToLocation = ({ location }: { location: { lat: number, lng: number } | null }) => {
+  const map = useMap()
+  
+  if (location) {
+    map.flyTo([location.lat, location.lng], 8, { duration: 1.5 })
   }
+  
+  return null
 }
 
 const ClientsMap = () => {
   const { t } = useTranslation()
-  const mapRef = useRef<HTMLDivElement>(null)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const [mapInstance, setMapInstance] = useState<any>(null)
-  const [markers, setMarkers] = useState<any[]>([])
-
-  // Funzione per evidenziare un marker specifico (hover)
-  const highlightMarker = (markerIndex: number) => {
-    if (!mapInstance || !markers[markerIndex]) return;
-    
-    const markerData = markers[markerIndex];
-    const marker = markerData.marker;
-    
-    // Centra la mappa sul marker
-    mapInstance.setCenter(marker.getPosition());
-    mapInstance.setZoom(8);
-    
-    // Evidenzia il marker con un'animazione
-    marker.setAnimation(window.google.maps.Animation.BOUNCE);
-    setTimeout(() => {
-      marker.setAnimation(null);
-    }, 2000);
-    
-    // Apri l'InfoWindow immediatamente
-    const infoWindow = markerData.infoWindow;
-    if (infoWindow) {
-      // Chiudi altre InfoWindow aperte
-      if (window.openInfoWindow) {
-        window.openInfoWindow.close();
-      }
-      infoWindow.open(mapInstance, marker);
-      window.openInfoWindow = infoWindow;
-    }
-  }
-
-  // Funzione per chiudere il dropdown quando si clicca su un elemento
-  const selectClient = (markerIndex: number) => {
-    highlightMarker(markerIndex);
-    setIsDropdownOpen(false);
-  }
-
-  // Stile personalizzato per la mappa (viola e bianco)
-  const mapStyles = [
-    {
-      "featureType": "all",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#E85002"
-        }
-      ]
-    },
-    {
-      "featureType": "all",
-      "elementType": "labels.text.stroke",
-      "stylers": [
-        {
-          "color": "#ffffff"
-        },
-        {
-          "weight": 2
-        }
-      ]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "geometry.fill",
-      "stylers": [
-        {
-          "color": "#FFF4ED"
-        }
-      ]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#E85002"
-        },
-        {
-          "weight": 1
-        }
-      ]
-    },
-    {
-      "featureType": "landscape",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#ffffff"
-        }
-      ]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#FFF4ED"
-        }
-      ]
-    },
-    {
-      "featureType": "road",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#FFF4ED"
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#F16001"
-        }
-      ]
-    },
-    {
-      "featureType": "water",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#FFC9B3"
-        }
-      ]
-    }
-  ]
+  const [selectedLocation, setSelectedLocation] = useState<{ lat: number, lng: number } | null>(null)
 
   // Posizioni dei clienti
   const clientLocations = [
@@ -162,232 +52,118 @@ const ClientsMap = () => {
     { lat: 40.8520, lng: 14.2613, name: "Diaz Microtorrefazione (Napoli)", link: "https://diazmicrotorrefazione.com" }
   ]
 
-  useEffect(() => {
-    // Carica Google Maps API
-    const loadGoogleMaps = () => {
-      if (window.google) {
-        initializeMap()
-        return
-      }
-
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBeeaMML5_I6jEdAWEKM2CzblRLYMmQ1qU&callback=initMap`
-      script.async = true
-      script.defer = true
-      document.head.appendChild(script)
-
-      window.initMap = initializeMap
-    }
-
-    const initializeMap = () => {
-      if (!mapRef.current) return
-
-      const map = new window.google.maps.Map(mapRef.current, {
-        center: { lat: 45.0, lng: 10.0 }, // Centro iniziale sull'Italia
-        zoom: 5, // Zoom focalizzato sull'Italia
-        styles: mapStyles,
-        disableDefaultUI: true,
-        zoomControl: true,
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: false,
-        gestureHandling: 'cooperative'
-      })
-      
-      // Salva l'istanza della mappa
-      setMapInstance(map);
-
-      // Variabile per tenere traccia della infoWindow aperta
-      window.openInfoWindow = null;
-
-      // Aggiungi marker per ogni cliente
-      const createdMarkers: any[] = [];
-      clientLocations.forEach((location, index) => {
-        const marker = new window.google.maps.Marker({
-          position: { lat: location.lat, lng: location.lng },
-          map: map,
-          title: location.name,
-          icon: {
-            path: window.google.maps.SymbolPath.CIRCLE,
-            scale: 12,
-            fillColor: '#E85002', // branding orange
-            fillOpacity: 1,
-            strokeColor: '#ffffff',
-            strokeWeight: 4
-          },
-          animation: window.google.maps.Animation.DROP
-        })
-
-        // Aggiungi info window
-        const infoWindow = new window.google.maps.InfoWindow({
-          content: `
-            <div style="padding: 15px; font-family: Inter, sans-serif; text-align: center; min-width: 200px;">
-              <h3 style="color: #E85002; margin: 0 0 8px 0; font-size: 16px; font-weight: 700; text-align: center;">
-                ${location.name}
-              </h3>
-              <p style="color: #646464; margin: 0 0 12px 0; font-size: 13px; text-align: center;">
-                ${t('clientsMap.clientInfo')}
-              </p>
-              ${location.link ? `<button 
-                style="
-                  background: linear-gradient(to right, #E85002, #C10801); 
-                  color: white; 
-                  border: none; 
-                  padding: 8px 16px; 
-                  border-radius: 8px; 
-                  font-size: 13px;
-                  font-weight: 600;
-                  cursor: pointer;
-                  transition: all 0.2s;
-                  box-shadow: 0 4px 6px rgba(232, 80, 2, 0.25);"
-                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 10px rgba(232, 80, 2, 0.3)';" 
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(232, 80, 2, 0.25)';"
-                onclick="window.open('${location.link}', '_blank')"
-              >
-                ${t('clientsMap.visitSite')}
-              </button>` : ''}
-            </div>
-          `
-        })
-
-        infoWindow.setOptions({
-          pixelOffset: new window.google.maps.Size(0, -5),
-          maxWidth: 250,
-          minWidth: 200
-        })
-        
-        // Associa l'InfoWindow al marker
-        marker.infoWindow = infoWindow;
-
-        marker.addListener('click', () => {
-          if (window.openInfoWindow) {
-            window.openInfoWindow.close();
-          }
-          infoWindow.open(map, marker);
-          window.openInfoWindow = infoWindow;
-        })
-        
-        // Salva il marker con le informazioni del cliente e l'InfoWindow
-        createdMarkers.push({
-          marker,
-          location,
-          index,
-          infoWindow
-        });
-
-        // Animazione ritardata per i marker
-        setTimeout(() => {
-          marker.setAnimation(window.google.maps.Animation.BOUNCE)
-          setTimeout(() => {
-            marker.setAnimation(null)
-          }, 1500)
-        }, index * 200)
-      })
-      
-      // Salva i marker nello stato
-      setMarkers(createdMarkers);
-    }
-
-    loadGoogleMaps()
-
-    return () => {
-      // Cleanup
-      if (window.initMap) {
-        window.initMap = undefined
-      }
-    }
-  }, [t])
-
-  // Chiudi dropdown quando si clicca fuori (ma non sui clienti)
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isDropdownOpen) {
-        const target = event.target as HTMLElement;
-        const dropdown = target.closest('.dropdown-container');
-        if (!dropdown) {
-          setIsDropdownOpen(false);
-        }
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isDropdownOpen])
+  const selectClient = (index: number) => {
+    setSelectedLocation({ lat: clientLocations[index].lat, lng: clientLocations[index].lng })
+    setIsDropdownOpen(false)
+  }
 
   return (
     <div className="flex justify-center py-16">
       <div className="w-full" style={{ maxWidth: '80vw' }}>
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
-        {t('clientsMap.title')} <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{t('clientsMap.titleHighlight')}</span>
-      </h2>
-      {/* Mappa Google Maps */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-white/10"
-      >
-        <div 
-          ref={mapRef} 
-          className="w-full h-full"
-          style={{ minHeight: '16rem' }}
-        />
-        {/* Overlay con legenda */}
-        <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-gray-900/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-white/10">
-          <p className="text-xs md:text-sm text-gray-300 mb-2 md:mb-3">{t('clientsMap.clickMarkers')}</p>
-          <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-primary-400">
-            <div className="w-3 h-3 bg-primary-600 rounded-full"></div>
-            <span>{t('clientsMap.completedProjects')}</span>
-          </div>
-        </div>
-        {/* Stats overlay */}
-        <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-gray-900/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-white/10">
-          <div className="text-center">
-            <div className="text-lg md:text-2xl font-bold text-primary-400">{clientLocations.length}</div>
-            <div className="text-xs text-gray-300 mb-2">{t('clientsMap.activeClients')}</div>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
+          {t('clientsMap.title')} <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">{t('clientsMap.titleHighlight')}</span>
+        </h2>
+        
+        {/* Mappa Leaflet */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-premium border border-white/10"
+        >
+          <MapContainer
+            center={[45.0, 10.0]}
+            zoom={5}
+            style={{ height: '100%', width: '100%' }}
+            zoomControl={true}
+            scrollWheelZoom={true}
+          >
+            {/* Dark theme tile layer */}
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            />
             
-            {/* Dropdown per lista clienti */}
-            <div className="relative dropdown-container">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors duration-200"
+            <FlyToLocation location={selectedLocation} />
+            
+            {clientLocations.map((location, index) => (
+              <Marker 
+                key={index} 
+                position={[location.lat, location.lng]}
+                icon={customIcon}
               >
-                <MapPin size={12} />
-                <span>Lista Clienti</span>
-                <ChevronDown size={10} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-              
-              {/* Dropdown menu */}
-              {isDropdownOpen && (
-                <div className="absolute top-6 right-0 bg-gray-800 rounded-lg shadow-lg border border-white/10 py-2 min-w-[200px] max-h-[300px] overflow-y-auto z-10">
-                  {clientLocations.map((location, index) => (
-                    <button
-                      key={index}
-                      onMouseEnter={() => highlightMarker(index)}
-                      onClick={() => selectClient(index)}
-                      className="w-full text-left px-3 py-2 text-xs text-gray-200 hover:bg-white/10 hover:text-primary-400 transition-colors duration-200 flex items-center gap-2"
-                    >
-                      <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                      <span className="truncate">{location.name}</span>
-                    </button>
-                  ))}
-                  {/* Indicatore scroll */}
-                  {clientLocations.length > 8 && (
-                    <div className="text-center py-1 text-xs text-primary-400 border-t border-white/10 mt-1">
-                      {t('clientsMap.scrollToSeeAll')}
-                    </div>
-                  )}
-                </div>
-              )}
+                <Popup>
+                  <div className="text-center min-w-[180px]">
+                    <h3 className="text-primary-600 font-bold text-sm mb-2">
+                      {location.name}
+                    </h3>
+                    <p className="text-gray-600 text-xs mb-3">
+                      {t('clientsMap.clientInfo')}
+                    </p>
+                    {location.link && (
+                      <a
+                        href={location.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all"
+                      >
+                        {t('clientsMap.visitSite')}
+                      </a>
+                    )}
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+          
+          {/* Overlay con legenda */}
+          <div className="absolute top-2 left-2 md:top-6 md:left-6 bg-gray-900/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-white/10 z-10">
+            <p className="text-xs md:text-sm text-gray-300 mb-2 md:mb-3">{t('clientsMap.clickMarkers')}</p>
+            <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-primary-400">
+              <div className="w-3 h-3 bg-primary-600 rounded-full"></div>
+              <span>{t('clientsMap.completedProjects')}</span>
             </div>
           </div>
-        </div>
-      </motion.div>
+          
+          {/* Stats overlay */}
+          <div className="absolute top-2 right-2 md:top-6 md:right-6 bg-gray-900/90 backdrop-blur-lg rounded-2xl p-2 md:p-4 shadow-lg border border-white/10 z-10">
+            <div className="text-center">
+              <div className="text-lg md:text-2xl font-bold text-primary-400">{clientLocations.length}</div>
+              <div className="text-xs text-gray-300 mb-2">{t('clientsMap.activeClients')}</div>
+              
+              {/* Dropdown per lista clienti */}
+              <div className="relative dropdown-container">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors duration-200"
+                >
+                  <MapPin size={12} />
+                  <span>Lista Clienti</span>
+                  <ChevronDown size={10} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {/* Dropdown menu */}
+                {isDropdownOpen && (
+                  <div className="absolute top-6 right-0 bg-gray-800 rounded-lg shadow-lg border border-white/10 py-2 min-w-[200px] max-h-[300px] overflow-y-auto z-10">
+                    {clientLocations.map((location, index) => (
+                      <button
+                        key={index}
+                        onClick={() => selectClient(index)}
+                        className="w-full text-left px-3 py-2 text-xs text-gray-200 hover:bg-white/10 hover:text-primary-400 transition-colors duration-200 flex items-center gap-2"
+                      >
+                        <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
+                        <span className="truncate">{location.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   )
 }
 
-export default ClientsMap 
+export default ClientsMap

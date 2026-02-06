@@ -104,7 +104,7 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
 
       {/* Desktop: Card completa */}
       <div className="hidden md:block group relative">
-        <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 h-full overflow-hidden group-hover:border-primary-400/30 group-hover:shadow-lg transition-all duration-500">
+        <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-full overflow-hidden group-hover:border-primary-400/30 group-hover:shadow-lg transition-all duration-500">
           {/* Animated Background Gradient */}
           <motion.div
             className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
@@ -115,9 +115,9 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
-            className="relative w-28 h-28 mx-auto mb-4"
+            className="relative w-24 h-24 mx-auto mb-3"
           >
-            <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 rounded-full flex items-center justify-center overflow-hidden border-4 border-white/20 group-hover:border-primary-400/50 transition-all duration-300">
+            <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700 rounded-full flex items-center justify-center overflow-hidden border-3 border-white/20 group-hover:border-primary-400/50 transition-all duration-300">
               <img
                 src={getImagePath(member.name)}
                 alt={member.name}
@@ -127,28 +127,28 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
           </motion.div>
 
           {/* Info */}
-          <div className="text-center mb-4">
-            <h3 className="text-xl font-bold text-white mb-1">
+          <div className="text-center mb-3">
+            <h3 className="text-lg font-bold text-white mb-0.5">
               {member.name}
             </h3>
-            <p className={`text-base font-semibold bg-gradient-to-r ${member.roleGradient || member.gradient} bg-clip-text text-transparent mb-6`}>
+            <p className={`text-sm font-semibold bg-gradient-to-r ${member.roleGradient || member.gradient} bg-clip-text text-transparent mb-4`}>
               {member.role}
             </p>
-            <p className="text-gray-300 leading-relaxed mb-6 text-sm">
+            <p className="text-gray-300 leading-relaxed mb-4 text-sm">
               {member.description}
             </p>
           </div>
 
           {/* Skills */}
-          <div className="text-center mb-4">
-            <h4 className="text-white font-semibold mb-2 text-sm">{t('about.team.labels.skills')}</h4>
-            <div className="flex flex-wrap justify-center gap-2">
+          <div className="text-center mb-3">
+            <h4 className="text-white font-semibold mb-2 text-xs">{t('about.team.labels.skills')}</h4>
+            <div className="flex flex-wrap justify-center gap-1.5">
               {member.skills.map((skill, skillIndex) => (
                 <motion.span
                   key={skillIndex}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
-                  className="px-3 py-1 bg-primary-500/20 border border-primary-400/30 rounded-full text-primary-300 text-sm hover:bg-primary-500/30 transition-all duration-300"
+                  className="px-2 py-0.5 bg-primary-500/20 border border-primary-400/30 rounded-full text-primary-300 text-[11px] hover:bg-primary-500/30 transition-all duration-300 whitespace-nowrap"
                 >
                   {skill}
                 </motion.span>
@@ -157,13 +157,13 @@ const TeamMemberCard = ({ member, onClick }: TeamMemberProps) => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-2 gap-3 mb-3">
             <div className="text-center">
-              <div className="text-xl font-bold text-white">{member.experience}</div>
+              <div className="text-lg font-bold text-white">{member.experience}</div>
               <div className="text-gray-400 text-xs">{t('about.team.labels.experience')}</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-white">{member.projects}</div>
+              <div className="text-lg font-bold text-white">{member.projects}</div>
               <div className="text-gray-400 text-xs">{t('about.team.labels.projects')}</div>
             </div>
           </div>

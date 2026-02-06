@@ -64,7 +64,7 @@ const Navbar = () => {
                 <img 
                   src={logo} 
                   alt="Webbitz Logo" 
-                  className="w-36 h-36 object-contain"
+                  className="w-36 h-36 object-contain navbar-logo"
                   style={{ filter: 'drop-shadow(0 0 10px rgba(232, 80, 2, 0.3))' }}
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>

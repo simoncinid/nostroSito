@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Globe, Bot, TrendingUp, Palette, Shield, Zap, ArrowRight, ExternalLink } from 'lucide-react'
+import { Globe, Bot, TrendingUp, Palette, Shield, Briefcase, ArrowRight, ExternalLink } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import WorksCarousel from './WorksCarousel'
 
@@ -31,9 +31,9 @@ const Features = () => {
       icon: TrendingUp,
       title: 'features.items.seo.title',
       description: 'features.items.seo.description',
-      color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-500/20',
-      iconColor: 'text-green-400',
+      color: 'from-primary-500 to-primary-600',
+      bgColor: 'bg-primary-500/20',
+      iconColor: 'text-primary-400',
       secondaryIcon: ArrowRight,
       animation: "bounce"
     },
@@ -51,19 +51,19 @@ const Features = () => {
       icon: Shield,
       title: 'features.items.security.title',
       description: 'features.items.security.description',
-      color: 'from-orange-500 to-orange-600',
-      bgColor: 'bg-orange-500/20',
-      iconColor: 'text-orange-400',
+      color: 'from-primary-500 to-primary-600',
+      bgColor: 'bg-primary-500/20',
+      iconColor: 'text-primary-400',
       secondaryIcon: Bot,
       animation: "pulse"
     },
     {
-      icon: Zap,
-      title: 'features.items.performance.title',
-      description: 'features.items.performance.description',
-      color: 'from-yellow-500 to-yellow-600',
-      bgColor: 'bg-yellow-500/20',
-      iconColor: 'text-yellow-400',
+      icon: Briefcase,
+      title: 'features.items.gestionali.title',
+      description: 'features.items.gestionali.description',
+      color: 'from-primary-500 to-primary-600',
+      bgColor: 'bg-primary-500/20',
+      iconColor: 'text-primary-400',
       secondaryIcon: Shield,
       animation: "bounce"
     }

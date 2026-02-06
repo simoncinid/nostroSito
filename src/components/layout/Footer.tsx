@@ -6,14 +6,18 @@ import {
   MapPin, 
   Instagram, 
   Linkedin, 
-  Twitter,
-  ArrowUp
+  Facebook,
+  ArrowUp,
+  Sun,
+  Moon
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '../../context/ThemeContext'
 import logo from '../../assets/logos/logo-bianco.png'
 
 const Footer = () => {
   const { t } = useTranslation()
+  const { theme, toggleTheme } = useTheme()
   
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -27,9 +31,9 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: t('footer.social.instagram') },
-    { icon: Linkedin, href: '#', label: t('footer.social.linkedin') },
-    { icon: Twitter, href: '#', label: t('footer.social.twitter') },
+    { icon: Instagram, href: 'https://www.instagram.com/webbitz_official/', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/webbitz', label: 'Facebook' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/webbitz', label: 'LinkedIn' },
   ]
 
   return (
@@ -59,7 +63,7 @@ const Footer = () => {
                 <img 
                   src={logo} 
                   alt="Webbitz Logo" 
-                  className="w-48 h-48 object-contain"
+                  className="w-48 h-48 object-contain footer-logo"
                   style={{ filter: 'drop-shadow(0 0 10px rgba(232, 80, 2, 0.3))' }}
                 />
                 <div className="absolute inset-0 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
@@ -75,10 +79,9 @@ const Footer = () => {
 
 
 
-          {/* Links and Newsletter Section - Side by Side */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-6">
-            {/* Links Sections - 3 columns */}
-            <div className="lg:col-span-3 grid grid-cols-3 gap-4 md:gap-6 items-center">
+          {/* Links Section - Centered */}
+          <div className="flex justify-center mb-6">
+            <div className="grid grid-cols-3 gap-8 md:gap-16">
               {Object.entries(footerLinks).map(([category, section], index) => (
                 <motion.div
                   key={category}
@@ -107,31 +110,6 @@ const Footer = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Newsletter Section - 1 column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="lg:col-span-1 p-6 rounded-2xl bg-gradient-to-r from-primary-600/10 to-primary-800/10 border border-primary-500/20 text-center flex flex-col justify-center"
-            >
-              <h3 className="text-xl font-display font-bold text-white mb-3">
-                {t('footer.newsletter.title')}
-              </h3>
-              <p className="text-gray-300 mb-4 text-sm">
-                {t('footer.newsletter.description')}
-              </p>
-              <div className="flex flex-col gap-3">
-                <input
-                  type="email"
-                  placeholder={t('footer.newsletter.placeholder')}
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent backdrop-blur-sm text-sm"
-                />
-                <button className="btn-primary text-sm py-3">
-                  {t('footer.newsletter.button')}
-                </button>
-              </div>
-            </motion.div>
           </div>
         </div>
 
@@ -207,16 +185,36 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Fixed Scroll to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
-        whileHover={{ scale: 1.1, y: -2 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 w-12 h-12 rounded-xl bg-primary-600 hover:bg-primary-700 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
-        aria-label={t('footer.backToTop')}
-      >
-        <ArrowUp className="w-6 h-6" />
-      </motion.button>
+      {/* Fixed Buttons - Theme Toggle & Scroll to Top */}
+      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+        {/* Theme Toggle Button */}
+        <motion.button
+          onClick={toggleTheme}
+          whileHover={{ scale: 1.1, rotate: 15 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 flex items-center justify-center text-primary-400 shadow-lg hover:shadow-xl transition-all duration-300"
+          aria-label={theme === 'dark' ? 'Attiva tema chiaro' : 'Attiva tema scuro'}
+        >
+          <motion.div
+            initial={false}
+            animate={{ rotate: theme === 'dark' ? 0 : 180 }}
+            transition={{ duration: 0.5 }}
+          >
+            {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+          </motion.div>
+        </motion.button>
+        
+        {/* Scroll to Top Button */}
+        <motion.button
+          onClick={scrollToTop}
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-12 h-12 rounded-xl bg-primary-600 hover:bg-primary-700 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300"
+          aria-label={t('footer.backToTop')}
+        >
+          <ArrowUp className="w-6 h-6" />
+        </motion.button>
+      </div>
     </footer>
   )
 }

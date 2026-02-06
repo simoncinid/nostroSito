@@ -13,36 +13,6 @@ const Hero = () => {
   
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-
-  const services = [
-    { 
-      icon: Code, 
-      title: 'hero.services.website.title', 
-      desc: 'hero.services.website.desc',
-      gradient: "from-primary-500 to-primary-900",
-      bg: "linear-gradient(45deg, rgba(232, 80, 2, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)",
-      secondaryIcon: Globe,
-      animation: "float"
-    },
-    { 
-      icon: Bot, 
-      title: 'hero.services.ai.title', 
-      desc: 'hero.services.ai.desc',
-      gradient: "from-primary-500 to-primary-900",
-      bg: "linear-gradient(45deg, rgba(232, 80, 2, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)",
-      secondaryIcon: Cpu,
-      animation: "pulse"
-    },
-    { 
-      icon: Zap, 
-      title: 'hero.services.results.title', 
-      desc: 'hero.services.results.desc',
-      gradient: "from-primary-500 to-primary-900",
-      bg: "linear-gradient(45deg, rgba(232, 80, 2, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)",
-      secondaryIcon: Rocket,
-      animation: "bounce"
-    }
-  ]
   
 
 
@@ -199,30 +169,12 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto -mt-12">
         <motion.div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className="relative"
         >
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="mb-12"
-          >
-            {/*<img 
-              src={logo} 
-              alt="Webbitz Logo" 
-              className="h-32 md:h-40 mx-auto"
-              style={{ 
-                filter: 'drop-shadow(0 0 30px rgba(232, 80, 2, 0.4))',
-                willChange: 'transform'
-              }}
-            />*/}
-          </motion.div>
-
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
@@ -255,162 +207,22 @@ const Hero = () => {
             <span className="text-primary-700 font-semibold">{t('hero.subtitle.part5')}</span>{t('hero.subtitle.part6')}
           </motion.p>
 
-          {/* Service Highlights */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="mb-12 max-w-4xl mx-auto"
-          >
-            {/* Mobile Layout */}
-            <div className="md:hidden grid grid-cols-1 gap-4">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ 
-                    scale: 1.02, 
-                    y: -5,
-                    boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
-                  }}
-                  className="relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:border-primary-400/30 transition-all duration-75 group"
-                  style={{ background: service.bg }}
-                >
-                  <div className="flex items-start gap-4 relative z-10">
-                    {/* Main icon with gradient */}
-                    <div className="relative flex-shrink-0">
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${service.gradient} flex items-center justify-center`}>
-                        <service.icon className="text-white" size={20} />
-                      </div>
-                      <motion.div 
-                        className="absolute inset-0 bg-white rounded-lg opacity-0 group-hover:opacity-30 transition-opacity duration-75 blur-xl"
-                        animate={{ scale: [0.8, 1.2, 0.8] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className={`text-lg font-bold mb-1 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                        {t(service.title)}
-                      </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {t(service.desc)}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Secondary floating icon */}
-                  <motion.div 
-                    className="absolute top-2 right-2 opacity-30 text-primary-600"
-                    animate={
-                      service.animation === "float" 
-                        ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
-                        : service.animation === "pulse"
-                          ? { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
-                          : { rotate: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }
-                    }
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity,
-                      ease: "easeInOut" 
-                    }}
-                  >
-                    <service.secondaryIcon size={20} />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Desktop Layout */}
-            <div className="hidden md:grid grid-cols-3 gap-6">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -10,
-                    boxShadow: "0 20px 30px rgba(232, 80, 2, 0.15)"
-                  }}
-                  className="relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:border-primary-400/30 transition-all duration-75 group text-center"
-                  style={{ background: service.bg }}
-                >
-                  {/* Animated background pattern */}
-                  <div className="absolute inset-0 opacity-20">
-                    <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <pattern id={`grid-${index}`} width="10" height="10" patternUnits="userSpaceOnUse">
-                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary-400" />
-                        </pattern>
-                      </defs>
-                      <rect width="100" height="100" fill={`url(#grid-${index})`} />
-                    </svg>
-                  </div>
-                  
-                  {/* Secondary floating icon */}
-                  <motion.div 
-                    className="absolute top-3 right-3 opacity-30 text-primary-600"
-                    animate={
-                      service.animation === "float" 
-                        ? { y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }
-                        : service.animation === "pulse"
-                          ? { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
-                          : { rotate: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }
-                    }
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity,
-                      ease: "easeInOut" 
-                    }}
-                  >
-                    <service.secondaryIcon size={24} />
-                  </motion.div>
-                  
-                  {/* Main icon with gradient */}
-                  <div className="mb-4 relative">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-1 mx-auto`}>
-                      <service.icon className="text-white" size={24} />
-                    </div>
-                    <motion.div 
-                      className="absolute inset-0 bg-white rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-75 blur-xl"
-                      animate={{ scale: [0.8, 1.2, 0.8] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    />
-                  </div>
-                  
-                  {/* Title and description */}
-                  <h3 className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                    {t(service.title)}
-                  </h3>
-                  <p className="text-gray-300 text-base">{t(service.desc)}</p>
-                  
-                  {/* Animated border accent */}
-                  <motion.div 
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.gradient}`}
-                    initial={{ width: "30%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.05 }}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8"
+            transition={{ duration: 1, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-4 mb-8"
           >
             <Link to="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(21, 140, 255, 0.4)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(232, 80, 2, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center gap-3 overflow-hidden"
+                className="group relative bg-gradient-to-r from-primary-500 to-primary-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-500 ease-out flex items-center gap-3 overflow-hidden"
               >
                 <span className="relative z-10">{t('hero.cta.primary')}</span>
-                <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-primary-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
               </motion.button>
             </Link>
 

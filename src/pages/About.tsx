@@ -175,7 +175,7 @@ const About = () => {
               {t('about.team.title')}
             </motion.h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-stretch max-w-5xl mx-auto">
             {teamMembers.map((member) => (
               <Suspense key={member.name} fallback={<div>Loading...</div>}>
                 <TeamMemberCard 

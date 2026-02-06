@@ -3,12 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import type { FC, ElementType } from 'react';
 import logo from '../assets/logos/favicon.png';
 import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Play, 
-  Pause, 
   Clock, 
-  Settings, 
   CheckCircle, 
   Code, 
   Palette, 
@@ -17,7 +12,6 @@ import {
   TestTube, 
   Bot, 
   Zap, 
-  //ArrowRight,
   Info,
   X,
   MessageSquare
@@ -55,7 +49,7 @@ const mainServices: Service[] = [
       id: 2,
       icon: Zap,
       titleKey: "automation",
-      gradient: "from-green-500 to-primary-600"
+      gradient: "from-primary-500 to-accent-500"
     }
   ];
 
@@ -397,196 +391,186 @@ interface ProcessSectionProps {}
 const ProcessSection: FC<ProcessSectionProps> = () => {
   const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const developmentProcess: ProcessStep[] = [
-    {
-      stepKey: "analysis",
-      color: "from-primary-500 to-accent-500",
-      icon: Search
-    },
-    {
-      stepKey: "design", 
-      color: "from-primary-500 to-accent-500",
-      icon: Palette
-    },
-    {
-      stepKey: "development",
-      color: "from-green-500 to-green-600",
-      icon: Code
-    },
-    {
-      stepKey: "testing",
-      color: "from-orange-500 to-orange-600", 
-      icon: TestTube
-    },
-    {
-      stepKey: "launch",
-      color: "from-primary-500 to-accent-500",
-      icon: Rocket
-    }
+    { stepKey: "analysis", color: "from-primary-500 to-primary-600", icon: Search },
+    { stepKey: "design", color: "from-primary-500 to-primary-600", icon: Palette },
+    { stepKey: "development", color: "from-primary-500 to-primary-600", icon: Code },
+    { stepKey: "testing", color: "from-primary-500 to-primary-600", icon: TestTube },
+    { stepKey: "launch", color: "from-primary-500 to-primary-600", icon: Rocket }
   ];
 
+  // Progress bar animation + auto-advance
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setActiveStep((prev) => (prev + 1) % developmentProcess.length);
-      }, 4000);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isPlaying, developmentProcess.length]);
+    setProgress(0);
+    const duration = 4000;
+    const interval = 50;
+    const increment = 100 / (duration / interval);
+    const isLastStep = activeStep === developmentProcess.length - 1;
+    
+    const progressInterval = setInterval(() => {
+      // Se è l'ultimo step, non incrementare il progress (la barra resta ferma)
+      if (isLastStep) return;
+      
+      setProgress(prev => {
+        if (prev >= 100) {
+          return prev;
+        }
+        return prev + increment;
+      });
+    }, interval);
 
-  const navigateTimeline = (direction: 'prev' | 'next') => {
-    if (direction === 'prev') {
-      setActiveStep((prev) => prev === 0 ? developmentProcess.length - 1 : prev - 1);
-    } else {
+    const timeout = setTimeout(() => {
       setActiveStep((prev) => (prev + 1) % developmentProcess.length);
+    }, duration);
+
+    return () => {
+      clearInterval(progressInterval);
+      clearTimeout(timeout);
+    };
+  }, [activeStep, developmentProcess.length]);
+
+  const handleStepClick = (index: number) => {
+    setActiveStep(index);
+    setProgress(0);
+  };
+
+  // Calcola la larghezza totale della progress bar
+  const getProgressWidth = () => {
+    const stepWidth = 80 / (developmentProcess.length - 1);
+    const completedWidth = activeStep * stepWidth;
+    // Se è l'ultimo step, mostra la barra completa senza aggiungere progress
+    if (activeStep === developmentProcess.length - 1) {
+      return 80; // 80% è il massimo (da 10% a 90%)
     }
+    const currentProgress = (progress / 100) * stepWidth;
+    return completedWidth + currentProgress;
   };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-gray-900/50 to-gray-800/50">
-      <div className="flex justify-center">
-        <div className="w-full max-w-7xl mx-auto">
+    <section className="py-12 px-4">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <h2 className="font-bold bg-gradient-to-r from-white to-primary-400 bg-clip-text text-transparent"
-              style={{ fontSize: 'clamp(1.3rem,6vw,2.7rem)' }}>
-              {t('services.process.title')}
-            </h2>
-            <div className="flex items-center gap-2 sm:gap-3 mt-4 sm:mt-0">
-              <button
-                onClick={() => navigateTimeline('prev')}
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary-500/20 hover:border-primary-400/50 hover:text-primary-400 transition-all duration-200 shadow-sm"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-600 hover:bg-primary-700 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200"
-              >
-                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-              </button>
-              <button
-                onClick={() => navigateTimeline('next')}
-                className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary-500/20 hover:border-primary-400/50 hover:text-primary-400 transition-all duration-200 shadow-sm"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          </div>
-          <p className="text-gray-400 mx-auto mt-4" style={{ fontSize: 'clamp(0.95rem,3vw,1.2rem)', maxWidth: '95vw' }}>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <span className="text-white">{t('services.process.title').split(' ').slice(0, -1).join(' ')} </span>
+            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              {t('services.process.title').split(' ').slice(-1)}
+            </span>
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto">
             {t('services.process.subtitle')}
           </p>
         </div>
 
-        {/* Main Container */}
-        <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-6 shadow-lg">
-          {/* Progress Bar */}
-          <div className="relative mb-4">
-            <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-700 ease-out"
-                style={{ width: `${((activeStep + 1) / developmentProcess.length) * 100}%` }}
-              />
-            </div>
-          </div>
-
-          {/* Step Navigation */}
-          <div className="flex justify-between items-center mb-6 sm:mb-8 -mt-2">
-            {developmentProcess.map((step, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveStep(index)}
-                className="flex flex-col items-center min-w-0 flex-shrink-0 group"
-              >
-                <div className={`relative w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
-                  index === activeStep 
-                    ? 'border-primary-500 bg-primary-500 shadow-lg' 
-                    : index < activeStep
-                    ? 'border-green-500 bg-green-500'
-                    : 'border-white/30 bg-white/5 hover:border-primary-400/50'
-                }`}>
-                  {index < activeStep ? (
-                    <CheckCircle size={14} className="text-white sm:w-5 sm:h-5" />
-                  ) : (
-                    <step.icon 
-                      size={14} 
-                      className={`${
-                        index === activeStep ? 'text-white' : 
-                        index < activeStep ? 'text-white' : 'text-gray-400'
-                      } sm:w-5 sm:h-5`} 
-                    />
-                  )}
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Active Step Content */}
-          <div className="max-w-4xl mx-auto px-2 sm:px-4">
-            <div className="space-y-4 sm:space-y-6">
-              {/* Prima riga: Icona, Nome e Descrizione */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8 text-center sm:text-left">
-                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${developmentProcess[activeStep].color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0 mx-auto sm:mx-0`}>
-                  {React.createElement(developmentProcess[activeStep].icon, { size: 22, className: "text-white sm:w-7 sm:h-7" })}
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-white mb-2" style={{ fontSize: 'clamp(1.1rem,4vw,2.1rem)' }}>
-                    {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.title`)}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed" style={{ fontSize: 'clamp(0.95rem,2.5vw,1.15rem)' }}>
-                    {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.description`)}
-                  </p>
-                </div>
-              </div>
-
-              {/* Seconda riga: Tempistica e Strumenti */}
-              <div className="flex flex-col sm:flex-row items-center justify-between border-t border-white/10 pt-3 sm:pt-4 gap-4 sm:gap-0">
-                <div className="flex items-center gap-2 text-primary-400 font-medium">
-                  <Clock size={16} className="sm:w-5 sm:h-5" />
-                  <span style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>{t(`services.process.steps.${developmentProcess[activeStep].stepKey}.duration`)}</span>
-                </div>
-                <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
-                  <h4 className="font-semibold text-white flex items-center gap-2" style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)' }}>
-                    <Settings size={16} className="text-primary-600 sm:w-5 sm:h-5" />
-                    {t('services.process.toolsLabel')}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {(t(`services.process.steps.${developmentProcess[activeStep].stepKey}.tools`, { returnObjects: true }) as string[]).map((tool: string, idx: number) => (
-                      <span
-                        key={idx}
-                        className={`px-3 py-1 bg-gradient-to-r ${developmentProcess[activeStep].color} text-white text-xs sm:text-sm rounded-full font-medium shadow-sm`}
-                      >
-                        {tool}
-                      </span>
-                    ))}
+        {/* Timeline - Desktop */}
+        <div className="hidden md:block">
+          {/* Steps */}
+          <div className="relative mb-10">
+            {/* Linea di connessione base */}
+            <div className="absolute top-8 left-[10%] right-[10%] h-1.5 bg-white/10 rounded-full" />
+            {/* Progress bar animata */}
+            <div 
+              className="absolute top-8 left-[10%] h-1.5 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
+              style={{ 
+                width: `${getProgressWidth()}%`,
+                transition: 'width 50ms linear'
+              }}
+            />
+            
+            <div className="flex justify-between relative px-[5%]">
+              {developmentProcess.map((step, index) => (
+                <button 
+                  key={index}
+                  onClick={() => handleStepClick(index)}
+                  className="flex flex-col items-center relative group"
+                >
+                  {/* Cerchio */}
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10 transition-all duration-300 ${
+                    index <= activeStep 
+                      ? 'bg-gradient-to-br from-primary-500 to-primary-600' 
+                      : 'bg-gray-700'
+                  } ${index === activeStep ? 'ring-4 ring-primary-500/30 scale-110' : 'hover:scale-105'}`}>
+                    <step.icon size={26} className="text-white" />
                   </div>
-                </div>
-              </div>
+                  
+                  {/* Numero e Titolo */}
+                  <span className={`text-xs font-bold mt-3 transition-colors duration-300 ${index <= activeStep ? 'text-primary-400' : 'text-gray-500'}`}>
+                    0{index + 1}
+                  </span>
+                  <h3 className={`font-semibold text-sm mt-1 text-center max-w-[100px] transition-colors duration-300 ${index <= activeStep ? 'text-white' : 'text-gray-500'}`}>
+                    {t(`services.process.steps.${step.stepKey}.title`)}
+                  </h3>
+                </button>
+              ))}
             </div>
           </div>
-          
-          {/* Navigation Dots */}
-          <div className="flex justify-center items-center gap-2 mt-4 sm:mt-6">
-            {developmentProcess.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveStep(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === activeStep 
-                    ? 'bg-primary-500 w-6' 
-                    : 'bg-white/20 hover:bg-primary-400/50'
-                }`}
-              />
-            ))}
-          </div>
+
+          {/* Contenuto attivo - Titolo + testo */}
+          <motion.div 
+            key={activeStep}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-center max-w-2xl mx-auto"
+          >
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent mb-3">
+              {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.title`)}
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              {t(`services.process.steps.${developmentProcess[activeStep].stepKey}.description`)}
+            </p>
+            <div className="flex items-center justify-center gap-2 text-primary-400 text-sm font-medium">
+              <Clock size={16} />
+              <span>{t(`services.process.steps.${developmentProcess[activeStep].stepKey}.duration`)}</span>
+            </div>
+          </motion.div>
         </div>
-      </div>
+
+        {/* Timeline - Mobile */}
+        <div className="md:hidden space-y-3">
+          {developmentProcess.map((step, index) => (
+            <button 
+              key={index}
+              onClick={() => handleStepClick(index)}
+              className={`w-full flex items-start gap-4 rounded-xl p-4 border transition-all duration-300 text-left ${
+                index === activeStep 
+                  ? 'bg-white/10 border-primary-500/50' 
+                  : 'bg-white/5 border-white/10 opacity-60'
+              }`}
+            >
+              <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg flex-shrink-0 ${
+                index === activeStep ? 'ring-2 ring-primary-500/30' : ''
+              }`}>
+                <step.icon size={18} className="text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs text-primary-400 font-bold">0{index + 1}</span>
+                  <h3 className="text-white font-semibold text-sm">
+                    {t(`services.process.steps.${step.stepKey}.title`)}
+                  </h3>
+                </div>
+                {index === activeStep && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-gray-400 text-xs leading-relaxed mb-2">
+                      {t(`services.process.steps.${step.stepKey}.description`)}
+                    </p>
+                    <div className="flex items-center gap-1 text-primary-400 text-xs font-medium">
+                      <Clock size={12} />
+                      <span>{t(`services.process.steps.${step.stepKey}.duration`)}</span>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );

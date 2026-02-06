@@ -56,7 +56,7 @@
       },
       "chatbot": {
         "title": "Chatbots IA Avanzados",
-        "description": "Asistentes virtuales inteligentes para generación de leads 24/7"
+        "description": "Asistentes virtuales inteligentes para atención al cliente, ventas y automatización"
       },
       "seo": {
         "title": "SEO & Marketing",
@@ -70,9 +70,9 @@
         "title": "Seguridad Garantizada",
         "description": "Protección avanzada y copias de seguridad automáticas para tu tranquilidad"
       },
-      "performance": {
-        "title": "Rendimiento Óptimo",
-        "description": "Velocidades de carga ultrarrápidas y optimización continua"
+      "gestionali": {
+        "title": "Software Empresarial",
+        "description": "Software personalizado para optimizar los procesos de tu empresa"
       }
     }
   },

@@ -56,7 +56,7 @@
       },
       "chatbot": {
         "title": "Advanced AI Chatbots",
-        "description": "Intelligent virtual assistants for 24/7 lead generation"
+        "description": "Intelligent virtual assistants for customer support, sales and automation"
       },
       "seo": {
         "title": "SEO & Marketing",
@@ -70,9 +70,9 @@
         "title": "Guaranteed Security",
         "description": "Advanced protection and automatic backups for your peace of mind"
       },
-      "performance": {
-        "title": "Optimal Performance",
-        "description": "Lightning-fast loading speeds and continuous optimization"
+      "gestionali": {
+        "title": "Business Management",
+        "description": "Custom software to optimize your company's processes"
       }
     }
   },
@@ -110,29 +110,50 @@
     "title": "Solutions",
     "titleHighlight": "All-in-One",
     "titleEnd": "for Your Success",
-    "subtitle": "Complete packages that combine website, AI chatbot, SEO and brand identity. Everything you need to dominate the digital market.",
+    "subtitle": "Choose the perfect package for your needs. Every project is customized and optimized for your business success.",
     "essential": {
       "name": "Webbitz Essential",
       "badge": "Most Popular",
-      "description": "The complete solution for your digital business",
+      "description": "Professional website for your online presence",
       "cta": "Choose Essential"
     },
     "premium": {
       "name": "Webbitz Premium",
-      "badge": "Maximum Value",
-      "description": "Essential + Complete Brand Identity to dominate the market",
+      "badge": "Recommended",
+      "description": "Essential + Brand Identity and Advanced Analytics",
       "cta": "Choose Premium"
     },
+    "gestionali": {
+      "name": "Webbitz Business",
+      "badge": "Enterprise",
+      "description": "Custom software to optimize your processes",
+      "cta": "Choose Business"
+    },
     "features": {
-      "chatbot": "Lead generating chatbot",
-      "website": "Custom website",
+      "chatbot": "Advanced AI Chatbot",
+      "website": "Custom Website",
       "seo": "Optimized SEO",
-      "brand": "Complete Brand Identity"
+      "brand": "Complete Brand Identity",
+      "design": "Modern Design & Optimized UX",
+      "responsive": "100% Responsive",
+      "analytics": "Analytics Dashboard & Monitoring",
+      "database": "Database & Data Management",
+      "automazioni": "Custom Automations",
+      "integrazioni": "Integration with Existing Systems",
+      "supporto": "Dedicated Technical Support"
     },
     "includes": "What's included:",
     "contactQuote": "Custom quote",
+    "addon": {
+      "title": "Boost your package",
+      "chatbot": {
+        "name": "AI Chatbot",
+        "description": "Intelligent virtual assistant for customer support, sales and 24/7 automations",
+        "cta": "Add to package"
+      }
+    },
     "bottomCTA": {
-      "title": "Not Sure? Let's Talk!",
+      "title": "Not sure? Let's Talk!",
       "description": "Every project is unique. Contact us for a free consultation and discover which solution is perfect for you.",
       "button": "Free Consultation"
     }

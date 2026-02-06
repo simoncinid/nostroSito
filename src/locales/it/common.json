@@ -56,7 +56,7 @@
       },
       "chatbot": {
         "title": "Chatbot AI Avanzati",
-        "description": "Assistenti virtuali intelligenti per lead generation 24/7"
+        "description": "Assistenti virtuali intelligenti per supporto clienti, vendite e automazioni"
       },
       "seo": {
         "title": "SEO & Marketing",
@@ -70,9 +70,9 @@
         "title": "Sicurezza Garantita",
         "description": "Protezione avanzata e backup automatici per la tua tranquillità"
       },
-      "performance": {
-        "title": "Performance Ottimali",
-        "description": "Velocità di caricamento fulminee e ottimizzazione continua"
+      "gestionali": {
+        "title": "Gestionali Aziendali",
+        "description": "Software personalizzati per ottimizzare i processi della tua azienda"
       }
     }
   },
@@ -114,25 +114,46 @@
     "essential": {
       "name": "Webbitz Essential",
       "badge": "Più Popolare",
-      "description": "La soluzione completa per il tuo business digitale",
+      "description": "Sito web professionale per la tua presenza online",
       "cta": "Scegli Essential"
     },
     "premium": {
       "name": "Webbitz Premium",
-      "badge": "Valore Massimo",
-      "description": "Essential + Brand Identity completa per dominare il mercato",
+      "badge": "Consigliato",
+      "description": "Essential + Brand Identity e Analytics avanzati",
       "cta": "Scegli Premium"
     },
+    "gestionali": {
+      "name": "Webbitz Gestionale",
+      "badge": "Business",
+      "description": "Software su misura per ottimizzare i tuoi processi",
+      "cta": "Scegli Gestionale"
+    },
     "features": {
-      "chatbot": "Chatbot che genera lead",
+      "chatbot": "Chatbot AI Avanzato",
       "website": "Sito Web personalizzato",
       "seo": "SEO Ottimizzata",
-      "brand": "Brand Identity Completa"
+      "brand": "Brand Identity Completa",
+      "design": "Design moderno e UX ottimizzata",
+      "responsive": "100% Responsive",
+      "analytics": "Dashboard Analytics e Monitoraggio",
+      "database": "Database e gestione dati",
+      "automazioni": "Automazioni personalizzate",
+      "integrazioni": "Integrazioni con sistemi esistenti",
+      "supporto": "Supporto tecnico dedicato"
     },
     "includes": "Cosa include:",
     "contactQuote": "Preventivo su misura",
+    "addon": {
+      "title": "Potenzia il tuo pacchetto",
+      "chatbot": {
+        "name": "Chatbot AI",
+        "description": "Assistente virtuale intelligente per supporto clienti, vendite e automazioni 24/7",
+        "cta": "Aggiungi al pacchetto"
+      }
+    },
     "bottomCTA": {
-      "title": "Non Sicuro? Parliamone!",
+      "title": "Non sei sicuro? Parliamone!",
       "description": "Ogni progetto è unico. Contattaci per una consulenza gratuita e scopri quale soluzione è perfetta per te.",
       "button": "Consulenza Gratuita"
     }
@@ -209,18 +230,18 @@
       "title": "Servizi Principali",
       "services": {
         "webDevelopment": {
-          "title": "Sviluppo Web React",
-          "subtitle": "Siti web da zero, zero template",
-          "description": "Sviluppiamo applicazioni web moderne utilizzando React. Ogni progetto è unico, scritto da zero per garantire performance ottimali e scalabilità.",
+          "title": "Sviluppo Web",
+          "subtitle": "Siti, E-commerce e Gestionali",
+          "description": "Realizziamo siti web personalizzati con codice, gestionali aziendali, e-commerce e soluzioni su WordPress e Shopify. Ogni progetto è studiato per le tue esigenze specifiche.",
           "features": [
-            "React 18 + TypeScript",
+            "Siti web custom con React/Next.js",
+            "E-commerce con Shopify",
+            "Siti WordPress professionali",
+            "Gestionali aziendali su misura",
             "Design responsive e mobile-first",
-            "Performance ottimizzate (Core Web Vitals)",
-            "SEO tecnico avanzato",
-            "Architettura scalabile",
-            "Testing automatizzato"
+            "Performance e SEO ottimizzati"
           ],
-          "technologies": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"]
+          "technologies": ["React", "Next.js", "WordPress", "Shopify", "Node.js", "TypeScript"]
         },
         "aiSolutions": {
           "title": "Soluzioni AI",

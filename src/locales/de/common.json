@@ -56,7 +56,7 @@
       },
       "chatbot": {
         "title": "Erweiterte KI-Chatbots",
-        "description": "Intelligente virtuelle Assistenten für 24/7 Lead-Generierung"
+        "description": "Intelligente virtuelle Assistenten für Kundenservice, Vertrieb und Automatisierung"
       },
       "seo": {
         "title": "SEO & Marketing",
@@ -70,9 +70,9 @@
         "title": "Garantierte Sicherheit",
         "description": "Erweiterte Sicherheit und automatische Backups für Ihre Ruhe"
       },
-      "performance": {
-        "title": "Optimale Leistung",
-        "description": "Blitzschnelle Ladegeschwindigkeiten und kontinuierliche Optimierung"
+      "gestionali": {
+        "title": "Unternehmenssoftware",
+        "description": "Maßgeschneiderte Software zur Optimierung Ihrer Geschäftsprozesse"
       }
     }
   },

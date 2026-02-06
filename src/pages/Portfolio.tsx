@@ -522,104 +522,98 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid - Modern Design */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 relative z-30"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-30"
           >
-            {filteredProjects && filteredProjects.length > 0 ? filteredProjects.map((clientProject) => {
+            {filteredProjects && filteredProjects.length > 0 ? filteredProjects.map((clientProject, index) => {
               const firstProject = clientProject.projects[0];
-              if (!firstProject) return null; // Skip if no projects
+              if (!firstProject) return null;
               const projectData = t(`portfolio.projects.${firstProject.titleKey}`, { returnObjects: true }) as any;
               
               return (
                 <motion.div
                   key={clientProject.clientName}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl overflow-hidden hover:border-primary-400/30 hover:shadow-lg transition-all duration-500 z-40"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative cursor-pointer"
+                  onClick={() => setSelectedProject(firstProject)}
                 >
-                  {/* Project Image */}
-                  <div className="relative h-20 md:h-32 overflow-hidden">
-                    <motion.img
+                  {/* Card Container */}
+                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-gray-900">
+                    {/* Project Image */}
+                    <img
                       src={clientProject.image}
                       alt={projectData.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    {/* Service Icons */}
-                    <div className="absolute top-2 left-2 md:top-3 md:left-3 flex gap-1">
-                      {clientProject.projects.map((project, index) => {
-                        const categoryInfo = categories.find(cat => cat.id === project.category);
-                        return (
-                          <div
-                            key={index}
-                            className={`flex items-center gap-1 px-1.5 py-0.5 md:px-2 md:py-1 bg-gradient-to-r ${categoryInfo?.gradient || 'from-gray-500 to-gray-600'} rounded-full text-white`}
+                    
+                    {/* Overlay Gradient - Always visible but intensifies on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-all duration-500" />
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                      {/* Category Badge */}
+                      <div className="flex gap-2 mb-3">
+                        {clientProject.projects.slice(0, 2).map((project, idx) => {
+                          const categoryInfo = categories.find(cat => cat.id === project.category);
+                          return (
+                            <span
+                              key={idx}
+                              className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${categoryInfo?.gradient || 'from-gray-500 to-gray-600'} text-white`}
+                            >
+                              {t(`portfolio.categories.${categoryInfo?.nameKey || 'web'}`)}
+                            </span>
+                          );
+                        })}
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors duration-300">
+                        {projectData.client || clientProject.clientName}
+                      </h3>
+                      
+                      {/* Tech Stack - Appears on hover */}
+                      <div className="flex flex-wrap gap-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                        {clientProject.allTechnologies.slice(0, 3).map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-2 py-1 bg-white/10 backdrop-blur-sm text-white/80 rounded text-xs font-medium"
                           >
-                            <project.icon size={10} className="md:hidden" />
-                            <project.icon size={12} className="hidden md:inline" />
-                          </div>
-                        );
-                      })}
+                            {tech}
+                          </span>
+                        ))}
+                        {clientProject.allTechnologies.length > 3 && (
+                          <span className="px-2 py-1 bg-white/10 backdrop-blur-sm text-white/60 rounded text-xs font-medium">
+                            +{clientProject.allTechnologies.length - 3}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    {/* Action Buttons */}
-                    <div className="absolute bottom-2 right-2 flex gap-1 md:bottom-3 md:right-3 z-20">
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => {
-                          console.log('Opening modal for project:', firstProject);
-                          setSelectedProject(firstProject);
-                        }}
-                        className="w-6 h-6 md:w-8 md:h-8 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-300 relative z-30"
-                      >
-                        <Eye size={12} className="md:hidden" />
-                        <Eye size={14} className="hidden md:inline" />
-                      </motion.button>
+                    
+                    {/* Action Buttons - Top right */}
+                    <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       {clientProject.liveUrl && (
                         <motion.a
                           href={clientProject.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className="w-6 h-6 md:w-8 md:h-8 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-300 relative z-30"
+                          className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-primary-500 transition-colors duration-300"
                         >
-                          <ExternalLink size={12} className="md:hidden" />
-                          <ExternalLink size={14} className="hidden md:inline" />
+                          <ExternalLink size={18} />
                         </motion.a>
                       )}
                     </div>
-                  </div>
-                  {/* Project Info */}
-                  <div className="p-2 md:p-4 flex flex-col items-start justify-between">
-                    <h3
-                      className="font-bold text-white mb-1 md:mb-2 group-hover:text-primary-400 transition-colors duration-300 truncate w-full"
-                      style={{ fontSize: 'clamp(0.85rem, 2.2vw, 1rem)' }}
-                    >
-                      {projectData.client || clientProject.clientName}
-                    </h3>
-                    {/* Solo su desktop */}
-                    <div className="hidden md:block w-full">
-                      <div className="flex flex-wrap gap-1 mb-2">
-                        {clientProject.allTechnologies.slice(0, 4).map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-1.5 py-0.5 bg-primary-500/20 text-primary-300 rounded text-xs font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {clientProject.allTechnologies.length > 4 && (
-                          <span className="px-1.5 py-0.5 bg-white/10 text-gray-400 rounded text-xs font-medium">
-                            +{clientProject.allTechnologies.length - 4}
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex justify-between items-center text-xs text-gray-400">
-                        <span>{clientProject.year}</span>
-                        <span>{clientProject.projects.length} progetti</span>
-                      </div>
+                    
+                    {/* Year Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-black/40 backdrop-blur-sm text-white/80 rounded-full text-xs font-medium">
+                        {clientProject.year}
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -785,7 +779,7 @@ const Portfolio = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent pb-2">
               {t('portfolio.cta.title')}
             </h2>
             <p className="text-xl text-gray-300 mb-12">

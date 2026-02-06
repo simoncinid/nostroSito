@@ -72,29 +72,29 @@ const Contact = () => {
       title: t('contact.info.email.title'),
       value: t('contact.info.email.value'),
       description: t('contact.info.email.description'),
-      gradient: 'from-primary-500 to-primary-700'
+      gradient: 'from-primary-500 to-primary-600'
     },
     {
       icon: MapPin,
       title: t('contact.info.location.title'),
       value: t('contact.info.location.value'),
       description: t('contact.info.location.description'),
-      gradient: 'from-primary-400 to-primary-600'
+      gradient: 'from-primary-500 to-primary-600'
     },
     {
       icon: Clock,
       title: t('contact.info.hours.title'),
       value: t('contact.info.hours.value'),
       description: t('contact.info.hours.description'),
-      gradient: 'from-accent-500 to-accent-700'
+      gradient: 'from-primary-500 to-primary-600'
     }
   ];
 
   const teamContacts = [
-    { name: 'Francesco', phone: '370 337 4703', gradient: 'from-primary-500 to-primary-900' },
-    { name: 'Andrea', phone: '389 998 5029', gradient: 'from-primary-500 to-primary-900' },
-    { name: 'Diego', phone: '339 179 7616', gradient: 'from-primary-500 to-primary-900' },
-    { name: 'Tommaso', phone: '370 317 3289', gradient: 'from-primary-500 to-primary-900' }
+    { name: 'Francesco', phone: '370 337 4703', gradient: 'from-primary-400 to-primary-500' },
+    { name: 'Andrea', phone: '389 998 5029', gradient: 'from-primary-400 to-primary-500' },
+    { name: 'Diego', phone: '339 179 7616', gradient: 'from-primary-400 to-primary-500' },
+    { name: 'Tommaso', phone: '370 317 3289', gradient: 'from-primary-400 to-primary-500' }
   ];
 
   const validateStep = (step: number): boolean => {
