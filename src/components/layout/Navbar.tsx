@@ -126,13 +126,7 @@ const Navbar = () => {
                 className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
                 aria-label={theme === 'dark' ? 'Attiva tema chiaro' : 'Attiva tema scuro'}
               >
-                <motion.div
-                  initial={false}
-                  animate={{ rotate: theme === 'dark' ? 0 : 180 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {theme === 'dark' ? <Sun className="w-6 h-6 text-primary-400" /> : <Moon className="w-6 h-6 text-primary-400" />}
-                </motion.div>
+                {theme === 'dark' ? <Sun className="w-6 h-6 text-primary-400" /> : <Moon className="w-6 h-6 text-primary-400" />}
               </button>
               
               {/* Hamburger Menu */}

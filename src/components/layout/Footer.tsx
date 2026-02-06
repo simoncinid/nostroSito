@@ -190,18 +190,12 @@ const Footer = () => {
         {/* Theme Toggle Button - Hidden on mobile (shown in navbar) */}
         <motion.button
           onClick={toggleTheme}
-          whileHover={{ scale: 1.1, rotate: 15 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           className="hidden lg:flex w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 items-center justify-center text-primary-400 shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label={theme === 'dark' ? 'Attiva tema chiaro' : 'Attiva tema scuro'}
         >
-          <motion.div
-            initial={false}
-            animate={{ rotate: theme === 'dark' ? 0 : 180 }}
-            transition={{ duration: 0.5 }}
-          >
-            {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-          </motion.div>
+          {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
         </motion.button>
         
         {/* Scroll to Top Button */}
