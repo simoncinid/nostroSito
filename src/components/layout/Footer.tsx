@@ -31,8 +31,8 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Instagram, href: 'https://www.instagram.com/webbitz_official/', label: 'Instagram' },
-    { icon: Facebook, href: 'https://www.facebook.com/webbitz', label: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/webbitz.it/', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61581083351599', label: 'Facebook' },
     { icon: Linkedin, href: 'https://www.linkedin.com/company/webbitz', label: 'LinkedIn' },
   ]
 
