@@ -187,12 +187,12 @@ const Footer = () => {
 
       {/* Fixed Buttons - Theme Toggle & Scroll to Top */}
       <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        {/* Theme Toggle Button */}
+        {/* Theme Toggle Button - Hidden on mobile (shown in navbar) */}
         <motion.button
           onClick={toggleTheme}
           whileHover={{ scale: 1.1, rotate: 15 }}
           whileTap={{ scale: 0.95 }}
-          className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 flex items-center justify-center text-primary-400 shadow-lg hover:shadow-xl transition-all duration-300"
+          className="hidden lg:flex w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-primary-400/50 items-center justify-center text-primary-400 shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label={theme === 'dark' ? 'Attiva tema chiaro' : 'Attiva tema scuro'}
         >
           <motion.div

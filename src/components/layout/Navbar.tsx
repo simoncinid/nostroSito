@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '../../context/ThemeContext'
 import logo from '../../assets/logos/logo-bianco.png'
 import ContactFormModal from '../modals/ContactFormModal'
 
@@ -12,6 +13,7 @@ const Navbar = () => {
   const location = useLocation()
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const { t } = useTranslation()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,8 +118,24 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center">
+            {/* Mobile Menu Button + Theme Toggle */}
+            <div className="lg:hidden flex items-center gap-2">
+              {/* Theme Toggle - Mobile */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
+                aria-label={theme === 'dark' ? 'Attiva tema chiaro' : 'Attiva tema scuro'}
+              >
+                <motion.div
+                  initial={false}
+                  animate={{ rotate: theme === 'dark' ? 0 : 180 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {theme === 'dark' ? <Sun className="w-5 h-5 text-primary-400" /> : <Moon className="w-5 h-5 text-primary-400" />}
+                </motion.div>
+              </button>
+              
+              {/* Hamburger Menu */}
               <button
                 onClick={toggleMenu}
                 className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white"
