@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { ShieldCheck } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import logo from '../assets/logos/favicon.png';
 
-type PrivacySection = {
+type TermsSection = {
   id: string;
   title: string;
   content: string[];
 };
 
-const Privacy = () => {
+const Terms = () => {
   const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<string>('');
   const [tocFixed, setTocFixed] = useState(false);
@@ -22,8 +22,8 @@ const Privacy = () => {
   const tocElRef = useRef<HTMLDivElement>(null);
   const contentSectionRef = useRef<HTMLElement>(null);
 
-  const rawSections = t('privacy.sections', { returnObjects: true });
-  const sections: PrivacySection[] = Array.isArray(rawSections) ? (rawSections as PrivacySection[]) : [];
+  const rawSections = t('terms.sections', { returnObjects: true });
+  const sections: TermsSection[] = Array.isArray(rawSections) ? (rawSections as TermsSection[]) : [];
 
   // Calcola posizione fixed della TOC
   const updateTocPosition = useCallback(() => {
@@ -31,13 +31,12 @@ const Privacy = () => {
     const rect = tocAnchorRef.current.getBoundingClientRect();
     const scrollY = window.scrollY;
     const anchorTop = rect.top + scrollY;
-    const navbarHeight = 112; // top-28 = 7rem = 112px
+    const navbarHeight = 112;
 
     const shouldFix = scrollY > anchorTop - navbarHeight;
     setTocFixed(shouldFix);
     setTocLeft(rect.left);
 
-    // Nascondi la TOC se il fondo del contenuto è sopra il fondo della TOC
     if (contentSectionRef.current && tocElRef.current) {
       const contentBottom = contentSectionRef.current.getBoundingClientRect().bottom;
       const tocHeight = tocElRef.current.getBoundingClientRect().height;
@@ -86,12 +85,11 @@ const Privacy = () => {
     };
   }, [sections]);
 
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-x-hidden">
       <Helmet>
-        <title>{t('privacy.meta.title')}</title>
-        <meta name="description" content={t('privacy.meta.description')} />
+        <title>{t('terms.meta.title')}</title>
+        <meta name="description" content={t('terms.meta.description')} />
       </Helmet>
 
       {/* Background glow */}
@@ -119,7 +117,7 @@ const Privacy = () => {
             className="flex justify-center mb-4"
           >
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-primary-500 to-primary-700 flex items-center justify-center shadow-glow">
-              <ShieldCheck className="w-7 h-7 text-white" />
+              <FileText className="w-7 h-7 text-white" />
             </div>
           </motion.div>
 
@@ -130,7 +128,7 @@ const Privacy = () => {
             className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
-              {t('privacy.hero.title')}
+              {t('terms.hero.title')}
             </span>
           </motion.h1>
 
@@ -140,12 +138,12 @@ const Privacy = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-gray-400 max-w-3xl mx-auto"
           >
-            {t('privacy.hero.subtitle')}
+            {t('terms.hero.subtitle')}
           </motion.p>
 
           <div className="mt-6 text-sm text-gray-400">
-            <span className="text-gray-500">{t('privacy.lastUpdatedLabel')}</span>{' '}
-            <span className="text-gray-300 font-medium">{t('privacy.lastUpdatedDate')}</span>
+            <span className="text-gray-500">{t('terms.lastUpdatedLabel')}</span>{' '}
+            <span className="text-gray-300 font-medium">{t('terms.lastUpdatedDate')}</span>
           </div>
         </div>
       </section>
@@ -154,12 +152,10 @@ const Privacy = () => {
       <section className="relative z-30 px-4 pb-20 mt-2" ref={contentSectionRef}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8">
-            {/* TOC Anchor - invisible placeholder to calculate position */}
+            {/* TOC Anchor */}
             <div ref={tocAnchorRef} className="hidden lg:block" style={{ width: 280 }}>
-              {/* Spacer - keeps grid column when TOC goes fixed */}
               {tocFixed && <div style={{ height: 1 }} />}
 
-              {/* TOC - becomes fixed when scrolled past, hidden when content ends */}
               <div
                 ref={tocElRef}
                 className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 privacy-toc z-40 transition-opacity duration-300"
@@ -171,7 +167,7 @@ const Privacy = () => {
                   pointerEvents: tocHidden ? 'none' : 'auto',
                 }}
               >
-                <div className="text-white font-display font-semibold mb-3">{t('privacy.tocTitle')}</div>
+                <div className="text-white font-display font-semibold mb-3">{t('terms.tocTitle')}</div>
                 <div className="max-h-[calc(100vh-10rem)] overflow-auto pr-1">
                   <ul className="space-y-1">
                     {sections.map((s) => (
@@ -201,7 +197,7 @@ const Privacy = () => {
             {/* Mobile TOC */}
             <div className="lg:hidden">
               <details className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 privacy-toc">
-                <summary className="text-white font-display font-semibold cursor-pointer">{t('privacy.tocTitle')}</summary>
+                <summary className="text-white font-display font-semibold cursor-pointer">{t('terms.tocTitle')}</summary>
                 <ul className="space-y-1 mt-3">
                   {sections.map((s) => (
                     <li key={s.id}>
@@ -257,4 +253,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy;
+export default Terms;

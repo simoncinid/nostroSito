@@ -894,10 +894,10 @@
       "azienda": {
         "title": "Unternehmen",
         "items": [
+          { "name": "Startseite", "href": "/" },
           { "name": "Über Uns", "href": "/about" },
           { "name": "Portfolio", "href": "/portfolio" },
-          { "name": "Referenzen", "href": "/testimonials" },
-          { "name": "Blog", "href": "/blog" }
+          { "name": "Bewertungen", "href": "/reviews" }
         ]
       },
       "supporto": {
@@ -906,7 +906,7 @@
           { "name": "Kontakt", "href": "/contact" },
           { "name": "FAQ", "href": "/faq" },
           { "name": "Datenschutz", "href": "/privacy" },
-          { "name": "Nutzungsbedingungen", "href": "/terms" }
+          { "name": "Geschäftsbedingungen", "href": "/terms" }
         ]
       }
     },

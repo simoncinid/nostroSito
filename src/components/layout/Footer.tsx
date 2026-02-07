@@ -5,7 +5,6 @@ import {
   Phone, 
   MapPin, 
   Instagram, 
-  Linkedin, 
   Facebook,
   ArrowUp,
   Sun,
@@ -33,7 +32,6 @@ const Footer = () => {
   const socialLinks = [
     { icon: Instagram, href: 'https://www.instagram.com/webbitz.it/', label: 'Instagram' },
     { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61581083351599', label: 'Facebook' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/company/webbitz', label: 'LinkedIn' },
   ]
 
   return (
@@ -96,14 +94,20 @@ const Footer = () => {
                   <ul className="space-y-1 md:space-y-2">
                     {(section as any).items.map((link: any) => (
                       <li key={link.name}>
-                        <Link
-                          to={link.href}
-                          className="text-gray-300 hover:text-primary-400 transition-colors duration-300 group inline-block text-xs md:text-base"
-                        >
-                          <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">
+                        {link.href ? (
+                          <Link
+                            to={link.href}
+                            className="text-gray-300 hover:text-primary-400 transition-colors duration-300 group inline-block text-xs md:text-base"
+                          >
+                            <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">
+                              {link.name}
+                            </span>
+                          </Link>
+                        ) : (
+                          <span className="text-gray-400 text-xs md:text-base">
                             {link.name}
                           </span>
-                        </Link>
+                        )}
                       </li>
                     ))}
                   </ul>

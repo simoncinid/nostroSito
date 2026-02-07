@@ -11,6 +11,8 @@ import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Faq from './pages/Faq'
 import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Reviews from './pages/Reviews'
 import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 
@@ -37,6 +39,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </main>
       <Footer />

@@ -91,7 +91,7 @@ const Faq = () => {
               return (
                 <div
                   key={`faq-${index}`}
-                  className="relative z-10 rounded-2xl border border-white/10 bg-gray-800/60 backdrop-blur-sm overflow-hidden pointer-events-auto"
+                  className="relative z-10 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl overflow-hidden pointer-events-auto faq-card"
                 >
                   <button
                     type="button"

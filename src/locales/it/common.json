@@ -1077,7 +1077,7 @@
     "items": [
       {
         "question": "Quali servizi offrite?",
-        "answer": "Offriamo sviluppo siti web e web app, chatbot e soluzioni AI, SEO e marketing digitale, e creazione di brand identity. Ogni progetto è cucito su misura sulle tue esigenze."
+        "answer": "Offriamo: siti web (con CMS come WordPress o Shopify, oppure sviluppati da zero con codice completamente custom), web app e gestionali aziendali, soluzioni AI (chatbot, automazioni, assistenti virtuali), SEO, marketing digitale e brand identity. Ogni progetto è cucito su misura sulle tue esigenze."
       },
       {
         "question": "Quanto tempo richiede un progetto?",
@@ -1105,6 +1105,53 @@
       "button": "Contattaci"
     }
   },
+  "reviews": {
+    "meta": {
+      "title": "Recensioni | Webbitz",
+      "description": "Scopri cosa dicono i nostri clienti. Recensioni e feedback reali su progetti web, gestionali e soluzioni digitali."
+    },
+    "hero": {
+      "title": "Recensioni dei Clienti",
+      "subtitle": "Le parole di chi ha scelto Webbitz per il proprio progetto digitale."
+    },
+    "items": [
+      {
+        "name": "Bar Fantozzi",
+        "role": "Pisa",
+        "text": "Seri e precisi dalla prima chiacchierata alla consegna. Hanno sviluppato il sito rispettando i tempi e ascoltando ogni nostra richiesta. Consigliatissimi e affidabili.",
+        "rating": 5
+      },
+      {
+        "name": "Ristoro L'Antica Scuderia & La Bottega",
+        "role": "Barberino Tavarnelle, Firenze",
+        "text": "Professionalità e affidabilità rare. Si sono presi cura di ogni dettaglio e il risultato ha superato le aspettative. Un partner di cui fidarsi per il proprio progetto sul web.",
+        "rating": 5
+      },
+      {
+        "name": "ThinkGood Music",
+        "role": "Milano",
+        "text": "Ci serviva un sito che trasmettesse l'identità del nostro brand musicale. Webbitz ha colto perfettamente la visione e l'ha trasformata in un'esperienza web coinvolgente e moderna.",
+        "rating": 5
+      },
+      {
+        "name": "Bagno Paradiso",
+        "role": "Tirrenia, Livorno",
+        "text": "Veloci, creativi e sempre disponibili. Il sito che ci hanno realizzato è esattamente quello che volevamo: fresco, intuitivo e perfetto per i nostri clienti. Ottimo lavoro!",
+        "rating": 5
+      },
+      {
+        "name": "Area287",
+        "role": "Pisa",
+        "text": "Abbiamo affidato a Webbitz la realizzazione del nostro sito e siamo rimasti colpiti dalla cura nel design e dalla velocità di esecuzione. Un team giovane ma estremamente competente.",
+        "rating": 5
+      }
+    ],
+    "cta": {
+      "title": "Vuoi essere il prossimo?",
+      "subtitle": "Unisciti ai clienti soddisfatti e porta il tuo progetto al livello successivo.",
+      "button": "Inizia il tuo progetto"
+    }
+  },
   "footer": {
     "description": "Trasformiamo le tue idee in esperienze digitali straordinarie. Soluzioni premium per aziende che vogliono distinguersi.",
     "contact": {
@@ -1116,19 +1163,21 @@
       "servizi": {
         "title": "Servizi",
         "items": [
-          { "name": "Sviluppo Web", "href": "/services#web" },
-          { "name": "Chatbot AI", "href": "/services#chatbot" },
-          { "name": "SEO & Marketing", "href": "/services#seo" },
-          { "name": "Brand Identity", "href": "/services#branding" }
+          { "name": "Siti Web", "href": "" },
+          { "name": "Web App e Gestionali", "href": "" },
+          { "name": "Soluzioni AI", "href": "" },
+          { "name": "SEO", "href": "" },
+          { "name": "Marketing Digitale", "href": "" },
+          { "name": "Brand Identity", "href": "" }
         ]
       },
       "azienda": {
         "title": "Azienda",
         "items": [
+          { "name": "Home", "href": "/" },
           { "name": "Chi Siamo", "href": "/about" },
           { "name": "Portfolio", "href": "/portfolio" },
-          { "name": "Testimonianze", "href": "/testimonials" },
-          { "name": "Blog", "href": "/blog" }
+          { "name": "Recensioni", "href": "/reviews" }
         ]
       },
       "supporto": {
@@ -1137,7 +1186,7 @@
           { "name": "Contatti", "href": "/contact" },
           { "name": "FAQ", "href": "/faq" },
           { "name": "Privacy Policy", "href": "/privacy" },
-          { "name": "Termini di Servizio", "href": "/terms" }
+          { "name": "Termini e Condizioni", "href": "/terms" }
         ]
       }
     },
@@ -1154,6 +1203,99 @@
     },
     "copyright": "© 2025 Webbitz. Tutti i diritti riservati.",
     "backToTop": "Torna su"
+  },
+  "terms": {
+    "meta": {
+      "title": "Termini e Condizioni | Webbitz",
+      "description": "Termini e condizioni per l'utilizzo dei servizi offerti da Webbitz. Leggi attentamente prima di richiedere un servizio."
+    },
+    "hero": {
+      "title": "Termini e Condizioni",
+      "subtitle": "Le condizioni che regolano i servizi offerti da Webbitz. Leggile con attenzione prima di procedere."
+    },
+    "lastUpdatedLabel": "Ultimo aggiornamento:",
+    "lastUpdatedDate": "05/02/2026",
+    "tocTitle": "Indice",
+    "sections": [
+      {
+        "id": "introduzione",
+        "title": "Introduzione e accettazione dei termini",
+        "content": [
+          "Accedendo a questo sito e/o richiedendo un servizio a Webbitz, dichiari di aver letto e accettato i presenti Termini e Condizioni.",
+          "Per i progetti su misura, l'accettazione può avvenire anche tramite conferma del preventivo/accordo scritto (email o documento). In caso di differenze, prevalgono i dettagli indicati nel preventivo accettato."
+        ]
+      },
+      {
+        "id": "informazioni-fornitore",
+        "title": "Informazioni sul fornitore del servizio (Webbitz)",
+        "content": [
+          "Webbitz è un team indipendente che offre servizi di web development e soluzioni digitali per piccole e medie imprese.",
+          "Al momento Webbitz opera come realtà non strutturata in forma societaria: i dettagli amministrativi e contrattuali vengono concordati caso per caso.",
+          "Contatti: webbitz.official@gmail.com."
+        ]
+      },
+      {
+        "id": "oggetto-servizi",
+        "title": "Oggetto dei servizi offerti",
+        "content": [
+          "Webbitz realizza, a titolo esemplificativo: siti web, landing page, e-commerce, soluzioni personalizzate, automazioni e chatbot per web, WhatsApp e social.",
+          "Ogni servizio è definito \"su misura\": cosa è incluso (e cosa non lo è) viene chiarito nel preventivo e/o nella proposta progettuale."
+        ]
+      },
+      {
+        "id": "modalita-erogazione",
+        "title": "Modalità di erogazione dei servizi",
+        "content": [
+          "Le attività vengono svolte da remoto salvo diverso accordo. Tempistiche e milestone vengono concordate in base alla complessità e alle priorità del cliente.",
+          "Il cliente si impegna a fornire in tempi ragionevoli materiali, accessi, contenuti e feedback necessari (es. testi, immagini, credenziali, approvazioni). Ritardi di questo tipo possono spostare le scadenze.",
+          "Eventuali richieste fuori perimetro (nuove funzionalità, pagine extra, revisioni sostanziali) possono comportare una revisione di tempi e costi, concordata prima di procedere."
+        ]
+      },
+      {
+        "id": "prezzi-pagamenti",
+        "title": "Prezzi, preventivi e pagamenti",
+        "content": [
+          "I prezzi non sono \"a listino\": vengono stabiliti tramite preventivo in base a obiettivi, complessità e tempi di consegna.",
+          "Salvo diverso accordo, può essere richiesto un acconto per avviare i lavori e un saldo alla consegna (o pagamenti per milestone). Modalità e scadenze sono indicate nel preventivo.",
+          "Eventuali costi di terze parti (es. hosting, domini, strumenti, API, licenze, servizi di invio messaggi) non sono inclusi se non esplicitamente indicato."
+        ]
+      },
+      {
+        "id": "proprieta-intellettuale",
+        "title": "Proprietà intellettuale e utilizzo dei materiali",
+        "content": [
+          "Fino al pagamento completo, i deliverable (es. codice, layout, file progettuali) restano di proprietà di Webbitz o dei rispettivi titolari.",
+          "A saldo avvenuto, il cliente ottiene il diritto di utilizzare quanto consegnato per le finalità concordate. La cessione completa dei diritti (se richiesta) deve essere indicata espressamente nell'accordo.",
+          "Il cliente garantisce di avere i diritti per i materiali forniti (testi, immagini, loghi) e manleva Webbitz da contestazioni derivanti da utilizzi non autorizzati.",
+          "Componenti open source o di terze parti restano soggetti alle rispettive licenze."
+        ]
+      },
+      {
+        "id": "limitazione-responsabilita",
+        "title": "Limitazione di responsabilità",
+        "content": [
+          "Webbitz si impegna a lavorare con professionalità e cura, ma non può garantire risultati specifici non controllabili (es. posizionamenti SEO, conversioni, performance di piattaforme terze, consegna messaggi su canali esterni).",
+          "Salvo dolo o colpa grave, Webbitz non è responsabile per danni indiretti, perdita di profitti o interruzioni dovute a cause esterne (es. downtime hosting, malfunzionamenti di terze parti, eventi di forza maggiore).",
+          "Il cliente è responsabile dell'uso del sito/strumenti e dei contenuti pubblicati, inclusi gli adempimenti legali (cookie banner, privacy, testi obbligatori), salvo che tali servizi siano stati espressamente inclusi nel perimetro."
+        ]
+      },
+      {
+        "id": "modifiche-termini",
+        "title": "Modifiche ai termini",
+        "content": [
+          "Possiamo aggiornare questi Termini e Condizioni per adeguamenti normativi o evoluzioni del servizio.",
+          "Le modifiche vengono pubblicate su questa pagina con la data di aggiornamento. L'uso continuato del sito dopo la pubblicazione implica accettazione dei nuovi termini."
+        ]
+      },
+      {
+        "id": "legge-foro",
+        "title": "Legge applicabile e foro competente",
+        "content": [
+          "I presenti Termini sono regolati dalla legge italiana.",
+          "Salvo diversa previsione inderogabile, per eventuali controversie è competente il foro del luogo di residenza/domicilio del consumatore; negli altri casi, il foro competente è quello concordato tra le parti nel preventivo/accordo."
+        ]
+      }
+    ]
   },
   "common": {
     "loading": "Caricamento...",
