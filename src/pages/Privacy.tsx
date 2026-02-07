@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import logo from '../assets/logos/favicon.png';
 
 type PrivacySection = {
@@ -12,9 +13,42 @@ type PrivacySection = {
 
 const Privacy = () => {
   const { t } = useTranslation();
+  const [activeSection, setActiveSection] = useState<string>('');
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const rawSections = t('privacy.sections', { returnObjects: true });
   const sections: PrivacySection[] = Array.isArray(rawSections) ? (rawSections as PrivacySection[]) : [];
+
+  // Intersection Observer per tracciare la sezione attiva
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    sections.forEach((section) => {
+      const el = sectionRefs.current[section.id];
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(section.id);
+            }
+          });
+        },
+        {
+          rootMargin: '-30% 0px -60% 0px',
+          threshold: 0,
+        }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, [sections]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-x-hidden">
@@ -83,17 +117,26 @@ const Privacy = () => {
       <section className="relative z-30 px-4 pb-20 mt-2">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8">
-            {/* TOC - sticky dentro al contenitore (si ferma prima del footer) */}
-            <aside className="lg:sticky lg:top-28 h-fit self-start">
-              <div className="rounded-2xl border border-white/10 bg-gray-800/50 backdrop-blur-sm p-5">
+            {/* TOC - Sticky under navbar */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-28 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 privacy-toc">
                 <div className="text-white font-display font-semibold mb-3">{t('privacy.tocTitle')}</div>
-                <div className="max-h-[calc(100vh-8rem)] overflow-auto pr-1">
-                  <ul className="space-y-2">
+                <div className="max-h-[calc(100vh-10rem)] overflow-auto pr-1">
+                  <ul className="space-y-1">
                     {sections.map((s) => (
                       <li key={s.id}>
                         <a
                           href={`#${s.id}`}
-                          className="text-sm text-gray-300 hover:text-primary-300 transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const el = document.getElementById(s.id);
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`block text-sm py-1.5 px-3 rounded-lg transition-all duration-300 ${
+                            activeSection === s.id
+                              ? 'text-primary-400 bg-primary-500/10 font-semibold border-l-2 border-primary-500'
+                              : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'
+                          }`}
                         >
                           {s.title}
                         </a>
@@ -104,20 +147,49 @@ const Privacy = () => {
               </div>
             </aside>
 
+            {/* Mobile TOC */}
+            <div className="lg:hidden">
+              <details className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 privacy-toc">
+                <summary className="text-white font-display font-semibold cursor-pointer">{t('privacy.tocTitle')}</summary>
+                <ul className="space-y-1 mt-3">
+                  {sections.map((s) => (
+                    <li key={s.id}>
+                      <a
+                        href={`#${s.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const el = document.getElementById(s.id);
+                          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className={`block text-sm py-1.5 px-3 rounded-lg transition-all duration-300 ${
+                          activeSection === s.id
+                            ? 'text-primary-400 bg-primary-500/10 font-semibold'
+                            : 'text-gray-400 hover:text-gray-200'
+                        }`}
+                      >
+                        {s.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+
             {/* Sections */}
             <div className="space-y-4">
               {sections.map((section) => (
                 <div
                   key={section.id}
                   id={section.id}
-                  className="scroll-mt-32 rounded-2xl border border-white/10 bg-gray-800/60 backdrop-blur-sm p-6"
+                  ref={(el) => { sectionRefs.current[section.id] = el; }}
+                  className="scroll-mt-32 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-6 privacy-section"
                 >
                   <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
                     <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
                       {section.title}
                     </span>
                   </h2>
-                  <div className="space-y-3 text-gray-300 leading-relaxed">
+                  <div className="space-y-3 leading-relaxed">
                     {section.content.map((p, idx) => (
                       <p key={idx} className="text-sm md:text-base text-gray-300">
                         {p}
@@ -135,4 +207,3 @@ const Privacy = () => {
 };
 
 export default Privacy;
-

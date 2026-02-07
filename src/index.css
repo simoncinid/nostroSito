@@ -246,6 +246,19 @@ body {
   background-color: #e5e7eb !important;
 }
 
+/* Light theme - Privacy page */
+.light-theme .privacy-toc {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.light-theme .privacy-section {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
 /* Light theme - hero text gradients (from dark to branded) */
 .light-theme .bg-gradient-to-r.from-white.via-primary-200.to-primary-400 {
   background: linear-gradient(to right, #1a1a1a, #C10801, #E85002) !important;
